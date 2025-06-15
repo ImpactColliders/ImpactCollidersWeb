@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Impact Colliders - Video Library</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap and other styles -->
+  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css" />
+  <link rel="stylesheet" href="assets/css/templatemo-lava.css" />
+  <link rel="stylesheet" href="assets/css/owl-carousel.css" />
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f9f9f9;
+      padding-top: 100px; /* space for fixed header if sticky */
+    }
+    /* Wrap content inside a Bootstrap container */
+    .content-container {
+      max-width: 900px;
+      margin: 0 auto 3rem auto;
+      padding: 0 15px;
+    }
+
+    section {
+      display: none;
+      margin-bottom: 3rem;
+      position: relative;
+      background: white;
+      padding: 1rem 1.5rem 2rem 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    }
+    section.active {
+      display: block;
+    }
+    h2 {
+      color: #e43f5a;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    iframe {
+      width: 100%;
+      height: 450px;
+      border: none;
+      border-radius: 6px;
+      box-shadow: 0 1px 5px rgba(0,0,0,0.15);
+    }
+    button.copy-btn {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      background: #e43f5a;
+      color: white;
+      border: none;
+      padding: 6px 12px;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background 0.3s ease;
+      font-size: 0.9rem;
+      z-index: 10;
+    }
+    button.copy-btn:hover {
+      background: #b92c41;
+    }
+    p.message {
+      font-style: italic;
+      color: gray;
+      margin-top: 1rem;
+      text-align: center;
+      font-size: 1rem;
+    }
+    /* Responsive tweaks */
+    @media (max-width: 576px) {
+      button.copy-btn {
+        top: 8px;
+        right: 8px;
+        padding: 5px 10px;
+        font-size: 0.8rem;
+      }
+      iframe {
+        height: 250px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="header-area header-sticky">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <a href="index.html" class="logo">Impact Colliders</a>
+            <ul class="nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="videos.html?show=all" class="active">Video Library</a></li>
+              <li><a href="qr.html">QR Generator</a></li>
+            </ul>
+            <a class="menu-trigger">
+              <span>Menu</span>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="content-container">
+    <section id="section1">
+      <h2>Workshops</h2>
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+      <button class="copy-btn" data-section="section1">Copy URL</button>
+    </section>
+
+    <section id="section2">
+      <h2>Startup Pitches</h2>
+      <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" allowfullscreen></iframe>
+      <button class="copy-btn" data-section="section2">Copy URL</button>
+    </section>
+
+    <section id="section3">
+      <h2>Impact Highlights</h2>
+      <iframe src="https://www.youtube.com/embed/ysz5S6PUM-U" allowfullscreen></iframe>
+      <button class="copy-btn" data-section="section3">Copy URL</button>
+    </section>
+
+    <p id="message" class="message"></p>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const show = params.get("show");
+    const messageEl = document.getElementById("message");
+    const sections = document.querySelectorAll("section");
+
+    if (show) {
+      if (show === "all") {
+        // Show all sections
+        sections.forEach(sec => sec.classList.add("active"));
+        messageEl.textContent = "Showing all sections.";
+      } else {
+        // Show only the requested section if it exists
+        const section = document.getElementById(show);
+        if (section) {
+          section.classList.add("active");
+          messageEl.textContent = `Showing section '${show}'.`;
+        } else {
+          messageEl.textContent = `Section '${show}' not found.`;
+          messageEl.style.color = "red";
+        }
+      }
+    } else {
+      messageEl.textContent = "Please specify a section via ?show=section1 (or section2, section3) or ?show=all";
+    }
+
+    // Copy URL button functionality
+    document.querySelectorAll("button.copy-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const sectionId = btn.getAttribute("data-section");
+        const url = `${window.location.origin}${window.location.pathname}?show=${sectionId}`;
+        navigator.clipboard.writeText(url).then(() => {
+          btn.textContent = "Copied!";
+          setTimeout(() => btn.textContent = "Copy URL", 1500);
+        }).catch(() => {
+          alert("Failed to copy URL");
+        });
+      });
+    });
+  </script>
+</body>
+</html>
