@@ -170,7 +170,7 @@
     document.querySelectorAll("button.copy-btn").forEach(btn => {
       btn.addEventListener("click", () => {
         const sectionId = btn.getAttribute("data-section");
-        const url = `www.impactcolliders.com?show=${sectionId}`;
+        const url = `www.impactcolliders.com/videos.html?show=${sectionId}`;
         navigator.clipboard.writeText(url).then(() => {
           btn.textContent = "Copied!";
           setTimeout(() => btn.textContent = "Copy URL", 1500);
@@ -182,7 +182,7 @@
     document.querySelectorAll("button.copy-qr-btn").forEach(btn => {
       btn.addEventListener("click", async () => {
         const sectionId = btn.getAttribute("data-section");
-        const url = `www.impactcolliders.com?show=${sectionId}`;
+        const url = `www.impactcolliders.com/videos.html?show=${sectionId}`;
 
         try {
           // Create an offscreen div to hold QRCode
