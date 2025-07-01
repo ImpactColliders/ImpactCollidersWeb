@@ -91,6 +91,28 @@
         height: 250px;
       }
     }
+
+    .video-wrapper {
+  position: relative;
+}
+.video-wrapper iframe {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border: none;
+  border-radius: 10px;
+  display: none;
+  background: #000;
+}
+.video-wrapper iframe.video-start {
+  display: block;
+}
+.video-description {
+  font-size: 0.95rem;
+  color: #444;
+  margin-top: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+
   </style>
 </head>
 <body>
@@ -114,25 +136,38 @@
 
   <main class="content-container">
     <section data-index="1" id="Instagram">
-      <h2>Instagram</h2>
-      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
-      <button class="copy-qr-btn" data-section="1">Copy QR Code</button>
-      <button class="copy-btn" data-section="1">Copy URL</button>
-    </section>
+  <h2>Instagram</h2>
+  <div class="video-wrapper" data-index="1">
+    <iframe class="video-start" src="https://www.youtube.com/embed/tgbNymZ7vqY" allowfullscreen></iframe>
+    <iframe class="video-skip" src="https://www.youtube.com/embed/Q-sAYNMJj68?si=pHApxfXqAoomc8mR&amp;controls=0&amp;start=50" allowfullscreen></iframe>
+  </div>
+  <p class="video-description">Explore how we launched our Instagram engagement campaign with powerful storytelling and creative visuals.</p>
+  <button class="copy-qr-btn" data-section="1">Copy QR Code</button>
+  <button class="copy-btn" data-section="1">Copy URL</button>
+</section>
 
-    <section data-index="2" id="Facebook">
-      <h2>Facebook</h2>
-      <iframe src="https://www.youtube.com/embed/tgbNymZ7vqY" allowfullscreen></iframe>
-      <button class="copy-qr-btn" data-section="2">Copy QR Code</button>
-      <button class="copy-btn" data-section="2">Copy URL</button>
-    </section>
+<section data-index="2" id="Facebook">
+  <h2>Facebook</h2>
+  <div class="video-wrapper" data-index="2">
+    <iframe class="video-start" src="https://www.youtube.com/embed/tgbNymZ7vqY" allowfullscreen></iframe>
+    <iframe class="video-skip" src="https://www.youtube.com/embed/tgbNymZ7vqY?start=20" allowfullscreen></iframe>
+  </div>
+  <p class="video-description">Watch our Facebook promo video showcasing the reach and resonance of our recent campaign.</p>
+  <button class="copy-qr-btn" data-section="2">Copy QR Code</button>
+  <button class="copy-btn" data-section="2">Copy URL</button>
+</section>
 
-    <section data-index="3" id="Singpass">
-      <h2>Singpass</h2>
-      <iframe src="https://www.youtube.com/embed/ysz5S6PUM-U" allowfullscreen></iframe>
-      <button class="copy-qr-btn" data-section="3">Copy QR Code</button>
-      <button class="copy-btn" data-section="3">Copy URL</button>
-    </section>
+<section data-index="3" id="Singpass">
+  <h2>Singpass</h2>
+  <div class="video-wrapper" data-index="3">
+    <iframe class="video-start" src="https://www.youtube.com/embed/ysz5S6PUM-U" allowfullscreen></iframe>
+    <iframe class="video-skip" src="https://www.youtube.com/embed/ysz5S6PUM-U?start=20" allowfullscreen></iframe>
+  </div>
+  <p class="video-description">An explainer video guiding users through the latest Singpass updates with simplicity and clarity.</p>
+  <button class="copy-qr-btn" data-section="3">Copy QR Code</button>
+  <button class="copy-btn" data-section="3">Copy URL</button>
+</section>
+
 
     <!-- You can paste the below after the first 3 manually created ones -->
 
@@ -253,6 +288,40 @@
         }
       });
     });
+
+    // Swipe-to-skip iframe (mobile)
+document.querySelectorAll(".video-wrapper").forEach(wrapper => {
+  let startX = 0;
+  const startIframe = wrapper.querySelector(".video-start");
+  const skipIframe = wrapper.querySelector(".video-skip");
+
+  wrapper.addEventListener("touchstart", e => {
+    startX = e.changedTouches[0].screenX;
+  });
+
+  wrapper.addEventListener("touchend", e => {
+    const endX = e.changedTouches[0].screenX;
+    if (Math.abs(endX - startX) > 50) {
+      startIframe.style.display = "none";
+      skipIframe.style.display = "block";
+    }
+  });
+
+  // Desktop swipe via mouse
+  wrapper.addEventListener("mousedown", e => {
+    startX = e.clientX;
+  });
+
+  wrapper.addEventListener("mouseup", e => {
+    const endX = e.clientX;
+    if (Math.abs(endX - startX) > 50) {
+      startIframe.style.display = "none";
+      skipIframe.style.display = "block";
+    }
+  });
+});
+
+
   </script>
 </body>
 </html>

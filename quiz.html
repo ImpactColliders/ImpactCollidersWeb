@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="Quiz - Impact Colliders" />
+  <meta name="author" content="Impact Colliders" />
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet" />
+  <title>Impact Quiz - Impact Colliders</title>
+
+  <!-- Theme CSS -->
+  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css" />
+  <link rel="stylesheet" href="assets/css/templatemo-lava.css" />
+  <link rel="stylesheet" href="assets/css/owl-carousel.css" />
+  <style>
+    .quiz-box {
+      background: #fff;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      max-width: 800px;
+      margin: 80px auto;
+    }
+    .quiz-box h2 {
+      margin-bottom: 20px;
+    }
+    .option-button {
+      margin: 10px 0;
+      width: 100%;
+    }
+    .feedback {
+      font-size: 1.2rem;
+      margin-top: 20px;
+      font-weight: 600;
+    }
+    .btn-wrap {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="jumper"><div></div><div></div><div></div></div>
+  </div>
+
+  <!-- Header -->
+  <header class="header-area header-sticky">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <a href="index.html" class="logo">Impact Colliders</a>
+            <ul class="nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="videos.html?show=all">About Us</a></li>
+              <li><a href="videos.html?show=all">Video Library</a></li>
+              <li><a href="videos.html?show=all">Digital Game</a></li>
+              <li><a href="videos.html?show=all">Shop</a></li>
+            </ul>
+            <a class='menu-trigger'><span>Menu</span></a>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+  <!-- Quiz Content -->
+  <section class="section" id="quiz">
+
+    
+
+    <div class="container">
+<div id="start-screen" class="quiz-box">
+  <h2>Got Bombed?</h2>
+  <button class="btn btn-primary mt-3" onclick="startQuiz()">Start</button>
+</div>
+
+      <div id="quiz-box" class="quiz-box" style="display:none;">
+  <h2>🎯 Scam Prevention Quiz</h2>
+  <p id="question" class="h5">Loading question...</p>
+  <div id="options" class="btn-group-vertical mt-3 w-100"></div>
+  <p id="feedback" class="feedback text-center"></p>
+  <div class="text-center">
+    <button id="nextBtn" class="btn btn-secondary mt-3" style="display:none;">Next Question</button>
+    <button id="backToHomeBtn" class="btn btn-outline-dark mt-2">Back to Home</button>
+  </div>
+</div>
+    </div>
+  </section>
+
+  <!-- Scripts -->
+  <script src="assets/js/jquery-2.1.0.min.js"></script>
+  <script src="assets/js/popper.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/owl-carousel.js"></script>
+  <script src="assets/js/scrollreveal.min.js"></script>
+  <script src="assets/js/waypoints.min.js"></script>
+  <script src="assets/js/jquery.counterup.min.js"></script>
+  <script src="assets/js/imgfix.min.js"></script>
+  <script src="assets/js/custom.js"></script>
+
+  <script>
+    const questions = [
+  {
+    question: "What is a common sign of a phishing email?",
+    options: ["Professional grammar", "Company logo", "Urgent language and suspicious links", "Personalized signature"],
+    answer: "Urgent language and suspicious links"
+  },
+  {
+    question: "What should you do if someone calls claiming to be from your bank and asks for your OTP?",
+    options: ["Give it immediately", "Ignore and hang up", "Tell them you'll call back", "Ask them for your account number"],
+    answer: "Ignore and hang up"
+  },
+  {
+    question: "Which of the following is most likely a scam?",
+    options: ["Bank email confirming a deposit", "Unexpected message about winning a prize", "App store receipt", "Job application response"],
+    answer: "Unexpected message about winning a prize"
+  },
+  {
+    question: "Scammers often impersonate authority figures to:",
+    options: ["Get your trust", "Send you gifts", "Offer free training", "Offer promotions"],
+    answer: "Get your trust"
+  },
+  {
+    question: "What is the safest way to verify a suspicious message from a company?",
+    options: ["Reply directly to the message", "Click the link they gave", "Call the number in the message", "Visit the official website directly"],
+    answer: "Visit the official website directly"
+  },
+  {
+    question: "A scammer tells you your parcel is stuck and needs payment. What should you do?",
+    options: ["Pay immediately", "Click their link", "Ignore the message", "Send your name and address"],
+    answer: "Ignore the message"
+  },
+  {
+    question: "Which is an example of a job scam?",
+    options: ["Job asks for resume", "Job offers free training", "Job asks for upfront payment", "Job interview on Zoom"],
+    answer: "Job asks for upfront payment"
+  },
+  {
+    question: "Scammers sometimes use fake websites that look real. What is this called?",
+    options: ["Phishing", "Doxxing", "Spoofing", "Cryptojacking"],
+    answer: "Spoofing"
+  },
+  {
+    question: "You're told you've won a lucky draw you didn't enter. What should you do?",
+    options: ["Celebrate!", "Send them your details", "Report and ignore", "Ask for more information"],
+    answer: "Report and ignore"
+  },
+  {
+    question: "Which password is strongest?",
+    options: ["12345678", "iloveyou", "P@55w0rd!", "Letmein"],
+    answer: "P@55w0rd!"
+  },
+  {
+    question: "Which of the following should you NEVER share online?",
+    options: ["Your email address", "Your school name", "Your NRIC or passport number", "Your favorite food"],
+    answer: "Your NRIC or passport number"
+  },
+  {
+    question: "What is two-factor authentication (2FA)?",
+    options: ["A new scam", "A browser setting", "Extra login step for security", "Your backup password"],
+    answer: "Extra login step for security"
+  },
+  {
+    question: "Scammers often ask you to keep things secret. Why?",
+    options: ["To protect your identity", "To avoid your family interfering", "So others don’t warn you", "Because it’s a surprise gift"],
+    answer: "So others don’t warn you"
+  },
+  {
+    question: "What should you do if you suspect a scam on social media?",
+    options: ["Share it with everyone", "Ignore it", "Report the profile or post", "Click to see more"],
+    answer: "Report the profile or post"
+  },
+  {
+    question: "Which payment method is easiest for scammers to abuse?",
+    options: ["Credit card", "Cash on delivery", "Bank transfer", "PayPal"],
+    answer: "Bank transfer"
+  },
+  {
+    question: "A message says your account will be closed unless you act now. What is this?",
+    options: ["Reminder", "Warning", "Phishing attempt", "Promotion"],
+    answer: "Phishing attempt"
+  },
+  {
+    question: "Why do scammers use misspellings or weird formatting?",
+    options: ["They're lazy", "To test your reading", "To bypass spam filters", "To look funny"],
+    answer: "To bypass spam filters"
+  },
+  {
+    question: "You're asked to 'verify your identity' by clicking a link. What should you do?",
+    options: ["Click the link", "Reply to the sender", "Check the official site yourself", "Call them directly"],
+    answer: "Check the official site yourself"
+  },
+  {
+    question: "Which is safest when dealing with unknown contacts?",
+    options: ["Answer politely", "Check their profile", "Block and report", "Give limited info"],
+    answer: "Block and report"
+  },
+  {
+    question: "Which is a legit way to protect yourself from scams?",
+    options: ["Use simple passwords", "Avoid reading emails", "Update software & enable 2FA", "Only trust strangers on Instagram"],
+    answer: "Update software & enable 2FA"
+  }
+];
+
+
+    const questionEl = document.getElementById("question");
+    const optionsEl = document.getElementById("options");
+    const feedbackEl = document.getElementById("feedback");
+    const nextBtn = document.getElementById("nextBtn");
+
+    let currentQuestion;
+
+    function shuffle(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+      return array;
+    }
+
+    function loadQuestion() {
+      feedbackEl.textContent = '';
+      optionsEl.innerHTML = '';
+      nextBtn.style.display = 'none';
+
+      currentQuestion = questions[Math.floor(Math.random() * questions.length)];
+      questionEl.textContent = currentQuestion.question;
+
+      const shuffledOptions = shuffle([...currentQuestion.options]);
+      shuffledOptions.forEach(option => {
+        const btn = document.createElement('button');
+        btn.textContent = option;
+        btn.className = 'btn btn-outline-primary option-button';
+        btn.onclick = () => handleAnswer(option);
+        optionsEl.appendChild(btn);
+      });
+    }
+
+    function handleAnswer(selected) {
+      const isCorrect = selected === currentQuestion.answer;
+      feedbackEl.textContent = isCorrect ? "✅ Correct!" : `❌ Wrong! The correct answer was "${currentQuestion.answer}".`;
+      Array.from(optionsEl.children).forEach(btn => btn.disabled = true);
+      nextBtn.style.display = 'inline-block';
+    }
+
+    function startQuiz() {
+  document.getElementById("start-screen").style.display = "none";
+  document.getElementById("quiz-box").style.display = "block";
+  loadQuestion(); // begin the quiz
+}
+
+document.getElementById("backToHomeBtn").onclick = function() {
+  // Hide quiz box
+  document.getElementById("quiz-box").style.display = "none";
+  // Show start screen
+  document.getElementById("start-screen").style.display = "block";
+  // Clear feedback and options, reset next button
+  document.getElementById("feedback").textContent = "";
+  document.getElementById("options").innerHTML = "";
+  document.getElementById("nextBtn").style.display = "none";
+};
+
+
+    nextBtn.onclick = loadQuestion;
+
+    loadQuestion();
+  </script>
+</body>
+</html>
