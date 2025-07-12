@@ -87,6 +87,28 @@
   .aboutPerson{
     max-width: 50%;
   }
+
+  .about-grid-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-areas:
+    "image1"
+    "intro"
+    "image2"
+    "approach"
+    "image3"
+    ;
+  gap: 30px;
+  max-width: 1200px;
+  margin: auto;
+  padding: 10px 10px 10px 10px;
+}
+}
+
+@media (max-width: 524px) {
+  .aboutPerson{
+    max-width: 100%;
+  }
 }
 
 /* Responsive Grid */
