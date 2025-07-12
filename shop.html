@@ -76,12 +76,14 @@
 .modal-content {
   background-color: #fff;
   margin: auto;
+  align-items: center;
   border-radius: 8px;
   width: 50%;
   max-width: 900px;
   display: flex;
   overflow: hidden;
   position: relative;
+  padding: 10px 10px 10px 10px;
   box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
 }
 
@@ -143,6 +145,16 @@
   color: #f2545f;
 }
 
+@media (max-width: 576px) {
+      .modal-content{
+        width: 85%;
+      }
+
+      .modal-image, .modal-details{
+        width: 85%;
+      }
+}
+
   </style>
 </head>
 
@@ -196,7 +208,7 @@
         <!-- Product 1 -->
         <div class="col-lg-4 col-md-6 col-sm-12">
           <div class="features-item product-card" data-id="1">
-            <img src="assets/images/product1.jpg" alt="Collider Tee" />
+            <img src="placeholder.webp" alt="Collider Tee" />
             <h4>Eh How Ah Gen 1</h4>
             <p class="price">$24.90</p>
             <span class="main-button">Buy Now</span>
@@ -206,7 +218,7 @@
         <!-- Product 2 -->
         <div class="col-lg-4 col-md-6 col-sm-12">
           <div class="features-item product-card" data-id="2">
-            <img src="assets/images/product2.jpg" alt="Sticker Pack" />
+            <img src="placeholder.webp" alt="Sticker Pack" />
             <h4>Eh How Ah Gen 2</h4>
             <p class="price">$6.90</p>
             <span class="main-button">Buy Now</span>
@@ -216,7 +228,7 @@
         <!-- Product 3 -->
         <div class="col-lg-4 col-md-6 col-sm-12">
           <div class="features-item product-card" data-id="3">
-            <img src="assets/images/product3.jpg" alt="Notebook" />
+            <img src="placeholder.webp" alt="Notebook" />
             <h4>In Your</h4>
             <p class="price">$9.90</p>
             <span class="main-button">Buy Now</span>
@@ -228,16 +240,16 @@
 
   <!-- Product Modal -->
   <div id="productModal" class="product-modal">
-    <div class="modal-content">
-  <span class="close-btn">&times;</span>
-  <img id="modalImage" class="modal-image" src="" alt="Product Image">
-  <div class="modal-details">
-    <h3 id="modalTitle">Product Title</h3>
-    <p id="modalDescription">Product Description</p>
-    <p class="price" id="modalPrice">$0.00</p>
-    <a href="#" class="main-button">Proceed to Buy</a>
-  </div>
-</div>
+      <div class="modal-content">
+    <span class="close-btn">&times;</span>
+    <img id="modalImage" class="modal-image" src="" alt="Product Image">
+      <div class="modal-details">
+        <h3 id="modalTitle">Product Title</h3>
+        <p id="modalDescription">Product Description</p>
+        <p class="price" id="modalPrice">$0.00</p>
+        <a href="#" class="main-button">Proceed to Buy</a>
+      </div>
+    </div>
 
   </div>
 
@@ -257,19 +269,19 @@
         title: 'Collider Tee',
         description: 'Premium cotton T-shirt with the Impact Colliders logo. Show your support in style.',
         price: '$24.90',
-        image: 'assets/images/product1.jpg'
+        image: 'placeholder.webp'
       },
       2: {
         title: 'Sticker Pack',
         description: 'Set of 5 high-quality stickers featuring our logo and mission slogans.',
         price: '$6.90',
-        image: 'assets/images/product2.jpg'
+        image: 'placeholder.webp'
       },
       3: {
         title: 'Idea Notebook',
         description: 'Hardcover notebook for your next big idea. Lined pages with inspirational quotes inside.',
         price: '$9.90',
-        image: 'assets/images/product3.jpg'
+        image: 'placeholder.webp'
       }
     };
 

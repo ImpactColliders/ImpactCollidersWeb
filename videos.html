@@ -92,85 +92,116 @@
       }
     }
 
-.video-wrapper {
-  position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
 
-.video-wrapper iframe {
-  width: 100%;
-  max-width: 400px;
-  aspect-ratio: 9 / 16;
-  height: auto;
+    .video-wrapper iframe {
+      width: 100%;
+      max-width: 400px;
+      aspect-ratio: 9 / 16;
+      height: auto;
+      border: none;
+      border-radius: 10px;
+      background: #000;
+      display: none;
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+    }
+
+    .video-wrapper iframe.video-start {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .video-wrapper iframe {
+        width: 100%;
+        max-width: none;
+        height: 100vh;
+        aspect-ratio: auto;
+        border-radius: 0;
+        box-shadow: none;
+      }
+    }
+
+    .video-description {
+      font-size: 0.95rem;
+      color: #444;
+      margin-top: 0.5rem;
+      margin-bottom: 1.2rem;
+    }
+.nav-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 2rem;
+  background: rgba(228, 63, 90, 0.8);
   border: none;
-  border-radius: 10px;
-  background: #000;
-  display: none;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 15;
+  transition: background 0.3s ease;
 }
-
-.video-wrapper iframe.video-start {
-  display: block;
+.nav-arrow:hover {
+  background: rgba(185, 44, 65, 0.8);
 }
-
+.left-arrow {
+  left: -50px;
+}
+.right-arrow {
+  right: -50px;
+}
 @media (max-width: 768px) {
-  .video-wrapper iframe {
-    width: 100%;
-    max-width: none;
-    height: 100vh;
-    aspect-ratio: auto;
-    border-radius: 0;
-    box-shadow: none;
+  .nav-arrow {
+    display: none;
   }
 }
-.video-description {
-  font-size: 0.95rem;
-  color: #444;
-  margin-top: 0.5rem;
-  margin-bottom: 1.2rem;
-}
-
 
   </style>
 </head>
 <body>
 
   <!-- Nav Bar -->
-    <header class="header-area header-sticky" id="nav-placeholder">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="main-nav">
-                        <a href="index.html" class="logo">
-                            Impact Colliders
-                        </a>
-                        <ul class="nav">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="videos.html?show=all" class="active">Video Library</a></li>
-                            <li><a href="videos.html?show=all">Digital Game</a></li>
-                            <li><a href="shop.html">Shop</a></li>
-                        </ul>
-                        <a class='menu-trigger'>
-                            <span>Menu</span>
-                        </a>
-                    </nav>
-                </div>
-            </div>
+  <header class="header-area header-sticky" id="nav-placeholder">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <a href="index.html" class="logo">Impact Colliders</a>
+            <ul class="nav">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="about.html">About Us</a></li>
+              <li><a href="videos.html?show=all" class="active">Video Library</a></li>
+              <li><a href="videos.html?show=all">Digital Game</a></li>
+              <li><a href="shop.html">Shop</a></li>
+            </ul>
+            <a class='menu-trigger'><span>Menu</span></a>
+          </nav>
         </div>
-    </header>
-
+      </div>
+    </div>
+  </header>
 
   <main class="content-container">
     <section data-index="1" id="Instagram">
   <h2>Instagram</h2>
-  <div class="video-wrapper" data-index="1">
+  <div class="video-wrapper" data-index="1" style="position: relative;">
+    
+    <!-- Left Arrow: Show video-start -->
+    <button class="nav-arrow left-arrow" onclick="showStart(1)">&#8592;</button>
+
+    <!-- Right Arrow: Show video-skip -->
+    <button class="nav-arrow right-arrow" onclick="showSkip(1)">&#8594;</button>
+
     <iframe
       width="100"
       height="315"
       class="video-start"
+      id="video-start-1"
       src="https://www.youtube.com/embed/y6oMutwJQCw?si=JX71ap16oHRJa0ke&autoplay=1&mute=1"
       allow="autoplay; fullscreen"
       allowfullscreen>
@@ -178,15 +209,18 @@
     
     <iframe
       class="video-skip"
+      id="video-skip-1"
       src="https://www.youtube.com/embed/Q-sAYNMJj68?si=pHApxfXqAoomc8mR&controls=0&start=50&autoplay=1&mute=1"
       allow="autoplay; fullscreen"
-      allowfullscreen>
+      allowfullscreen
+      style="display: none;">
     </iframe>
   </div>
   <p class="video-description">
     Explore how we launched our Instagram engagement campaign with powerful storytelling and creative visuals.
   </p>
 </section>
+
 
 <section data-index="2" id="Facebook">
   <h2>Facebook</h2>
@@ -235,9 +269,8 @@
 
     <p id="message" class="message"></p>
   </main>
-  <script>
 
-    
+  <script>
     const params = new URLSearchParams(window.location.search);
     const show = params.get("show");
     const messageEl = document.getElementById("message");
@@ -278,7 +311,6 @@
       btn.addEventListener("click", async () => {
         const sectionId = btn.getAttribute("data-section");
         const url = `https://www.impactcolliders.com/videos.html?show=${sectionId}`;
-
         try {
           const container = document.createElement("div");
           container.style.position = "fixed";
@@ -293,10 +325,8 @@
           });
 
           await new Promise(resolve => setTimeout(resolve, 100));
-
           let img = container.querySelector("img");
           let canvas;
-
           if (img) {
             canvas = document.createElement("canvas");
             canvas.width = img.naturalWidth;
@@ -316,9 +346,7 @@
               return;
             }
             try {
-              await navigator.clipboard.write([
-                new ClipboardItem({ "image/png": blob })
-              ]);
+              await navigator.clipboard.write([new ClipboardItem({ "image/png": blob })]);
               btn.textContent = "QR Copied!";
               setTimeout(() => btn.textContent = "Copy QR Code", 1500);
             } catch {
@@ -332,39 +360,75 @@
       });
     });
 
-    // Swipe-to-skip iframe (mobile)
-document.querySelectorAll(".video-wrapper").forEach(wrapper => {
-  let startX = null;
-  const startIframe = wrapper.querySelector(".video-start");
-  const skipIframe = wrapper.querySelector(".video-skip");
+    // Swipe to skip (touch or mouse)
+    document.querySelectorAll(".video-wrapper").forEach(wrapper => {
+      let startY = null;
+      const startIframe = wrapper.querySelector(".video-start");
+      const skipIframe = wrapper.querySelector(".video-skip");
 
-  wrapper.addEventListener("touchstart", e => {
-    startX = e.changedTouches[0].screenY;
-  });
+      wrapper.addEventListener("touchstart", e => {
+        startY = e.changedTouches[0].screenY;
+      });
+      wrapper.addEventListener("touchend", e => {
+        const endY = e.changedTouches[0].screenY;
+        const deltaY = startY - endY;
+        if (Math.abs(deltaY) > 50) {
+          if (startIframe) startIframe.style.display = "none";
+          if (skipIframe) skipIframe.style.display = "block";
+        }
+      });
+      wrapper.addEventListener("mousedown", e => {
+        startY = e.clientY;
+      });
+      wrapper.addEventListener("mouseup", e => {
+        const endY = e.clientY;
+        const deltaY = startY - endY;
+        if (deltaY > 50) {
+          if (startIframe) startIframe.style.display = "none";
+          if (skipIframe) skipIframe.style.display = "block";
+        }
+      });
+    });
 
-  wrapper.addEventListener("touchend", e => {
-    const endX = e.changedTouches[0].screenY;
-    console.log(Math.abs(endX - startX));
-    if (Math.abs(endX - startX) > 50) {
-      startIframe.style.display = "none";
-      skipIframe.style.display = "block";
+    // Arrow key navigation (desktop)
+    let currentSectionIndex = parseInt(show) || 1;
+    function switchSection(newIndex) {
+      const current = document.querySelector(`section[data-index="${currentSectionIndex}"]`);
+      const next = document.querySelector(`section[data-index="${newIndex}"]`);
+      if (!next || show === "all") return;
+      if (current) current.classList.remove("active");
+      next.classList.add("active");
+      currentSectionIndex = newIndex;
+      messageEl.textContent = `Showing section ${newIndex}.`;
+      history.replaceState(null, "", `?show=${newIndex}`);
     }
-  });
+    document.addEventListener("keydown", (e) => {
+      if (["ArrowUp", "ArrowDown"].includes(e.key)) {
+        e.preventDefault();
+        if (e.key === "ArrowUp") {
+          switchSection(currentSectionIndex - 1);
+        } else if (e.key === "ArrowDown") {
+          switchSection(currentSectionIndex + 1);
+        }
+      }
+    });
+    function showStart(index) {
+  const start = document.getElementById(`video-start-${index}`);
+  const skip = document.getElementById(`video-skip-${index}`);
+  if (start && skip) {
+    start.style.display = "block";
+    skip.style.display = "none";
+  }
+}
 
-  // Desktop swipe via mouse
-  wrapper.addEventListener("mousedown", e => {
-    startX = e.clientX;
-  });
-
-  wrapper.addEventListener("mouseup", e => {
-    const endX = e.clientX;
-    if (Math.abs(endX - startX) > 50) {
-      startIframe.style.display = "none";
-      skipIframe.style.display = "block";
-    }
-  });
-});
-
+function showSkip(index) {
+  const start = document.getElementById(`video-start-${index}`);
+  const skip = document.getElementById(`video-skip-${index}`);
+  if (start && skip) {
+    start.style.display = "none";
+    skip.style.display = "block";
+  }
+}
 
   </script>
 </body>

@@ -31,6 +31,7 @@
   gap: 30px;
   max-width: 1200px;
   margin: auto;
+  padding: 10px 10px 10px 10px;
 }
 
 .about-intro {
@@ -70,6 +71,22 @@
   object-fit: cover;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.aboutPerson{
+  max-width: 25%;
+}
+
+@media (max-width: 975px) {
+  .aboutPerson{
+    max-width: 33%;
+  }
+}
+
+@media (max-width: 720px) {
+  .aboutPerson{
+    max-width: 50%;
+  }
 }
 
 /* Responsive Grid */
@@ -184,32 +201,41 @@
         <p>The people behind the movement.</p>
       </div>
       <div class="row">
-        <div class="col-lg-4 col-md-6">
+        <div class="col-lg-4 col-md-6 aboutPerson">
           <div class="features-item">
             <div class="features-icon">
-              <img src="assets/images/team-placeholder.png" alt="">
+              <img src="placeholder.webp" alt="">
               <h4>Alex Tan</h4>
               <p>Founder & Strategic Lead – Drives the mission with a deep passion for innovation and impact ecosystems.</p>
             </div>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6">
+        <div class="col-lg-4 col-md-6 aboutPerson">
           <div class="features-item">
             <div class="features-icon">
-              <img src="assets/images/team-placeholder.png" alt="">
+              <img src="placeholder.webp" alt="">
               <h4>Jamie Lim</h4>
               <p>Programs Coordinator – Designs and facilitates collisions through events and experiences that spark action.</p>
             </div>
           </div>
         </div>
-        <div class="col-lg-4 col-md-6">
+        <div class="col-lg-4 col-md-6 aboutPerson">
           <div class="features-item">
             <div class="features-icon">
-              <img src="assets/images/team-placeholder.png" alt="">
+              <img src="placeholder.webp" alt="">
               <h4>Marcus Ong</h4>
               <p>Media & Comms – Tells our story and amplifies the voices in our community through design and content.</p>
             </div>
           </div>
+        </div>
+        <div class="col-lg-4 col-md-6 aboutPerson">
+  <div class="features-item">
+    <div class="features-icon">
+      <img src="placeholder.webp" alt="">
+      <h4>Samantha Lee</h4>
+      <p>Community Builder – Engages with our members and partners to grow a vibrant, inclusive network of changemakers.</p>
+    </div>
+  </div>
         </div>
       </div>
     </div>
