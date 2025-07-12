@@ -9,7 +9,6 @@
   <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css" />
   <link rel="stylesheet" href="assets/css/templatemo-lava.css" />
   <link rel="stylesheet" href="assets/css/owl-carousel.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <style>
     body {
       font-family: 'Poppins', sans-serif;
@@ -116,10 +115,17 @@
     }
 
     @media (max-width: 768px) {
+.video-wrapper {
+      position: relative;
+      height: 80%;
+      display: flex;
+      justify-content: center;
+    }
+
       .video-wrapper iframe {
         width: 100%;
         max-width: none;
-        height: 100vh;
+        height: 100%;
         aspect-ratio: auto;
         border-radius: 0;
         box-shadow: none;
@@ -161,7 +167,12 @@
   }
 }
 
+.content-container section{
+  height: 85dvh;
+}
+
   </style>
+  
 </head>
 <body>
 
@@ -270,6 +281,15 @@
     <p id="message" class="message"></p>
   </main>
 
+  <script src="assets/js/jquery-2.1.0.min.js"></script>
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/scrollreveal.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/imgfix.min.js"></script>
+    <script src="assets/js/custom.js"></script>
   <script>
     const params = new URLSearchParams(window.location.search);
     const show = params.get("show");
@@ -383,7 +403,7 @@
       wrapper.addEventListener("mouseup", e => {
         const endY = e.clientY;
         const deltaY = startY - endY;
-        if (deltaY > 50) {
+        if (deltaY > 10) {
           if (startIframe) startIframe.style.display = "none";
           if (skipIframe) skipIframe.style.display = "block";
         }
