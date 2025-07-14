@@ -180,7 +180,7 @@
                         <ul class="nav">
                             <li><a href="index.html">Home</a></li>
                             <li><a href="about.html">About Us</a></li>
-                            <li><a href="videos.html?show=all">Video Library</a></li>
+                            <li><a href="appnav.html">Video Library</a></li>
                             <li><a href="videos.html?show=all">Digital Game</a></li>
                             <li><a href="shop.html" class="active">Shop</a></li>
                         </ul>
@@ -211,29 +211,9 @@
             <img src="placeholder.webp" alt="Collider Tee" />
             <h4>Eh How Ah Gen 1</h4>
             <p class="price">$24.90</p>
-            <span class="main-button">Buy Now</span>
           </div>
         </div>
 
-        <!-- Product 2 -->
-        <div class="col-lg-4 col-md-6 col-sm-12">
-          <div class="features-item product-card" data-id="2">
-            <img src="placeholder.webp" alt="Sticker Pack" />
-            <h4>Eh How Ah Gen 2</h4>
-            <p class="price">$6.90</p>
-            <span class="main-button">Buy Now</span>
-          </div>
-        </div>
-
-        <!-- Product 3 -->
-        <div class="col-lg-4 col-md-6 col-sm-12">
-          <div class="features-item product-card" data-id="3">
-            <img src="placeholder.webp" alt="Notebook" />
-            <h4>In Your</h4>
-            <p class="price">$9.90</p>
-            <span class="main-button">Buy Now</span>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -247,7 +227,7 @@
         <h3 id="modalTitle">Product Title</h3>
         <p id="modalDescription">Product Description</p>
         <p class="price" id="modalPrice">$0.00</p>
-        <a href="#" class="main-button">Proceed to Buy</a>
+        <a id="modalLink" href="#" class="main-button">Proceed to Buy</a>
       </div>
     </div>
 
@@ -266,10 +246,11 @@
   <script>
     const products = {
       1: {
-        title: 'Collider Tee',
-        description: 'Premium cotton T-shirt with the Impact Colliders logo. Show your support in style.',
-        price: '$24.90',
-        image: 'placeholder.webp'
+        title: 'Eh How Ah Gen 1',
+        description: '"Eh, How Ah?" is a fun, interactive, and culturally relevant card game that helps seniors learn essential digital skills while bonding with family and bridging the generational tech gap.',
+        price: '$25 - $50',
+        image: 'placeholder.webp',
+        link: 'https://shopee.sg/Impact-Colliders-Eh-How-Ah-Digital-Literacy-Family-Card-Game-i.32777238.28721509496'
       },
       2: {
         title: 'Sticker Pack',
@@ -290,6 +271,7 @@
     const modalTitle = document.getElementById("modalTitle");
     const modalDesc = document.getElementById("modalDescription");
     const modalPrice = document.getElementById("modalPrice");
+    const modalLink = document.getElementById("modalLink");
 
     document.querySelectorAll('.product-card').forEach(card => {
       card.addEventListener('click', () => {
@@ -299,6 +281,7 @@
         modalTitle.textContent = product.title;
         modalDesc.textContent = product.description;
         modalPrice.textContent = product.price;
+        modalLink.href = product.link;
         modal.style.display = "block";
       });
     });
