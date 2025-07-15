@@ -176,6 +176,15 @@
   height: 100%;
   width: 100%;
 }
+
+.touch-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 10;
+  background: transparent;
+  touch-action: none; /* ensures touch events are captured */
+}
+
   </style>
   
 </head>
@@ -221,6 +230,7 @@
       allow="autoplay; fullscreen"
       allowfullscreen>
     </iframe>
+    <div class="touch-overlay"></div>
     <p class="video-description">
     AH
   </p>
@@ -236,6 +246,7 @@
       allow="autoplay; fullscreen"
       allowfullscreen>
     </iframe>
+    <div class="touch-overlay"></div>
       <p class="video-description">
       Explore how we launched our Instagram engagement campaign with powerful storytelling and creative visuals.
     </p>
@@ -401,114 +412,6 @@
       });
     });
 
-    // Swipe to skip (touch or mouse)
-    document.querySelectorAll("iframe").forEach(wrapper => {
-      let startY = null;
-      const startIframe = wrapper.querySelector(".video-start");
-      const skipIframe = wrapper.querySelector(".video-skip");
-
-      wrapper.addEventListener("touchstart", e => {
-        startY = e.changedTouches[0].screenY;
-      });
-      wrapper.addEventListener("touchend", e => {
-        const endY = e.changedTouches[0].screenY;
-        const deltaY = startY - endY;
-        
-        console.log("TOUCH " +Math.abs(deltaY) );
-        if (Math.abs(deltaY) > 5) {
-          if (startIframe) startIframe.style.display = "none";
-          if (skipIframe) skipIframe.style.display = "block";
-        }
-      });
-      wrapper.addEventListener("mousedown", e => {
-        startY = e.clientY;
-      });
-      wrapper.addEventListener("mouseup", e => {
-        const endY = e.clientY;
-        const deltaY = startY - endY;
-        if (deltaY > 5) {
-          console.log("MOUSE  " +Math.abs(deltaY) );
-          if (startIframe) startIframe.style.display = "none";
-          if (skipIframe) skipIframe.style.display = "block";
-        }
-      });
-    });
-
-    // Arrow key navigation (desktop)
-    let currentSectionIndex = parseInt(show) || 1;
-    function switchSection(newIndex) {
-  const current = document.querySelector(`section[data-index="${currentSectionIndex}"]`);
-  const next = document.querySelector(`section[data-index="${newIndex}"]`);
-  if (!next || show === "all") return;
-
-  if (current) {
-    current.classList.remove("active");
-    // Pause all iframes in the current section
-    current.querySelectorAll("iframe").forEach(resetIframeVideo);
-  }
-
-  next.classList.add("active");
-  // Play all iframes in the new section (by resetting them)
-  next.querySelectorAll("iframe").forEach(resetIframeVideo);
-
-  currentSectionIndex = newIndex;
-  messageEl.textContent = `Showing section ${newIndex}.`;
-  history.replaceState(null, "", `?show=${newIndex}`);
-}
-
-    document.addEventListener("keydown", (e) => {
-      if (["ArrowUp", "ArrowDown"].includes(e.key)) {
-        e.preventDefault();
-        if (e.key === "ArrowUp") {
-          switchSection(currentSectionIndex - 1);
-        } else if (e.key === "ArrowDown") {
-          switchSection(currentSectionIndex + 1);
-        }
-      }
-    });
-
-    function showStart(index) {
-  const start = document.getElementById(`video-start-${index}`);
-  const skip = document.getElementById(`video-skip-${index}`);
-  if (start && skip) {
-    start.style.display = "block";
-    skip.style.display = "none";
-  }
-}
-
-    function showSkip(index) {
-  const start = document.getElementById(`video-start-${index}`);
-  const skip = document.getElementById(`video-skip-${index}`);
-  if (start && skip) {
-    start.style.display = "none";
-    skip.style.display = "block";
-  }
-}
-
-function goToSiblingSection(direction) {
-  const current = document.querySelector("section.active");
-  if (!current || show === "all") return;
-
-  let sibling = direction === -1 ? current.previousElementSibling : current.nextElementSibling;
-
-  while (sibling && sibling.tagName.toLowerCase() !== "section") {
-    sibling = direction === -1 ? sibling.previousElementSibling : sibling.nextElementSibling;
-  }
-
-  if (sibling) {
-    current.classList.remove("active");
-    current.querySelectorAll("iframe").forEach(resetIframeVideo);
-
-    sibling.classList.add("active");
-    sibling.querySelectorAll("iframe").forEach(resetIframeVideo);
-
-    const newIndex = sibling.getAttribute("data-index");
-    messageEl.textContent = `Showing section ${newIndex}.`;
-    currentSectionIndex = parseInt(newIndex);
-    history.replaceState(null, "", `?show=${newIndex}`);
-  }
-}
-
 function switchVideoSection(button, direction) {
   const wrapper = button.closest('.video-wrapper');
   if (!wrapper) return;
@@ -563,6 +466,100 @@ function updateUrlParam(url, param, value) {
   query.set(param, value);
   return `${baseUrl}?${query.toString()}`;
 }
+
+document.querySelectorAll('.video-wrapper').forEach(wrapper => {
+  let startX = null;
+
+  wrapper.addEventListener('touchstart', (e) => {
+    startX = e.touches[0].clientX;
+  });
+
+  wrapper.addEventListener('touchend', (e) => {
+    if (startX === null) return;
+    const endX = e.changedTouches[0].clientX;
+    const deltaX = endX - startX;
+
+    const swipeThreshold = 50; // minimum px to consider a swipe
+
+    if (Math.abs(deltaX) > swipeThreshold) {
+      // Find the arrow button to simulate click
+      if (deltaX > 0) {
+        // Swipe right → go to previous video (left arrow)
+        const leftArrow = wrapper.querySelector('.left-arrow');
+        if (leftArrow) leftArrow.click();
+      } else {
+        // Swipe left → go to next video (right arrow)
+        const rightArrow = wrapper.querySelector('.right-arrow');
+        if (rightArrow) rightArrow.click();
+      }
+    }
+    startX = null;
+  });
+});
+
+document.querySelectorAll('.video-wrapper').forEach(wrapper => {
+  let startY = null;
+
+  wrapper.addEventListener('touchstart', (e) => {
+    startY = e.touches[0].clientY;
+  });
+
+  wrapper.addEventListener('touchend', (e) => {
+    if (startY === null) return;
+    const endY = e.changedTouches[0].clientY;
+    const deltaY = endY - startY;
+
+    const swipeThreshold = 50; // px threshold for swipe
+
+    if (Math.abs(deltaY) > swipeThreshold) {
+      if (deltaY < 0) {
+        // Swipe UP detected
+        console.log('Swipe up!');
+        // do something on swipe up, e.g., switch to next section
+        const rightArrow = wrapper.querySelector('.right-arrow');
+        if (rightArrow) rightArrow.click();
+      } else {
+        // Swipe DOWN detected
+        console.log('Swipe down!');
+        // do something on swipe down, e.g., switch to previous section
+        
+        const leftArrow = wrapper.querySelector('.left-arrow');
+        if (leftArrow) leftArrow.click();
+      }
+    }
+
+    startY = null;
+  });
+});
+
+document.querySelectorAll('.touch-overlay').forEach(overlay => {
+  let startY = null;
+
+  overlay.addEventListener('touchstart', e => {
+    startY = e.touches[0].clientY;
+  });
+
+  overlay.addEventListener('touchend', e => {
+    if (startY === null) return;
+    const endY = e.changedTouches[0].clientY;
+    const deltaY = endY - startY;
+
+    const threshold = 50; // px
+
+    if (Math.abs(deltaY) > threshold) {
+      if (deltaY < 0) {
+        console.log('Swipe up detected');
+        // e.g., switchVideoSection or goToSiblingSection(1) or your logic
+        goToSiblingSection(1);
+      } else {
+        console.log('Swipe down detected');
+        // e.g., switchVideoSection or goToSiblingSection(-1)
+        goToSiblingSection(-1);
+      }
+    }
+    startY = null;
+  });
+});
 
 
   </script>
