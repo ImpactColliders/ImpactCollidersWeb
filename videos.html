@@ -208,17 +208,16 @@
   <div class="video-wrapper" data-index="1" style="position: relative;">
     
     <!-- Left Arrow: Show video-start -->
-    <button class="nav-arrow left-arrow" onclick="showStart(1)">&#8592;</button>
+    <button class="nav-arrow left-arrow" onclick="switchVideoSection(this, -1)">&#8592;</button>
+<button class="nav-arrow right-arrow" onclick="switchVideoSection(this, 1)">&#8594;</button>
 
-    <!-- Right Arrow: Show video-skip -->
-    <button class="nav-arrow right-arrow" onclick="showSkip(1)">&#8594;</button>
     <div class="video-section">
       <iframe
       width="100"
       height="315"
       class="video-start"
       id="video-start-1"
-      src="https://www.youtube.com/embed/y6oMutwJQCw?si=JX71ap16oHRJa0ke&autoplay=1&mute=1"
+      src="https://www.youtube.com/embed/CyEBYKXDkcA?si=gMhZQy3G-v5jxNBC&controls=0&start=0&autoplay=1"
       allow="autoplay; fullscreen"
       allowfullscreen>
     </iframe>
@@ -229,12 +228,13 @@
     
     <div style="display: none;" class="video-section">
       <iframe
-      class="video-skip"
-      id="video-skip-1"
-      src="https://www.youtube.com/embed/Q-sAYNMJj68?si=pHApxfXqAoomc8mR&controls=0&start=50&autoplay=1&mute=1"
+      width="100"
+      height="315"
+      class="video-start"
+      id="video-start-1"
+      src="https://www.youtube.com/embed/CyEBYKXDkcA?si=gMhZQy3G-v5jxNBC&controls=0&start=10&autoplay=1"
       allow="autoplay; fullscreen"
-      allowfullscreen
-      >
+      allowfullscreen>
     </iframe>
       <p class="video-description">
       Explore how we launched our Instagram engagement campaign with powerful storytelling and creative visuals.
@@ -249,7 +249,15 @@
 <section data-index="2" id="Facebook">
   <h2>Facebook</h2>
   <div class="video-wrapper" data-index="2">
-    <iframe class="video-start" src="https://www.youtube.com/embed/tgbNymZ7vqY" allowfullscreen></iframe>
+    <iframe
+      width="100"
+      height="315"
+      class="video-start"
+      id="video-start-1"
+      src="https://www.youtube.com/embed/y6oMutwJQCw?si=JX71ap16oHRJa0ke&autoplay=1&mute=1;start=10"
+      allow="autoplay; fullscreen"
+      allowfullscreen>
+    </iframe>
     <iframe class="video-skip" src="https://www.youtube.com/embed/tgbNymZ7vqY?start=20" allowfullscreen></iframe>
   </div>
   <p class="video-description">Watch our Facebook promo video showcasing the reach and resonance of our recent campaign.</p>
@@ -429,15 +437,25 @@
     // Arrow key navigation (desktop)
     let currentSectionIndex = parseInt(show) || 1;
     function switchSection(newIndex) {
-      const current = document.querySelector(`section[data-index="${currentSectionIndex}"]`);
-      const next = document.querySelector(`section[data-index="${newIndex}"]`);
-      if (!next || show === "all") return;
-      if (current) current.classList.remove("active");
-      next.classList.add("active");
-      currentSectionIndex = newIndex;
-      messageEl.textContent = `Showing section ${newIndex}.`;
-      history.replaceState(null, "", `?show=${newIndex}`);
-    }
+  const current = document.querySelector(`section[data-index="${currentSectionIndex}"]`);
+  const next = document.querySelector(`section[data-index="${newIndex}"]`);
+  if (!next || show === "all") return;
+
+  if (current) {
+    current.classList.remove("active");
+    // Pause all iframes in the current section
+    current.querySelectorAll("iframe").forEach(resetIframeVideo);
+  }
+
+  next.classList.add("active");
+  // Play all iframes in the new section (by resetting them)
+  next.querySelectorAll("iframe").forEach(resetIframeVideo);
+
+  currentSectionIndex = newIndex;
+  messageEl.textContent = `Showing section ${newIndex}.`;
+  history.replaceState(null, "", `?show=${newIndex}`);
+}
+
     document.addEventListener("keydown", (e) => {
       if (["ArrowUp", "ArrowDown"].includes(e.key)) {
         e.preventDefault();
@@ -466,6 +484,86 @@
     skip.style.display = "block";
   }
 }
+
+function goToSiblingSection(direction) {
+  const current = document.querySelector("section.active");
+  if (!current || show === "all") return;
+
+  let sibling = direction === -1 ? current.previousElementSibling : current.nextElementSibling;
+
+  while (sibling && sibling.tagName.toLowerCase() !== "section") {
+    sibling = direction === -1 ? sibling.previousElementSibling : sibling.nextElementSibling;
+  }
+
+  if (sibling) {
+    current.classList.remove("active");
+    current.querySelectorAll("iframe").forEach(resetIframeVideo);
+
+    sibling.classList.add("active");
+    sibling.querySelectorAll("iframe").forEach(resetIframeVideo);
+
+    const newIndex = sibling.getAttribute("data-index");
+    messageEl.textContent = `Showing section ${newIndex}.`;
+    currentSectionIndex = parseInt(newIndex);
+    history.replaceState(null, "", `?show=${newIndex}`);
+  }
+}
+
+function switchVideoSection(button, direction) {
+  const wrapper = button.closest('.video-wrapper');
+  if (!wrapper) return;
+
+  const sections = wrapper.querySelectorAll('.video-section');
+  let currentIndex = -1;
+
+  // Find currently visible section
+  sections.forEach((sec, i) => {
+    if (sec.style.display !== 'none') {
+      currentIndex = i;
+    }
+  });
+
+  if (currentIndex === -1) return;
+
+  const nextIndex = (currentIndex + direction + sections.length) % sections.length;
+
+  sections.forEach((sec, i) => {
+    const iframe = sec.querySelector('iframe');
+    if (!iframe) return;
+
+    let src = iframe.getAttribute('src');
+    src = src.replace(/&?mute=\d/, ''); // Remove existing mute param
+
+    if (i === nextIndex) {
+      sec.style.display = 'block';
+      // Unmute the active one
+      iframe.setAttribute('src', updateUrlParam(src, 'mute', '0'));
+    } else {
+      sec.style.display = 'none';
+      // Mute the hidden ones
+      iframe.setAttribute('src', updateUrlParam(src, 'mute', '1'));
+    }
+  });
+}
+
+
+function resetIframeVideo(iframe) {
+  const src = iframe.getAttribute("src");
+  iframe.setAttribute("src", src); // Reloads iframe and resets video state
+}
+
+function resetIframeVideo(iframe) {
+  const src = iframe.getAttribute("src");
+  iframe.setAttribute("src", src);
+}
+
+function updateUrlParam(url, param, value) {
+  const baseUrl = url.split('?')[0];
+  const query = new URLSearchParams(url.split('?')[1] || '');
+  query.set(param, value);
+  return `${baseUrl}?${query.toString()}`;
+}
+
 
   </script>
 </body>

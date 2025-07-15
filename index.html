@@ -15,6 +15,50 @@
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
     <link rel="stylesheet" href="assets/css/templatemo-lava.css">
     <link rel="stylesheet" href="assets/css/owl-carousel.css">
+    <style>
+  #impactCarousel .carousel-inner img {
+    border-radius: 20px;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .carousel-image-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 10px;
+  }
+
+  .carousel-image-wrapper img {
+    border-radius: 20px;
+    max-width: 90%;
+    height: auto;
+    display: block;
+  }
+
+  @media (max-width: 768px) {
+    #impactCarousel .carousel-caption {
+      text-align: center;
+      left: 50%;
+      transform: translateX(-50%);
+      right: auto;
+    }
+  }
+
+  @media (max-width: 576px) {
+    #impactCarousel .carousel-caption h5 {
+      font-size: 1.2rem;
+    }
+
+    #impactCarousel .carousel-caption p {
+      font-size: 0.9rem;
+    }
+  }
+  
+  
+</style>
 </head>
 
 <body>
@@ -61,49 +105,51 @@
                         <h1>Making <em>Impact</em> With Games</h1>
                         <p>Impact Collider uses games to solve real and pressing issues in society.</p>
                         <a href="about.html" class="main-button-slider">DISCOVER MORE</a>
+
+                        <!-- Carousel -->
+<div id="impactCarousel" class="carousel slide mt-5" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#impactCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#impactCarousel" data-slide-to="1"></li>
+    <li data-target="#impactCarousel" data-slide-to="2"></li>
+  </ol>
+
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <div class="carousel-image-wrapper">
+  <img src="placeholder.webp" alt="First slide">
+</div>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Engaging Communities</h5>
+        <p>We create playful experiences that drive real-world action.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="carousel-image-wrapper">
+  <img src="placeholder.webp" alt="Second slide">
+</div>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Designed for Impact</h5>
+        <p>Every game is rooted in a real societal need or cause.</p>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <div class="carousel-image-wrapper">
+  <img src="placeholder.webp" alt="Third slide">
+</div>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Inclusive by Design</h5>
+        <p>Games that connect generations and empower all players.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- About -->
-    <section class="section" id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="features-item">
-                        <div class="features-icon">
-                            <h2>01</h2>
-                            <img src="assets/images/features-icon-1.png" alt="">
-                            <h4>Innovation Ecosystem</h4>
-                            <p>We build bridges between startups, students, and society to co-create sustainable solutions.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="features-item">
-                        <div class="features-icon">
-                            <h2>02</h2>
-                            <img src="assets/images/features-icon-2.png" alt="">
-                            <h4>Workshops & Collisions</h4>
-                            <p>Our events spark serendipity and collaboration—fueling momentum through real-world impact.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="features-item">
-                        <div class="features-icon">
-                            <h2>03</h2>
-                            <img src="assets/images/features-icon-3.png" alt="">
-                            <h4>Colliders Network</h4>
-                            <p>We connect changemakers across disciplines—because the future is built together.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Contact Us -->
     <footer id="contact-us">
