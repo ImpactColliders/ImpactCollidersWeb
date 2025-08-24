@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Bulk Upload Codes</title>
+  <style>
+    body{font-family:system-ui,Arial,sans-serif;background:#0e0e14;color:#fff;padding:24px}
+    .row{max-width:820px;margin:auto}
+    textarea{width:100%;height:260px;background:#121219;color:#eaeaf0;border:1px solid #2a2a33;border-radius:8px;padding:12px}
+    button{margin-top:12px;padding:10px 14px;border:0;border-radius:8px;background:#3aa0ff;color:#0b0b12;font-weight:700;cursor:pointer}
+    pre{white-space:pre-wrap;background:#11131a;border:1px solid #232432;border-radius:8px;padding:12px;margin-top:12px;max-height:280px;overflow:auto}
+    .muted{opacity:.8}
+  </style>
+</head>
+<body>
+  <div class="row">
+    <h2>Bulk Upload Codes (paste)</h2>
+    <p class="muted">Format: <code>CODE limit usage</code> or <code>CODE,limit,usage</code>. Example: <code>DH9PJ 3 0</code></p>
+    <p id="authState" class="muted">Not signed in</p>
+    <button id="google">Sign in with Google</button>
+    <textarea id="input" placeholder="CODE 3 0&#10;AB3KQ 3 0&#10;..."></textarea>
+    <button id="upload">Upload</button>
+    <pre id="log"></pre>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+    import { getFirestore, writeBatch, doc, serverTimestamp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
+    import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+
+    const app = initializeApp({
+      apiKey: "AIzaSyBFhBZWx3TUC-hdRAZ0noaD_jRTV7rgmE0",
+      authDomain: "impactcolliders-afc54.firebaseapp.com",
+      projectId: "impactcolliders-afc54"
+    });
+    const db = getFirestore(app);
+    const auth = getAuth(app);
+    const provider = new GoogleAuthProvider();
+
+    const $ = (id)=>document.getElementById(id);
+    const log = (m)=>{ $("log").textContent += m + "\n"; $("log").scrollTop = $("log").scrollHeight; };
+
+    onAuthStateChanged(auth, (u)=>{
+      $("authState").textContent = u ? `Signed in: ${u.email} (uid: ${u.uid})` : "Not signed in";
+    });
+    $("google").addEventListener("click", ()=>signInWithPopup(auth, provider));
+
+    function parseLines(text){
+      const lines = text.split(/\r?\n/).map(s=>s.trim()).filter(Boolean);
+      const out = [];
+      for (const line of lines){
+        if (/^code(\b|,)/i.test(line)) continue;
+        const parts = line.split(/[,\s]+/).filter(Boolean);
+        const code = (parts[0]||"").toUpperCase();
+        const limit = Number(parts[1]||3);
+        const usage = Number(parts[2]||0);
+        if (!code) continue;
+        out.push({ code, limit: Number.isFinite(limit)?limit:3, usage: Number.isFinite(usage)?usage:0 });
+      }
+      return out;
+    }
+
+    $("upload").addEventListener("click", async ()=>{
+      if (!auth.currentUser){ log("Sign in first."); return; }
+      const rows = parseLines($("input").value);
+      if (!rows.length){ log("No rows."); return; }
+
+      let batch = writeBatch(db), count = 0, total = 0;
+      for (const r of rows){
+        batch.set(doc(db, "codes", r.code), { usage: r.usage, limit: r.limit, createdAt: serverTimestamp() });
+        count++; total++;
+        if (count === 500){ await batch.commit(); log(`Committed ${total}`); batch = writeBatch(db); count = 0; }
+      }
+      if (count > 0){ await batch.commit(); log(`Committed ${total}`); }
+      log("✅ Done.");
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>Eh Let's Play - Login</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <script type="module" src="register.js" defer></script>
+</head>
+<body>
+  <div class="background"></div>
+
+  <form id="loginForm" class="form-box active">
+    <h3>Login</h3>
+
+    <label>Email or Phone</label>
+    <input id="login-email" type="email" placeholder="Enter your email" required />
+
+    <label>Password</label>
+    <input id="login-password" type="password" placeholder="Enter your password" required />
+
+    <label>Eh Let's Play Login Code</label>
+    <input id="login-code" type="text" placeholder="Enter your unique code" required />
+
+    <button id="login-submit" type="submit">Login</button>
+    <p id="login-error" class="error"></p>
+
+    <p>Don't have an account? <a href="#" onclick="switchForm('register')">Register</a></p>
+  </form>
+
+  <form id="registerForm" class="form-box">
+    <h3>Create Account</h3>
+
+    <label>Username</label>
+    <input id="register-username" type="text" placeholder="Choose a username" required />
+
+    <label>Email</label>
+    <input id="register-email" type="email" placeholder="Enter your email" required />
+
+    <label>Password</label>
+    <input id="register-password" type="password" placeholder="Create a password" required />
+
+    <label>Unique Code</label>
+    <input id="register-code" type="text" placeholder="Enter your unique code" required />
+
+    <button id="register-submit" type="submit">Register</button>
+    <p id="register-error" class="error"></p>
+
+    <p>Already have an account? <a href="#" onclick="switchForm('login')">Login</a></p>
+  </form>
+
+  <script>
+    function switchForm(form) {
+      document.getElementById("loginForm").classList.remove("active");
+      document.getElementById("registerForm").classList.remove("active");
+      if (form === "login") document.getElementById("loginForm").classList.add("active");
+      else document.getElementById("registerForm").classList.add("active");
+    }
+  </script>
+</body>
+</html>
