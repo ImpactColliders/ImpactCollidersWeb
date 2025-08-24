@@ -1,306 +1,361 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta name="description" content="Shop - Impact Colliders" />
-  <meta name="author" content="Impact Colliders" />
-  <title>Shop - Impact Colliders</title>
-
-  <!-- Fonts and Styles -->
-  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="assets/css/font-awesome.css" />
-  <link rel="stylesheet" href="assets/css/templatemo-lava.css" />
-  <link rel="stylesheet" href="assets/css/owl-carousel.css" />
-  <style>
-    .product-card {
-      background-color: #fff;
-      border-radius: 8px;
-      padding: 20px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      text-align: center;
-      cursor: pointer;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    }
-
-    .product-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-    }
-
-    .product-card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 6px;
-      margin-bottom: 15px;
-    }
-
-    .product-card h4 {
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-
-    .product-card .price {
-      font-size: 18px;
-      color: #f2545f;
-      margin-bottom: 15px;
-    }
-
-    .product-card .main-button {
-      background-color: #f2545f;
-      color: white;
-      padding: 10px 18px;
-      border-radius: 30px;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 10px;
-    }
-
-    .product-modal {
-  display: none;
-  position: fixed;
-  z-index: 9999;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.85);
-  padding-top: 50px;
-}
-
-.modal-content {
-  background-color: #fff;
-  margin: auto;
-  align-items: center;
-  border-radius: 8px;
-  width: 50%;
-  max-width: 900px;
-  display: flex;
-  overflow: hidden;
-  position: relative;
-  padding: 10px 10px 10px 10px;
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
-}
-
-.modal-image {
-  width: 50%;
-  height: auto;
-  object-fit: cover;
-}
-
-.modal-details {
-  padding: 30px;
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: left;
-}
-
-.modal-details h3 {
-  margin-bottom: 10px;
-  font-size: 24px;
-  font-weight: bold;
-}
-
-.modal-details p {
-  margin-bottom: 20px;
-  font-size: 16px;
-}
-
-.modal-details .price {
-  color: #f2545f;
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
-
-.modal-details .main-button {
-  background-color: #f2545f;
-  color: white;
-  padding: 10px 18px;
-  border-radius: 30px;
-  text-decoration: none;
-  display: inline-block;
-  width: fit-content;
-}
-
-.close-btn {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 28px;
-  font-weight: bold;
-  cursor: pointer;
-  color: #333;
-  z-index: 10;
-}
-
-.close-btn:hover {
-  color: #f2545f;
-}
-
-@media (max-width: 576px) {
-      .modal-content{
-        width: 85%;
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="Shop - Impact Colliders" />
+    <meta name="author" content="Impact Colliders" />
+    <title>Shop - Impact Colliders</title>
+    <link rel="icon" type="image/x-icon" href="/assets/images/logo.jpg" />
+    <!-- Fonts and Styles -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/font-awesome.css" />
+    <link rel="stylesheet" href="assets/css/templatemo-lava.css" />
+    <link rel="stylesheet" href="assets/css/owl-carousel.css" />
+    <style>
+      .product-card {
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 20px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: center;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
       }
 
-      .modal-image, .modal-details{
-        width: 85%;
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
       }
-}
 
-  </style>
-</head>
+      .product-card img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 6px;
+        margin-bottom: 15px;
+      }
 
-<body>
+      .product-card h4 {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
 
-  <div id="preloader">
-        <div class="jumper">
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+      .product-card .price {
+        font-size: 18px;
+        color: #f2545f;
+        margin-bottom: 15px;
+      }
+
+      .product-card .main-button {
+        background-color: #f2545f;
+        color: white;
+        padding: 10px 18px;
+        border-radius: 30px;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 10px;
+      }
+
+      .product-modal {
+        display: none;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.85);
+        padding-top: 50px;
+      }
+
+      .modal-content {
+        background-color: #fff;
+        margin: auto;
+        align-items: center;
+        border-radius: 8px;
+        width: 50%;
+        max-width: 900px;
+        display: flex;
+        overflow: hidden;
+        position: relative;
+        padding: 10px 10px 10px 10px;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .modal-image {
+        width: 50%;
+        height: auto;
+        object-fit: cover;
+      }
+
+      .modal-details {
+        padding: 30px;
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+      }
+
+      .modal-details h3 {
+        margin-bottom: 10px;
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      .modal-details p {
+        margin-bottom: 20px;
+        font-size: 16px;
+      }
+
+      .modal-details .price {
+        color: #f2545f;
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      .modal-details .main-button {
+        background-color: #f2545f;
+        color: white;
+        padding: 10px 18px;
+        border-radius: 30px;
+        text-decoration: none;
+        display: inline-block;
+        width: fit-content;
+      }
+
+      .close-btn {
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+        color: #333;
+        z-index: 10;
+      }
+
+      .close-btn:hover {
+        color: #f2545f;
+      }
+
+      .modal-content {
+        background-color: #fff;
+        margin: auto;
+        border-radius: 8px;
+        width: 50%;
+        max-width: 900px;
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* left column (image) | right column (details) */
+        grid-template-rows: auto 1fr auto; /* top text | middle filler | bottom button */
+        overflow: hidden;
+        position: relative;
+        box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .modal-image {
+        grid-row: 1 / span 3; /* make image span full height */
+        grid-column: 1;
+        width: 100%;
+        height: auto;
+        top: 0;
+        object-fit: cover;
+      }
+
+      .modal-details {
+        grid-column: 2;
+        display: grid;
+        grid-template-rows: auto 1fr auto; /* top text | spacer | bottom button */
+        padding: 30px;
+        text-align: left;
+      }
+
+      .modal-details h3,
+      .modal-details p,
+      .modal-details .price {
+        margin: 0 0 15px 0;
+      }
+
+      .modal-details .main-button {
+        justify-self: end; /* bottom right */
+        align-self: end;
+        background-color: #f2545f;
+        color: white;
+        padding: 10px 18px;
+        border-radius: 30px;
+        text-decoration: none;
+      }
+
+      @media (max-width: 576px) {
+        .modal-content {
+          width: 85%;
+        }
+
+        .modal-image,
+        .modal-details {
+          width: 85%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="preloader">
+      <div class="jumper">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
     </div>
 
-  <!-- Nav Bar -->
+    <!-- Nav Bar -->
     <header class="header-area header-sticky" id="nav-placeholder">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="main-nav">
-                        <a href="index.html" class="logo">
-                            Impact Colliders
-                        </a>
-                        <ul class="nav">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="appnav.html">Video Library</a></li>
-                            <li><a href="videos.html?show=all">Digital Game</a></li>
-                            <li><a href="shop.html" class="active">Shop</a></li>
-                        </ul>
-                        <a class='menu-trigger'>
-                            <span>Menu</span>
-                        </a>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
-
-
-  <!-- Shop Section -->
-  <section class="section" id="shop">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12 center-heading">
-          <h2>Support with <em>Style</em></h2>
-          <p>Grab exclusive products made by Impact Colliders.</p>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <nav class="main-nav">
+              <a href="index.html" class="logo">
+                <img
+                  src="assets/images/Impact Colliders_Black.png"
+                  alt="Impact Colliders Logo"
+                />
+              </a>
+              <ul class="nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="appnav.html">Video Library</a></li>
+                <li><a href="videos.html?show=all">Digital Game</a></li>
+                <li><a href="shop.html" class="active">Shop</a></li>
+              </ul>
+              <a class="menu-trigger">
+                <span>Menu</span>
+              </a>
+            </nav>
+          </div>
         </div>
       </div>
+    </header>
 
-      <div class="row product-grid">
-        <!-- Product 1 -->
-        <div class="col-lg-4 col-md-6 col-sm-12">
-          <div class="features-item product-card" data-id="1">
-            <img src="placeholder.webp" alt="Collider Tee" />
-            <h4>Eh How Ah Gen 1</h4>
-            <p class="price">$24.90</p>
+    <!-- Shop Section -->
+    <section class="section" id="shop">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 center-heading">
+            <h2>Support with <em>Style</em></h2>
+            <p>Grab exclusive products made by Impact Colliders.</p>
           </div>
         </div>
 
+        <div class="row product-grid">
+          <!-- Product 1 -->
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="features-item product-card" data-id="1">
+              <img src="placeholder.webp" alt="Collider Tee" />
+              <h4>Eh How Ah Gen 1</h4>
+              <p class="price">$24.90</p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Product Modal -->
-  <div id="productModal" class="product-modal">
+    <!-- Product Modal -->
+    <div id="productModal" class="product-modal">
       <div class="modal-content">
-    <span class="close-btn">&times;</span>
-    <img id="modalImage" class="modal-image" src="" alt="Product Image">
-      <div class="modal-details">
-        <h3 id="modalTitle">Product Title</h3>
-        <p id="modalDescription">Product Description</p>
-        <p class="price" id="modalPrice">$0.00</p>
-        <a id="modalLink" href="#" class="main-button">Proceed to Buy</a>
+        <span class="close-btn">&times;</span>
+        <img id="modalImage" class="modal-image" src="" alt="Product Image" />
+        <div class="modal-details">
+          <h3 id="modalTitle">Product Title</h3>
+          <p id="modalDescription">Product Description</p>
+          <p class="price" id="modalPrice">$0.00</p>
+          <a id="modalLink" href="#" class="main-button">Proceed to Buy</a>
+        </div>
       </div>
     </div>
 
-  </div>
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/scrollreveal.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/imgfix.min.js"></script>
+    <script src="assets/js/custom.js"></script>
 
-  <script src="assets/js/jquery-2.1.0.min.js"></script>
-  <script src="assets/js/popper.js"></script>
-  <script src="assets/js/bootstrap.min.js"></script>
-  <script src="assets/js/owl-carousel.js"></script>
-  <script src="assets/js/scrollreveal.min.js"></script>
-  <script src="assets/js/waypoints.min.js"></script>
-  <script src="assets/js/jquery.counterup.min.js"></script>
-  <script src="assets/js/imgfix.min.js"></script>
-  <script src="assets/js/custom.js"></script>
+    <script>
+      const products = {
+        1: {
+          title: "Eh How Ah Gen 1",
+          description:
+            '"Eh, How Ah?" is a fun, interactive, and culturally relevant card game that helps seniors learn essential digital skills while bonding with family and bridging the generational tech gap.',
+          price: "$25 - $50",
+          image: "placeholder.webp",
+          link: "https://shopee.sg/Impact-Colliders-Eh-How-Ah-Digital-Literacy-Family-Card-Game-i.32777238.28721509496",
+        },
+        2: {
+          title: "Sticker Pack",
+          description:
+            "Set of 5 high-quality stickers featuring our logo and mission slogans.",
+          price: "$6.90",
+          image: "placeholder.webp",
+        },
+        3: {
+          title: "Idea Notebook",
+          description:
+            "Hardcover notebook for your next big idea. Lined pages with inspirational quotes inside.",
+          price: "$9.90",
+          image: "placeholder.webp",
+        },
+      };
 
-  <script>
-    const products = {
-      1: {
-        title: 'Eh How Ah Gen 1',
-        description: '"Eh, How Ah?" is a fun, interactive, and culturally relevant card game that helps seniors learn essential digital skills while bonding with family and bridging the generational tech gap.',
-        price: '$25 - $50',
-        image: 'placeholder.webp',
-        link: 'https://shopee.sg/Impact-Colliders-Eh-How-Ah-Digital-Literacy-Family-Card-Game-i.32777238.28721509496'
-      },
-      2: {
-        title: 'Sticker Pack',
-        description: 'Set of 5 high-quality stickers featuring our logo and mission slogans.',
-        price: '$6.90',
-        image: 'placeholder.webp'
-      },
-      3: {
-        title: 'Idea Notebook',
-        description: 'Hardcover notebook for your next big idea. Lined pages with inspirational quotes inside.',
-        price: '$9.90',
-        image: 'placeholder.webp'
-      }
-    };
+      const modal = document.getElementById("productModal");
+      const modalImg = document.getElementById("modalImage");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalDesc = document.getElementById("modalDescription");
+      const modalPrice = document.getElementById("modalPrice");
+      const modalLink = document.getElementById("modalLink");
 
-    const modal = document.getElementById("productModal");
-    const modalImg = document.getElementById("modalImage");
-    const modalTitle = document.getElementById("modalTitle");
-    const modalDesc = document.getElementById("modalDescription");
-    const modalPrice = document.getElementById("modalPrice");
-    const modalLink = document.getElementById("modalLink");
-
-    document.querySelectorAll('.product-card').forEach(card => {
-      card.addEventListener('click', () => {
-        const id = card.dataset.id;
-        const product = products[id];
-        modalImg.src = product.image;
-        modalTitle.textContent = product.title;
-        modalDesc.textContent = product.description;
-        modalPrice.textContent = product.price;
-        modalLink.href = product.link;
-        modal.style.display = "block";
+      document.querySelectorAll(".product-card").forEach((card) => {
+        card.addEventListener("click", () => {
+          const id = card.dataset.id;
+          const product = products[id];
+          modalImg.src = product.image;
+          modalTitle.textContent = product.title;
+          modalDesc.textContent = product.description;
+          modalPrice.textContent = product.price;
+          modalLink.href = product.link;
+          modal.style.display = "block";
+        });
       });
-    });
 
-    document.querySelector('.close-btn').addEventListener('click', () => {
-      modal.style.display = "none";
-    });
-
-    window.addEventListener('click', (e) => {
-      if (e.target === modal) {
+      document.querySelector(".close-btn").addEventListener("click", () => {
         modal.style.display = "none";
-      }
-    });
+      });
 
-    // Optional JS to dynamically set padding
-window.addEventListener('DOMContentLoaded', () => {
-  const headerHeight = document.querySelector('.header-area').offsetHeight;
-  document.body.style.paddingTop = `${headerHeight}px`;
-});
-  </script>
-</body>
+      window.addEventListener("click", (e) => {
+        if (e.target === modal) {
+          modal.style.display = "none";
+        }
+      });
+
+      // Optional JS to dynamically set padding
+      window.addEventListener("DOMContentLoaded", () => {
+        const headerHeight =
+          document.querySelector(".header-area").offsetHeight;
+        document.body.style.paddingTop = `${headerHeight}px`;
+      });
+    </script>
+  </body>
 </html>

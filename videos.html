@@ -1,319 +1,503 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Impact Colliders - Video Library</title>
-  <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css" />
-  <link rel="stylesheet" href="assets/css/templatemo-lava.css" />
-  <link rel="stylesheet" href="assets/css/owl-carousel.css" />
-  <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #f9f9f9;
-      padding-top: 100px;
-    }
-    .content-container {
-      max-width: 900px;
-      margin: 0 auto 3rem auto;
-      padding: 0 15px;
-    }
-    section {
-      display: none;
-      margin-bottom: 3rem;
-      position: relative;
-      background: white;
-      padding: 1rem 1.5rem 2rem 1.5rem;
-      border-radius: 8px;
-      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
-    }
-    section.active {
-      display: block;
-    }
-    h2 {
-      color: #e43f5a;
-      margin-bottom: 1rem;
-      font-weight: 600;
-    }
-    iframe {
-      width: 100%;
-      height: 450px;
-      border: none;
-      border-radius: 6px;
-      box-shadow: 0 1px 5px rgba(0,0,0,0.15);
-    }
-    button.copy-btn, button.copy-qr-btn {
-      position: absolute;
-      top: 12px;
-      background: #e43f5a;
-      color: white;
-      border: none;
-      padding: 6px 12px;
-      font-weight: 600;
-      cursor: pointer;
-      border-radius: 4px;
-      transition: background 0.3s ease;
-      font-size: 0.9rem;
-      z-index: 10;
-    }
-    button.copy-btn:hover, button.copy-qr-btn:hover {
-      background: #b92c41;
-    }
-    button.copy-btn {
-      right: 12px;
-    }
-    button.copy-qr-btn {
-      right: 130px;
-    }
-    p.message {
-      font-style: italic;
-      color: gray;
-      margin-top: 1rem;
-      text-align: center;
-      font-size: 1rem;
-    }
-    @media (max-width: 576px) {
-      button.copy-btn, button.copy-qr-btn {
-        top: 8px;
-        padding: 5px 10px;
-        font-size: 0.8rem;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Impact Colliders - Video Library</title>
+    <link rel="icon" type="image/x-icon" href="/assets/images/logo.jpg" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:300,400,600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css" />
+    <link rel="stylesheet" href="assets/css/templatemo-lava.css" />
+    <link rel="stylesheet" href="assets/css/owl-carousel.css" />
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        background: #f9f9f9;
+        padding-top: 100px;
       }
-      button.copy-btn {
-        right: 8px;
+      .content-container {
+        max-width: 900px;
+        margin: 0 auto 3rem auto;
+        padding: 0 15px;
       }
-      button.copy-qr-btn {
-        right: 100px;
+      section {
+        display: none;
+        margin-bottom: 3rem;
+        position: relative;
+        background: white;
+        padding: 1rem 1.5rem 2rem 1.5rem;
+        border-radius: 8px;
+        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+      }
+      section.active {
+        display: block;
+      }
+      h2 {
+        color: #e43f5a;
+        margin-bottom: 1rem;
+        font-weight: 600;
       }
       iframe {
-        height: 250px;
+        width: 100%;
+        height: 450px;
+        border: none;
+        border-radius: 6px;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
       }
-    }
+      button.copy-btn,
+      button.copy-qr-btn {
+        position: absolute;
+        top: 12px;
+        background: #e43f5a;
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        font-weight: 600;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background 0.3s ease;
+        font-size: 0.9rem;
+        z-index: 10;
+      }
+      button.copy-btn:hover,
+      button.copy-qr-btn:hover {
+        background: #b92c41;
+      }
+      button.copy-btn {
+        right: 12px;
+      }
+      button.copy-qr-btn {
+        right: 130px;
+      }
+      p.message {
+        font-style: italic;
+        color: gray;
+        margin-top: 1rem;
+        text-align: center;
+        font-size: 1rem;
+      }
+      @media (max-width: 576px) {
+        button.copy-btn,
+        button.copy-qr-btn {
+          top: 8px;
+          padding: 5px 10px;
+          font-size: 0.8rem;
+        }
+        button.copy-btn {
+          right: 8px;
+        }
+        button.copy-qr-btn {
+          right: 100px;
+        }
+        iframe {
+          height: 250px;
+        }
+      }
 
-    .video-wrapper {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-    }
-
-    .video-wrapper iframe {
-      width: 100%;
-      max-width: none;
-      aspect-ratio: 9 / 16;
-      height: 85%;
-      border: none;
-      border-radius: 10px;
-      background: #000;
-      display: none;
-      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
-    }
-
-    .video-wrapper iframe.video-start {
-      display: block;
-    }
-
-    @media (max-width: 768px) {
-.video-wrapper {
-      position: relative;
-      height: 80%;
-      display: flex;
-      justify-content: center;
-    }
+      .video-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+      }
 
       .video-wrapper iframe {
         width: 100%;
         max-width: none;
-        height: 100%;
-        aspect-ratio: auto;
-        border-radius: 0;
-        box-shadow: none;
+        aspect-ratio: 9 / 16;
+        height: 85%;
+        border: none;
+        border-radius: 10px;
+        background: #000;
+        display: none;
+        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
       }
-    }
 
-    .video-description {
-      font-size: 0.95rem;
-      color: #444;
-      margin-top: 0.5rem;
-      margin-bottom: 1.2rem;
-    }
-.nav-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 2rem;
-  background: rgba(228, 63, 90, 0.8);
-  border: none;
-  color: white;
-  padding: 6px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  z-index: 15;
-  transition: background 0.3s ease;
-}
-.nav-arrow:hover {
-  background: rgba(185, 44, 65, 0.8);
-}
-.left-arrow {
-  left: -50px;
-}
-.right-arrow {
-  right: -50px;
-}
-@media (max-width: 768px) {
-  .nav-arrow {
-    display: none;
-  }
-}
+      .video-wrapper iframe.video-start {
+        display: block;
+      }
 
-.content-container section{
-  height: 85dvh;
-}
+      @media (max-width: 768px) {
+        .video-wrapper {
+          position: relative;
+          height: 80%;
+          display: flex;
+          justify-content: center;
+        }
 
-.video-section{
-  height: 100%;
-  width: 100%;
-}
+        .video-wrapper iframe {
+          width: 100%;
+          max-width: none;
+          height: 100%;
+          aspect-ratio: auto;
+          border-radius: 0;
+          box-shadow: none;
+        }
+      }
 
-.touch-overlay {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  z-index: 10;
-  background: transparent;
-  touch-action: none; /* ensures touch events are captured */
-}
+      .video-description {
+        font-size: 0.95rem;
+        color: #444;
+        margin-top: 0.5rem;
+        margin-bottom: 1.2rem;
+      }
+      .nav-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 2rem;
+        background: rgba(228, 63, 90, 0.8);
+        border: none;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        z-index: 15;
+        transition: background 0.3s ease;
+      }
+      .nav-arrow:hover {
+        background: rgba(185, 44, 65, 0.8);
+      }
+      .left-arrow {
+        left: -50px;
+      }
+      .right-arrow {
+        right: -50px;
+      }
+      @media (max-width: 768px) {
+        .nav-arrow {
+          display: none;
+        }
+      }
 
-  </style>
-  
-</head>
-<body>
+      .content-container section {
+        height: 85dvh;
+      }
 
-  <!-- Nav Bar -->
-  <header class="header-area header-sticky" id="nav-placeholder">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <nav class="main-nav">
-            <a href="index.html" class="logo">Impact Colliders</a>
-            <ul class="nav">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="about.html">About Us</a></li>
-              <li><a href="appnav.html" class="active">Video Library</a></li>
-              <li><a href="videos.html?show=all">Digital Game</a></li>
-              <li><a href="shop.html">Shop</a></li>
-            </ul>
-            <a class='menu-trigger'><span>Menu</span></a>
-          </nav>
+      .video-section {
+        height: 100%;
+        width: 100%;
+      }
+
+      .touch-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 10;
+        background: transparent;
+        touch-action: none; /* ensures touch events are captured */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Nav Bar -->
+    <header class="header-area header-sticky" id="nav-placeholder">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <nav class="main-nav">
+              <a href="index.html" class="logo">
+                <img
+                  src="assets/images/Impact Colliders_Black.png"
+                  alt="Impact Colliders Logo"
+                />
+              </a>
+              <ul class="nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="appnav.html" class="active">Video Library</a></li>
+                <li><a href="videos.html?show=all">Digital Game</a></li>
+                <li><a href="shop.html">Shop</a></li>
+              </ul>
+              <a class="menu-trigger"><span>Menu</span></a>
+            </nav>
+          </div>
         </div>
       </div>
-    </div>
-  </header>
+    </header>
 
-  <main class="content-container">
-    <section data-index="1" id="Instagram">
-  <h2>Instagram</h2>
-  <div class="video-wrapper" data-index="1" style="position: relative;">
-    
-    <!-- Left Arrow: Show video-start -->
-    <button class="nav-arrow left-arrow" onclick="switchVideoSection(this, -1)">&#8592;</button>
-<button class="nav-arrow right-arrow" onclick="switchVideoSection(this, 1)">&#8594;</button>
+    <main class="content-container">
+      <section data-index="1" id="Instagram">
+        <h2>Instagram</h2>
+        <div class="video-wrapper" data-index="1" style="position: relative">
+          <!-- Left Arrow: Show video-start -->
+          <button
+            class="nav-arrow left-arrow"
+            onclick="switchVideoSection(this, -1)"
+          >
+            &#8592;
+          </button>
+          <button
+            class="nav-arrow right-arrow"
+            onclick="switchVideoSection(this, 1)"
+          >
+            &#8594;
+          </button>
 
-    <div class="video-section">
-      <iframe
-      width="100"
-      height="315"
-      class="video-start"
-      id="video-start-1"
-      src="https://www.youtube.com/embed/CyEBYKXDkcA?si=gMhZQy3G-v5jxNBC&controls=0&start=0&autoplay=1"
-      allow="autoplay; fullscreen"
-      allowfullscreen>
-    </iframe>
-    <div class="touch-overlay"></div>
-    <p class="video-description">
-    AH
-  </p>
-    </div>
-    
-    <div style="display: none;" class="video-section">
-      <iframe
-      width="100"
-      height="315"
-      class="video-start"
-      id="video-start-1"
-      src="https://www.youtube.com/embed/CyEBYKXDkcA?si=gMhZQy3G-v5jxNBC&controls=0&start=10&autoplay=1"
-      allow="autoplay; fullscreen"
-      allowfullscreen>
-    </iframe>
-    <div class="touch-overlay"></div>
-      <p class="video-description">
-      Explore how we launched our Instagram engagement campaign with powerful storytelling and creative visuals.
-    </p>
-    </div>
-    
-  </div>
-  
-</section>
+          <div class="video-section">
+            <iframe
+              width="100"
+              height="315"
+              class="video-start"
+              id="video-start-1"
+              src="https://www.youtube.com/embed/CyEBYKXDkcA?si=gMhZQy3G-v5jxNBC&controls=0&start=0&autoplay=1"
+              allow="autoplay; fullscreen"
+              allowfullscreen
+            >
+            </iframe>
+            <div class="touch-overlay"></div>
+            <p class="video-description">AH</p>
+          </div>
 
+          <div style="display: none" class="video-section">
+            <iframe
+              width="100"
+              height="315"
+              class="video-start"
+              id="video-start-1"
+              src="https://www.youtube.com/embed/CyEBYKXDkcA?si=gMhZQy3G-v5jxNBC&controls=0&start=10&autoplay=1"
+              allow="autoplay; fullscreen"
+              allowfullscreen
+            >
+            </iframe>
+            <div class="touch-overlay"></div>
+            <p class="video-description">
+              Explore how we launched our Instagram engagement campaign with
+              powerful storytelling and creative visuals.
+            </p>
+          </div>
+        </div>
+      </section>
 
-<section data-index="2" id="Facebook">
-  <h2>Facebook</h2>
-  <div class="video-wrapper" data-index="2">
-    <iframe
-      width="100"
-      height="315"
-      class="video-start"
-      id="video-start-1"
-      src="https://www.youtube.com/embed/y6oMutwJQCw?si=JX71ap16oHRJa0ke&autoplay=1&mute=1;start=10"
-      allow="autoplay; fullscreen"
-      allowfullscreen>
-    </iframe>
-    <iframe class="video-skip" src="https://www.youtube.com/embed/tgbNymZ7vqY?start=20" allowfullscreen></iframe>
-  </div>
-  <p class="video-description">Watch our Facebook promo video showcasing the reach and resonance of our recent campaign.</p>
-  <button class="copy-qr-btn" data-section="2">Copy QR Code</button>
-  <button class="copy-btn" data-section="2">Copy URL</button>
-</section>
+      <section data-index="2" id="Facebook">
+        <h2>Facebook</h2>
+        <div class="video-wrapper" data-index="2">
+          <iframe
+            width="100"
+            height="315"
+            class="video-start"
+            id="video-start-1"
+            src="https://www.youtube.com/embed/y6oMutwJQCw?si=JX71ap16oHRJa0ke&autoplay=1&mute=1;start=10"
+            allow="autoplay; fullscreen"
+            allowfullscreen
+          >
+          </iframe>
+          <iframe
+            class="video-skip"
+            src="https://www.youtube.com/embed/tgbNymZ7vqY?start=20"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <p class="video-description">
+          Watch our Facebook promo video showcasing the reach and resonance of
+          our recent campaign.
+        </p>
+        <button class="copy-qr-btn" data-section="2">Copy QR Code</button>
+        <button class="copy-btn" data-section="2">Copy URL</button>
+      </section>
 
-<section data-index="3" id="Singpass">
-  <h2>Singpass</h2>
-  <div class="video-wrapper" data-index="3">
-    <iframe class="video-start" src="https://www.youtube.com/embed/ysz5S6PUM-U" allowfullscreen></iframe>
-    <iframe class="video-skip" src="https://www.youtube.com/embed/ysz5S6PUM-U?start=20" allowfullscreen></iframe>
-  </div>
-  <p class="video-description">An explainer video guiding users through the latest Singpass updates with simplicity and clarity.</p>
-  <button class="copy-qr-btn" data-section="3">Copy QR Code</button>
-  <button class="copy-btn" data-section="3">Copy URL</button>
-</section>
+      <section data-index="3" id="Singpass">
+        <h2>Singpass</h2>
+        <div class="video-wrapper" data-index="3">
+          <iframe
+            class="video-start"
+            src="https://www.youtube.com/embed/ysz5S6PUM-U"
+            allowfullscreen
+          ></iframe>
+          <iframe
+            class="video-skip"
+            src="https://www.youtube.com/embed/ysz5S6PUM-U?start=20"
+            allowfullscreen
+          ></iframe>
+        </div>
+        <p class="video-description">
+          An explainer video guiding users through the latest Singpass updates
+          with simplicity and clarity.
+        </p>
+        <button class="copy-qr-btn" data-section="3">Copy QR Code</button>
+        <button class="copy-btn" data-section="3">Copy URL</button>
+      </section>
 
+      <!-- You can paste the below after the first 3 manually created ones -->
 
-    <!-- You can paste the below after the first 3 manually created ones -->
+      <section data-index="4" id="Section4">
+        <h2>Section 4</h2>
+        <iframe
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          allowfullscreen
+        ></iframe
+        ><button class="copy-qr-btn" data-section="4">Copy QR Code</button
+        ><button class="copy-btn" data-section="4">Copy URL</button>
+      </section>
+      <section data-index="5" id="Section5">
+        <h2>Section 5</h2>
+        <iframe
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          allowfullscreen
+        ></iframe
+        ><button class="copy-qr-btn" data-section="5">Copy QR Code</button
+        ><button class="copy-btn" data-section="5">Copy URL</button>
+      </section>
+      <section data-index="6" id="Section6">
+        <h2>Section 6</h2>
+        <iframe
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          allowfullscreen
+        ></iframe
+        ><button class="copy-qr-btn" data-section="6">Copy QR Code</button
+        ><button class="copy-btn" data-section="6">Copy URL</button>
+      </section>
+      <section data-index="7" id="Section7">
+        <h2>Section 7</h2>
+        <iframe
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          allowfullscreen
+        ></iframe
+        ><button class="copy-qr-btn" data-section="7">Copy QR Code</button
+        ><button class="copy-btn" data-section="7">Copy URL</button>
+      </section>
+      <section data-index="8" id="Section8">
+        <h2>Section 8</h2>
+        <iframe
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          allowfullscreen
+        ></iframe
+        ><button class="copy-qr-btn" data-section="8">Copy QR Code</button
+        ><button class="copy-btn" data-section="8">Copy URL</button>
+      </section>
+      <section data-index="9" id="Section9">
+        <h2>Section 9</h2>
+        <iframe
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          allowfullscreen
+        ></iframe
+        ><button class="copy-qr-btn" data-section="9">Copy QR Code</button
+        ><button class="copy-btn" data-section="9">Copy URL</button>
+      </section>
+      <section data-index="10" id="Section10">
+        <h2>Section 10</h2>
+        <iframe
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          allowfullscreen
+        ></iframe
+        ><button class="copy-qr-btn" data-section="10">Copy QR Code</button
+        ><button class="copy-btn" data-section="10">Copy URL</button>
+      </section>
+      <section data-index="11" id="Section11">
+        <h2>Section 11</h2>
+        <iframe
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          allowfullscreen
+        ></iframe
+        ><button class="copy-qr-btn" data-section="11">Copy QR Code</button
+        ><button class="copy-btn" data-section="11">Copy URL</button>
+      </section>
+      <section data-index="12" id="Section12">
+        <h2>Section 12</h2>
+        <iframe
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          allowfullscreen
+        ></iframe
+        ><button class="copy-qr-btn" data-section="12">Copy QR Code</button
+        ><button class="copy-btn" data-section="12">Copy URL</button>
+      </section>
+      <section data-index="13" id="Section13">
+        <h2>Section 13</h2>
+        <iframe
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          allowfullscreen
+        ></iframe
+        ><button class="copy-qr-btn" data-section="13">Copy QR Code</button
+        ><button class="copy-btn" data-section="13">Copy URL</button>
+      </section>
+      <section data-index="14" id="Section14">
+        <h2>Section 14</h2>
+        <iframe
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          allowfullscreen
+        ></iframe
+        ><button class="copy-qr-btn" data-section="14">Copy QR Code</button
+        ><button class="copy-btn" data-section="14">Copy URL</button>
+      </section>
+      <section data-index="15" id="Section15">
+        <h2>Section 15</h2>
+        <iframe
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          allowfullscreen
+        ></iframe
+        ><button class="copy-qr-btn" data-section="15">Copy QR Code</button
+        ><button class="copy-btn" data-section="15">Copy URL</button>
+      </section>
+      <section data-index="16" id="Section16">
+        <h2>Section 16</h2>
+        <iframe
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          allowfullscreen
+        ></iframe
+        ><button class="copy-qr-btn" data-section="16">Copy QR Code</button
+        ><button class="copy-btn" data-section="16">Copy URL</button>
+      </section>
+      <section data-index="17" id="Section17">
+        <h2>Section 17</h2>
+        <iframe
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          allowfullscreen
+        ></iframe
+        ><button class="copy-qr-btn" data-section="17">Copy QR Code</button
+        ><button class="copy-btn" data-section="17">Copy URL</button>
+      </section>
+      <section data-index="18" id="Section18">
+        <h2>Section 18</h2>
+        <iframe
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          allowfullscreen
+        ></iframe
+        ><button class="copy-qr-btn" data-section="18">Copy QR Code</button
+        ><button class="copy-btn" data-section="18">Copy URL</button>
+      </section>
+      <section data-index="19" id="Section19">
+        <h2>Section 19</h2>
+        <iframe
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          allowfullscreen
+        ></iframe
+        ><button class="copy-qr-btn" data-section="19">Copy QR Code</button
+        ><button class="copy-btn" data-section="19">Copy URL</button>
+      </section>
+      <section data-index="20" id="Section20">
+        <h2>Section 20</h2>
+        <iframe
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          allowfullscreen
+        ></iframe
+        ><button class="copy-qr-btn" data-section="20">Copy QR Code</button
+        ><button class="copy-btn" data-section="20">Copy URL</button>
+      </section>
+      <section data-index="21" id="Section21">
+        <h2>Section 21</h2>
+        <iframe
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          allowfullscreen
+        ></iframe
+        ><button class="copy-qr-btn" data-section="21">Copy QR Code</button
+        ><button class="copy-btn" data-section="21">Copy URL</button>
+      </section>
 
-<section data-index="4" id="Section4"><h2>Section 4</h2><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe><button class="copy-qr-btn" data-section="4">Copy QR Code</button><button class="copy-btn" data-section="4">Copy URL</button></section>
-<section data-index="5" id="Section5"><h2>Section 5</h2><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe><button class="copy-qr-btn" data-section="5">Copy QR Code</button><button class="copy-btn" data-section="5">Copy URL</button></section>
-<section data-index="6" id="Section6"><h2>Section 6</h2><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe><button class="copy-qr-btn" data-section="6">Copy QR Code</button><button class="copy-btn" data-section="6">Copy URL</button></section>
-<section data-index="7" id="Section7"><h2>Section 7</h2><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe><button class="copy-qr-btn" data-section="7">Copy QR Code</button><button class="copy-btn" data-section="7">Copy URL</button></section>
-<section data-index="8" id="Section8"><h2>Section 8</h2><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe><button class="copy-qr-btn" data-section="8">Copy QR Code</button><button class="copy-btn" data-section="8">Copy URL</button></section>
-<section data-index="9" id="Section9"><h2>Section 9</h2><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe><button class="copy-qr-btn" data-section="9">Copy QR Code</button><button class="copy-btn" data-section="9">Copy URL</button></section>
-<section data-index="10" id="Section10"><h2>Section 10</h2><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe><button class="copy-qr-btn" data-section="10">Copy QR Code</button><button class="copy-btn" data-section="10">Copy URL</button></section>
-<section data-index="11" id="Section11"><h2>Section 11</h2><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe><button class="copy-qr-btn" data-section="11">Copy QR Code</button><button class="copy-btn" data-section="11">Copy URL</button></section>
-<section data-index="12" id="Section12"><h2>Section 12</h2><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe><button class="copy-qr-btn" data-section="12">Copy QR Code</button><button class="copy-btn" data-section="12">Copy URL</button></section>
-<section data-index="13" id="Section13"><h2>Section 13</h2><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe><button class="copy-qr-btn" data-section="13">Copy QR Code</button><button class="copy-btn" data-section="13">Copy URL</button></section>
-<section data-index="14" id="Section14"><h2>Section 14</h2><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe><button class="copy-qr-btn" data-section="14">Copy QR Code</button><button class="copy-btn" data-section="14">Copy URL</button></section>
-<section data-index="15" id="Section15"><h2>Section 15</h2><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe><button class="copy-qr-btn" data-section="15">Copy QR Code</button><button class="copy-btn" data-section="15">Copy URL</button></section>
-<section data-index="16" id="Section16"><h2>Section 16</h2><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe><button class="copy-qr-btn" data-section="16">Copy QR Code</button><button class="copy-btn" data-section="16">Copy URL</button></section>
-<section data-index="17" id="Section17"><h2>Section 17</h2><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe><button class="copy-qr-btn" data-section="17">Copy QR Code</button><button class="copy-btn" data-section="17">Copy URL</button></section>
-<section data-index="18" id="Section18"><h2>Section 18</h2><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe><button class="copy-qr-btn" data-section="18">Copy QR Code</button><button class="copy-btn" data-section="18">Copy URL</button></section>
-<section data-index="19" id="Section19"><h2>Section 19</h2><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe><button class="copy-qr-btn" data-section="19">Copy QR Code</button><button class="copy-btn" data-section="19">Copy URL</button></section>
-<section data-index="20" id="Section20"><h2>Section 20</h2><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe><button class="copy-qr-btn" data-section="20">Copy QR Code</button><button class="copy-btn" data-section="20">Copy URL</button></section>
-<section data-index="21" id="Section21"><h2>Section 21</h2><iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe><button class="copy-qr-btn" data-section="21">Copy QR Code</button><button class="copy-btn" data-section="21">Copy URL</button></section>
+      <p id="message" class="message"></p>
+    </main>
 
-
-    <p id="message" class="message"></p>
-  </main>
-
-  <script src="assets/js/jquery-2.1.0.min.js"></script>
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
     <script src="assets/js/popper.js"></script>
     <script src="assets/js/bootstrap.min.js"></script>
     <script src="assets/js/owl-carousel.js"></script>
@@ -322,246 +506,255 @@
     <script src="assets/js/jquery.counterup.min.js"></script>
     <script src="assets/js/imgfix.min.js"></script>
     <script src="assets/js/custom.js"></script>
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const show = params.get("show");
-    const messageEl = document.getElementById("message");
-    const sections = document.querySelectorAll("section");
+    <script>
+      const params = new URLSearchParams(window.location.search);
+      const show = params.get("show");
+      const messageEl = document.getElementById("message");
+      const sections = document.querySelectorAll("section");
 
-    if (show) {
-      if (show === "all") {
-        sections.forEach(sec => sec.classList.add("active"));
-        messageEl.textContent = "Showing all sections.";
-      } else {
-        const section = document.querySelector(`section[data-index="${show}"]`);
-        if (section) {
-          section.classList.add("active");
-          messageEl.textContent = `Showing section ${show}.`;
+      if (show) {
+        if (show === "all") {
+          sections.forEach((sec) => sec.classList.add("active"));
+          messageEl.textContent = "Showing all sections.";
         } else {
-          messageEl.textContent = `Section ${show} not found.`;
-          messageEl.style.color = "red";
-        }
-      }
-    } else {
-      messageEl.textContent = "Please specify a section via ?show=1 (or 2, 3) or ?show=all";
-    }
-
-    // Copy URL buttons
-    document.querySelectorAll("button.copy-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        const sectionId = btn.getAttribute("data-section");
-        const url = `https://www.impactcolliders.com/videos.html?show=${sectionId}`;
-        navigator.clipboard.writeText(url).then(() => {
-          btn.textContent = "Copied!";
-          setTimeout(() => btn.textContent = "Copy URL", 1500);
-        }).catch(() => alert("Failed to copy URL"));
-      });
-    });
-
-    // Copy QR Code buttons
-    document.querySelectorAll("button.copy-qr-btn").forEach(btn => {
-      btn.addEventListener("click", async () => {
-        const sectionId = btn.getAttribute("data-section");
-        const url = `https://www.impactcolliders.com/videos.html?show=${sectionId}`;
-        try {
-          const container = document.createElement("div");
-          container.style.position = "fixed";
-          container.style.left = "-9999px";
-          document.body.appendChild(container);
-
-          const qr = new QRCode(container, {
-            text: url,
-            width: 256,
-            height: 256,
-            correctLevel: QRCode.CorrectLevel.H
-          });
-
-          await new Promise(resolve => setTimeout(resolve, 100));
-          let img = container.querySelector("img");
-          let canvas;
-          if (img) {
-            canvas = document.createElement("canvas");
-            canvas.width = img.naturalWidth;
-            canvas.height = img.naturalHeight;
-            const ctx = canvas.getContext("2d");
-            ctx.drawImage(img, 0, 0);
+          const section = document.querySelector(
+            `section[data-index="${show}"]`
+          );
+          if (section) {
+            section.classList.add("active");
+            messageEl.textContent = `Showing section ${show}.`;
           } else {
-            canvas = container.querySelector("canvas");
+            messageEl.textContent = `Section ${show} not found.`;
+            messageEl.style.color = "red";
+          }
+        }
+      } else {
+        messageEl.textContent =
+          "Please specify a section via ?show=1 (or 2, 3) or ?show=all";
+      }
+
+      // Copy URL buttons
+      document.querySelectorAll("button.copy-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const sectionId = btn.getAttribute("data-section");
+          const url = `https://www.impactcolliders.com/videos.html?show=${sectionId}`;
+          navigator.clipboard
+            .writeText(url)
+            .then(() => {
+              btn.textContent = "Copied!";
+              setTimeout(() => (btn.textContent = "Copy URL"), 1500);
+            })
+            .catch(() => alert("Failed to copy URL"));
+        });
+      });
+
+      // Copy QR Code buttons
+      document.querySelectorAll("button.copy-qr-btn").forEach((btn) => {
+        btn.addEventListener("click", async () => {
+          const sectionId = btn.getAttribute("data-section");
+          const url = `https://www.impactcolliders.com/videos.html?show=${sectionId}`;
+          try {
+            const container = document.createElement("div");
+            container.style.position = "fixed";
+            container.style.left = "-9999px";
+            document.body.appendChild(container);
+
+            const qr = new QRCode(container, {
+              text: url,
+              width: 256,
+              height: 256,
+              correctLevel: QRCode.CorrectLevel.H,
+            });
+
+            await new Promise((resolve) => setTimeout(resolve, 100));
+            let img = container.querySelector("img");
+            let canvas;
+            if (img) {
+              canvas = document.createElement("canvas");
+              canvas.width = img.naturalWidth;
+              canvas.height = img.naturalHeight;
+              const ctx = canvas.getContext("2d");
+              ctx.drawImage(img, 0, 0);
+            } else {
+              canvas = container.querySelector("canvas");
+            }
+
+            if (!canvas)
+              throw new Error("Could not find QR code image or canvas.");
+
+            canvas.toBlob(async (blob) => {
+              if (!blob) {
+                alert("Failed to convert QR code to image.");
+                container.remove();
+                return;
+              }
+              try {
+                await navigator.clipboard.write([
+                  new ClipboardItem({ "image/png": blob }),
+                ]);
+                btn.textContent = "QR Copied!";
+                setTimeout(() => (btn.textContent = "Copy QR Code"), 1500);
+              } catch {
+                alert(
+                  "Failed to copy QR code image. Your browser may not support this."
+                );
+              }
+              container.remove();
+            });
+          } catch (err) {
+            alert("Error generating or copying QR code: " + err.message);
+          }
+        });
+      });
+
+      function switchVideoSection(button, direction) {
+        const wrapper = button.closest(".video-wrapper");
+        if (!wrapper) return;
+
+        const sections = wrapper.querySelectorAll(".video-section");
+        let currentIndex = -1;
+
+        // Find currently visible section
+        sections.forEach((sec, i) => {
+          if (sec.style.display !== "none") {
+            currentIndex = i;
+          }
+        });
+
+        if (currentIndex === -1) return;
+
+        const nextIndex =
+          (currentIndex + direction + sections.length) % sections.length;
+
+        sections.forEach((sec, i) => {
+          const iframe = sec.querySelector("iframe");
+          if (!iframe) return;
+
+          let src = iframe.getAttribute("src");
+          src = src.replace(/&?mute=\d/, ""); // Remove existing mute param
+
+          if (i === nextIndex) {
+            sec.style.display = "block";
+            // Unmute the active one
+            iframe.setAttribute("src", updateUrlParam(src, "mute", "0"));
+          } else {
+            sec.style.display = "none";
+            // Mute the hidden ones
+            iframe.setAttribute("src", updateUrlParam(src, "mute", "1"));
+          }
+        });
+      }
+
+      function resetIframeVideo(iframe) {
+        const src = iframe.getAttribute("src");
+        iframe.setAttribute("src", src); // Reloads iframe and resets video state
+      }
+
+      function resetIframeVideo(iframe) {
+        const src = iframe.getAttribute("src");
+        iframe.setAttribute("src", src);
+      }
+
+      function updateUrlParam(url, param, value) {
+        const baseUrl = url.split("?")[0];
+        const query = new URLSearchParams(url.split("?")[1] || "");
+        query.set(param, value);
+        return `${baseUrl}?${query.toString()}`;
+      }
+
+      document.querySelectorAll(".video-wrapper").forEach((wrapper) => {
+        let startX = null;
+
+        wrapper.addEventListener("touchstart", (e) => {
+          startX = e.touches[0].clientX;
+        });
+
+        wrapper.addEventListener("touchend", (e) => {
+          if (startX === null) return;
+          const endX = e.changedTouches[0].clientX;
+          const deltaX = endX - startX;
+
+          const swipeThreshold = 50; // minimum px to consider a swipe
+
+          if (Math.abs(deltaX) > swipeThreshold) {
+            // Find the arrow button to simulate click
+            if (deltaX > 0) {
+              // Swipe right → go to previous video (left arrow)
+              const leftArrow = wrapper.querySelector(".left-arrow");
+              if (leftArrow) leftArrow.click();
+            } else {
+              // Swipe left → go to next video (right arrow)
+              const rightArrow = wrapper.querySelector(".right-arrow");
+              if (rightArrow) rightArrow.click();
+            }
+          }
+          startX = null;
+        });
+      });
+
+      document.querySelectorAll(".video-wrapper").forEach((wrapper) => {
+        let startY = null;
+
+        wrapper.addEventListener("touchstart", (e) => {
+          startY = e.touches[0].clientY;
+        });
+
+        wrapper.addEventListener("touchend", (e) => {
+          if (startY === null) return;
+          const endY = e.changedTouches[0].clientY;
+          const deltaY = endY - startY;
+
+          const swipeThreshold = 50; // px threshold for swipe
+
+          if (Math.abs(deltaY) > swipeThreshold) {
+            if (deltaY < 0) {
+              // Swipe UP detected
+              console.log("Swipe up!");
+              // do something on swipe up, e.g., switch to next section
+              const rightArrow = wrapper.querySelector(".right-arrow");
+              if (rightArrow) rightArrow.click();
+            } else {
+              // Swipe DOWN detected
+              console.log("Swipe down!");
+              // do something on swipe down, e.g., switch to previous section
+
+              const leftArrow = wrapper.querySelector(".left-arrow");
+              if (leftArrow) leftArrow.click();
+            }
           }
 
-          if (!canvas) throw new Error("Could not find QR code image or canvas.");
-
-          canvas.toBlob(async blob => {
-            if (!blob) {
-              alert("Failed to convert QR code to image.");
-              container.remove();
-              return;
-            }
-            try {
-              await navigator.clipboard.write([new ClipboardItem({ "image/png": blob })]);
-              btn.textContent = "QR Copied!";
-              setTimeout(() => btn.textContent = "Copy QR Code", 1500);
-            } catch {
-              alert("Failed to copy QR code image. Your browser may not support this.");
-            }
-            container.remove();
-          });
-        } catch (err) {
-          alert("Error generating or copying QR code: " + err.message);
-        }
+          startY = null;
+        });
       });
-    });
 
-function switchVideoSection(button, direction) {
-  const wrapper = button.closest('.video-wrapper');
-  if (!wrapper) return;
+      document.querySelectorAll(".touch-overlay").forEach((overlay) => {
+        let startY = null;
 
-  const sections = wrapper.querySelectorAll('.video-section');
-  let currentIndex = -1;
+        overlay.addEventListener("touchstart", (e) => {
+          startY = e.touches[0].clientY;
+        });
 
-  // Find currently visible section
-  sections.forEach((sec, i) => {
-    if (sec.style.display !== 'none') {
-      currentIndex = i;
-    }
-  });
+        overlay.addEventListener("touchend", (e) => {
+          if (startY === null) return;
+          const endY = e.changedTouches[0].clientY;
+          const deltaY = endY - startY;
 
-  if (currentIndex === -1) return;
+          const threshold = 50; // px
 
-  const nextIndex = (currentIndex + direction + sections.length) % sections.length;
-
-  sections.forEach((sec, i) => {
-    const iframe = sec.querySelector('iframe');
-    if (!iframe) return;
-
-    let src = iframe.getAttribute('src');
-    src = src.replace(/&?mute=\d/, ''); // Remove existing mute param
-
-    if (i === nextIndex) {
-      sec.style.display = 'block';
-      // Unmute the active one
-      iframe.setAttribute('src', updateUrlParam(src, 'mute', '0'));
-    } else {
-      sec.style.display = 'none';
-      // Mute the hidden ones
-      iframe.setAttribute('src', updateUrlParam(src, 'mute', '1'));
-    }
-  });
-}
-
-
-function resetIframeVideo(iframe) {
-  const src = iframe.getAttribute("src");
-  iframe.setAttribute("src", src); // Reloads iframe and resets video state
-}
-
-function resetIframeVideo(iframe) {
-  const src = iframe.getAttribute("src");
-  iframe.setAttribute("src", src);
-}
-
-function updateUrlParam(url, param, value) {
-  const baseUrl = url.split('?')[0];
-  const query = new URLSearchParams(url.split('?')[1] || '');
-  query.set(param, value);
-  return `${baseUrl}?${query.toString()}`;
-}
-
-document.querySelectorAll('.video-wrapper').forEach(wrapper => {
-  let startX = null;
-
-  wrapper.addEventListener('touchstart', (e) => {
-    startX = e.touches[0].clientX;
-  });
-
-  wrapper.addEventListener('touchend', (e) => {
-    if (startX === null) return;
-    const endX = e.changedTouches[0].clientX;
-    const deltaX = endX - startX;
-
-    const swipeThreshold = 50; // minimum px to consider a swipe
-
-    if (Math.abs(deltaX) > swipeThreshold) {
-      // Find the arrow button to simulate click
-      if (deltaX > 0) {
-        // Swipe right → go to previous video (left arrow)
-        const leftArrow = wrapper.querySelector('.left-arrow');
-        if (leftArrow) leftArrow.click();
-      } else {
-        // Swipe left → go to next video (right arrow)
-        const rightArrow = wrapper.querySelector('.right-arrow');
-        if (rightArrow) rightArrow.click();
-      }
-    }
-    startX = null;
-  });
-});
-
-document.querySelectorAll('.video-wrapper').forEach(wrapper => {
-  let startY = null;
-
-  wrapper.addEventListener('touchstart', (e) => {
-    startY = e.touches[0].clientY;
-  });
-
-  wrapper.addEventListener('touchend', (e) => {
-    if (startY === null) return;
-    const endY = e.changedTouches[0].clientY;
-    const deltaY = endY - startY;
-
-    const swipeThreshold = 50; // px threshold for swipe
-
-    if (Math.abs(deltaY) > swipeThreshold) {
-      if (deltaY < 0) {
-        // Swipe UP detected
-        console.log('Swipe up!');
-        // do something on swipe up, e.g., switch to next section
-        const rightArrow = wrapper.querySelector('.right-arrow');
-        if (rightArrow) rightArrow.click();
-      } else {
-        // Swipe DOWN detected
-        console.log('Swipe down!');
-        // do something on swipe down, e.g., switch to previous section
-        
-        const leftArrow = wrapper.querySelector('.left-arrow');
-        if (leftArrow) leftArrow.click();
-      }
-    }
-
-    startY = null;
-  });
-});
-
-document.querySelectorAll('.touch-overlay').forEach(overlay => {
-  let startY = null;
-
-  overlay.addEventListener('touchstart', e => {
-    startY = e.touches[0].clientY;
-  });
-
-  overlay.addEventListener('touchend', e => {
-    if (startY === null) return;
-    const endY = e.changedTouches[0].clientY;
-    const deltaY = endY - startY;
-
-    const threshold = 50; // px
-
-    if (Math.abs(deltaY) > threshold) {
-      if (deltaY < 0) {
-        console.log('Swipe up detected');
-        // e.g., switchVideoSection or goToSiblingSection(1) or your logic
-        goToSiblingSection(1);
-      } else {
-        console.log('Swipe down detected');
-        // e.g., switchVideoSection or goToSiblingSection(-1)
-        goToSiblingSection(-1);
-      }
-    }
-    startY = null;
-  });
-});
-
-
-  </script>
-</body>
+          if (Math.abs(deltaY) > threshold) {
+            if (deltaY < 0) {
+              console.log("Swipe up detected");
+              // e.g., switchVideoSection or goToSiblingSection(1) or your logic
+              goToSiblingSection(1);
+            } else {
+              console.log("Swipe down detected");
+              // e.g., switchVideoSection or goToSiblingSection(-1)
+              goToSiblingSection(-1);
+            }
+          }
+          startY = null;
+        });
+      });
+    </script>
+  </body>
 </html>

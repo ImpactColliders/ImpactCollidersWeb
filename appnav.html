@@ -1,217 +1,279 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta name="description" content="Learn more about Impact Colliders – our mission, vision, and community." />
-  <meta name="author" content="Impact Colliders" />
-  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet" />
-  <title>About Us - Impact Colliders</title>
-
-  <!-- Additional CSS Files -->
-  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css" />
-  <link rel="stylesheet" href="assets/css/templatemo-lava.css" />
-  <link rel="stylesheet" href="assets/css/owl-carousel.css" />
-  <style>
-    .about-grid-section {
-      padding: 80px 20px;
-      background-color: #fff;
-    }
-
-    .about-grid-container {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-areas:
-        "intro image1"
-        "approach approach"
-        "image2 image3";
-      gap: 30px;
-      max-width: 1200px;
-      margin: auto;
-      padding: 10px;
-    }
-
-    .about-intro {
-      grid-area: intro;
-    }
-
-    .image-1 {
-      grid-area: image1;
-    }
-
-    .image-2 {
-      grid-area: image2;
-    }
-
-    .image-3 {
-      grid-area: image3;
-    }
-
-    .about-approach {
-      grid-area: approach;
-    }
-
-    .about-text h1,
-    .about-text h2 {
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-
-    .about-text p {
-      font-size: 1.1em;
-      line-height: 1.7;
-    }
-
-    .about-image img {
-      width: 100%;
-      aspect-ratio: 1 / 1;
-      object-fit: cover;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    .aboutPerson {
-      max-width: 25%;
-    }
-
-    @media (max-width: 975px) {
-      .aboutPerson {
-        max-width: 33%;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .aboutPerson {
-        max-width: 50%;
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="Learn more about Impact Colliders – our mission, vision, and community."
+    />
+    <meta name="author" content="Impact Colliders" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>About Us - Impact Colliders</title>
+    <link rel="icon" type="image/x-icon" href="/assets/images/logo.jpg" />
+    <!-- Additional CSS Files -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css" />
+    <link rel="stylesheet" href="assets/css/templatemo-lava.css" />
+    <link rel="stylesheet" href="assets/css/owl-carousel.css" />
+    <style>
+      .about-grid-section {
+        padding: 80px 20px;
+        background-color: #fff;
       }
 
       .about-grid-container {
         display: grid;
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         grid-template-areas:
-          "image1"
-          "intro"
-          "image2"
-          "approach"
-          "image3";
+          "intro image1"
+          "approach approach"
+          "image2 image3";
         gap: 30px;
         max-width: 1200px;
         margin: auto;
         padding: 10px;
       }
-    }
 
-    @media (max-width: 524px) {
-      .aboutPerson {
-        max-width: 100%;
+      .about-intro {
+        grid-area: intro;
       }
-    }
 
-    /* Interactive Grid Section */
-    .interactive-grid-section {
-      padding: 10dvh;
-      background-color: #f8f8f8;
-      text-align: center;
-    }
+      .image-1 {
+        grid-area: image1;
+      }
 
-    .interactive-grid-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 20px;
-      max-width: 1000px;
-      margin: auto;
-    }
+      .image-2 {
+        grid-area: image2;
+      }
 
-    .interactive-box {
-      background-color: #fff;
-      border-radius: 12px;
-      text-decoration: none;
-      color: #333;
-      font-weight: 600;
-      font-size: 1.1em;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
-    }
+      .image-3 {
+        grid-area: image3;
+      }
 
-    .interactive-box img{
+      .about-approach {
+        grid-area: approach;
+      }
+
+      .about-text h1,
+      .about-text h2 {
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+
+      .about-text p {
+        font-size: 1.1em;
+        line-height: 1.7;
+      }
+
+      .about-image img {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .aboutPerson {
+        max-width: 25%;
+      }
+
+      @media (max-width: 975px) {
+        .aboutPerson {
+          max-width: 33%;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .aboutPerson {
+          max-width: 50%;
+        }
+
+        .about-grid-container {
+          display: grid;
+          grid-template-columns: repeat(1, 1fr);
+          grid-template-areas:
+            "image1"
+            "intro"
+            "image2"
+            "approach"
+            "image3";
+          gap: 30px;
+          max-width: 1200px;
+          margin: auto;
+          padding: 10px;
+        }
+      }
+
+      @media (max-width: 524px) {
+        .aboutPerson {
+          max-width: 100%;
+        }
+      }
+
+      /* Interactive Grid Section */
+      .interactive-grid-section {
+        padding: 10dvh;
+        background-color: #f8f8f8;
+        text-align: center;
+      }
+
+      .interactive-grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 20px;
+        max-width: 1000px;
+        margin: auto;
+      }
+
+      .interactive-box {
+        background-color: #fff;
+        border-radius: 12px;
+        text-decoration: none;
+        color: #333;
+        font-weight: 600;
+        font-size: 1.1em;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+      }
+
+      .interactive-box img {
         max-width: 100%;
         max-height: 100%;
-    }
+      }
 
-    .interactive-box:hover {
-      background-color: #ff4500;
-      color: #fff;
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    }
-  </style>
-</head>
+      .interactive-box:hover {
+        background-color: #ff4500;
+        color: #fff;
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      }
+    </style>
+  </head>
 
-<body>
-  <div id="preloader">
-    <div class="jumper"><div></div><div></div><div></div></div>
-  </div>
-
-  <!-- Nav Bar -->
-  <header class="header-area header-sticky" id="nav-placeholder">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <nav class="main-nav">
-            <a href="index.html" class="logo">Impact Colliders</a>
-            <ul class="nav">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="about.html">About Us</a></li>
-              <li><a href="appnav.html" class="active">Video Library</a></li>
-              <li><a href="videos.html?show=all">Digital Game</a></li>
-              <li><a href="shop.html">Shop</a></li>
-            </ul>
-            <a class='menu-trigger'><span>Menu</span></a>
-          </nav>
-        </div>
+  <body>
+    <div id="preloader">
+      <div class="jumper">
+        <div></div>
+        <div></div>
+        <div></div>
       </div>
     </div>
-  </header>
 
-  <!-- Interactive Grid Section -->
-  <section class="interactive-grid-section">
-    <div class="interactive-grid-container">
-      <a href="videos.html?show=1" class="interactive-box"><img src="assets/images/placeholder_square.png"></a>
-      <a href="videos.html?show=2" class="interactive-box"><img src="assets/images/placeholder_square.png"></a>
-      <a href="videos.html?show=3" class="interactive-box"><img src="assets/images/placeholder_square.png"></a>
-      <a href="videos.html?show=4" class="interactive-box"><img src="assets/images/placeholder_square.png"></a>
-      <a href="videos.html?show=5" class="interactive-box"><img src="assets/images/placeholder_square.png"></a>
-      <a href="videos.html?show=6" class="interactive-box"><img src="assets/images/placeholder_square.png"></a>
-      <a href="videos.html?show=7" class="interactive-box"><img src="assets/images/placeholder_square.png"></a>
-      <a href="videos.html?show=8" class="interactive-box"><img src="assets/images/placeholder_square.png"></a>
-      <a href="videos.html?show=9" class="interactive-box"><img src="assets/images/placeholder_square.png"></a>
-      <a href="videos.html?show=10" class="interactive-box"><img src="assets/images/placeholder_square.png"></a>
-      <a href="videos.html?show=11" class="interactive-box"><img src="assets/images/placeholder_square.png"></a>
-      <a href="videos.html?show=12" class="interactive-box"><img src="assets/images/placeholder_square.png"></a>
-      <a href="videos.html?show=13" class="interactive-box"><img src="assets/images/placeholder_square.png"></a>
-      <a href="videos.html?show=14" class="interactive-box"><img src="assets/images/placeholder_square.png"></a>
-      <a href="videos.html?show=15" class="interactive-box"><img src="assets/images/placeholder_square.png"></a>
-      <a href="videos.html?show=16" class="interactive-box"><img src="assets/images/placeholder_square.png"></a>
-      <a href="videos.html?show=17" class="interactive-box"><img src="assets/images/placeholder_square.png"></a>
-      <a href="videos.html?show=18" class="interactive-box"><img src="assets/images/placeholder_square.png"></a>
-      <a href="videos.html?show=19" class="interactive-box"><img src="assets/images/placeholder_square.png"></a>
-      <a href="videos.html?show=20" class="interactive-box"><img src="assets/images/placeholder_square.png"></a>
-      <a href="videos.html?show=21" class="interactive-box"><img src="assets/images/placeholder_square.png"></a>
-    </div>
-  </section>
+    <!-- Nav Bar -->
+    <header class="header-area header-sticky" id="nav-placeholder">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <nav class="main-nav">
+              <a href="index.html" class="logo">
+                <img
+                  src="assets/images/Impact Colliders_Black.png"
+                  alt="Impact Colliders Logo"
+                />
+              </a>
+              <ul class="nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="appnav.html" class="active">Video Library</a></li>
+                <li><a href="videos.html?show=all">Digital Game</a></li>
+                <li><a href="shop.html">Shop</a></li>
+              </ul>
+              <a class="menu-trigger"><span>Menu</span></a>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
 
-  <!-- JS Scripts -->
-  <script src="assets/js/jquery-2.1.0.min.js"></script>
-  <script src="assets/js/popper.js"></script>
-  <script src="assets/js/bootstrap.min.js"></script>
-  <script src="assets/js/owl-carousel.js"></script>
-  <script src="assets/js/scrollreveal.min.js"></script>
-  <script src="assets/js/waypoints.min.js"></script>
-  <script src="assets/js/jquery.counterup.min.js"></script>
-  <script src="assets/js/imgfix.min.js"></script>
-  <script src="assets/js/custom.js"></script>
-</body>
+    <!-- Interactive Grid Section -->
+    <section class="interactive-grid-section">
+      <div class="interactive-grid-container">
+        <a href="videos.html?show=1" class="interactive-box"
+          ><img src="assets/images/placeholder_square.png"
+        /></a>
+        <a href="videos.html?show=2" class="interactive-box"
+          ><img src="assets/images/placeholder_square.png"
+        /></a>
+        <a href="videos.html?show=3" class="interactive-box"
+          ><img src="assets/images/placeholder_square.png"
+        /></a>
+        <a href="videos.html?show=4" class="interactive-box"
+          ><img src="assets/images/placeholder_square.png"
+        /></a>
+        <a href="videos.html?show=5" class="interactive-box"
+          ><img src="assets/images/placeholder_square.png"
+        /></a>
+        <a href="videos.html?show=6" class="interactive-box"
+          ><img src="assets/images/placeholder_square.png"
+        /></a>
+        <a href="videos.html?show=7" class="interactive-box"
+          ><img src="assets/images/placeholder_square.png"
+        /></a>
+        <a href="videos.html?show=8" class="interactive-box"
+          ><img src="assets/images/placeholder_square.png"
+        /></a>
+        <a href="videos.html?show=9" class="interactive-box"
+          ><img src="assets/images/placeholder_square.png"
+        /></a>
+        <a href="videos.html?show=10" class="interactive-box"
+          ><img src="assets/images/placeholder_square.png"
+        /></a>
+        <a href="videos.html?show=11" class="interactive-box"
+          ><img src="assets/images/placeholder_square.png"
+        /></a>
+        <a href="videos.html?show=12" class="interactive-box"
+          ><img src="assets/images/placeholder_square.png"
+        /></a>
+        <a href="videos.html?show=13" class="interactive-box"
+          ><img src="assets/images/placeholder_square.png"
+        /></a>
+        <a href="videos.html?show=14" class="interactive-box"
+          ><img src="assets/images/placeholder_square.png"
+        /></a>
+        <a href="videos.html?show=15" class="interactive-box"
+          ><img src="assets/images/placeholder_square.png"
+        /></a>
+        <a href="videos.html?show=16" class="interactive-box"
+          ><img src="assets/images/placeholder_square.png"
+        /></a>
+        <a href="videos.html?show=17" class="interactive-box"
+          ><img src="assets/images/placeholder_square.png"
+        /></a>
+        <a href="videos.html?show=18" class="interactive-box"
+          ><img src="assets/images/placeholder_square.png"
+        /></a>
+        <a href="videos.html?show=19" class="interactive-box"
+          ><img src="assets/images/placeholder_square.png"
+        /></a>
+        <a href="videos.html?show=20" class="interactive-box"
+          ><img src="assets/images/placeholder_square.png"
+        /></a>
+        <a href="videos.html?show=21" class="interactive-box"
+          ><img src="assets/images/placeholder_square.png"
+        /></a>
+      </div>
+    </section>
 
+    <!-- JS Scripts -->
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/scrollreveal.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/imgfix.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+  </body>
 </html>

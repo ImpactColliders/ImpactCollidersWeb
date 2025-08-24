@@ -1,316 +1,380 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="Learn more about Impact Colliders – our mission, vision, and community."
+    />
+    <meta name="author" content="Impact Colliders" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>About Us - Impact Colliders</title>
+    <link rel="icon" type="image/x-icon" href="/assets/images/logo.jpg" />
+    <!-- Additional CSS Files -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css" />
+    <link rel="stylesheet" href="assets/css/templatemo-lava.css" />
+    <link rel="stylesheet" href="assets/css/owl-carousel.css" />
+    <style>
+      .about-grid-section {
+        padding: 80px 20px;
+        background-color: #fff;
+      }
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta name="description" content="Learn more about Impact Colliders – our mission, vision, and community." />
-  <meta name="author" content="Impact Colliders" />
-  <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet" />
-  <title>About Us - Impact Colliders</title>
+      .about-grid-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas:
+          "intro image1"
+          "approach approach"
+          "image2 image3";
+        gap: 30px;
+        max-width: 1200px;
+        margin: auto;
+        padding: 10px 10px 10px 10px;
+      }
 
-  <!-- Additional CSS Files -->
-  <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css" />
-  <link rel="stylesheet" href="assets/css/templatemo-lava.css" />
-  <link rel="stylesheet" href="assets/css/owl-carousel.css" />
-  <style>
-    .about-grid-section {
-  padding: 80px 20px;
-  background-color: #fff;
-}
+      .about-intro {
+        grid-area: intro;
+      }
 
-.about-grid-container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-areas:
-    "intro image1"
-    "approach approach"
-    "image2 image3"
-    ;
-  gap: 30px;
-  max-width: 1200px;
-  margin: auto;
-  padding: 10px 10px 10px 10px;
-}
+      .image-1 {
+        grid-area: image1;
+      }
 
-.about-intro {
-  grid-area: intro;
-}
+      .image-2 {
+        grid-area: image2;
+      }
 
-.image-1 {
-  grid-area: image1;
-}
+      .image-3 {
+        grid-area: image3;
+      }
 
-.image-2 {
-  grid-area: image2;
-}
+      .about-approach {
+        grid-area: approach;
+      }
 
-.image-3 {
-  grid-area: image3;
-}
+      .about-text h1,
+      .about-text h2 {
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
 
-.about-approach {
-  grid-area: approach;
-}
+      .about-text p {
+        font-size: 1.1em;
+        line-height: 1.7;
+      }
 
-.about-text h1,
-.about-text h2 {
-  font-weight: 700;
-  margin-bottom: 20px;
-}
+      .about-image img {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
 
-.about-text p {
-  font-size: 1.1em;
-  line-height: 1.7;
-}
+      .aboutPerson {
+        max-width: 25%;
+      }
 
-.about-image img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
+      @media (max-width: 975px) {
+        .aboutPerson {
+          max-width: 33%;
+        }
+      }
 
-.aboutPerson{
-  max-width: 25%;
-}
+      @media (max-width: 720px) {
+        .aboutPerson {
+          max-width: 50%;
+        }
 
-@media (max-width: 975px) {
-  .aboutPerson{
-    max-width: 33%;
-  }
-}
+        .about-grid-container {
+          display: grid;
+          grid-template-columns: repeat(1, 1fr);
+          grid-template-areas:
+            "image1"
+            "intro"
+            "image2"
+            "approach"
+            "image3";
+          gap: 30px;
+          max-width: 1200px;
+          margin: auto;
+          padding: 10px 10px 10px 10px;
+        }
+      }
 
-@media (max-width: 720px) {
-  .aboutPerson{
-    max-width: 50%;
-  }
+      @media (max-width: 524px) {
+        .aboutPerson {
+          max-width: 100%;
+        }
+      }
 
-  .about-grid-container {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-areas:
-    "image1"
-    "intro"
-    "image2"
-    "approach"
-    "image3"
-    ;
-  gap: 30px;
-  max-width: 1200px;
-  margin: auto;
-  padding: 10px 10px 10px 10px;
-}
-}
+      /* Responsive Grid */
+    </style>
+  </head>
 
-@media (max-width: 524px) {
-  .aboutPerson{
-    max-width: 100%;
-  }
-}
+  <body>
+    <div id="preloader">
+      <div class="jumper">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
 
-/* Responsive Grid */
-
-
-  </style>
-</head>
-
-<body>
-  <div id="preloader">
-    <div class="jumper"><div></div><div></div><div></div></div>
-  </div>
-
-  <!-- Nav Bar -->
+    <!-- Nav Bar -->
     <header class="header-area header-sticky" id="nav-placeholder">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="main-nav">
-                        <a href="index.html" class="logo">
-                            Impact Colliders
-                        </a>
-                        <ul class="nav">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="about.html" class="active">About Us</a></li>
-                            <li><a href="appnav.html">Video Library</a></li>
-                            <li><a href="videos.html?show=all">Digital Game</a></li>
-                            <li><a href="shop.html">Shop</a></li>
-                        </ul>
-                        <a class='menu-trigger'>
-                            <span>Menu</span>
-                        </a>
-                    </nav>
-                </div>
-            </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <nav class="main-nav">
+              <a href="index.html" class="logo">
+                <img
+                  src="assets/images/Impact Colliders_Black.png"
+                  alt="Impact Colliders Logo"
+                />
+              </a>
+              <ul class="nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About Us</a></li>
+                <li><a href="appnav.html">Video Library</a></li>
+                <li><a href="videos.html?show=all">Digital Game</a></li>
+                <li><a href="shop.html">Shop</a></li>
+              </ul>
+              <a class="menu-trigger">
+                <span>Menu</span>
+              </a>
+            </nav>
+          </div>
         </div>
+      </div>
     </header>
 
-
-  <section class="about-grid-section" id="welcome">
-  <div class="about-grid-container">
-    <!-- Top row: Text and Image -->
-    <div class="about-text about-intro">
-      <h1>About <em>Impact Colliders</em></h1>
-      <p>
-        Impact Colliders is a platform and community built to catalyze ideas that shape a better future. We empower doers, dreamers, and disruptors to co-create real-world impact through innovation, collaboration, and action.
-      </p>
-    </div>
-    <div class="about-image image-1" >
-      <img src="placeholder.webp" style="max-height: 33dvh;" alt="Overview" />
-    </div>
-
-    <!-- Bottom row: Two images and a paragraph -->
-    <div class="about-image image-2">
-      <img src="placeholder.webp" style="max-height: 33dvh;" alt="Workshop" />
-    </div>
-    <div class="about-image image-3">
-      <img src="placeholder.webp" style="max-height: 33dvh;" alt="Teamwork" />
-    </div>
-    <div class="about-text about-approach">
-      <h2>Our Approach</h2>
-      <p>
-        We build bridges between sectors, host interactive collisions, and create spaces for experimentation. Join us in reimagining how innovation can serve communities.
-      </p>
-    </div>
-  </div>
-</section>
-
-
-
-  <section class="section" id="mission">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4 col-md-6 col-sm-12">
-          <div class="features-item">
-            <div class="features-icon">
-              <h2>01</h2>
-              <img src="assets/images/features-icon-1.png" alt="">
-              <h4>Our Mission</h4>
-              <p>To empower innovators and changemakers with the tools, community, and momentum to solve real-world problems through collaboration and creativity.</p>
-            </div>
-          </div>
+    <section class="about-grid-section" id="welcome">
+      <div class="about-grid-container">
+        <!-- Top row: Text and Image -->
+        <div class="about-text about-intro">
+          <h1>About <em>Impact Colliders</em></h1>
+          <p>
+            Impact Colliders is a platform and community built to catalyze ideas
+            that shape a better future. We empower doers, dreamers, and
+            disruptors to co-create real-world impact through innovation,
+            collaboration, and action.
+          </p>
         </div>
-        <div class="col-lg-4 col-md-6 col-sm-12">
-          <div class="features-item">
-            <div class="features-icon">
-              <h2>02</h2>
-              <img src="assets/images/features-icon-2.png" alt="">
-              <h4>Our Vision</h4>
-              <p>A future where anyone with a bold idea can bring it to life—together with others who care about people and the planet.</p>
-            </div>
-          </div>
+        <div class="about-image image-1">
+          <img
+            src="placeholder.webp"
+            style="max-height: 33dvh"
+            alt="Overview"
+          />
         </div>
-        <div class="col-lg-4 col-md-6 col-sm-12">
-          <div class="features-item">
-            <div class="features-icon">
-              <h2>03</h2>
-              <img src="assets/images/features-icon-3.png" alt="">
-              <h4>Our Community</h4>
-              <p>From students and educators to entrepreneurs and nonprofits, our diverse community is the heartbeat of everything we do.</p>
-            </div>
-          </div>
+
+        <!-- Bottom row: Two images and a paragraph -->
+        <div class="about-image image-2">
+          <img
+            src="placeholder.webp"
+            style="max-height: 33dvh"
+            alt="Workshop"
+          />
+        </div>
+        <div class="about-image image-3">
+          <img
+            src="placeholder.webp"
+            style="max-height: 33dvh"
+            alt="Teamwork"
+          />
+        </div>
+        <div class="about-text about-approach">
+          <h2>Our Approach</h2>
+          <p>
+            We build bridges between sectors, host interactive collisions, and
+            create spaces for experimentation. Join us in reimagining how
+            innovation can serve communities.
+          </p>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section" id="team">
-    <div class="container">
-      <div class="center-heading">
-        <h2>Meet The <em>Founders</em></h2>
-        <p>The people behind the movement.</p>
-      </div>
-      <div class="row">
-        <div class="col-lg-4 col-md-6 aboutPerson">
-          <div class="features-item">
-            <div class="features-icon">
-              <img src="assets/images/Avin.png" alt="">
-              <h4>Avin Teo</h4>
-              <p>CEO</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 aboutPerson">
-          <div class="features-item">
-            <div class="features-icon">
-              <img src="assets/images/Jocelyn.png" alt="">
-              <h4>Jocelyn Chng</h4>
-              <p>CFO</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 aboutPerson">
-          <div class="features-item">
-            <div class="features-icon">
-              <img src="assets/images/Courtney.png" alt="">
-              <h4>Courtney Tan</h4>
-              <p>CTO</p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 col-md-6 aboutPerson">
-  <div class="features-item">
-    <div class="features-icon">
-      <img src="assets/images/ShiYing.png" alt="">
-      <h4>Ng Shi Ying</h4>
-      <p>CPO</p>
-    </div>
-  </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer id="contact-us">
-    <div class="container">
-      <div class="footer-content">
+    <section class="section" id="mission">
+      <div class="container">
         <div class="row">
-          <div class="col-lg-6">
-            <div class="contact-form">
-              <form id="contact" action="#" method="post">
-                <div class="row">
-                  <div class="col-md-6">
-                    <input name="name" type="text" placeholder="Full Name" required />
-                  </div>
-                  <div class="col-md-6">
-                    <input name="email" type="text" placeholder="Email Address" required />
-                  </div>
-                  <div class="col-lg-12">
-                    <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
-                  </div>
-                  <div class="col-lg-12">
-                    <button type="submit" class="main-button">Send Message</button>
-                  </div>
-                </div>
-              </form>
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="features-item">
+              <div class="features-icon">
+                <h2>01</h2>
+                <img src="assets/images/features-icon-1.png" alt="" />
+                <h4>Our Mission</h4>
+                <p>
+                  To empower innovators and changemakers with the tools,
+                  community, and momentum to solve real-world problems through
+                  collaboration and creativity.
+                </p>
+              </div>
             </div>
           </div>
-          <div class="col-lg-6">
-            <h2>About <em>Impact Colliders</em></h2>
-            <p>We are a collective focused on empowering bold thinkers to take action on problems that matter. Join us on our journey to shape a better world through creativity and collaboration.</p>
-            <ul class="social">
-              <li><a href="https://www.instagram.com/impactcolliders/"><i class="fa fa-instagram"></i></a></li>
-            </ul>
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="features-item">
+              <div class="features-icon">
+                <h2>02</h2>
+                <img src="assets/images/features-icon-2.png" alt="" />
+                <h4>Our Vision</h4>
+                <p>
+                  A future where anyone with a bold idea can bring it to
+                  life—together with others who care about people and the
+                  planet.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="features-item">
+              <div class="features-icon">
+                <h2>03</h2>
+                <img src="assets/images/features-icon-3.png" alt="" />
+                <h4>Our Community</h4>
+                <p>
+                  From students and educators to entrepreneurs and nonprofits,
+                  our diverse community is the heartbeat of everything we do.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="sub-footer">
-        <p>&copy; 2025 Impact Colliders. All rights reserved.</p>
+    </section>
+
+    <section class="section" id="team">
+      <div class="container">
+        <div class="center-heading">
+          <h2>Meet The <em>Founders</em></h2>
+          <p>The people behind the movement.</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-6 aboutPerson">
+            <div class="features-item">
+              <div class="features-icon">
+                <img src="assets/images/Avin.png" alt="" />
+                <h4>Avin Teo</h4>
+                <p>CEO</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 aboutPerson">
+            <div class="features-item">
+              <div class="features-icon">
+                <img src="assets/images/Jocelyn.png" alt="" />
+                <h4>Jocelyn Chng</h4>
+                <p>CFO</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 aboutPerson">
+            <div class="features-item">
+              <div class="features-icon">
+                <img src="assets/images/Courtney.png" alt="" />
+                <h4>Courtney Tan</h4>
+                <p>CTO</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 aboutPerson">
+            <div class="features-item">
+              <div class="features-icon">
+                <img src="assets/images/ShiYing.png" alt="" />
+                <h4>Ng Shi Ying</h4>
+                <p>CPO</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
-  </footer>
+    </section>
 
-  <script src="assets/js/jquery-2.1.0.min.js"></script>
-  <script src="assets/js/popper.js"></script>
-  <script src="assets/js/bootstrap.min.js"></script>
-  <script src="assets/js/owl-carousel.js"></script>
-  <script src="assets/js/scrollreveal.min.js"></script>
-  <script src="assets/js/waypoints.min.js"></script>
-  <script src="assets/js/jquery.counterup.min.js"></script>
-  <script src="assets/js/imgfix.min.js"></script>
-  <script src="assets/js/custom.js"></script>
-</body>
+    <footer id="contact-us">
+      <div class="container">
+        <div class="footer-content">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="contact-form">
+                <form id="contact" action="#" method="post">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <input
+                        name="name"
+                        type="text"
+                        placeholder="Full Name"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-6">
+                      <input
+                        name="email"
+                        type="text"
+                        placeholder="Email Address"
+                        required
+                      />
+                    </div>
+                    <div class="col-lg-12">
+                      <textarea
+                        name="message"
+                        rows="6"
+                        placeholder="Your Message"
+                        required
+                      ></textarea>
+                    </div>
+                    <div class="col-lg-12">
+                      <button type="submit" class="main-button">
+                        Send Message
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <h2>About <em>Impact Colliders</em></h2>
+              <p>
+                We are a collective focused on empowering bold thinkers to take
+                action on problems that matter. Join us on our journey to shape
+                a better world through creativity and collaboration.
+              </p>
+              <ul class="social">
+                <li>
+                  <a href="https://www.instagram.com/impactcolliders/"
+                    ><i class="fa fa-instagram"></i
+                  ></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="sub-footer">
+          <p>&copy; 2025 Impact Colliders. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
 
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/scrollreveal.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/imgfix.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+  </body>
 </html>
