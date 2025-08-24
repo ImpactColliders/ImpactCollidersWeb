@@ -170,6 +170,12 @@ ul {
 p {
   font-size: 15px;
   line-height: 25px;
+  color: #000000;
+}
+
+.white {
+  font-size: 15px;
+  line-height: 25px;
   color: #ffffff;
 }
 
