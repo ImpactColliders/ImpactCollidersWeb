@@ -207,6 +207,14 @@
                       />
                     </div>
                     <div class="col-lg-12">
+                      <input
+                        name="subject"
+                        type="text"
+                        placeholder="Subject"
+                        required
+                      />
+                    </div>
+                    <div class="col-lg-12">
                       <textarea
                         name="message"
                         rows="6"
@@ -232,6 +240,24 @@
                     ><i class="fa fa-instagram"></i
                   ></a>
                 </li>
+                <li>
+                  <a
+                    href="https://www.facebook.com/p/Impact-Colliders-61571335654695/"
+                    ><i class="fa fa-facebook"></i
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.linkedin.com/company/impact-colliders/posts/?feedView=all"
+                    ><i class="fa fa-linkedin"></i
+                  ></a>
+                </li>
+                <li>
+                  <a
+                    href="https://www.tiktok.com/@impact.colliders?is_from_webapp=1&sender_device=pc"
+                    ><i class="fa fa-tiktok"></i
+                  ></a>
+                </li>
               </ul>
             </div>
           </div>
@@ -242,6 +268,7 @@
       </div>
     </footer>
 
+    r
     <script>
       document
         .getElementById("contact")
@@ -250,12 +277,12 @@
 
           const name = document.querySelector("input[name='name']").value;
           const email = document.querySelector("input[name='email']").value;
+          const subject = document.querySelector("input[name='subject']").value;
           const message = document.querySelector(
             "textarea[name='message']"
           ).value;
 
           // Build mailto link
-          const subject = encodeURIComponent("New Message from " + name);
           const body = encodeURIComponent(
             "Name: " +
               name +
