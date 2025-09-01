@@ -269,10 +269,7 @@
                 <img src="assets/images/Avin.png" alt="" />
                 <h4>Avin Teo</h4>
                 <p>CEO</p>
-                <p class="bio">
-                  Vision, strategy, investor relations, partnerships,
-                  coordination
-                </p>
+                <p class="bio"></p>
               </div>
             </div>
           </div>
@@ -282,9 +279,7 @@
                 <img src="assets/images/Jocelyn.png" alt="" />
                 <h4>Jocelyn Chng</h4>
                 <p>CFO</p>
-                <p class="bio">
-                  Product roadmap, user research, gameplay alignment
-                </p>
+                <p class="bio"></p>
               </div>
             </div>
           </div>
@@ -294,9 +289,7 @@
                 <img src="assets/images/Courtney.png" alt="" />
                 <h4>Courtney Tan</h4>
                 <p>CTO</p>
-                <p class="bio">
-                  Tech roadmap, digital transformation, scalability
-                </p>
+                <p class="bio"></p>
               </div>
             </div>
           </div>
@@ -306,7 +299,7 @@
                 <img src="assets/images/ShiYing.png" alt="" />
                 <h4>Ng Shi Ying</h4>
                 <p>CPO</p>
-                <p class="bio">Design</p>
+                <p class="bio"></p>
               </div>
             </div>
           </div>
@@ -419,6 +412,39 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      document
+        .getElementById("contact")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const name = document.querySelector("input[name='name']").value;
+          const email = document.querySelector("input[name='email']").value;
+          const message = document.querySelector(
+            "textarea[name='message']"
+          ).value;
+
+          // Build mailto link
+          const subject = encodeURIComponent("New Message from " + name);
+          const body = encodeURIComponent(
+            "Name: " +
+              name +
+              "\n" +
+              "Email: " +
+              email +
+              "\n\n" +
+              "Message:\n" +
+              message
+          );
+
+          // Replace with your email
+          const mailtoLink = `mailto:youraddress@example.com?subject=${subject}&body=${body}`;
+
+          // Open user's mail client
+          window.location.href = mailtoLink;
+        });
+    </script>
 
     <script src="assets/js/jquery-2.1.0.min.js"></script>
     <script src="assets/js/popper.js"></script>

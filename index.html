@@ -164,7 +164,7 @@
                   </div>
                   <div class="carousel-item">
                     <div class="carousel-image-wrapper">
-                      <img src="placeholder.webp" alt="Third slide" />
+                      <img src="assets/images/table.jpg" alt="Third slide" />
                     </div>
                     <div class="carousel-caption d-none d-md-block">
                       <h5>Inclusive by Design</h5>
@@ -241,6 +241,39 @@
         </div>
       </div>
     </footer>
+
+    <script>
+      document
+        .getElementById("contact")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const name = document.querySelector("input[name='name']").value;
+          const email = document.querySelector("input[name='email']").value;
+          const message = document.querySelector(
+            "textarea[name='message']"
+          ).value;
+
+          // Build mailto link
+          const subject = encodeURIComponent("New Message from " + name);
+          const body = encodeURIComponent(
+            "Name: " +
+              name +
+              "\n" +
+              "Email: " +
+              email +
+              "\n\n" +
+              "Message:\n" +
+              message
+          );
+
+          // Replace with your email
+          const mailtoLink = `mailto:youraddress@example.com?subject=${subject}&body=${body}`;
+
+          // Open user's mail client
+          window.location.href = mailtoLink;
+        });
+    </script>
 
     <script src="assets/js/jquery-2.1.0.min.js"></script>
     <script src="assets/js/popper.js"></script>
