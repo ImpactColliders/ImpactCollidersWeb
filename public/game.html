@@ -56,16 +56,16 @@
 
       // dynamically load the Unity loader only if logged in
       const script = document.createElement("script");
-      script.src = "Build/EhHowAh (Web).loader.js";
+      script.src = "Build/public.loader.js";
       script.onload = () => {
         const canvas = document.getElementById("unity-canvas");
         const prog = document.getElementById("prog");
         const label = document.getElementById("label");
 
         createUnityInstance(canvas, {
-          dataUrl: "Build/EhHowAh (Web).data.unityweb",
-          frameworkUrl: "Build/EhHowAh (Web).framework.js.unityweb",
-          codeUrl: "Build/EhHowAh (Web).wasm.unityweb",
+          dataUrl: "Build/public.data.unityweb",
+          frameworkUrl: "Build/public.framework.js.unityweb",
+          codeUrl: "Build/public.wasm.unityweb",
           streamingAssetsUrl: "StreamingAssets",
           companyName: "Company",
           productName: "Product",
