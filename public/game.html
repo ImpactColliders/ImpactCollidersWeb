@@ -100,18 +100,43 @@
   });
 
   // fullscreen
-  const fsButton = document.getElementById("fs");
-  const canvas = document.getElementById("unity-canvas");
-  fsButton.addEventListener("click", async () => {
-    if (document.fullscreenElement) {
-      await document.exitFullscreen();
-    } else {
-      try { await document.documentElement.requestFullscreen(); } catch {}
-      if (window.unityInstance && window.unityInstance.SetFullscreen) {
-        window.unityInstance.SetFullscreen(1);
-      }
+  // fullscreen
+const fsButton = document.getElementById("fs");
+const canvas = document.getElementById("unity-canvas");
+
+function isIOS() {
+  return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+}
+
+fsButton.addEventListener("click", async () => {
+  if (isIOS()) {
+    // iOS Safari: no Fullscreen API, just force canvas to fill viewport
+    canvas.style.position = "fixed";
+    canvas.style.top = "0";
+    canvas.style.left = "0";
+    canvas.style.width = "100vw";
+    canvas.style.height = "100dvh";
+    if (window.unityInstance && window.unityInstance.SetFullscreen) {
+      window.unityInstance.SetFullscreen(1);
     }
-  });
+    return;
+  }
+
+  // Desktop + Android: proper fullscreen API
+  if (document.fullscreenElement) {
+    await document.exitFullscreen();
+  } else {
+    try {
+      await canvas.requestFullscreen(); // use canvas instead of documentElement
+    } catch (err) {
+      console.warn("Fullscreen failed:", err);
+    }
+    if (window.unityInstance && window.unityInstance.SetFullscreen) {
+      window.unityInstance.SetFullscreen(1);
+    }
+  }
+});
+
 
   function resize() {
     canvas.style.width = window.innerWidth + "px";
