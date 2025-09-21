@@ -101,6 +101,7 @@
 
   // fullscreen
 const fsButton = document.getElementById("fs");
+const loButton = document.getElementById("logout");
 const canvas = document.getElementById("unity-canvas");
 
 function isIOS() {
@@ -110,6 +111,7 @@ function isIOS() {
 // Hide fullscreen button entirely on iOS
 if (isIOS()) {
   fsButton.style.display = "none";
+  loButton.style.display = "none";
 }
 
 fsButton.addEventListener("click", async () => {
