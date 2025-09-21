@@ -100,7 +100,6 @@
   });
 
   // fullscreen
-  // fullscreen
 const fsButton = document.getElementById("fs");
 const canvas = document.getElementById("unity-canvas");
 
@@ -108,26 +107,17 @@ function isIOS() {
   return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
 }
 
-fsButton.addEventListener("click", async () => {
-  if (isIOS()) {
-    // iOS Safari: no Fullscreen API, just force canvas to fill viewport
-    canvas.style.position = "fixed";
-    canvas.style.top = "0";
-    canvas.style.left = "0";
-    canvas.style.width = "100vw";
-    canvas.style.height = "100dvh";
-    if (window.unityInstance && window.unityInstance.SetFullscreen) {
-      window.unityInstance.SetFullscreen(1);
-    }
-    return;
-  }
+// Hide fullscreen button entirely on iOS
+if (isIOS()) {
+  fsButton.style.display = "none";
+}
 
-  // Desktop + Android: proper fullscreen API
+fsButton.addEventListener("click", async () => {
   if (document.fullscreenElement) {
     await document.exitFullscreen();
   } else {
     try {
-      await canvas.requestFullscreen(); // use canvas instead of documentElement
+      await canvas.requestFullscreen(); // use canvas, not documentElement
     } catch (err) {
       console.warn("Fullscreen failed:", err);
     }
