@@ -63,13 +63,13 @@
         const label = document.getElementById("label");
 
         createUnityInstance(canvas, {
-          dataUrl: "Build/public.data.unityweb",
-          frameworkUrl: "Build/public.framework.js.unityweb",
-          codeUrl: "Build/public.wasm.unityweb",
+          dataUrl: buildUrl + "/public.data.unityweb.br",
+          frameworkUrl: buildUrl + "/public.framework.js.unityweb.br",
+          codeUrl: buildUrl + "/public.wasm.unityweb.br",
           streamingAssetsUrl: "StreamingAssets",
-          companyName: "Company",
-          productName: "Product",
-          productVersion: "1.0"
+          companyName: "Impact Colliders",
+          productName: "Eh, How Ah",
+          productVersion: "0.3.2",
         }, p => {
           prog.style.width = (p * 100) + "%";
           label.textContent = "Loading… " + Math.round(p * 100) + "%";
