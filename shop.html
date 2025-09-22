@@ -268,8 +268,9 @@
     <script src="assets/js/jquery.counterup.min.js"></script>
     <script src="assets/js/imgfix.min.js"></script>
     <script src="assets/js/custom.js"></script>
+
     <script src="navbar.js"></script>
-    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/cs"></script>
     <script>
       const products = {
         1: {
@@ -279,6 +280,7 @@
           price: "$25 - $50",
           image: "assets/images/Gen2.jpg",
           link: "https://shopee.sg/Impact-Colliders-Eh-How-Ah-Digital-Literacy-Family-Card-Game-i.32777238.28721509496",
+          page: "ehhowahproduct.html",
         },
         2: {
           title: "Sticker Pack",
@@ -307,12 +309,7 @@
         card.addEventListener("click", () => {
           const id = card.dataset.id;
           const product = products[id];
-          modalImg.src = product.image;
-          modalTitle.textContent = product.title;
-          modalDesc.textContent = product.description;
-          modalPrice.textContent = product.price;
-          modalLink.href = product.link;
-          modal.style.display = "block";
+          window.location.href = product.page;
         });
       });
 

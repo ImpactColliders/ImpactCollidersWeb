@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Product Info - Impact Colliders</title>
+    <link rel="icon" type="image/x-icon" href="/assets/images/logo.jpg" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/font-awesome.css" />
+    <link rel="stylesheet" href="assets/css/templatemo-lava.css" />
+
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        margin: 0;
+      }
+
+      /* ===== Grid Layout ===== */
+      .product-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        max-width: 80dvw;
+        margin: 48px auto;
+        gap: 32px;
+        padding: 0 16px;
+        align-items: start;
+      }
+
+      /* Left carousel */
+      .product-carousel {
+        width: 100%;
+        position: relative;
+      }
+      /* Carousel wrapper fixed size */
+      .carousel-wrapper {
+        width: 100%;
+        height: 400px; /* fixed height for all slides */
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      /* Each slide fills the wrapper */
+      .carousel-slide {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+
+      /* Images scale to fill slide */
+      .carousel-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* keeps aspect ratio and fills container */
+        display: block;
+      }
+      .carousel-caption {
+        position: absolute;
+        left: 12px;
+        bottom: 12px;
+        right: 12px;
+        background: rgba(0, 0, 0, 0.45);
+        color: #fff;
+        padding: 10px 12px;
+        border-radius: 10px;
+        font-size: 0.9rem;
+      }
+
+      /* Buttons */
+      .carousel-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: rgba(0, 0, 0, 0.45);
+        border: none;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        z-index: 5;
+      }
+      .carousel-btn.prev {
+        left: -8px;
+      }
+      .carousel-btn.next {
+        right: -8px;
+      }
+
+      /* Dots */
+      .carousel-indicators {
+        text-align: center;
+        margin-top: 12px;
+      }
+      .carousel-dot {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        margin: 0 6px;
+        background: #cfcfcf;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+      .carousel-dot.active {
+        background: #333;
+        transform: scale(1.15);
+      }
+
+      /* Right description */
+      .product-description {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .product-description h1 {
+        font-size: 2.2rem;
+        margin-bottom: 16px;
+      }
+      .product-description p {
+        font-size: 1.1rem;
+        color: #555;
+        line-height: 1.6;
+      }
+      .product-description ul {
+        padding-left: 20px;
+        color: #555;
+      }
+      .product-description ul li {
+        margin-bottom: 8px;
+      }
+
+      .product-grid {
+        padding: 80px 20px;
+      }
+
+      .product-description button {
+        padding: 12px 28px;
+        background: #ff6b6b; /* Bright accent color */
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        width: 20%;
+      }
+
+      .product-description button:hover {
+        background: #ff4757; /* Darker shade on hover */
+        transform: translateY(-2px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+      }
+
+      .product-description button:active {
+        transform: translateY(0);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .product-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <header class="header-area header-sticky" id="nav-placeholder"></header>
+
+    <!-- Product Grid -->
+    <div class="product-grid">
+      <!-- Left: Carousel -->
+      <div class="product-carousel">
+        <div class="carousel-wrapper">
+          <button class="carousel-btn prev">
+            <i class="fa fa-chevron-left"></i>
+          </button>
+          <div class="carousel-slide" id="carouselSlide"></div>
+          <button class="carousel-btn next">
+            <i class="fa fa-chevron-right"></i>
+          </button>
+          <div class="carousel-indicators" id="carouselDots"></div>
+        </div>
+      </div>
+
+      <!-- Right: Description -->
+      <div class="product-description">
+        <h1>Eh How Ah</h1>
+        <h3>$25</h3>
+        <p>
+          “Eh How Ah?” is a low-tech solution to a high-tech problem that uses
+          what’s familiar with seniors to help them build confidence with using
+          technology, protecting them against scams, and overall having fun
+          playing through a game. For corporates, we provide a turn-key solution
+          to help power your CSR activations; for AACs, we provide digital
+          literacy workshops for seniors.
+        </p>
+        <ul>
+          <li>Educational: Learn while playing.</li>
+          <li>Collaborative: Solve challenges together.</li>
+          <li>Inclusive: Accessible to all players.</li>
+          <li>Impact Tracking: Measure real-world effects.</li>
+        </ul>
+        <button
+          onclick="window.open('https://shopee.sg/Impact-Colliders-Eh-How-Ah-Digital-Literacy-Family-Card-Game-i.32777238.28721509496', '_blank')"
+        >
+          Buy Now
+        </button>
+      </div>
+    </div>
+
+    <!-- Contact Us -->
+
+    <footer id="contact-us">
+      <div class="container" id="contact-container">
+        <!-- Contact form will be injected here -->
+      </div>
+    </footer>
+    <script src="contactus.js"></script>
+
+    <!-- Carousel Script -->
+    <script>
+      (function () {
+        const slides = [
+          { src: "assets/images/Fireside.jpg" },
+          { src: "assets/images/RHB.jpg" },
+          { src: "assets/images/table.jpg" },
+        ];
+
+        let currentIndex = 0;
+        const slideDiv = document.getElementById("carouselSlide");
+        const dotsContainer = document.getElementById("carouselDots");
+
+        function renderSlide(index) {
+          const slide = slides[index];
+          slideDiv.innerHTML = `<img src="${slide.src}" alt="Slide ${
+            index + 1
+          }">`;
+          document.querySelectorAll(".carousel-dot").forEach((d, i) => {
+            d.classList.toggle("active", i === index);
+          });
+        }
+
+        // Render dots
+        slides.forEach((_, i) => {
+          const dot = document.createElement("span");
+          dot.className = "carousel-dot" + (i === 0 ? " active" : "");
+          dot.addEventListener("click", () => {
+            currentIndex = i;
+            renderSlide(currentIndex);
+          });
+          dotsContainer.appendChild(dot);
+        });
+
+        // Prev/Next
+        document
+          .querySelector(".carousel-btn.prev")
+          .addEventListener("click", () => {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            renderSlide(currentIndex);
+          });
+        document
+          .querySelector(".carousel-btn.next")
+          .addEventListener("click", () => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            renderSlide(currentIndex);
+          });
+
+        renderSlide(currentIndex);
+      })();
+    </script>
+
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script src="navbar.js"></script>
+  </body>
+</html>

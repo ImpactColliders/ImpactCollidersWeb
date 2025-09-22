@@ -88,6 +88,14 @@
         max-width: 25%;
       }
 
+      .interactive-grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 20px;
+        max-width: 1000px;
+        margin: auto;
+      }
+
       @media (max-width: 975px) {
         .aboutPerson {
           max-width: 33%;
@@ -113,11 +121,20 @@
           margin: auto;
           padding: 10px;
         }
+
+        .interactive-grid-container {
+          grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+          gap: 15px;
+        }
       }
 
       @media (max-width: 524px) {
         .aboutPerson {
           max-width: 100%;
+        }
+        .interactive-grid-container {
+          grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+          gap: 10px;
         }
       }
 
@@ -128,12 +145,12 @@
         text-align: center;
       }
 
-      .interactive-grid-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-        gap: 20px;
-        max-width: 1000px;
-        margin: auto;
+      /* Medium screens (tablets) */
+      @media (max-width: 768px) {
+      }
+
+      /* Small screens (phones) */
+      @media (max-width: 480px) {
       }
 
       .interactive-box {
@@ -186,10 +203,10 @@
           ><img src="assets/images/Apps/Notes.png"
         /></a>
         <a href="videos.html?show=5" class="interactive-box"
-          ><img src="assets/images/Apps/Weather.jpg"
+          ><img src="assets/images/Apps/Weather.png"
         /></a>
         <a href="videos.html?show=6" class="interactive-box"
-          ><img src="assets/images/Apps/Alarm.png"
+          ><img src="assets/images/Apps/Alarms.png"
         /></a>
         <a href="videos.html?show=7" class="interactive-box"
           ><img src="assets/images/Apps/Singpass.png"
@@ -198,19 +215,19 @@
           ><img src="assets/images/Apps/MyTransport.png"
         /></a>
         <a href="videos.html?show=9" class="interactive-box"
-          ><img src="assets/images/Apps/Grab.svg"
+          ><img src="assets/images/Apps/Grab.png"
         /></a>
         <a href="videos.html?show=10" class="interactive-box"
           ><img src="assets/images/Apps/Maps.png"
         /></a>
         <a href="videos.html?show=11" class="interactive-box"
-          ><img src="assets/images/Apps/Zoom.webp"
+          ><img src="assets/images/Apps/Zoom.png"
         /></a>
         <a href="videos.html?show=12" class="interactive-box"
-          ><img src="assets/images/Apps/Whatsapp.webp"
+          ><img src="assets/images/Apps/Whatsapp.png"
         /></a>
         <a href="videos.html?show=13" class="interactive-box"
-          ><img src="assets/images/Apps/Contacts.webp"
+          ><img src="assets/images/Apps/Contacts.png"
         /></a>
         <a href="videos.html?show=14" class="interactive-box"
           ><img src="assets/images/Apps/HealthHub.png"
