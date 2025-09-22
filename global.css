@@ -1,0 +1,85 @@
+/* Base nav styles */
+.main-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+
+.main-nav .logo img {
+  height: 50px;
+}
+
+/* Nav list (desktop default) */
+.main-nav .nav {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.main-nav .nav li {
+  margin: 0 15px;
+}
+
+.main-nav .nav li a {
+  text-decoration: none;
+  color: #000;
+}
+
+.main-nav .nav li.active a {
+  font-weight: bold;
+  color: #ff6600; /* highlight color */
+}
+
+/* Mobile menu trigger */
+.menu-trigger {
+  display: none;
+  cursor: pointer;
+  font-size: 18px;
+  user-select: none;
+}
+
+/* --- Mobile styles --- */
+@media (max-width: 768px) {
+  .main-nav {
+    flex-wrap: wrap;
+  }
+
+  /* Show hamburger */
+  .menu-trigger {
+    display: block;
+  }
+
+  /* Hide nav by default */
+  .main-nav .nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .main-nav .nav li {
+    margin: 0;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+  }
+
+  .main-nav .nav li:last-child {
+    border-bottom: none;
+  }
+
+  .main-nav .nav li a {
+    display: block;
+    padding: 12px;
+  }
+
+  /* When .show is toggled */
+  .main-nav .nav.show {
+    display: flex;
+  }
+}

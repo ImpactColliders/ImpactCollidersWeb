@@ -33,7 +33,7 @@ function createContactForm(containerId) {
               <li><a href="https://www.instagram.com/impactcolliders/"><i class="fa fa-instagram"></i></a></li>
               <li><a href="https://www.facebook.com/p/Impact-Colliders-61571335654695/"><i class="fa fa-facebook"></i></a></li>
               <li><a href="https://www.linkedin.com/company/impact-colliders/posts/?feedView=all"><i class="fa fa-linkedin"></i></a></li>
-              <li><a href="https://www.tiktok.com/@impact.colliders?is_from_webapp=1&sender_device=pc"><i class="fa fa-tiktok"></i></a></li>
+              <li><a href="https://www.tiktok.com/@impact.colliders?is_from_webapp=1&sender_device=pc"><i class="fa fa-tiktok"><img src="assets/images/tiktok.png" style="height:2dvh"></i></a></li>
             </ul>
           </div>
         </div>

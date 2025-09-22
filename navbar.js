@@ -45,6 +45,7 @@
     const navList = navPlaceholder.querySelector(".nav");
     if (menuTrigger) {
       menuTrigger.addEventListener("click", () => {
+        console.log("test");
         navList.classList.toggle("show");
       });
     }
