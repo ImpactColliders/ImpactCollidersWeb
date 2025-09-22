@@ -100,18 +100,35 @@
   });
 
   // fullscreen
-  const fsButton = document.getElementById("fs");
-  const canvas = document.getElementById("unity-canvas");
-  fsButton.addEventListener("click", async () => {
-    if (document.fullscreenElement) {
-      await document.exitFullscreen();
-    } else {
-      try { await document.documentElement.requestFullscreen(); } catch {}
-      if (window.unityInstance && window.unityInstance.SetFullscreen) {
-        window.unityInstance.SetFullscreen(1);
-      }
+const fsButton = document.getElementById("fs");
+const loButton = document.getElementById("logout");
+const canvas = document.getElementById("unity-canvas");
+
+function isIOS() {
+  return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+}
+
+// Hide fullscreen button entirely on iOS
+if (isIOS()) {
+  fsButton.style.display = "none";
+  loButton.style.display = "none";
+}
+
+fsButton.addEventListener("click", async () => {
+  if (document.fullscreenElement) {
+    await document.exitFullscreen();
+  } else {
+    try {
+      await canvas.requestFullscreen(); // use canvas, not documentElement
+    } catch (err) {
+      console.warn("Fullscreen failed:", err);
     }
-  });
+    if (window.unityInstance && window.unityInstance.SetFullscreen) {
+      window.unityInstance.SetFullscreen(1);
+    }
+  }
+});
+
 
   function resize() {
     canvas.style.width = window.innerWidth + "px";
