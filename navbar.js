@@ -7,7 +7,7 @@
     { name: "Home", href: "index.html" },
     { name: "About Us", href: "about.html" },
     { name: "Video Library", href: "appnav.html" },
-    { name: "Digital Game", href: "ehhowahproduct.html" },
+    // { name: "Digital Game", href: "ehhowahproduct.html" },
     { name: "Shop", href: "shop.html" },
   ];
 
