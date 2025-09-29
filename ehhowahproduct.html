@@ -133,7 +133,7 @@
       }
 
       .product-grid {
-        padding: 80px 20px;
+        padding: 80px 0px ;
       }
 
       .product-description button {
@@ -168,6 +168,12 @@
           grid-template-columns: 1fr;
           gap: 32px;
         }
+          .product-description button {
+    width: 100%;
+    padding: 16px 0;
+    font-size: 1.1rem;
+    border-radius: 12px;
+  }
       }
     </style>
   </head>
@@ -192,28 +198,25 @@
       </div>
 
       <!-- Right: Description -->
-      <div class="product-description">
-        <h1>Eh How Ah</h1>
-        <h3>$30</h3>
-        <p>
-          The solution to empower your parents to learn tech and 
-          protect themselves against scams when you're not free. 
-          Eh, How Ah? 2nd Edition builds on the original game's success, 
-          bringing families together while promoting digital literacy and 
-          scam prevention.
-        </p>
-        <ul>
-          <li>Quick to Learn: Pick it up in under 10 minutes. Designed for all ages to enjoy and bond across generations.</li>
-          <li>Digital Literacy: Learn to navigate 18 apps across 6 key areas: Essentials, Healthcare, Finance, Entertainment, Transport, and Communication through step-matching and pseudo apps.</li>
-          <li>Scam Prevention: Stay protected with regularly updated phygital scam prevention portal.</li>
-          <li>Phygital Expansion: Includes a complimentary digital game and pseudo apps for deeper learning and scam awareness.</li>
-        </ul>
-        <button
-          onclick="window.open('https://sg.shp.ee/7Vn8xjD', '_blank')"
-        >
-          Buy Now
-        </button>
-      </div>
+     <div class="product-description" style="text-align: left;">
+  <h1>Eh How Ah</h1>
+  <h3>$30</h3>
+  <p>
+    The solution to empower your parents to learn tech and protect themselves against scams when you're not free.
+    <strong>Eh, How Ah? 2nd Edition</strong> builds on the original game's success, bringing families together while promoting digital literacy and scam prevention.
+
+    <p><strong>Quick to Learn:</strong> Pick it up in under 10 minutes. Designed for all ages to enjoy and bond across generations.</p>
+    <p><strong>Digital Literacy:</strong> Learn to navigate 18 apps across 6 key areas: Essentials, Healthcare, Finance, Entertainment, Transport, and Communication through step-matching and pseudo apps.</p>
+    <p><strong>Scam Prevention:</strong> Stay protected with regularly updated phygital scam prevention portal.</p>
+    <p><strong style="font-weight: 900;">Phygital Expansion:</strong> Includes a complimentary digital game and pseudo apps for deeper learning and scam awareness.</p>
+  </p>
+
+  <button onclick="window.open('https://sg.shp.ee/7Vn8xjD', '_blank')" style="margin-top: 10px;">
+    Buy Now
+  </button>
+</div>
+
+
     </div>
 
     <!-- Contact Us -->
