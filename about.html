@@ -89,13 +89,14 @@
       }
 
       .aboutPerson {
-        max-width: 25%;
-        margin-bottom: 30px;
+        flex: 0 0 300px;
+        margin: 15px;
+        max-width: 20%;
       }
 
       @media (max-width: 975px) {
         .aboutPerson {
-          max-width: 33%;
+          max-width: 50%;
         }
       }
 
@@ -105,7 +106,6 @@
         }
 
         .about-grid-container {
-          display: grid;
           grid-template-columns: repeat(1, 1fr);
           grid-template-areas:
             "image1"
@@ -113,20 +113,65 @@
             "image2"
             "approach"
             "image3";
-          gap: 30px;
-          max-width: 1200px;
-          margin: auto;
-          padding: 10px 10px 10px 10px;
+          padding: 10px;
         }
       }
 
       @media (max-width: 524px) {
         .aboutPerson {
-          max-width: 100%;
+          max-width: 44%;
         }
       }
 
-      /* Responsive Grid */
+      /* Team Tabs */
+      .tabs {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      .tab-btn {
+        background: #f4f4f4;
+        border: none;
+        padding: 10px 20px;
+        margin: 5px;
+        cursor: pointer;
+        font-weight: 600;
+        border-radius: 8px;
+        transition: 0.3s;
+      }
+      .tab-btn.active {
+        background: #ff6b6b;
+        color: #fff;
+      }
+      .row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .features-item {
+        background: #fff;
+        border-radius: 16px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transition: 0.3s;
+      }
+      .features-item:hover {
+        transform: translateY(-5px);
+      }
+      .features-icon img {
+        height: 100%;
+        border-radius: 10%;
+        object-fit: cover;
+        margin-bottom: 15px;
+      }
+      .features-icon h4 {
+        margin: 10px 0 5px;
+        font-size: 20px;
+      }
+      .features-icon p {
+        margin: 5px 0;
+        font-size: 14px;
+        color: #555;
+      }
     </style>
   </head>
 
@@ -142,37 +187,37 @@
     <!-- Nav Bar -->
     <header class="header-area header-sticky" id="nav-placeholder"></header>
 
+    <!-- About -->
     <section class="about-grid-section" id="welcome">
       <div class="about-grid-container">
-        <!-- Top row: Text and Image -->
         <div class="about-text about-intro">
           <h1>About <em>Impact Colliders</em></h1>
           <p>
-            Impact Colliders is a platform and community built to catalyze ideas
-            that shape a better future. We empower doers, dreamers, and
-            disruptors to co-create real-world impact through innovation,
-            collaboration, and action.
+            Impact Colliders creates games to solve problems in society. Our
+            game, "Eh How Ah?", is a family-friendly card game that helps
+            seniors learn how to use technology and protect themselves against
+            scams in a fun and approachable manner while fostering
+            intergenerational bonding.
           </p>
         </div>
         <div class="about-image image-1">
           <img
-            src="assets/images/table.jpg"
+            src="assets/images/WebPhotos/NYP.jpg"
             style="max-height: 33dvh"
             alt="Overview"
           />
         </div>
 
-        <!-- Bottom row: Two images and a paragraph -->
         <div class="about-image image-2">
           <img
-            src="assets/images/elderly.jpg"
+            src="assets/images/WebPhotos/RHB.jpg"
             style="max-height: 33dvh"
             alt="Workshop"
           />
         </div>
         <div class="about-image image-3">
           <img
-            src="assets/images/Fireside Chat Diverse Pathways to Success (3).jpg"
+            src="assets/images/WebPhotos/Arts.jpg"
             style="max-height: 33dvh"
             alt="Teamwork"
           />
@@ -180,14 +225,20 @@
         <div class="about-text about-approach">
           <h2>Our Approach</h2>
           <p>
-            We build bridges between sectors, host interactive collisions, and
-            create spaces for experimentation. Join us in reimagining how
-            innovation can serve communities.
+            We tap on both public and private support to keep "Eh How Ah?"
+            sustainable for the long run, so that more can enjoy the game to
+            bridge the gap in digital literacy and fight against scammers.
+            Thanks to government support, we're able to conduct digital literacy
+            workshops for active aging centers at no cost. We're always
+            innovating, so funds from customers and corporates go toward product
+            development and improvement. If you have a CSR project, we offer
+            turnkey solutions—drop us an enquiry.
           </p>
         </div>
       </div>
     </section>
 
+    <!-- Mission -->
     <section class="section" id="mission">
       <div class="container">
         <div class="row">
@@ -198,9 +249,8 @@
                 <img src="assets/images/features-icon-1.png" alt="" />
                 <h4>Our Mission</h4>
                 <p>
-                  To empower innovators and changemakers with the tools,
-                  community, and momentum to solve real-world problems through
-                  collaboration and creativity.
+                  Bringing families closer, fostering bonds, and bridging tech
+                  one game at a time.
                 </p>
               </div>
             </div>
@@ -211,11 +261,7 @@
                 <h2>02</h2>
                 <img src="assets/images/features-icon-2.png" alt="" />
                 <h4>Our Vision</h4>
-                <p>
-                  A future where anyone with a bold idea can bring it to
-                  life—together with others who care about people and the
-                  planet.
-                </p>
+                <p>Creating games that make meaningful impact worldwide.</p>
               </div>
             </div>
           </div>
@@ -224,10 +270,10 @@
               <div class="features-icon">
                 <h2>03</h2>
                 <img src="assets/images/features-icon-3.png" alt="" />
-                <h4>Our Community</h4>
+                <h4>For the Community</h4>
                 <p>
-                  From students and educators to entrepreneurs and nonprofits,
-                  our diverse community is the heartbeat of everything we do.
+                  To be the go-to resource partners to solve problems in a fun
+                  manner.
                 </p>
               </div>
             </div>
@@ -236,36 +282,29 @@
       </div>
     </section>
 
-    <section class="section" id="core-team">
+    <!-- Team Section -->
+    <section class="section" id="team">
       <div class="container">
         <div class="center-heading">
-          <h2><em>Core Team</em></h2>
-          <p>The people behind the movement.</p>
-        </div>
-        <div class="row justify-content-center" id="core-team-container"></div>
-      </div>
-    </section>
-
-    <section class="section" id="advisors">
-      <div class="container">
-        <div class="center-heading">
-          <h2><em>Advisor</em></h2>
+          <h2><em>Our Team</em></h2>
           <p>The passionate people making it happen.</p>
         </div>
-        <div class="row justify-content-center" id="advisor-container"></div>
-      </div>
-    </section>
 
-    <section class="section" id="developers">
-      <div class="container">
-        <div class="center-heading">
-          <h2><em>The Team</em></h2>
-          <p>The passionate people making it happen.</p>
+        <!-- Tabs -->
+        <div class="tabs">
+          <button class="tab-btn active" data-tag="core">Core Team</button>
+          <button class="tab-btn" data-tag="advisor">Advisor</button>
+          <button class="tab-btn" data-tag="developer">Developers</button>
+          <button class="tab-btn" data-tag="marketing">Marketing</button>
+          <button class="tab-btn" data-tag="all">All</button>
         </div>
-        <div class="row justify-content-center" id="developer-container"></div>
+
+        <!-- Team Grid -->
+        <div class="row" id="team-container"></div>
       </div>
     </section>
 
+    <!-- Footer -->
     <footer id="contact-us">
       <div class="container" id="contact-container">
         <!-- Contact form will be injected here -->
@@ -276,17 +315,14 @@
     <script>
       document
         .getElementById("contact")
-        .addEventListener("submit", function (event) {
+        ?.addEventListener("submit", function (event) {
           event.preventDefault();
-
           const name = document.querySelector("input[name='name']").value;
           const email = document.querySelector("input[name='email']").value;
           const subject = document.querySelector("input[name='subject']").value;
           const message = document.querySelector(
             "textarea[name='message']"
           ).value;
-
-          // Build mailto link
           const body = encodeURIComponent(
             "Name: " +
               name +
@@ -297,136 +333,142 @@
               "Message:\n" +
               message
           );
-
-          // Replace with your email
           const mailtoLink = `mailto:info@impactcolliders.com?subject=${subject}&body=${body}`;
-
-          // Open user's mail client
           window.location.href = mailtoLink;
         });
 
-      const coreTeam = [
+      // --- Team Data ---
+      const teamMembers = [
         {
           name: "Avin Teo",
-          role: "CEO",
           image: "assets/images/Avin.png",
           bio: "",
+          roles: { core: "CEO" },
         },
         {
           name: "Jocelyn Chng",
-          role: "CFO",
           image: "assets/images/Jocelyn.png",
           bio: "",
+          roles: { core: "CFO" },
         },
         {
           name: "Courtney Tan",
-          role: "CTO",
           image: "assets/images/Courtney.png",
           bio: "",
+          roles: { core: "CTO" },
         },
         {
           name: "Ng Shi Ying",
-          role: "CPO",
           image: "assets/images/ShiYing.png",
           bio: "",
+          roles: { core: "CPO" },
         },
-      ];
-
-      const advisors = [
         {
           name: "Huang Lei",
-          role: "Advisor",
           image: "assets/images/Huang Lei 1.png",
           bio: "",
+          roles: { advisor: "Advisor" },
         },
-      ];
-
-      const developers = [
         {
           name: "Clarrise Tan",
-          role: "Marketing",
           image: "assets/images/user.jpeg",
           bio: "",
+          roles: { marketing: "Marketing" },
         },
         {
           name: "Riz",
-          role: "Marketing",
           image: "assets/images/user.jpeg",
           bio: "",
+          roles: { marketing: "Marketing" },
         },
         {
           name: "Yong Xin",
-          role: "Developer",
           image: "assets/images/YongXin.jpg",
           bio: "",
+          roles: { developer: "Developer" },
         },
         {
           name: "Joel",
-          role: "Developer",
           image: "assets/images/user.jpeg",
           bio: "",
+          roles: { developer: "Developer" },
         },
         {
           name: "Zach Alandy",
-          role: "Developer",
           image: "assets/images/user.jpeg",
           bio: "",
+          roles: { developer: "Developer" },
         },
         {
           name: "Aqil Danial",
-          role: "Developer",
           image: "assets/images/user.jpeg",
           bio: "",
+          roles: { developer: "Developer" },
         },
         {
           name: "Aaron",
-          role: "Developer",
           image: "assets/images/user.jpeg",
           bio: "",
+          roles: { developer: "Developer" },
         },
         {
           name: "Yong Han",
-          role: "Developer",
           image: "assets/images/user.jpeg",
           bio: "",
+          roles: { developer: "Developer" },
         },
         {
           name: "Ren Kai",
-          role: "Developer",
           image: "assets/images/user.jpeg",
           bio: "",
+          roles: { developer: "Developer" },
         },
         {
           name: "Akid",
-          role: "Developer",
           image: "assets/images/user.jpeg",
           bio: "",
+          roles: { developer: "Developer" },
         },
       ];
 
-      function populateTeam(containerId, members) {
-        const container = document.getElementById(containerId);
-        members.forEach((member) => {
-          const div = document.createElement("div");
-          div.className = "col-lg-4 col-md-6 aboutPerson";
-          div.innerHTML = `
-        <div class="features-item">
-          <div class="features-icon">
-            <img src="${member.image}" alt="${member.name}" />
-            <h4>${member.name}</h4>
-            <p>${member.role}</p>
-            <p class="bio">${member.bio}</p>
-          </div>
-        </div>
-      `;
-          container.appendChild(div);
+      function renderTeam(tag = "all") {
+        const container = document.getElementById("team-container");
+        container.innerHTML = "";
+        teamMembers.forEach((member) => {
+          if (tag === "all") {
+            const [firstTag, firstRole] = Object.entries(member.roles)[0];
+            container.appendChild(makeCard(member, firstRole));
+          } else if (member.roles[tag]) {
+            container.appendChild(makeCard(member, member.roles[tag]));
+          }
         });
       }
 
-      // Populate all sections
-      populateTeam("core-team-container", coreTeam);
-      populateTeam("advisor-container", advisors);
-      populateTeam("developer-container", developers);
+      function makeCard(member, role) {
+        const div = document.createElement("div");
+        div.className = "aboutPerson";
+        div.innerHTML = `
+          <div class="features-item">
+            <div class="features-icon">
+              <img src="${member.image}" alt="${member.name}" />
+              <h4>${member.name}</h4>
+              <p>${role}</p>
+              <p class="bio">${member.bio}</p>
+            </div>
+          </div>`;
+        return div;
+      }
+
+      const tabBtns = document.querySelectorAll(".tab-btn");
+      tabBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          tabBtns.forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+          renderTeam(btn.dataset.tag);
+        });
+      });
+
+      renderTeam("core"); // default
     </script>
 
     <script src="assets/js/jquery-2.1.0.min.js"></script>
@@ -439,6 +481,5 @@
     <script src="assets/js/imgfix.min.js"></script>
     <script src="assets/js/custom.js"></script>
     <script src="navbar.js"></script>
-    <script src="assets/js/custom.js"></script>
   </body>
 </html>
