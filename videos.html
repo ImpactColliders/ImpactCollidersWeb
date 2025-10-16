@@ -168,9 +168,9 @@
 
       .video-arrow {
         position: absolute;
-        left: 50%;
-        transform: translateY(-50%);
-        font-size: 2rem;
+        transform: translateY(-50%); /* centers it perfectly */
+
+        font-size: 1rem;
         background: rgba(228, 63, 90, 0.8);
         border: none;
         color: white;
@@ -179,7 +179,11 @@
         cursor: pointer;
         z-index: 15;
         transition: background 0.3s ease;
-        font-size: 1rem;
+      }
+
+      .video-arrow {
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
 
       .nav-arrow:hover {
@@ -214,31 +218,8 @@
     </style>
   </head>
   <body>
-    <!-- Nav Bar -->
-    <header class="header-area header-sticky" id="nav-placeholder">
-      <div class="container">
-        <div class="row">
-          <div class="col-12">
-            <nav class="main-nav">
-              <a href="index.html" class="logo">
-                <img
-                  src="assets/images/Impact Colliders_Black.png"
-                  alt="Impact Colliders Logo"
-                />
-              </a>
-              <ul class="nav">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="appnav.html" class="active">Video Library</a></li>
-                <li><a href="videos.html?show=all">Digital Game</a></li>
-                <li><a href="shop.html">Shop</a></li>
-              </ul>
-              <a class="menu-trigger"><span>Menu</span></a>
-            </nav>
-          </div>
-        </div>
-      </div>
-    </header>
+    <!-- Navbar -->
+    <header class="header-area header-sticky" id="nav-placeholder"></header>
 
     <main class="content-container" id="video-container">
       <p id="message" class="message"></p>
@@ -253,6 +234,8 @@
     <script src="assets/js/jquery.counterup.min.js"></script>
     <script src="assets/js/imgfix.min.js"></script>
     <script src="assets/js/custom.js"></script>
+
+    <script src="navbar.js"></script>
     <script>
       const videoContainer = document.getElementById("video-container");
 
@@ -614,17 +597,6 @@
                 break;
               default:
                 nextTime = null;
-            }
-
-            if (
-              nextTime !== null &&
-              video.currentTime >= nextTime &&
-              !switching
-            ) {
-              console.log("move to next");
-              // Move to next section
-              goToSiblingSection(1);
-              switching = true;
             }
           });
         });
