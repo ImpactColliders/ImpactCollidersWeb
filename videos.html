@@ -142,10 +142,6 @@
           border-radius: 0;
           box-shadow: none;
         }
-
-        .nav-arrow {
-          display: none;
-        }
       }
 
       .video-description {
@@ -511,7 +507,6 @@
         <source src="${video.url1}" type="video/mp4">
         Your browser does not support the video tag.
       </video>
-      <p class="video-description">${video.description1}</p>
     </div>
 
     <div class="video-section" style="display:none; justify-content: center; align-items: center; flex-direction: column;">
@@ -519,7 +514,6 @@
         <source src="${video.url1}" type="video/mp4">
         Your browser does not support the video tag.
       </video>
-      <p class="video-description">${video.description2}</p>
     </div>
 
     <div class="video-section" style="display:none; justify-content: center; align-items: center; flex-direction: column;">
@@ -527,7 +521,6 @@
         <source src="${video.url1}" type="video/mp4">
         Your browser does not support the video tag.
       </video>
-      <p class="video-description">${video.description3}</p>
     </div>
 
     <div class="video-section" style="display:none; justify-content: center; align-items: center; flex-direction: column;">
@@ -535,7 +528,6 @@
         <source src="${video.url1}" type="video/mp4">
         Your browser does not support the video tag.
       </video>
-      <p class="video-description">${video.description4}</p>
     </div>
   </div>
 
@@ -875,6 +867,18 @@
             sec.style.display = "none"; // hide
             video.pause(); // pause hidden videos
           }
+        });
+      }
+
+      // Detect mobile/touch device
+      const isMobile =
+        /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        );
+
+      if (isMobile) {
+        document.querySelectorAll(".nav-arrow").forEach((el) => {
+          el.style.display = "none";
         });
       }
     </script>
