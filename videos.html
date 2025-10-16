@@ -163,7 +163,25 @@
         cursor: pointer;
         z-index: 15;
         transition: background 0.3s ease;
+        font-size: 1rem;
       }
+
+      .video-arrow {
+        position: absolute;
+        left: 50%;
+        transform: translateY(-50%);
+        font-size: 2rem;
+        background: rgba(228, 63, 90, 0.8);
+        border: none;
+        color: white;
+        padding: 6px 12px;
+        border-radius: 4px;
+        cursor: pointer;
+        z-index: 15;
+        transition: background 0.3s ease;
+        font-size: 1rem;
+      }
+
       .nav-arrow:hover {
         background: rgba(185, 44, 65, 0.8);
       }
@@ -477,54 +495,98 @@
         section.id = `Section${index + 1}`;
 
         section.innerHTML = `
-        <h2>${video.title}</h2>
-        <div class="video-wrapper" data-index="${
-          index + 1
-        }" style="position: relative; display: flex; justify-content: center; align-items: center; flex-direction: column;">
-          <!-- Left Arrow -->
-          <button class="nav-arrow left-arrow" onclick="goToSiblingSection(-1)">&#8592;</button>
-          <!-- Right Arrow -->
-          <button class="nav-arrow right-arrow" onclick="goToSiblingSection(1)">&#8594;</button>
+  <h2>${video.title}</h2>
 
-          <!-- Video Section -->
-          <div class="video-section" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-            <video style="width: 80%; height: 80%;" class="video-start" controls preload="metadata">
-              <source src="${video.url1}" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-            <p class="video-description">${video.description1}</p>
-          </div>
+  <!-- 🔼 Top Button -->
+  <button class="video-arrow top-btn" onclick="topButtonAction()" 
+    style="margin-bottom: 15px; padding: 10px 20px;">Prev Video</button>
 
-          <div class="video-section" style="display:none; justify-content: center; align-items: center; flex-direction: column;">
-            <video style="width: 80%; height: 80%;" class="video-start" controls preload="metadata">
-              <source src="${video.url1}" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-            <p class="video-description">${video.description2}</p>
-          </div>
+  <div class="video-wrapper" data-index="${index + 1}" 
+    style="position: relative; display: flex; justify-content: center; align-items: center; flex-direction: column;">
+    
+    <!-- Left Arrow -->
+    <button class="nav-arrow left-arrow" onclick="goToSiblingSection(-1)">Prev Section</button>
 
-          <div class="video-section" style="display:none; justify-content: center; align-items: center; flex-direction: column;">
-            <video style="width: 80%; height: 80%;" class="video-start" controls preload="metadata">
-              <source src="${video.url1}" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-            <p class="video-description">${video.description3}</p>
-          </div>
+    <!-- Right Arrow -->
+    <button class="nav-arrow right-arrow" onclick="goToSiblingSection(1)">Next Section</button>
 
-          <div class="video-section" style="display:none; justify-content: center; align-items: center; flex-direction: column;">
-            <video style="width: 80%; height: 80%;" class="video-start" controls preload="metadata">
-              <source src="${video.url1}" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-            <p class="video-description">${video.description4}</p>
-          </div>
-        </div>
-        <button class="back-btn" onclick="window.location.href='appnav.html'">Back</button>
-      `;
+    <!-- Video Sections -->
+    <div class="video-section" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+      <video style="width: 80%; height: 80%;" class="video-start" controls preload="metadata">
+        <source src="${video.url1}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p class="video-description">${video.description1}</p>
+    </div>
+
+    <div class="video-section" style="display:none; justify-content: center; align-items: center; flex-direction: column;">
+      <video style="width: 80%; height: 80%;" class="video-start" controls preload="metadata">
+        <source src="${video.url1}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p class="video-description">${video.description2}</p>
+    </div>
+
+    <div class="video-section" style="display:none; justify-content: center; align-items: center; flex-direction: column;">
+      <video style="width: 80%; height: 80%;" class="video-start" controls preload="metadata">
+        <source src="${video.url1}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p class="video-description">${video.description3}</p>
+    </div>
+
+    <div class="video-section" style="display:none; justify-content: center; align-items: center; flex-direction: column;">
+      <video style="width: 80%; height: 80%;" class="video-start" controls preload="metadata">
+        <source src="${video.url1}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+      <p class="video-description">${video.description4}</p>
+    </div>
+  </div>
+
+  <!-- 🔽 Bottom Button -->
+  <button class="video-arrow bottom-btn" onclick="bottomButtonAction()" 
+    style="margin-top: 15px; padding: 10px 20px;">Next Video</button>
+
+  <button class="back-btn" onclick="window.location.href='appnav.html'">Back</button>
+`;
 
         videoContainer.appendChild(section);
       });
       //SPACER
+
+      setTimeout(() => {
+        const sections = document.querySelectorAll("section");
+
+        sections.forEach((section, index) => {
+          const topBtn = section.querySelector(".top-btn");
+          const bottomBtn = section.querySelector(".bottom-btn");
+
+          // Go to previous video
+          if (topBtn) {
+            topBtn.addEventListener("click", () => {
+              const prevIndex = index - 1;
+              if (prevIndex >= 0) {
+                window.location.href = `videos.html?show=${prevIndex + 1}`;
+              } else {
+                console.log("Already at the first video");
+              }
+            });
+          }
+
+          // Go to next video
+          if (bottomBtn) {
+            bottomBtn.addEventListener("click", () => {
+              const nextIndex = index + 1;
+              if (nextIndex < sections.length) {
+                window.location.href = `videos.html?show=${nextIndex + 1}`;
+              } else {
+                console.log("Already at the last video");
+              }
+            });
+          }
+        });
+      }, 0);
 
       // After your sections are created
       document.querySelectorAll(".video-wrapper").forEach((wrapper) => {
