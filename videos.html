@@ -170,10 +170,15 @@
         font-size: 1rem;
       }
 
-      .video-arrow {
+      .video-holder {
         position: absolute;
-        transform: translateY(-50%); /* centers it perfectly */
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
 
+      .video-arrow {
+        width: 40%;
+        height: 100%;
         font-size: 1rem;
         background: rgba(228, 63, 90, 0.8);
         border: none;
@@ -186,8 +191,6 @@
       }
 
       .video-arrow {
-        left: 50%;
-        transform: translate(-50%, -50%);
       }
 
       .nav-arrow:hover {
@@ -484,9 +487,16 @@
         section.innerHTML = `
   <h2>${video.title}</h2>
 
-  <!-- 🔼 Top Button -->
+  <div class="video-holder">
+    <!-- 🔼 Top Button -->
   <button class="video-arrow top-btn" onclick="topButtonAction()" 
-    style="margin-bottom: 15px; padding: 10px 20px;">Prev Video</button>
+    style="">Prev Video</button>
+    <!-- 🔽 Bottom Button -->
+  <button class="video-arrow bottom-btn" onclick="bottomButtonAction()" 
+    style="">Next Video</button>
+  </div
+  
+
 
   <div class="video-wrapper" data-index="${index + 1}" 
     style="position: relative; display: flex; justify-content: center; align-items: center; flex-direction: column;">
@@ -531,10 +541,7 @@
     </div>
   </div>
 
-  <!-- 🔽 Bottom Button -->
-  <button class="video-arrow bottom-btn" onclick="bottomButtonAction()" 
-    style="">Next Video</button>
-
+  
   <button class="back-btn" onclick="window.location.href='appnav.html'">Back</button>
 `;
 
