@@ -497,7 +497,6 @@
               <source src="${video.url1}" type="video/mp4">
               Your browser does not support the video tag.
             </video>
-            <div class="touch-overlay"></div>
             <p class="video-description">${video.description1}</p>
           </div>
 
@@ -506,7 +505,6 @@
               <source src="${video.url1}" type="video/mp4">
               Your browser does not support the video tag.
             </video>
-            <div class="touch-overlay"></div>
             <p class="video-description">${video.description2}</p>
           </div>
 
@@ -515,7 +513,6 @@
               <source src="${video.url1}" type="video/mp4">
               Your browser does not support the video tag.
             </video>
-            <div class="touch-overlay"></div>
             <p class="video-description">${video.description3}</p>
           </div>
 
@@ -524,7 +521,6 @@
               <source src="${video.url1}" type="video/mp4">
               Your browser does not support the video tag.
             </video>
-            <div class="touch-overlay"></div>
             <p class="video-description">${video.description4}</p>
           </div>
         </div>
@@ -783,100 +779,6 @@
         query.set(param, value);
         return `${baseUrl}?${query.toString()}`;
       }
-
-      document.querySelectorAll(".video-wrapper").forEach((wrapper) => {
-        let startX = null;
-
-        wrapper.addEventListener("touchstart", (e) => {
-          startX = e.touches[0].clientX;
-        });
-
-        wrapper.addEventListener("touchend", (e) => {
-          if (startX === null) return;
-          const endX = e.changedTouches[0].clientX;
-          const deltaX = endX - startX;
-
-          const swipeThreshold = 50; // minimum px to consider a swipe
-
-          if (Math.abs(deltaX) > swipeThreshold) {
-            // Find the arrow button to simulate click
-            if (deltaX > 0) {
-              // Swipe right → go to previous video (left arrow)
-              const leftArrow = wrapper.querySelector(".left-arrow");
-              if (leftArrow) leftArrow.click();
-            } else {
-              // Swipe left → go to next video (right arrow)
-              const rightArrow = wrapper.querySelector(".right-arrow");
-              if (rightArrow) rightArrow.click();
-            }
-          }
-          startX = null;
-        });
-      });
-
-      document.querySelectorAll(".video-wrapper").forEach((wrapper) => {
-        let startY = null;
-
-        wrapper.addEventListener("touchstart", (e) => {
-          startY = e.touches[0].clientY;
-        });
-
-        wrapper.addEventListener("touchend", (e) => {
-          if (startY === null) return;
-          const endY = e.changedTouches[0].clientY;
-          const deltaY = endY - startY;
-
-          const swipeThreshold = 50; // px threshold for swipe
-
-          if (Math.abs(deltaY) > swipeThreshold) {
-            if (deltaY < 0) {
-              // Swipe UP detected
-              console.log("Swipe up!");
-              // do something on swipe up, e.g., switch to next section
-              const rightArrow = wrapper.querySelector(".right-arrow");
-              if (rightArrow) rightArrow.click();
-            } else {
-              // Swipe DOWN detected
-              console.log("Swipe down!");
-              // do something on swipe down, e.g., switch to previous section
-
-              const leftArrow = wrapper.querySelector(".left-arrow");
-              if (leftArrow) leftArrow.click();
-            }
-          }
-
-          startY = null;
-        });
-      });
-
-      document.querySelectorAll(".touch-overlay").forEach((overlay) => {
-        let startY = null;
-
-        overlay.addEventListener("touchstart", (e) => {
-          startY = e.touches[0].clientY;
-        });
-
-        overlay.addEventListener("touchend", (e) => {
-          if (startY === null) return;
-          const endY = e.changedTouches[0].clientY;
-          const deltaY = endY - startY;
-
-          const threshold = 50; // px
-
-          if (Math.abs(deltaY) > threshold) {
-            if (deltaY < 0) {
-              console.log("Swipe up detected");
-              // e.g., switchVideoSection or goToSiblingSection(1) or your logic
-              goToSiblingSection(1);
-            } else {
-              console.log("Swipe down detected");
-              // e.g., switchVideoSection or goToSiblingSection(-1)
-              goToSiblingSection(-1);
-            }
-          }
-          startY = null;
-        });
-      });
 
       function goToSiblingSection(direction) {
         console.log("test");
