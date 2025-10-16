@@ -11,42 +11,19 @@
 <body>
   <div class="background"></div>
 
-<form id="loginForm" class="form-box active">
-  <h3>Login</h3>
 
-  <label>Email</label>
-  <input id="login-email" type="email" placeholder="Enter your email" required />
 
-  <label>Password</label>
-  <input id="login-password" type="password" placeholder="Enter your password" required />
 
-  <button id="login-submit" type="submit">Login</button>
-  <p id="login-error" class="error"></p>
+  <form id="codeForm" class="form-box active">
+  <h3>Enter Code to Play</h3>
 
-  <p><a href="#" id="forgot-password">Forgot Password?</a></p>
-  <p>Don't have an account? <a href="#" onclick="switchForm('register')">Register</a></p>
+  <label>Unique Code</label>
+  <input id="code-input" type="text" placeholder="Enter your unique code" required />
+
+  <button id="code-submit" type="submit">Play</button>
+  <p id="code-error" class="error"></p>
 </form>
 
-
-
-  <form id="registerForm" class="form-box">
-    <h3>Create Account</h3>
-
-  
-    <label>Email</label>
-    <input id="register-email" type="email" placeholder="Enter your email" required />
-
-    <label>Password</label>
-    <input id="register-password" type="password" placeholder="Create a password" required />
-
-    <label>Unique Code</label>
-    <input id="register-code" type="text" placeholder="Enter your unique code" required />
-
-    <button id="register-submit" type="submit">Register</button>
-    <p id="register-error" class="error"></p>
-
-    <p>Already have an account? <a href="#" onclick="switchForm('login')">Login</a></p>
-  </form>
 
   <script>
     function switchForm(form) {
