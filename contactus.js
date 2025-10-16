@@ -30,10 +30,10 @@ function createContactForm(containerId) {
           <div class="col-lg-6">
             <h2>Contact Us</h2>
             <ul class="social">
-              <li><a href="https://www.instagram.com/impactcolliders/"><i class="fa fa-instagram"></i></a></li>
-              <li><a href="https://www.facebook.com/p/Impact-Colliders-61571335654695/"><i class="fa fa-facebook"></i></a></li>
-              <li><a href="https://www.linkedin.com/company/impact-colliders/posts/?feedView=all"><i class="fa fa-linkedin"></i></a></li>
-              <li><a href="https://www.tiktok.com/@impact.colliders?is_from_webapp=1&sender_device=pc"><i class="fa fa-tiktok"><img src="assets/images/tiktok.png" style="height:2dvh"></i></a></li>
+              <li><a href="https://www.instagram.com/impactcolliders/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+              <li><a href="https://www.facebook.com/p/Impact-Colliders-61571335654695/" target="_blank"><i class="fa fa-facebook"></i></a></li>
+              <li><a href="https://www.linkedin.com/company/impact-colliders/posts/?feedView=all" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+              <li><a href="https://www.tiktok.com/@impactcolliders?is_from_webapp=1&sender_device=pc" target="_blank"><i class="fa fa-tiktok"><img src="assets/images/tiktok.png" style="height:2dvh"></i></a></li>
             </ul>
           </div>
         </div>
