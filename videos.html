@@ -572,6 +572,18 @@
         });
       }, 0);
 
+      // Detect mobile/touch device
+      const isMobile =
+        /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+          navigator.userAgent
+        );
+
+      if (isMobile) {
+        document.querySelectorAll(".video-arrow").forEach((el) => {
+          el.style.display = "none";
+        });
+      }
+
       // After your sections are created
       document.querySelectorAll(".video-wrapper").forEach((wrapper) => {
         const sections = wrapper.querySelectorAll(".video-section");
@@ -867,18 +879,6 @@
             sec.style.display = "none"; // hide
             video.pause(); // pause hidden videos
           }
-        });
-      }
-
-      // Detect mobile/touch device
-      const isMobile =
-        /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-          navigator.userAgent
-        );
-
-      if (isMobile) {
-        document.querySelectorAll(".video-arrow").forEach((el) => {
-          el.style.display = "none";
         });
       }
     </script>
