@@ -473,15 +473,6 @@
         // Add more videos here
       ];
 
-      //<div class="video-holder">
-      //  <!-- 🔼 Top Button -->
-      //<button class="video-arrow top-btn" onclick="topButtonAction()"
-      //  style="">Prev Video</button>
-      //  <!-- 🔽 Bottom Button -->
-      //<button class="video-arrow bottom-btn" onclick="bottomButtonAction()"
-      //  style="">Next Video</button>
-      //</div
-
       videos.forEach((video, index) => {
         const section = document.createElement("section");
         section.dataset.index = index + 1;
@@ -491,7 +482,14 @@
   <h2>${video.title}</h2>
 
   
-  
+    <div class="video-holder">
+        <!-- 🔼 Top Button -->
+      <button class="video-arrow top-btn" onclick="topButtonAction()"
+        style="">Prev Video</button>
+        <!-- 🔽 Bottom Button -->
+      <button class="video-arrow bottom-btn" onclick="bottomButtonAction()"
+        style="">Next Video</button>
+      </div
 
 
   <div class="video-wrapper" data-index="${index + 1}" 
@@ -879,7 +877,7 @@
         );
 
       if (isMobile) {
-        document.querySelectorAll(".nav-arrow").forEach((el) => {
+        document.querySelectorAll(".video-arrow").forEach((el) => {
           el.style.display = "none";
         });
       }
