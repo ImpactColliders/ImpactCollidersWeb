@@ -193,10 +193,10 @@
         background: rgba(185, 44, 65, 0.8);
       }
       .left-arrow {
-        left: -50px;
+        left: -0px;
       }
       .right-arrow {
-        right: -50px;
+        right: -0px;
       }
 
       .content-container section {
@@ -473,6 +473,15 @@
         // Add more videos here
       ];
 
+      //<div class="video-holder">
+      //  <!-- 🔼 Top Button -->
+      //<button class="video-arrow top-btn" onclick="topButtonAction()"
+      //  style="">Prev Video</button>
+      //  <!-- 🔽 Bottom Button -->
+      //<button class="video-arrow bottom-btn" onclick="bottomButtonAction()"
+      //  style="">Next Video</button>
+      //</div
+
       videos.forEach((video, index) => {
         const section = document.createElement("section");
         section.dataset.index = index + 1;
@@ -481,14 +490,7 @@
         section.innerHTML = `
   <h2>${video.title}</h2>
 
-  <div class="video-holder">
-    <!-- 🔼 Top Button -->
-  <button class="video-arrow top-btn" onclick="topButtonAction()" 
-    style="">Prev Video</button>
-    <!-- 🔽 Bottom Button -->
-  <button class="video-arrow bottom-btn" onclick="bottomButtonAction()" 
-    style="">Next Video</button>
-  </div
+  
   
 
 
