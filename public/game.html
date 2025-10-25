@@ -8,7 +8,7 @@
     html, body {
       margin: 0;
       height: 100%;
-      background: #000;
+      background: #101010;
       font-family: system-ui, Arial;
       display: flex;
       align-items: center;
@@ -16,9 +16,7 @@
     }
 
     /* Phone frame */
-    .phone-frame {
-      width: 400px;
-      height: 800px;
+    #phone-frame {
       background: #000;
       border-radius: 32px;
       overflow: hidden;
@@ -27,6 +25,28 @@
       display: flex;
       align-items: center;
       justify-content: center;
+    }
+
+    /* Portrait size for phone frame */
+    #phone-frame.portrait {
+      width: auto;
+      height: 90dvh;
+      aspect-ratio: 0.5;
+    }
+
+    /* Landscape size for phone frame */
+    #phone-frame.landscape {
+      width: 75dvw;
+      height: auto;
+      aspect-ratio: 2;
+    }
+
+    /* Mobile size for phone frame (fill the viewport) */
+    #phone-frame.mobile {
+      width: 100dvw;
+      height: 100dvh;
+      border-radius: 0;
+      box-shadow: none;
     }
 
     /* Unity container inside */
@@ -92,12 +112,6 @@
     #logout { left: 20px; background: #ff4c4c; }
 
     @media (max-width: 768px) {
-      .phone-frame {
-        width: 100vw;
-        height: 100dvh;
-        border-radius: 0;
-        box-shadow: none;
-      }
       #loading { bottom: 12px; width: 220px; }
     }
   </style>
@@ -109,7 +123,7 @@
   <button id="fs">⛶ Fullscreen</button>
 
   <!-- Centered phone emulator -->
-  <div class="phone-frame">
+  <div id="phone-frame">
     <div id="unity-container">
       <canvas id="unity-canvas"></canvas>
       <div id="loading">
@@ -152,7 +166,7 @@
           streamingAssetsUrl: "StreamingAssets",
           companyName: "Company",
           productName: "Product",
-          productVersion: "1.0"
+          productVersion: "1.0",
         }, p => {
           prog.style.width = (p * 100) + "%";
           label.textContent = "Loading… " + Math.round(p * 100) + "%";
@@ -207,6 +221,41 @@
       }
     }
   });
+
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent); 
+  const phoneFrame = document.getElementById("phone-frame");
+  
+  const resizePhoneFrame = (orientation) => {
+    if (isMobile) {
+      phoneFrame.classList.add("mobile");
+    } else {
+      switch(orientation) {
+        case "landscape":
+        case "landscape-primary":
+        case "landscape-secondary":
+          phoneFrame.classList.remove("portrait");
+          phoneFrame.classList.add("landscape");
+          break;
+        case "portrait":
+        case "portrait-primary":
+        case "portrait-secondary":
+          phoneFrame.classList.remove("landscape");
+          phoneFrame.classList.add("portrait");
+      }
+    }
+  };
+
+  const lockHandler = {
+    apply: function(target, thisArg, argumentsList) {
+      resizePhoneFrame(argumentsList[0]);
+      return target(...argumentsList);
+    }
+  };
+  // Monkeypatch screen.orientation.lock so that the phone frame can be resized.
+  screen.orientation.lock = new Proxy(screen.orientation.lock, lockHandler);
+
+  // Set phone frame to landscape on start.
+  resizePhoneFrame("landscape");
 </script>
 </body>
 </html>
