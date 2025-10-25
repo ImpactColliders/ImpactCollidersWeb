@@ -578,11 +578,7 @@
           navigator.userAgent
         );
 
-      if (isMobile) {
-        document.querySelectorAll(".video-arrow").forEach((el) => {
-          el.style.display = "none";
-        });
-      }
+      
 
       // After your sections are created
       document.querySelectorAll(".video-wrapper").forEach((wrapper) => {
@@ -827,10 +823,10 @@
         // Find the overlay that triggered this
         const overlay = event.currentTarget;
         if (!overlay) return;
-
-        const wrapper = overlay.closest(".video-wrapper");
+console.log(overlay);
+        const wrapper = overlay.closest(".active");
         if (!wrapper) return;
-
+console.log("test2");
         const sections = wrapper.querySelectorAll(".video-section");
         let currentIndex = -1;
 
