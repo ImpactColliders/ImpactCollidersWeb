@@ -153,17 +153,17 @@
     if (user) {
       console.log("✅ Access granted:", user.email);
       const script = document.createElement("script");
-      script.src = "Build/public.loader.js";
+      script.src = "/content/game/Build/public.loader.js";
       script.onload = () => {
         const canvas = document.getElementById("unity-canvas");
         const prog = document.getElementById("prog");
         const label = document.getElementById("label");
 
         createUnityInstance(canvas, {
-          dataUrl: "Build/public.data.unityweb",
-          frameworkUrl: "Build/public.framework.js.unityweb",
-          codeUrl: "Build/public.wasm.unityweb",
-          streamingAssetsUrl: "StreamingAssets",
+          dataUrl: "/content/game/Build/public.data.unityweb",
+          frameworkUrl: "/content/game/Build/public.framework.js.unityweb",
+          codeUrl: "/content/game/Build/public.wasm.unityweb",
+          streamingAssetsUrl: "/content/game/StreamingAssets",
           companyName: "Company",
           productName: "Product",
           productVersion: "1.0",
@@ -243,17 +243,15 @@
           phoneFrame.classList.add("portrait");
       }
     }
-  };
 
-  const lockHandler = {
-    apply: function(target, thisArg, argumentsList) {
-      resizePhoneFrame(argumentsList[0]);
-      return target(...argumentsList);
+    if (screen.orientation.lock !== undefined) {
+      screen.orientation.lock(orientation).catch(e => {});
     }
   };
-  // Monkeypatch screen.orientation.lock so that the phone frame can be resized.
-  screen.orientation.lock = new Proxy(screen.orientation.lock, lockHandler);
 
+  // When an orientation is requested by the game, resize the phone frame as appropriate.
+  window.addEventListener("screenorientationrequest", ev => resizePhoneFrame(ev.detail.orientation));
+ 
   // Set phone frame to landscape on start.
   resizePhoneFrame("landscape");
 </script>
