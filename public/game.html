@@ -207,15 +207,6 @@
     loButton.style.display = "none";
   }
 
-    // Remove phone frame on iOS
-  const phoneFrame = document.getElementById("phone-frame");
-  phoneFrame.style.borderRadius = "0";
-  phoneFrame.style.boxShadow = "none";
-  phoneFrame.style.background = "transparent";
-  phoneFrame.style.width = "100dvw";
-  phoneFrame.style.height = "100dvh";
-
-
   fsButton.addEventListener("click", async () => {
     if (document.fullscreenElement) {
       await document.exitFullscreen();
@@ -232,6 +223,7 @@
   });
 
   const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent); 
+  const phoneFrame = document.getElementById("phone-frame");
   
   const resizePhoneFrame = (orientation) => {
     if (isMobile) {
