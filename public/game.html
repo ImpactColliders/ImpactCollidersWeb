@@ -152,21 +152,26 @@
   onAuthStateChanged(auth, (user) => {
     if (user) {
       console.log("✅ Access granted:", user.email);
+
+      let prefix = "public";
+      let suffix = ".unityweb";
+
       const script = document.createElement("script");
-      script.src = "/content/game/Build/public.loader.js";
+
+      script.src = `/content/game/Build/${prefix}.loader.js`;
       script.onload = () => {
         const canvas = document.getElementById("unity-canvas");
         const prog = document.getElementById("prog");
         const label = document.getElementById("label");
 
         createUnityInstance(canvas, {
-          dataUrl: "/content/game/Build/public.data.unityweb",
-          frameworkUrl: "/content/game/Build/public.framework.js.unityweb",
-          codeUrl: "/content/game/Build/public.wasm.unityweb",
+          dataUrl: `/content/game/Build/${prefix}.data${suffix}`,
+          frameworkUrl: `/content/game/Build/${prefix}.framework.js${suffix}`,
+          codeUrl: `/content/game/Build/${prefix}.wasm${suffix}`,
           streamingAssetsUrl: "/content/game/StreamingAssets",
-          companyName: "Company",
-          productName: "Product",
-          productVersion: "1.0",
+          companyName: "Impact Colliders",
+          productName: "Eh, How Ah?",
+          productVersion: "0.3.4",
         }, p => {
           prog.style.width = (p * 100) + "%";
           label.textContent = "Loading… " + Math.round(p * 100) + "%";
