@@ -1,140 +1,277 @@
-function createContactForm(containerId) {
-  const container = document.getElementById(containerId);
+(function () {
+  function injectStyles() {
+    if (document.getElementById("contact-footer-styles")) return;
 
-  container.innerHTML = `
-    <div class="footer-content">
-      <div class="row contact-row">
-        <!-- Contact Links -->
-        <div class="col-lg-6 contact-links">
-          <h2>Contact Us</h2>
-          <ul class="social">
-            <li><a href="https://www.instagram.com/impactcolliders/" target="_blank"><i class="fa fa-instagram"></i></a></li>
-            <li><a href="https://www.tiktok.com/@impactcolliders?is_from_webapp=1&sender_device=pc" target="_blank"><i class="fa fa-tiktok"><img src="assets/images/tiktok.png" style="height:2.5dvh"></i></a></li>
-            <li><a href="https://www.facebook.com/p/Impact-Colliders-61571335654695/" target="_blank"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="https://www.linkedin.com/company/impact-colliders/posts/?feedView=all" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-          </ul>
-        </div>
+    const style = document.createElement("style");
+    style.id = "contact-footer-styles";
+    style.textContent = `
+      /* ===== Contact Footer Wrapper ===== */
+      #contact-footer {
+        position: relative;
+        background: linear-gradient(135deg, #f4813f 0%, #f1556c 100%);
+        clip-path: polygon(0 15%, 100% 0, 100% 100%, 0% 100%);
+        padding: 160px 0 60px;
+        margin-top: 120px;
+      }
 
-        <br>
+      /* Contact card */
+      #contact-footer .footer-content {
+        background: #ffffff;
+        border-radius: 14px;
+        padding: 48px;
+        max-width: 1000px;
+        margin: 0 auto;
+        box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        position: relative;
+        z-index: 2;
+      }
 
-        <!-- Contact Form -->
-        <div class="col-lg-6 contact-form">
-          <form id="contact" action="#" method="post">
-            <div class="row">
-              <div class="col-md-6">
+      /* Headings */
+      #contact-footer h2 {
+        font-weight: 700;
+        margin-bottom: 20px;
+      }
+
+      /* Social links */
+      ul.social {
+        display: flex;
+        gap: 16px;
+        padding: 0;
+        margin: 0 0 30px;
+        list-style: none;
+      }
+
+      ul.social li a {
+        font-size: 22px;
+        color: #000;
+      }
+
+      .tiktok-icon {
+        height: 22px;
+      }
+
+      /* Contact form */
+      .contact-form input,
+      .contact-form textarea {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 14px;
+        border-radius: 6px;
+        border: 1px solid #ccc;
+      }
+
+      .main-button {
+        background: #000;
+        color: #fff;
+        padding: 10px 22px;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .main-button:hover {
+        background: #333;
+      }
+
+      /* Copyright */
+      .sub-footer {
+        text-align: center;
+        margin-top: 32px;
+        font-size: 0.85rem;
+        color: #fff;
+      }
+
+      /* Mobile adjustments */
+      @media (max-width: 991px) {
+        #contact-footer {
+          padding: 140px 16px 60px;
+        }
+
+        #contact-footer .footer-content {
+          padding: 32px;
+        }
+      }
+
+      @media (max-width: 768px) {
+
+  /* Remove aggressive diagonal spacing */
+  #contact-footer {
+    clip-path: none;
+    padding: 80px 16px 40px;
+    margin-top: 60px;
+  }
+
+  /* Card becomes full-width */
+  #contact-footer .footer-content {
+    padding: 30px 20px;
+    border-radius: 14px;
+  }
+
+  /* Stack everything vertically */
+  .contact-row {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  /* Social section */
+  .contact-links {
+    text-align: center;
+  }
+
+  ul.social {
+    justify-content: center;
+  }
+
+  /* Contact + mailing forms */
+  .contact-form {
+   margin: 0 auto;
+  
+    width: 80%;
+  }
+
+  .contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  /* Inputs */
+  .contact-form input,
+  .contact-form textarea {
+    font-size: 16px;
+    padding: 12px 14px;
+  }
+
+  /* Buttons = full width */
+  .main-button {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 999px;
+  }
+
+  /* Mailing list specific */
+  .contact-form h2 {
+    text-align: center;
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+  }
+
+  /* Footer text */
+  .sub-footer {
+    font-size: 0.8rem;
+    margin-top: 24px;
+    color: #fff;
+  }
+}
+    `;
+    document.head.appendChild(style);
+  }
+
+  function injectMarkup(container) {
+    container.innerHTML = `
+      <section id="contact-footer">
+        <div class="footer-content">
+          <div class="row contact-row">
+
+            <!-- Contact Links -->
+            <div class="col-lg-6 contact-links">
+              <h2>Contact Us</h2>
+              <ul class="social">
+                <li>
+                  <a href="https://www.instagram.com/impactcolliders/" target="_blank" rel="noopener">
+                    <i class="fa fa-instagram"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.tiktok.com/@impactcolliders" target="_blank" rel="noopener">
+                    <img src="assets/images/tiktok.png" alt="TikTok" class="tiktok-icon">
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.facebook.com/p/Impact-Colliders-61571335654695/" target="_blank" rel="noopener">
+                    <i class="fa fa-facebook"></i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.linkedin.com/company/impact-colliders/" target="_blank" rel="noopener">
+                    <i class="fa fa-linkedin"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="col-lg-6 contact-form">
+              <form id="contact">
                 <input name="name" type="text" placeholder="Full Name" required />
-              </div>
-              <div class="col-md-6">
-                <input name="email" type="text" placeholder="Email Address" required />
-              </div>
-              <div class="col-lg-12">
+                <input name="email" type="email" placeholder="Email Address" required />
                 <input name="subject" type="text" placeholder="Subject" required />
-              </div>
-              <div class="col-lg-12">
                 <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
-              </div>
-              <div class="col-lg-12">
                 <button type="submit" class="main-button">Send Message</button>
-              </div>
+              </form>
             </div>
-          </form>
-        </div>
-      </div>
 
-      <br>
-
-      <!-- Mailing List Form -->
-      <div class="contact-form">
-        <form
-          action="https://impactcolliders.us10.list-manage.com/subscribe/post?u=1b49b4b873f4789130f22dfd4&amp;id=c856daa883&amp;f_id=008cc2e1f0"
-          method="post"
-          target="_self"
-        >
-          <h2>Join our Mailing List</h2>
-          <div class="row">
-            <div class="col-md-12">
-              <input type="email" name="EMAIL" placeholder="Email Address" required />
-            </div>
-            <div class="col-md-6">
-              <input type="text" name="FNAME" placeholder="First Name" required />
-            </div>
-            <div class="col-md-6">
-              <input type="text" name="LNAME" placeholder="Last Name" required />
-            </div>
-            <div class="col-md-12" style="display:none;">
-              <input type="text" name="b_1b49b4b873f4789130f22dfd4_c856daa883" tabindex="-1" value="">
-            </div>
-            <div class="col-md-12">
-              <button type="submit" class="main-button">Subscribe</button>
-            </div>
           </div>
-        </form>
-      </div>
+        </div>
 
-      <div class="sub-footer">
-        <p>&copy; 2025 Impact Colliders. All rights reserved.</p>
-      </div>
-    </div>
-  `;
+        <div class="sub-footer">
+          <p>&copy; 2025 Impact Colliders. All rights reserved.</p>
+        </div>
+      </section>
+    `;
+  }
 
-  // Add styles
-  const style = document.createElement("style");
-  style.textContent = `
-    .main-button {
-      background-color: #000;
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .main-button:hover {
-      background-color: #333;
-    }
+  function attachFormHandler(container) {
+    const form = container.querySelector("#contact");
+    if (!form) return;
 
-    /* Add spacing below social links only */
-    ul.social {
-      margin-bottom: 30px; /* space below social links */
-    }
-  `;
-  document.head.appendChild(style);
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
 
-  // Contact form submission
-  const form = document.getElementById("contact");
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
-    const name = form.querySelector("input[name='name']").value;
-    const email = form.querySelector("input[name='email']").value;
-    const subject = form.querySelector("input[name='subject']").value;
-    const message = form.querySelector("textarea[name='message']").value;
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const subject = form.subject.value.trim();
+      const message = form.message.value.trim();
 
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-    );
+      const body = encodeURIComponent(
+        `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
+      );
 
-    const mailtoLink = `mailto:info@impactcolliders.com?subject=${subject}&body=${body}`;
-    window.location.href = mailtoLink;
-  });
+      window.location.href =
+        `mailto:info@impactcolliders.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+    });
+  }
 
-  // Mobile reorder function
-  function reorderForMobile() {
+  function handleResponsiveOrder(container) {
     const row = container.querySelector(".contact-row");
     const links = container.querySelector(".contact-links");
 
-    if (window.innerWidth < 992) {
-      row.prepend(links);
-    } else {
-      row.appendChild(links);
+    if (!row || !links) return;
+
+    function reorder() {
+      if (window.innerWidth < 992) {
+        row.prepend(links);
+      } else {
+        row.appendChild(links);
+      }
     }
+
+    reorder();
+    window.addEventListener("resize", reorder);
   }
 
-  // Initial check
-  reorderForMobile();
+  function init() {
+    const container = document.getElementById("contact-container");
+    if (!container) return;
 
-  // Recheck on window resize
-  window.addEventListener("resize", reorderForMobile);
-}
+    injectStyles();
+    injectMarkup(container);
+    attachFormHandler(container);
+    handleResponsiveOrder(container);
+  }
 
-// Inject the contact form
-createContactForm("contact-container");
+  document.addEventListener("DOMContentLoaded", init);
+})();

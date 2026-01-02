@@ -17,12 +17,21 @@
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css" />
     <link rel="stylesheet" href="assets/css/templatemo-lava.css" />
     <link rel="stylesheet" href="assets/css/owl-carousel.css" />
+    <p id="message" style="display:none"></p>
     <style>
       body {
         font-family: "Poppins", sans-serif;
         background: #f9f9f9;
         padding-top: 100px;
       }
+          iframe {
+  width: 50%;
+  height: 100%;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+
+}
       .content-container {
         max-width: 900px;
         margin: 0 auto 3rem auto;
@@ -45,13 +54,31 @@
         margin-bottom: 1rem;
         font-weight: 600;
       }
+      body {
+  padding-top: 72px;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding-top: 56px;
+  }
+
+ 
+}
+
+
+
+@media (max-width: 768px){
       iframe {
-        width: 100%;
-        height: 450px;
-        border: none;
-        border-radius: 6px;
-        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
-      }
+  width: 90%;
+  height: 500px;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.15);
+
+}
+}
+
       button.back-btn,
       button.copy-qr-btn {
         position: absolute;
@@ -97,30 +124,26 @@
         button.copy-qr-btn {
           right: 100px;
         }
-        iframe {
-          height: 250px;
-        }
+       
       }
 
-      .video-wrapper {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-      }
+.video-wrapper {
+  position: relative;
+  width: 360px;
+  max-width: 120vw;
+  margin: 0 auto;
+  background: black;
+  border-radius: 16px;
+  overflow: hidden;
+}
 
-      .video-wrapper iframe {
-        width: 100%;
-        max-width: none;
-        aspect-ratio: 9 / 16;
-        height: 85%;
-        border: none;
-        border-radius: 10px;
-        background: #000;
-        display: none;
-        box-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
-      }
+.video-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+
 
       .video-wrapper iframe.video-start {
         display: block;
@@ -138,7 +161,6 @@
           width: 100%;
           max-width: none;
           height: 100%;
-          aspect-ratio: auto;
           border-radius: 0;
           box-shadow: none;
         }
@@ -150,27 +172,15 @@
         margin-top: 0.5rem;
         margin-bottom: 1.2rem;
       }
-      .nav-arrow {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        font-size: 2rem;
-        background: rgba(228, 63, 90, 0.8);
-        border: none;
-        color: white;
-        padding: 6px 12px;
-        border-radius: 4px;
-        cursor: pointer;
-        z-index: 15;
-        transition: background 0.3s ease;
-        font-size: 1rem;
-      }
+   
 
       .video-holder {
-        display: flex;
-        width: 100%;
-        justify-content: center;
-      }
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 25px;
+}
+
 
       .video-arrow {
         width: 15vw;
@@ -186,27 +196,23 @@
         transition: background 0.3s ease;
       }
 
-      .video-arrow {
-      }
+   
 
-      .nav-arrow:hover {
-        background: rgba(185, 44, 65, 0.8);
-      }
-      .left-arrow {
-        left: -0px;
-      }
-      .right-arrow {
-        right: -0px;
-      }
+   
 
       .content-container section {
         height: 85dvh;
       }
 
-      .video-section {
-        height: 100%;
-        width: 100%;
-      }
+     .video-section {
+      padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 90%;
+}
+
 
       .touch-overlay {
         position: absolute;
@@ -218,6 +224,27 @@
         background: transparent;
         touch-action: none; /* ensures touch events are captured */
       }
+
+    @media (max-width: 768px) {
+  .video-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 80%;
+}
+  /* SECTION ARROWS — TRUE ICON BUTTONS */
+
+    .video-arrow {
+    width: auto;
+    min-width: 120px;
+    padding: 14px 18px;
+    font-size: 1.05rem;
+    border-radius: 10px;
+  }
+
+}
+
     </style>
   </head>
   <body>
@@ -236,7 +263,6 @@
     <script src="assets/js/imgfix.min.js"></script>
     <script src="navbar.js"></script>
     <script src="assets/js/custom.js"></script>
-    <script src="assets/js/cs"></script>
     <script>
       const videoContainer = document.getElementById("video-container");
 
@@ -244,7 +270,7 @@
       const videos = [
         {
           title: "Login",
-          url1: "/content/videos/Login.mp4",
+          youtubeId: "vkyHGQcteqI",
           description1: "Step 1",
           description2: "Step 2",
           description3: "Step 3",
@@ -256,7 +282,7 @@
         },
         {
           title: "Web Navigation",
-          url1: "/content/videos/WebNavigation.mp4",
+          youtubeId: "t4D6GZpuO1I",
           description1: "Step 1",
           description2: "Step 2",
           description3: "Step 3",
@@ -268,7 +294,7 @@
         },
         {
           title: "Notes/Memos",
-          url1: "/content/videos/Notes.mp4",
+          youtubeId: "uPIB1XLYu1w",
           description1: "Step 1",
           description2: "Step 2",
           description3: "Step 3",
@@ -280,7 +306,7 @@
         },
         {
           title: "Weather",
-          url1: "/content/videos/Weather.mp4",
+          youtubeId: "828VXdKj1zg",
           description1: "Step 1",
           description2: "Step 2",
           description3: "Step 3",
@@ -292,7 +318,7 @@
         },
         {
           title: "Alarms",
-          url1: "/content/videos/Alarm.mp4",
+          youtubeId: "ytb2Hw72LRc",
           description1: "Step 1",
           description2: "Step 2",
           description3: "Step 3",
@@ -304,7 +330,7 @@
         },
         {
           title: "Singpass",
-          url1: "/content/videos/Singpass.mp4",
+          youtubeId: "RVpErewwbGk",
           description1: "Step 1",
           description2: "Step 2",
           description3: "Step 3",
@@ -316,7 +342,7 @@
         },
         {
           title: "MyTransport",
-          url1: "/content/videos/MyTransport.mp4",
+          youtubeId: "3ezxvsjh4lU",
           description1: "Step 1",
           description2: "Step 2",
           description3: "Step 3",
@@ -328,7 +354,7 @@
         },
         {
           title: "Grab",
-          url1: "/content/videos/Grab.mp4",
+          youtubeId: "kbKVyRhR_BM",
           description1: "Step 1",
           description2: "Step 2",
           description3: "Step 3",
@@ -340,7 +366,7 @@
         },
         {
           title: "Google Maps",
-          url1: "/content/videos/GoogleMaps.mp4",
+          youtubeId: "NK43JZYhPd4",
           description1: "Step 1",
           description2: "Step 2",
           description3: "Step 3",
@@ -352,7 +378,7 @@
         },
         {
           title: "Zoom",
-          url1: "/content/videos/Zoom.mp4",
+          youtubeId: "-rUtKXB4D8I",
           description1: "Step 1",
           description2: "Step 2",
           description3: "Step 3",
@@ -364,7 +390,7 @@
         },
         {
           title: "Whatsapp",
-          url1: "/content/videos/Whatsapp.mp4",
+          youtubeId: "Us3xYp8c2IM",
           description1: "Step 1",
           description2: "Step 2",
           description3: "Step 3",
@@ -376,7 +402,7 @@
         },
         {
           title: "Contacts",
-          url1: "/content/videos/Contacts.mp4",
+          youtubeId: "GVSJJQeScUs",
           description1: "Step 1",
           description2: "Step 2",
           description3: "Step 3",
@@ -388,7 +414,7 @@
         },
         {
           title: "HealthHub",
-          url1: "/content/videos/HealthHub.mp4",
+          youtubeId: "qUB1XP1OV8g",
           description1: "Step 1",
           description2: "Step 2",
           description3: "Step 3",
@@ -400,7 +426,7 @@
         },
         {
           title: "Pillbox",
-          url1: "/content/videos/Pillbox.mp4",
+          youtubeId: "IxSQbbBT11Q",
           description1: "Step 1",
           description2: "Step 2",
           description3: "Step 3",
@@ -412,7 +438,7 @@
         },
         {
           title: "Facebook",
-          url1: "/content/videos/Facebook.mp4",
+          youtubeId: "qrDhOHMrnpQ",
           description1: "Step 1",
           description2: "Step 2",
           description3: "Step 3",
@@ -424,7 +450,7 @@
         },
         {
           title: "The Straits Times",
-          url1: "/content/videos/TheStraitsTimes.mp4",
+          youtubeId: "pR7_A3ptQQ8",
           description1: "Step 1",
           description2: "Step 2",
           description3: "Step 3",
@@ -436,7 +462,7 @@
         },
         {
           title: "Youtube",
-          url1: "/content/videos/Youtube.mp4",
+          youtubeId: "LRDd0Yr-ZUU",
           description1: "Step 1",
           description2: "Step 2",
           description3: "Step 3",
@@ -448,7 +474,7 @@
         },
         {
           title: "Paynow",
-          url1: "/content/videos/PayNow.mp4",
+          youtubeId: "eBjLNxgZjYY",
           description1: "Step 1",
           description2: "Step 2",
           description3: "Step 3",
@@ -460,7 +486,7 @@
         },
         {
           title: "Tutorial",
-          url1: "/content/videos/TheStraitsTimes.mp4",
+          youtubeId: "/content/videos/TheStraitsTimes.mp4",
           description1: "Step 1",
           description2: "Step 2",
           description3: "Step 3",
@@ -495,39 +521,30 @@
   <div class="video-wrapper" data-index="${index + 1}" 
     style="position: relative; display: flex; justify-content: center; align-items: center; flex-direction: column;">
     
-    <!-- Left Arrow -->
-    <button class="nav-arrow left-arrow" onclick="goToSiblingSection(-1)">Prev Section</button>
-
-    <!-- Right Arrow -->
-    <button class="nav-arrow right-arrow" onclick="goToSiblingSection(1)">Next Section</button>
-
+   
+<br>
     <!-- Video Sections -->
-    <div class="video-section" style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
-      <video style="width: 80%; height: 80%;" class="video-start" controls preload="metadata">
-        <source src="${video.url1}" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </div>
+   <div class="video-section" style="display:flex;">
+  <iframe
+    data-step="0"
+    src=""
+    allow="autoplay; encrypted-media"
+    allowfullscreen
+  ></iframe>
+</div>
 
-    <div class="video-section" style="display:none; justify-content: center; align-items: center; flex-direction: column;">
-      <video style="width: 80%; height: 80%;" class="video-start" controls preload="metadata">
-        <source src="${video.url1}" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </div>
+<div class="video-section" style="display:none;">
+  <iframe data-step="1" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
 
-    <div class="video-section" style="display:none; justify-content: center; align-items: center; flex-direction: column;">
-      <video style="width: 80%; height: 80%;" class="video-start" controls preload="metadata">
-        <source src="${video.url1}" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
-    </div>
+<div class="video-section" style="display:none;">
+  <iframe data-step="2" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
 
-    <div class="video-section" style="display:none; justify-content: center; align-items: center; flex-direction: column;">
-      <video style="width: 80%; height: 80%;" class="video-start" controls preload="metadata">
-        <source src="${video.url1}" type="video/mp4">
-        Your browser does not support the video tag.
-      </video>
+<div class="video-section" style="display:none;">
+  <iframe data-step="3" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+
     </div>
   </div>
 
@@ -569,6 +586,7 @@
               }
             });
           }
+          
         });
       }, 0);
 
@@ -610,6 +628,23 @@
           });
         });
       });
+
+     function loadYoutubeStep(iframe, videoId, startTime, autoplay = true) {
+  iframe.src = "";
+
+  requestAnimationFrame(() => {
+    const params = new URLSearchParams({
+      autoplay: autoplay ? 1 : 0,
+      start: startTime ?? 0,
+      rel: 0,
+      modestbranding: 1,
+      playsinline: 1
+    });
+
+    iframe.src = `https://www.youtube.com/embed/${videoId}?${params.toString()}`;
+  });
+}
+
 
       // Modified goToSiblingSection to take a wrapper parameter
       function goToSiblingSectionWithVideo(wrapper, direction) {
@@ -663,31 +698,64 @@
         });
       }
 
-      const params = new URLSearchParams(window.location.search);
-      const show = params.get("show");
-      const messageEl = document.getElementById("message");
-      const sections = document.querySelectorAll("section");
+     const params = new URLSearchParams(window.location.search);
+const show = params.get("show");
+const messageEl = document.getElementById("message");
+const sections = document.querySelectorAll("section");
 
-      if (show) {
-        if (show === "all") {
-          sections.forEach((sec) => sec.classList.add("active"));
-          messageEl.textContent = "Showing all sections.";
-        } else {
-          const section = document.querySelector(
-            `section[data-index="${show}"]`
-          );
-          if (section) {
-            section.classList.add("active");
-            messageEl.textContent = `Showing section ${show}.`;
-          } else {
-            messageEl.textContent = `Section ${show} not found.`;
-            messageEl.style.color = "red";
-          }
-        }
-      } else {
-        messageEl.textContent =
-          "Please specify a section via ?show=1 (or 2, 3) or ?show=all";
-      }
+if (show) {
+  if (show === "all") {
+    sections.forEach((sec) => sec.classList.add("active"));
+    messageEl.textContent = "Showing all sections.";
+  } else {
+    const section = document.querySelector(`section[data-index="${show}"]`);
+
+    if (section) {
+      section.classList.add("active");
+messageEl.textContent = `Showing section ${show}.`;
+
+loadInitialVideoForSection(Number(show));
+
+
+      requestAnimationFrame(() => {
+        const wrapper = section.querySelector(".video-wrapper");
+        if (!wrapper) return;
+
+        const iframe = wrapper.querySelector('iframe[data-step="0"]');
+        if (!iframe) return;
+
+        const videoData = videos[Number(show) - 1];
+        loadYoutubeStep(iframe, videoData.youtubeId, videoData.time1, false);
+      });
+    } else {
+      messageEl.textContent = `Section ${show} not found.`;
+      messageEl.style.color = "red";
+    }
+  }
+} else {
+  messageEl.textContent =
+    "Please specify a section via ?show=1 (or 2, 3) or ?show=all";
+}
+
+function loadInitialVideoForSection(sectionIndex) {
+  const section = document.querySelector(
+    `section[data-index="${sectionIndex}"]`
+  );
+  if (!section) return;
+
+  const iframe = section.querySelector('iframe[data-step="0"]');
+  if (!iframe) return;
+
+  const videoData = videos[sectionIndex - 1];
+
+  loadYoutubeStep(
+    iframe,
+    videoData.youtubeId,
+    0,
+    false
+  );
+}
+
 
       // Copy URL buttons
       document.querySelectorAll("button.copy-btn").forEach((btn) => {
@@ -818,65 +886,9 @@
         return `${baseUrl}?${query.toString()}`;
       }
 
-      function goToSiblingSection(direction) {
-        console.log("test");
-        // Find the overlay that triggered this
-        const overlay = event.currentTarget;
-        if (!overlay) return;
-console.log(overlay);
-        const wrapper = overlay.closest(".active");
-        if (!wrapper) return;
-console.log("test2");
-        const sections = wrapper.querySelectorAll(".video-section");
-        let currentIndex = -1;
+ 
 
-        // Find currently visible section
-        sections.forEach((sec, i) => {
-          if (sec.style.display !== "none") {
-            currentIndex = i;
-          }
-        });
 
-        if (currentIndex === -1) return;
-
-        const nextIndex =
-          (currentIndex + direction + sections.length) % sections.length;
-
-        sections.forEach((sec, i) => {
-          const video = sec.querySelector("video");
-          if (!video) return;
-
-          if (i === nextIndex) {
-            sec.style.display = "flex"; // show
-            // Set video time according to the step
-            const wrapperIndex = wrapper.dataset.index - 1;
-            const videoData = videos[wrapperIndex]; // your videos array
-            let startTime = 0;
-
-            // Determine which time to use based on nextIndex
-            switch (nextIndex) {
-              case 0:
-                startTime = videoData.time1 || 0;
-                break;
-              case 1:
-                startTime = videoData.time2 || 0;
-                break;
-              case 2:
-                startTime = videoData.time3 || 0;
-                break;
-              case 3:
-                startTime = videoData.time4 || 0;
-                break;
-            }
-
-            video.currentTime = startTime;
-            video.play().catch(() => {}); // play active video
-          } else {
-            sec.style.display = "none"; // hide
-            video.pause(); // pause hidden videos
-          }
-        });
-      }
     </script>
   </body>
 </html>

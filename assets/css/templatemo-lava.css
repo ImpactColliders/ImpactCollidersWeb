@@ -1087,10 +1087,11 @@ footer {
   background-position: center center;
   background-size: cover;
   width: 100%;
+  
 }
 
 footer .footer-content {
-  padding: 120px 0px 0px;
+  padding: 400px 0px 0px;
 }
 
 .contact-form {

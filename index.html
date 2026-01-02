@@ -202,6 +202,65 @@
       footer#contact-us {
         padding-top: 30px;
       }
+      /* ===== Partners Infinite Carousel ===== */
+.partners-section {
+  margin: 48px 0 24px;
+  text-align: center;
+}
+
+.partners-title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  margin-bottom: 18px;
+  color: #333;
+}
+
+.partners-marquee {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.partners-track {
+  display: flex;
+  width: max-content;
+  animation: partners-scroll 25s linear infinite;
+}
+
+.partners-track img {
+  height: 48px;
+  margin: 0 28px;
+  opacity: 0.8;
+  transition: opacity 200ms ease, filter 200ms ease;
+}
+
+.partners-track img:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+}
+
+/* pause animation on hover (desktop only) */
+.partners-marquee:hover .partners-track {
+  animation-play-state: paused;
+}
+
+@keyframes partners-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Mobile tweaks */
+@media (max-width: 640px) {
+  .partners-track img {
+    height: 40px;
+    margin: 0 18px;
+  }
+}
+
     </style>
   </head>
 
@@ -280,7 +339,44 @@
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen
       ></iframe>
+      <!-- ===== Partners Infinite Carousel ===== -->
+
+
     </div>
+
+    <section class="partners-section">
+  <h3 class="partners-title">Our Partners</h3>
+
+  <div class="partners-marquee">
+    <div class="partners-track">
+      <!-- First set -->
+      <img src="assets/images/partners/nyc.png" alt="NYC" />
+      <img src="assets/images/partners/NTUCHealth.png" alt="NTUCHealth" />
+      <img src="assets/images/partners/sunlove.png" alt="sunlove" />
+      <img src="assets/images/partners/mapletree.jpg" alt="mapletree" />
+      <img src="assets/images/partners/IMDA.png" alt="IMDA" />
+       <img src="assets/images/partners/AAC.jpg" alt="AAC" />
+        <img src="assets/images/partners/np.png" alt="np" />
+         <img src="assets/images/partners/nyp.png" alt="nyp" />
+          <img src="assets/images/partners/rsvp.jpg" alt="rsvp" />
+           <img src="assets/images/partners/touch.jpg" alt="touch" />
+            <img src="assets/images/partners/sandbox.jpg" alt="sandbox" />
+
+      <!-- Duplicate set (required for seamless loop) -->
+     <img src="assets/images/partners/nyc.png" alt="NYC" />
+      <img src="assets/images/partners/NTUCHealth.png" alt="NTUCHealth" />
+      <img src="assets/images/partners/sunlove.png" alt="sunlove" />
+      <img src="assets/images/partners/mapletree.jpg" alt="mapletree" />
+      <img src="assets/images/partners/IMDA.png" alt="IMDA" />
+            <img src="assets/images/partners/AAC.jpg" alt="AAC" />
+        <img src="assets/images/partners/np.png" alt="np" />
+         <img src="assets/images/partners/nyp.png" alt="nyp" />
+          <img src="assets/images/partners/rsvp.jpg" alt="rsvp" />
+           <img src="assets/images/partners/touch.jpg" alt="touch" />
+            <img src="assets/images/partners/sandbox.jpg" alt="sandbox" />
+    </div>
+  </div>
+</section>
 
     <!-- Contact Us -->
 
@@ -289,41 +385,12 @@
         <!-- Contact form will be injected here -->
       </div>
     </footer>
-    <script src="contactus.js"></script>
+    <script src="mailinglist.js"></script>
 
     <!-- ========== Scripts ========== -->
     <script>
       // Contact form mailto behavior (kept as before)
-      document
-        .getElementById("contact")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
-
-          const name = document.querySelector("input[name='name']").value;
-          const email = document.querySelector("input[name='email']").value;
-          const subject = document.querySelector("input[name='subject']").value;
-          const message = document.querySelector(
-            "textarea[name='message']"
-          ).value;
-
-          const body = encodeURIComponent(
-            "Name: " +
-              name +
-              "\n" +
-              "Email: " +
-              email +
-              "\n\n" +
-              "Message:\n" +
-              message
-          );
-
-          const mailtoLink = `mailto:info@impactcolliders.com?subject=${encodeURIComponent(
-            subject
-          )}&body=${body}`;
-
-          window.location.href = mailtoLink;
-        });
-
+     
       // ===== Carousel logic =====
       (function () {
         // Images (same filenames you used)

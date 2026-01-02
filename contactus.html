@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us – Impact Colliders</title>
+
+  <link rel="icon" type="image/x-icon" href="/assets/images/logo.jpg" />
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/font-awesome.css" />
+  <link rel="stylesheet" href="assets/css/templatemo-lava.css" />
+</head>
+
+<body>
+
+  <!-- Nav -->
+  <header class="header-area header-sticky" id="nav-placeholder"></header>
+
+  <!-- Contact Page Content -->
+  <!-- Contact Us -->
+
+    <footer id="contact-us">
+      <div class="container" id="contact-container">
+        <!-- Contact form will be injected here -->
+      </div>
+    </footer>
+    <script src="contactus.js"></script>
+
+    <!-- ========== Scripts ========== -->
+    <script>
+      // Contact form mailto behavior (kept as before)
+      document
+        .getElementById("contact")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const name = document.querySelector("input[name='name']").value;
+          const email = document.querySelector("input[name='email']").value;
+          const subject = document.querySelector("input[name='subject']").value;
+          const message = document.querySelector(
+            "textarea[name='message']"
+          ).value;
+
+          const body = encodeURIComponent(
+            "Name: " +
+              name +
+              "\n" +
+              "Email: " +
+              email +
+              "\n\n" +
+              "Message:\n" +
+              message
+          );
+
+          const mailtoLink = `mailto:info@impactcolliders.com?subject=${encodeURIComponent(
+            subject
+          )}&body=${body}`;
+
+          window.location.href = mailtoLink;
+        });
+</script>
+  <script src="contactus.js"></script>
+  <script src="navbar.js"></script>
+
+</body>
+</html>

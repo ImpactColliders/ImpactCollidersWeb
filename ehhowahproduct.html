@@ -32,13 +32,14 @@
         position: relative;
       }
       /* Carousel wrapper fixed size */
-      .carousel-wrapper {
-        width: 100%;
-        height: 400px; /* fixed height for all slides */
-        position: relative;
-        border-radius: 12px;
-        overflow: hidden;
-      }
+     .carousel-wrapper {
+  width: 100%;
+  aspect-ratio: 1 / 1; /* square */
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
 
       /* Each slide fills the wrapper */
       .carousel-slide {
@@ -242,24 +243,20 @@
         <!-- Contact form will be injected here -->
       </div>
     </footer>
-    <script src="contactus.js"></script>
+    <script src="mailinglist.js"></script>
 
     <!-- Carousel Script -->
     <script>
       (function () {
         const slides = [
-          { src: "assets/images/6256013071336196538.jpg" },
-          { src: "assets/images/6256013071336196539.jpg" },
-          { src: "assets/images/6256013071336196542.jpg" },
-          { src: "assets/images/6256013071336196543.jpg" },
-          { src: "assets/images/6256013071336196544.jpg" },
-          { src: "assets/images/6256013071336196541.jpg" },
-          { src: "assets/images/6256013071336196540.jpg" },
-          { src: "assets/images/6256013071336196545.jpg" },
-          { src: "assets/images/6256013071336196546.jpg" },
-          { src: "assets/images/6256013071336196535.jpg" },
-          { src: "assets/images/6256013071336196536.jpg" },
-          { src: "assets/images/6256013071336196537.jpg" },
+          { src: "assets/images/8.jpg" },
+          { src: "assets/images/9.jpg" },
+          { src: "assets/images/10.jpg" },
+          { src: "assets/images/11.jpg" },
+          { src: "assets/images/12.jpg" },
+          { src: "assets/images/13.jpg" },
+          { src: "assets/images/14.jpg" },
+          { src: "assets/images/15.jpg" },
         ];
 
         let currentIndex = 0;

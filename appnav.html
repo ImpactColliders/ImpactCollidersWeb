@@ -81,7 +81,7 @@
         aspect-ratio: 1 / 1;
         object-fit: cover;
         border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
       }
 
       .aboutPerson {
@@ -90,9 +90,9 @@
 
       .interactive-grid-container {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         gap: 20px;
-        max-width: 1000px;
+        max-width: 1200px;
         margin: auto;
       }
 
@@ -123,7 +123,7 @@
         }
 
         .interactive-grid-container {
-          grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
           gap: 15px;
         }
       }
@@ -133,7 +133,7 @@
           max-width: 100%;
         }
         .interactive-grid-container {
-          grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
           gap: 10px;
         }
       }
@@ -141,7 +141,7 @@
       /* Interactive Grid Section */
       .interactive-grid-section {
         padding: 10dvh;
-        background-color: #f8f8f8;
+        background-color: #ffffff;
         text-align: center;
       }
 
@@ -153,21 +153,32 @@
       @media (max-width: 480px) {
       }
 
-      .interactive-box {
-        background-color: #fff;
-        border-radius: 12px;
-        text-decoration: none;
-        color: #333;
-        font-weight: 600;
-        font-size: 1.1em;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
-      }
+     .interactive-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-      .interactive-box img {
-        max-width: 100%;
-        max-height: 100%;
-      }
+  width: 100%;
+  aspect-ratio: 5 / 4; /* wide banner shape */
+
+
+  background-color: #fff;
+  border-radius: 5px;
+  text-decoration: none;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+}
+
+.interactive-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+
+
+  transform: rotate(90deg);
+  transform-origin: center;
+}
 
       .interactive-box:hover {
         background-color: #ff4500;
@@ -175,6 +186,12 @@
         transform: translateY(-5px);
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
       }
+
+      .interactive-box img {
+  transform: rotate(90deg);
+  transform-origin: center;
+}
+
     </style>
   </head>
 
@@ -194,58 +211,58 @@
     <section class="interactive-grid-section">
       <div class="interactive-grid-container">
         <a href="videos.html?show=1" class="interactive-box"
-          ><img src="assets/images/Apps/Login.png"
+          ><img src="assets/images/Apps/M_LOGIN.png"
         /></a>
         <a href="videos.html?show=2" class="interactive-box"
-          ><img src="assets/images/Apps/Web.png"
+          ><img src="assets/images/Apps/M_WEBNAVIGATION.png"
         /></a>
         <a href="videos.html?show=3" class="interactive-box"
-          ><img src="assets/images/Apps/Notes.png"
+          ><img src="assets/images/Apps/M_NOTES.png"
         /></a>
         <a href="videos.html?show=4" class="interactive-box"
-          ><img src="assets/images/Apps/Weather.png"
+          ><img src="assets/images/Apps/M_WEATHER.png"
         /></a>
         <a href="videos.html?show=5" class="interactive-box"
-          ><img src="assets/images/Apps/Alarms.png"
+          ><img src="assets/images/Apps/M_ALARMS.png"
         /></a>
         <a href="videos.html?show=6" class="interactive-box"
-          ><img src="assets/images/Apps/Singpass.png"
+          ><img src="assets/images/Apps/M_SINGPASS.png"
         /></a>
         <a href="videos.html?show=7" class="interactive-box"
-          ><img src="assets/images/Apps/MyTransport.png"
+          ><img src="assets/images/Apps/M_MYTRANSPORT.png"
         /></a>
         <a href="videos.html?show=8" class="interactive-box"
-          ><img src="assets/images/Apps/Grab.png"
+          ><img src="assets/images/Apps/M_GRAB.png"
         /></a>
         <a href="videos.html?show=9" class="interactive-box"
-          ><img src="assets/images/Apps/Maps.png"
+          ><img src="assets/images/Apps/M_GOOGLEMAPS.png"
         /></a>
         <a href="videos.html?show=10" class="interactive-box"
-          ><img src="assets/images/Apps/Zoom.png"
+          ><img src="assets/images/Apps/M_ZOOM.png"
         /></a>
         <a href="videos.html?show=11" class="interactive-box"
-          ><img src="assets/images/Apps/Whatsapp.png"
+          ><img src="assets/images/Apps/M_WHATSAPP.png"
         /></a>
         <a href="videos.html?show=12" class="interactive-box"
-          ><img src="assets/images/Apps/Contacts.png"
+          ><img src="assets/images/Apps/M_CONTACTS.png"
         /></a>
         <a href="videos.html?show=13" class="interactive-box"
-          ><img src="assets/images/Apps/HealthHub.png"
+          ><img src="assets/images/Apps/M_HEALTHHUB.png"
         /></a>
         <a href="videos.html?show=14" class="interactive-box"
-          ><img src="assets/images/Apps/Pillbox.png"
+          ><img src="assets/images/Apps/M_PILLBOX.png"
         /></a>
         <a href="videos.html?show=15" class="interactive-box"
-          ><img src="assets/images/Apps/Facebook.png"
+          ><img src="assets/images/Apps/M_FACEBOOK.png"
         /></a>
         <a href="videos.html?show=16" class="interactive-box"
-          ><img src="assets/images/Apps/StraitsTimes.png"
+          ><img src="assets/images/Apps/M_STRAITSTIMES.png"
         /></a>
         <a href="videos.html?show=17" class="interactive-box"
-          ><img src="assets/images/Apps/Youtube.png"
+          ><img src="assets/images/Apps/M_YOUTUBE.png"
         /></a>
         <a href="videos.html?show=18" class="interactive-box"
-          ><img src="assets/images/Apps/PayNow.png"
+          ><img src="assets/images/Apps/M_PAYNOW.png"
         /></a>
       </div>
     </section>
@@ -255,7 +272,7 @@
         <!-- Contact form will be injected here -->
       </div>
     </footer>
-    <script src="contactus.js"></script>
+    <script src="mailinglist.js"></script>
 
     <!-- JS Scripts -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>
