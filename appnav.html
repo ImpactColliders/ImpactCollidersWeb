@@ -26,172 +26,81 @@
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css" />
     <link rel="stylesheet" href="assets/css/templatemo-lava.css" />
     <link rel="stylesheet" href="assets/css/owl-carousel.css" />
-    <style>
-      .about-grid-section {
-        padding: 80px 20px;
-        background-color: #fff;
+       <style>
+      body {
+        font-family: "Poppins", sans-serif;
+        background: #ffffff;
+        margin: 0;
       }
 
-      .about-grid-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-areas:
-          "intro image1"
-          "approach approach"
-          "image2 image3";
-        gap: 30px;
-        max-width: 1200px;
-        margin: auto;
-        padding: 10px;
-      }
-
-      .about-intro {
-        grid-area: intro;
-      }
-
-      .image-1 {
-        grid-area: image1;
-      }
-
-      .image-2 {
-        grid-area: image2;
-      }
-
-      .image-3 {
-        grid-area: image3;
-      }
-
-      .about-approach {
-        grid-area: approach;
-      }
-
-      .about-text h1,
-      .about-text h2 {
-        font-weight: 700;
-        margin-bottom: 20px;
-      }
-
-      .about-text p {
-        font-size: 1.1em;
-        line-height: 1.7;
-      }
-
-      .about-image img {
-        width: 100%;
-        aspect-ratio: 1 / 1;
-        object-fit: cover;
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
-      }
-
-      .aboutPerson {
-        max-width: 25%;
-      }
-
-      .interactive-grid-container {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        gap: 20px;
-        max-width: 1200px;
-        margin: auto;
-      }
-
-      @media (max-width: 975px) {
-        .aboutPerson {
-          max-width: 33%;
-        }
-      }
-
-      @media (max-width: 720px) {
-        .aboutPerson {
-          max-width: 50%;
-        }
-
-        .about-grid-container {
-          display: grid;
-          grid-template-columns: repeat(1, 1fr);
-          grid-template-areas:
-            "image1"
-            "intro"
-            "image2"
-            "approach"
-            "image3";
-          gap: 30px;
-          max-width: 1200px;
-          margin: auto;
-          padding: 10px;
-        }
-
-        .interactive-grid-container {
-          grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-          gap: 15px;
-        }
-      }
-
-      @media (max-width: 524px) {
-        .aboutPerson {
-          max-width: 100%;
-        }
-        .interactive-grid-container {
-          grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-          gap: 10px;
-        }
-      }
-
-      /* Interactive Grid Section */
       .interactive-grid-section {
-        padding: 10dvh;
-        background-color: #ffffff;
-        text-align: center;
+        padding: 80px 16px;
       }
 
-      /* Medium screens (tablets) */
-      @media (max-width: 768px) {
-      }
+     .interactive-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  max-width: 1400px;
+  margin: auto;
+  justify-items: center;
 
-      /* Small screens (phones) */
-      @media (max-width: 480px) {
-      }
+}
 
-     .interactive-box {
+.interactive-box {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+  aspect-ratio: 16 / 9;
+
+  background-color: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
   display: flex;
   align-items: center;
   justify-content: center;
-
-  width: 100%;
-  aspect-ratio: 5 / 4; /* wide banner shape */
-
-
-  background-color: #fff;
-  border-radius: 5px;
-  text-decoration: none;
-
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
 }
 
-.interactive-box img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-
-
-  transform: rotate(90deg);
-  transform-origin: center;
-}
 
       .interactive-box:hover {
-        background-color: #ff4500;
-        color: #fff;
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.16);
+      }
+
+      .interactive-box-inner {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .interactive-box img {
-  transform: rotate(90deg);
-  transform-origin: center;
-}
+        height: 100%;
+        width: auto;
+        transform: rotate(90deg);
+        transform-origin: center;
+        object-fit: contain;
+      }
 
+      @media (max-width: 480px) {
+        .interactive-grid-container {
+          grid-template-columns: 1fr;
+        }
+
+        .interactive-box {
+          aspect-ratio: 16 / 9;
+        }
+
+        .interactive-box img {
+          height: 100%;
+          width: auto;
+        }
+      }
     </style>
   </head>
 
