@@ -1,66 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contact Us – Impact Colliders</title>
 
-  <link rel="icon" type="image/x-icon" href="/assets/images/logo.jpg" />
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="assets/css/font-awesome.css" />
-  <link rel="stylesheet" href="assets/css/templatemo-lava.css" />
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Contact Us – Impact Colliders</title>
+
+<link rel="icon" type="image/x-icon" href="/assets/images/logo.jpg"/>
+
+<link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="assets/css/font-awesome.css"/>
+<link rel="stylesheet" href="assets/css/templatemo-lava.css"/>
+
+<style>
+
+/* PAGE BACKGROUND */
+
+.contact-page{
+background:#f5f5f5;
+padding:140px 20px 120px;
+}
+
+/* CONTACT CARD */
+
+.contact-wrapper{
+max-width:700px;
+margin:auto;
+background:white;
+border-radius:16px;
+padding:60px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+/* FORM */
+
+.contact-form h2{
+font-weight:700;
+color:#004aad;
+margin-bottom:25px;
+text-align:center;
+}
+
+.contact-form input,
+.contact-form textarea{
+width:100%;
+padding:14px;
+border-radius:8px;
+border:1px solid #ddd;
+margin-bottom:18px;
+font-size:14px;
+}
+
+.contact-form button{
+background:#d44732;
+color:white;
+border:none;
+padding:14px 28px;
+border-radius:999px;
+font-weight:600;
+cursor:pointer;
+width:100%;
+}
+
+.contact-form button:hover{
+background:#b83a28;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.contact-wrapper{
+padding:40px 30px;
+}
+
+}
+
+</style>
+
 </head>
 
 <body>
 
-  <!-- Nav -->
-  <header class="header-area header-sticky" id="nav-placeholder"></header>
+<!-- NAVBAR -->
+<header class="header-area header-sticky" id="nav-placeholder"></header>
 
-  <!-- Contact Page Content -->
-  <!-- Contact Us -->
 
-    <footer id="contact-us">
-      <div class="container" id="contact-container">
-        <!-- Contact form will be injected here -->
-      </div>
-    </footer>
-    <script src="contactus.js"></script>
+<!-- CONTACT SECTION -->
 
-    <!-- ========== Scripts ========== -->
-    <script>
-      // Contact form mailto behavior (kept as before)
-      document
-        .getElementById("contact")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
+<section class="contact-page">
 
-          const name = document.querySelector("input[name='name']").value;
-          const email = document.querySelector("input[name='email']").value;
-          const subject = document.querySelector("input[name='subject']").value;
-          const message = document.querySelector(
-            "textarea[name='message']"
-          ).value;
+<div class="contact-wrapper">
 
-          const body = encodeURIComponent(
-            "Name: " +
-              name +
-              "\n" +
-              "Email: " +
-              email +
-              "\n\n" +
-              "Message:\n" +
-              message
-          );
+<div class="contact-form">
 
-          const mailtoLink = `mailto:info@impactcolliders.com?subject=${encodeURIComponent(
-            subject
-          )}&body=${body}`;
+<h2>Contact Us</h2>
 
-          window.location.href = mailtoLink;
-        });
+<form id="contact">
+
+<input name="name" type="text" placeholder="Full Name" required>
+
+<input name="email" type="email" placeholder="Email Address" required>
+
+<input name="subject" type="text" placeholder="Subject">
+
+<textarea name="message" rows="5" placeholder="Your Message"></textarea>
+
+<button type="submit">Send Message</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER (contains socials + info) -->
+
+<footer id="contact-us">
+<div class="container" id="contact-container"></div>
+</footer>
+
+
+<!-- SCRIPTS -->
+
+<script src="assets/js/jquery-2.1.0.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+
+<script src="navbar.js"></script>
+<script src="contactus.js"></script>
+
+
+<script>
+
+document.getElementById("contact").addEventListener("submit", function(event){
+
+event.preventDefault();
+
+const name = document.querySelector("input[name='name']").value;
+const email = document.querySelector("input[name='email']").value;
+const subject = document.querySelector("input[name='subject']").value;
+const message = document.querySelector("textarea[name='message']").value;
+
+const body = encodeURIComponent(
+"Name: " + name +
+"\nEmail: " + email +
+"\n\nMessage:\n" + message
+);
+
+const mailtoLink =
+`mailto:info@impactcolliders.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+
+window.location.href = mailtoLink;
+
+});
+
 </script>
-  <script src="contactus.js"></script>
-  <script src="navbar.js"></script>
+
+
+
+<footer id="contact-us">
+<div class="container" id="contact-container"></div>
+</footer>
+
+
+<script src="mailinglist.js"></script>
+<script src="assets/js/jquery-2.1.0.min.js"></script>
+<script src="assets/js/popper.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+
+<script src="navbar.js"></script>
+<script src="assets/js/custom.js"></script>
 
 </body>
 </html>
+

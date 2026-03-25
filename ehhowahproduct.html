@@ -119,6 +119,8 @@
       .product-description h1 {
         font-size: 2.2rem;
         margin-bottom: 16px;
+        color: #004aad;
+         font-weight: 700;
       }
       .product-description p {
         font-size: 1.1rem;
@@ -176,6 +178,128 @@
           border-radius: 12px;
         }
       }
+
+  .demo-section{
+max-width:1100px;
+margin:80px auto;
+text-align:center;
+}
+
+.table{
+background:#f4f6fb;
+padding:40px;
+border-radius:16px;
+}
+
+.mission-row{
+display:flex;
+justify-content:center;
+gap:30px;
+margin-bottom:40px;
+flex-wrap:wrap;
+}
+
+.mission{
+width:200px;
+background:white;
+border-radius:12px;
+padding:14px;
+box-shadow:0 4px 10px rgba(0,0,0,0.08);
+}
+
+.mission img{
+width:100%;
+border-radius:8px;
+}
+
+.slots{
+display:flex;
+gap:6px;
+margin-top:10px;
+justify-content:center;
+}
+
+.slot{
+width:40px;
+height:60px;
+border:2px dashed #ccc;
+border-radius:6px;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+.slot img{
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.hand-row{
+display:flex;
+justify-content:center;
+gap:12px;
+flex-wrap:wrap;
+}
+
+.card{
+width:80px;
+cursor:grab;
+transition:transform .2s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card img{
+width:100%;
+border-radius:6px;
+}
+
+.demo-result{
+margin-top:20px;
+font-weight:600;
+font-size:18px;
+}
+
+/* Celebration */
+
+.mission-complete {
+  animation: missionBounce 0.6s ease;
+  box-shadow: 0 0 20px rgba(255, 200, 0, 0.8);
+}
+
+@keyframes missionBounce {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.1); }
+  70% { transform: scale(0.95); }
+  100% { transform: scale(1); }
+}
+
+/* Gold glow for matched cards */
+
+.card-complete img {
+  border: 3px solid gold;
+  box-shadow: 0 0 12px gold;
+}
+
+/* Confetti */
+
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  top: -10px;
+  z-index: 9999;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(720deg);
+  }
+}
     </style>
   </head>
   <body>
@@ -201,7 +325,7 @@
       <!-- Right: Description -->
       <div class="product-description" style="text-align: left">
         <h1>Eh How Ah? 2nd Edition</h1>
-        <h3>$39.90</h3>
+        <h3><s>$39.90</s>$21</h3>
   
         <button
           onclick="window.open('https://sg.shp.ee/7Vn8xjD', '_blank')"
@@ -209,7 +333,7 @@
         >
           Buy Now
         </button>
-          <strong>CNY Bundle Promotion!! (Up to 54% discount). Click Buy Now to find out more. </strong>
+         
         <p>
           "Eh How Ah?" is the solution to empower our parents to learn tech and
           protect against scams when we're not free. Gen 2 builds on the
@@ -219,9 +343,8 @@
          
     
 
-          <strong>10% of sales proceeds will go to TOUCH Community Services towards community services for the seniors and youths</strong>
-          
-          <br /><br />
+         
+          <br />
           <strong>Features:</strong>
           <br />
           <strong>Quick to Learn</strong>: Pick it up in under 10 minutes.
@@ -242,6 +365,24 @@
       </div>
     </div>
 
+   <section class="demo-section">
+
+<h2>Try the Matching Demo</h2>
+<p>Drag the step cards from your hand to the correct mission card.</p>
+
+<div class="table">
+
+<div class="mission-row" id="missionRow"></div>
+
+<h3>Your Hand</h3>
+
+<div class="hand-row" id="handRow"></div>
+
+<div class="demo-result" id="demoResult"></div>
+
+</div>
+
+</section>  
     <!-- Contact Us -->
 
     <footer id="contact-us">
@@ -319,5 +460,254 @@
     <script src="assets/js/custom.js"></script>
     <script src="navbar.js"></script>
     <script src="assets/js/custom.js"></script>
+
+<script>
+
+const missions = [
+
+{
+app:"grab",
+image:"assets/cards/grab_mission.png",
+slots:4,
+prefill:[
+"assets/cards/grab_step1.png",
+null,
+null,
+null
+]
+},
+
+{
+app:"whatsapp",
+image:"assets/cards/whatsapp_mission.png",
+slots:4,
+prefill:[
+"assets/cards/whatsapp_step1.png",
+"assets/cards/whatsapp_step2.png",
+null,
+null
+]
+},
+
+{
+app:"paylah",
+image:"assets/cards/paylah_mission.png",
+slots:4,
+prefill:[
+null,
+null,
+null,
+"assets/cards/paylah_step4.png"
+]
+}
+
+]
+
+const handCards=[
+
+{app:"grab",img:"assets/cards/grab_step2.png"},
+{app:"grab",img:"assets/cards/grab_step3.png"},
+{app:"grab",img:"assets/cards/grab_step4.png"},
+
+{app:"whatsapp",img:"assets/cards/whatsapp_step3.png"},
+{app:"whatsapp",img:"assets/cards/whatsapp_step4.png"},
+
+{app:"paylah",img:"assets/cards/paylah_step1.png"},
+{app:"paylah",img:"assets/cards/paylah_step2.png"},
+{app:"paylah",img:"assets/cards/paylah_step3.png"}
+
+]
+
+const missionRow=document.getElementById("missionRow")
+const handRow=document.getElementById("handRow")
+const result=document.getElementById("demoResult")
+
+let draggedCard=null
+
+
+
+/* ---------- CREATE MISSIONS ---------- */
+
+function createMissions(){
+
+missions.forEach((mission,missionIndex)=>{
+
+const missionDiv=document.createElement("div")
+missionDiv.className="mission"
+
+const img=document.createElement("img")
+img.src=mission.image
+
+const slotsDiv=document.createElement("div")
+slotsDiv.className="slots"
+
+mission.prefill.forEach((card)=>{
+
+const slot=document.createElement("div")
+slot.className="slot"
+
+slot.addEventListener("dragover",(e)=>e.preventDefault())
+
+slot.addEventListener("drop",()=>{
+
+if(slot.querySelector("img")) return
+if(!draggedCard) return
+
+const missionApp=missions[missionIndex].app
+
+/* WRONG CARD */
+
+if(draggedCard.app!==missionApp){
+
+result.innerHTML="❌ Wrong Mission"
+result.style.color="red"
+
+return
+}
+
+/* CORRECT CARD */
+
+result.innerHTML=""   // CLEAR ERROR MESSAGE
+
+slot.appendChild(draggedCard.element)
+
+draggedCard.element.draggable=false
+
+checkWin()
+
+})
+
+/* PREFILLED CARDS */
+
+if(card){
+
+const img=document.createElement("img")
+img.src=card
+slot.appendChild(img)
+
+}
+
+slotsDiv.appendChild(slot)
+
+})
+
+missionDiv.appendChild(img)
+missionDiv.appendChild(slotsDiv)
+
+missionRow.appendChild(missionDiv)
+
+})
+
+}
+
+
+
+/* ---------- CREATE PLAYER HAND ---------- */
+
+function createHand(){
+
+handCards.forEach(card=>{
+
+const cardDiv=document.createElement("div")
+cardDiv.className="card"
+cardDiv.draggable=true
+
+const img=document.createElement("img")
+img.src=card.img
+
+cardDiv.appendChild(img)
+
+cardDiv.addEventListener("dragstart",()=>{
+
+draggedCard={
+app:card.app,
+element:cardDiv
+}
+
+})
+
+handRow.appendChild(cardDiv)
+
+})
+
+}
+
+
+
+/* ---------- WIN CONDITION ---------- */
+
+function checkWin(){
+
+if(handRow.children.length === 0){
+
+result.innerHTML="🎉 Mission Completed! Great job! and that's not all! Buy our set to have more features like Lobang Cards, Scam prevention activities and a digital game and pseudo app component"
+result.style.color="green"
+
+celebrate()
+
+}
+
+}
+
+
+
+/* ---------- CELEBRATION ---------- */
+
+function celebrate(){
+
+document.querySelectorAll(".card").forEach(card=>{
+card.classList.add("card-complete")
+})
+
+document.querySelectorAll(".mission").forEach(m=>{
+m.classList.add("mission-complete")
+})
+
+for(let i=0;i<120;i++){
+
+const conf=document.createElement("div")
+conf.className="confetti"
+
+conf.style.left=Math.random()*100+"vw"
+conf.style.backgroundColor=randomColor()
+conf.style.animationDuration=(2+Math.random()*2)+"s"
+
+document.body.appendChild(conf)
+
+setTimeout(()=>{
+conf.remove()
+},4000)
+
+}
+
+}
+
+
+
+/* ---------- RANDOM CONFETTI COLORS ---------- */
+
+function randomColor(){
+
+const colors=[
+"#ff4757",
+"#ffa502",
+"#2ed573",
+"#1e90ff",
+"#e84393",
+"#f1c40f"
+]
+
+return colors[Math.floor(Math.random()*colors.length)]
+
+}
+
+
+
+/* ---------- INIT ---------- */
+
+createMissions()
+createHand()
+
+</script>
   </body>
 </html>

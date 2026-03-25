@@ -206,6 +206,7 @@
 .partners-section {
   margin: 48px 0 24px;
   text-align: center;
+  
 }
 
 .partners-title {
@@ -219,6 +220,7 @@
   overflow: hidden;
   position: relative;
   width: 100%;
+  
 }
 
 .partners-track {
@@ -237,6 +239,18 @@
 .partners-track img:hover {
   opacity: 1;
   filter: grayscale(0%);
+}
+
+.video-section {
+  display: flex;
+  justify-content: center;
+  margin: 80px 0;
+}
+
+.video-section iframe {
+  width: 315px;
+  height: 560px;
+  border-radius: 16px;
 }
 
 /* pause animation on hover (desktop only) */
@@ -261,6 +275,14 @@
   }
 }
 
+.welcome-area .header-text h1 {
+  color: #004aad !important;   /* your blue */
+}
+
+.welcome-area .header-text h1 em {
+  color: #ff6522 !important;   /* same blue for Impact */
+}
+
     </style>
   </head>
 
@@ -283,7 +305,7 @@
         <div class="container">
           <div class="row">
             <div class="left-text col-lg-6 col-md-12 col-sm-12">
-              <h1>Making <em>Impact</em> With Games</h1>
+              <h1>Making <em>Impact</em> Through Games</h1>
               <p>
                 Impact Colliders creates games to solve problems in society in a
                 fun manner.
@@ -330,15 +352,7 @@
         padding: 2.5%;
       "
     >
-      <iframe
-        width="315"
-        height="560"
-        src="https://www.youtube.com/embed/nXm3ZUzhQL8"
-        title="YouTube Shorts"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen
-      ></iframe>
+     
       <!-- ===== Partners Infinite Carousel ===== -->
 
 
@@ -359,7 +373,6 @@
         <img src="assets/images/partners/np.png" alt="np" />
          <img src="assets/images/partners/nyp.png" alt="nyp" />
           <img src="assets/images/partners/rsvp.jpg" alt="rsvp" />
-           <img src="assets/images/partners/touch.jpg" alt="touch" />
             <img src="assets/images/partners/sandbox.jpg" alt="sandbox" />
 
       <!-- Duplicate set (required for seamless loop) -->
@@ -372,12 +385,21 @@
         <img src="assets/images/partners/np.png" alt="np" />
          <img src="assets/images/partners/nyp.png" alt="nyp" />
           <img src="assets/images/partners/rsvp.jpg" alt="rsvp" />
-           <img src="assets/images/partners/touch.jpg" alt="touch" />
             <img src="assets/images/partners/sandbox.jpg" alt="sandbox" />
     </div>
-  </div>
-</section>
 
+    
+  </div>
+
+  
+</section>
+ <div class="video-section">
+  <iframe
+    src="https://www.youtube.com/embed/nXm3ZUzhQL8"
+    title="YouTube Shorts"
+    allowfullscreen>
+  </iframe>
+</div>
     <!-- Contact Us -->
 
     <footer id="contact-us">

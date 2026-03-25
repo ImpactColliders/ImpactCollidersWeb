@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Our Impact - Impact Colliders</title>
+
+<link rel="icon" href="/assets/images/logo.jpg">
+
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800" rel="stylesheet"/>
+
+<link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="assets/css/font-awesome.css"/>
+<link rel="stylesheet" href="assets/css/templatemo-lava.css"/>
+
+<style>
+
+body{
+font-family:Poppins;
+background:#f5f5f5;
+margin:0;
+}
+
+/* HERO */
+
+.impact-hero{
+padding:160px 10% 120px;
+text-align:center;
+}
+
+.impact-hero h1{
+font-size:42px;
+font-weight:700;
+margin-bottom:20px;
+}
+
+.impact-hero p{
+max-width:700px;
+margin:auto;
+font-size:16px;
+color:#666;
+}
+
+/* IMPACT NUMBERS */
+
+.impact-stats{
+display:flex;
+justify-content:center;
+gap:120px;
+padding:100px 10%;
+background:white;
+text-align:center;
+}
+
+.stat-number{
+font-size:56px;
+font-weight:700;
+color:#d43d2b;
+}
+
+.stat-label{
+margin-top:10px;
+font-size:16px;
+color:#666;
+}
+
+/* GALLERY */
+
+.gallery{
+padding:120px 10%;
+background:#f5f5f5;
+}
+
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+}
+
+.gallery-grid img{
+width:100%;
+height:260px;
+object-fit:cover;
+border-radius:14px;
+box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* IMAGE + TEXT */
+
+.story-section{
+display:grid;
+grid-template-columns:1fr 1fr;
+align-items:center;
+gap:80px;
+padding:120px 10%;
+background:white;
+}
+
+.story-image img{
+width:100%;
+border-radius:16px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.story-text h2{
+font-weight:700;
+margin-bottom:20px;
+}
+
+.story-text p{
+color:#666;
+line-height:1.7;
+}
+
+/* CONTACT FORM */
+
+.volunteer{
+padding:120px 10%;
+text-align:center;
+}
+
+.volunteer h2{
+font-weight:700;
+margin-bottom:40px;
+}
+
+.volunteer-form{
+max-width:600px;
+margin:auto;
+}
+
+.volunteer-form input,
+.volunteer-form textarea{
+width:100%;
+padding:14px;
+margin-bottom:20px;
+border-radius:8px;
+border:1px solid #ddd;
+}
+
+.volunteer-form button{
+background:#d43d2b;
+border:none;
+color:white;
+padding:14px 30px;
+border-radius:8px;
+font-weight:600;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.impact-stats{
+flex-direction:column;
+gap:40px;
+}
+
+.gallery-grid{
+grid-template-columns:1fr;
+}
+
+.story-section{
+grid-template-columns:1fr;
+}
+
+}
+
+/* MAIN SECTION HEADERS */
+
+.impact-hero h1,
+.gallery h2,
+.story-text h2,
+.volunteer h2{
+color:#004aad;
+font-weight:700;
+}
+
+/* Optional: change the stat numbers too */
+
+
+</style>
+
+</head>
+
+<body>
+
+<header class="header-area header-sticky" id="nav-placeholder"></header>
+
+
+<!-- HERO -->
+
+<section class="impact-hero">
+
+<h1>Our Impact</h1>
+
+<p>
+Impact Colliders works with communities, families and seniors
+to bridge digital literacy gaps through interactive learning,
+workshops and meaningful social engagement.
+</p>
+
+</section>
+
+
+
+<!-- IMPACT NUMBERS -->
+
+<section class="impact-stats">
+
+<div>
+<div class="stat-number">30+</div>
+<div class="stat-label">Workshops Conducted</div>
+</div>
+
+<div>
+<div class="stat-number">500+</div>
+<div class="stat-label">Participants Reached</div>
+</div>
+
+<div>
+<div class="stat-number">50+</div>
+<div class="stat-label">Volunteers</div>
+</div>
+
+</section>
+
+
+
+<!-- IMAGE GALLERY -->
+
+<section class="gallery">
+
+<h2 style="text-align:center;margin-bottom:60px;">Corporate Workshops</h2>
+
+<div class="gallery-grid">
+
+<img src="assets/images/WebPhotos/Arts.jpg">
+<img src="assets/images/WebPhotos/workshop1.jpg">
+<img src="assets/images/WebPhotos/workshop2.jpg">
+<img src="assets/images/WebPhotos/workshop3.jpeg">
+<img src="assets/images/WebPhotos/workshop4.jpeg">
+<img src="assets/images/WebPhotos/workshop5.jpg">
+
+</div>
+
+</section>
+
+
+
+<!-- IMAGE + TEXT STORY -->
+
+<section class="story-section">
+
+<div class="story-image">
+<img src="assets/images/WebPhotos/RHB.jpg">
+</div>
+
+<div class="story-text">
+
+<h2>Building Connections Through Play</h2>
+
+<p>
+Our workshops bring together seniors, volunteers and families
+to explore technology through play. By transforming digital
+learning into a social experience, we help participants gain
+confidence while building stronger relationships within the
+community.
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- VOLUNTEER FORM -->
+
+<section class="volunteer">
+
+<h2>Volunteer With Us</h2>
+
+<form class="volunteer-form"
+action="mailto:impactcolliders@gmail.com"
+method="POST"
+enctype="text/plain">
+
+<input type="text" name="name" placeholder="Your Name" required>
+
+<input type="email" name="email" placeholder="Your Email" required>
+
+<input type="hidden" name="subject" value="Volunteering">
+
+<textarea name="message" rows="5" placeholder="Tell us how you'd like to help"></textarea>
+
+<button type="submit">Contact Us</button>
+
+</form>
+
+</section>
+
+
+
+<footer id="contact-us">
+<div class="container" id="contact-container"></div>
+</footer>
+
+
+<script src="mailinglist.js"></script>
+<script src="assets/js/jquery-2.1.0.min.js"></script>
+<script src="assets/js/popper.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+
+<script src="navbar.js"></script>
+<script src="assets/js/custom.js"></script>
+
+</body>
+</html>

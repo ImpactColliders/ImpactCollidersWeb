@@ -1,182 +1,232 @@
-function createContactForm(containerId) {
-  const container = document.getElementById(containerId);
+// footer.js
+(function () {
 
-  container.innerHTML = `
-    <div class="footer-content">
+  function injectFooterStyles() {
+    if (document.getElementById("footer-styles")) return;
+
+    const style = document.createElement("style");
+    style.id = "footer-styles";
+    style.textContent = `
+      #contact-us {
+        background: #ce3f2e;
+        color: #fff;
+        padding: 80px 8% 50px;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 60px;
+      }
+
     
+      .footer-col h4 {
+        margin-bottom: 18px;
+        font-weight: 600;
+      }
 
-      <!-- Mailing List Form -->
-      <div class="contact-form">
-        <form
-          action="https://impactcolliders.us10.list-manage.com/subscribe/post?u=1b49b4b873f4789130f22dfd4&amp;id=c856daa883&amp;f_id=008cc2e1f0"
-          method="post"
-          target="_self"
-        >
-          <h2>Join our Mailing List</h2>
-          <br>
-          <div class="row">
-            <div class="col-md-12">
-              <input type="email" name="EMAIL" placeholder="Email Address" required />
-            </div>
-            <div class="col-md-6">
-              <input type="text" name="FNAME" placeholder="First Name" required />
-            </div>
-            <div class="col-md-6">
-              <input type="text" name="LNAME" placeholder="Last Name" required />
-            </div>
-            <div class="col-md-12" style="display:none;">
-              <input type="text" name="b_1b49b4b873f4789130f22dfd4_c856daa883" tabindex="-1" value="">
-            </div>
-            <div class="col-md-12">
-              <button type="submit" class="main-button">Subscribe</button>
-            </div>
-          </div>
-        </form>
+      .footer-col ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .footer-col ul li {
+        margin-bottom: 10px;
+      }
+
+      .footer-col a {
+        color: #fff;
+        text-decoration: none;
+        opacity: 0.9;
+      }
+
+      .footer-col a:hover {
+        opacity: 1;
+      }
+
+      .contact-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 28px;
+  border-radius: 999px;
+  background: #fff;
+  color: #ce3f2e !important;  /* Force text color */
+  font-weight: 600;
+  text-decoration: none;
+  text-align: center;
+}
+
+      .newsletter-form {
+        display: flex;
+        margin-top: 12px;
+        border-radius: 999px;
+        overflow: hidden;
+        background: #fff;
+      }
+
+      .newsletter-form input {
+        flex: 1;
+        padding: 12px 16px;
+        border: none;
+        outline: none;
+      }
+
+      .newsletter-form button {
+        padding: 0 20px;
+        border: none;
+        background: #f6d7c8;
+        color: #ce3f2e;
+        font-weight: 600;
+        cursor: pointer;
+      }
+
+      .social-icons {
+        margin-top: 20px;
+      }
+
+      .social-icons i {
+        margin-right: 12px;
+        font-size: 20px;
+        cursor: pointer;
+      }
+
+      .footer-divider {
+        margin: 60px 0 40px;
+        border: none;
+        height: 1px;
+        background: rgba(255,255,255,0.3);
+      }
+
+      .footer-bottom {
+        text-align: center;
+      }
+
+      .footer-bottom img {
+        height: 40px;
+        margin-bottom: 12px;
+      }
+
+      .footer-bottom p {
+        font-size: 0.9rem;
+        opacity: 0.85;
+        color : #fff;
+      }
+
+      .footer-col p,
+.footer-col p a {
+  color: #fff !important;
+}
+      /* Responsive */
+      @media (max-width: 992px) {
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 40px;
+        }
+      }
+
+      @media (max-width: 768px) {
+
+  #contact-us {
+    padding: 100px 28px 60px !important;
+  }
+
+  #contact-us .container {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+
+}
+
+      @media (max-width: 600px) {
+        .footer-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .newsletter-form {
+          flex-direction: column;
+          border-radius: 16px;
+        }
+
+        .newsletter-form button {
+          padding: 14px;
+        }
+      }
+    `;
+
+    document.head.appendChild(style);
+  }
+
+  function buildFooter() {
+    return `
+      <div class="footer-grid">
+
+        <div class="footer-col">
+          <h4>Any Questions?</h4>
+          <ul>
+            <li><a href="#">FAQs</a></li>
+            <li><a href="ehhowahproduct.html">Product</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Partner With Us</h4>
+          <ul>
+            <li><a href="corporates.html">Corporate Partnerships</a></li>
+            <li><a href="ourimpact.html">Volunteer Opportunities</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <p>For inquiries or partnership opportunities, email us at:</p>
+          <p><a href="mailto:info@impactcolliders.com">info@impactcolliders.com</a></p>
+          <a href="contactus.html" class="contact-btn">Contact Us ></a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Stay Connected</h4>
+          <p>Join our mailing list!</p>
+
+          <form 
+            action="https://impactcolliders.us10.list-manage.com/subscribe/post?u=1b49b4b873f4789130f22dfd4&amp;id=c856daa883&amp;f_id=008cc2e1f0"
+            method="post"
+            target="_self"
+            class="newsletter-form"
+          >
+            <input type="email" name="EMAIL" placeholder="Your email" required />
+            <button type="submit">Subscribe</button>
+          </form>
+
+          <div class="social-icons">
+  <a href="https://www.facebook.com/p/Impact-Colliders-61571335654695/" target="_blank" rel="noopener">
+    <i class="fa fa-facebook"></i>
+  </a>
+  <a href="https://www.instagram.com/impactcolliders/" target="_blank" rel="noopener">
+    <i class="fa fa-instagram"></i>
+  </a>
+</div>
+        </div>
+
       </div>
 
-      <div class="sub-footer">
-        <p>&copy; 2025 Impact Colliders. All rights reserved.</p>
+      <hr class="footer-divider">
+
+      <div class="footer-bottom">
+        <img src="assets/images/Impact Colliders_White.png" alt="Impact Colliders Logo">
+        <p>© 2025 Impact Colliders. All rights reserved.</p>
       </div>
-    </div>
-  `;
-
-  // Add styles
-  const style = document.createElement("style");
-  style.textContent = `
-    .main-button {
-      background-color: #000;
-      color: #fff;
-      border: none;
-      padding: 10px 20px;
-      border-radius: 4px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .main-button:hover {
-      background-color: #333;
-    }
-
-    /* Add spacing below social links only */
-    ul.social {
-      margin-bottom: 30px; /* space below social links */
-    }
-    
-   .contact-form {
-  width: 50%;
-  margin: 0 auto;
-}
-        @media (max-width: 768px) {
-
-  /* Remove aggressive diagonal spacing */
-  #contact-footer {
-    clip-path: none;
-    padding: 80px 16px 40px;
-    margin-top: 60px;
+    `;
   }
 
-  /* Card becomes full-width */
-  #contact-footer .footer-content {
-    padding: 30px 20px;
-    border-radius: 14px;
+  function initFooter() {
+    const container = document.getElementById("contact-container");
+    if (!container) return;
+
+    injectFooterStyles();
+    container.innerHTML = buildFooter();
   }
 
-  /* Stack everything vertically */
-  .contact-row {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-  }
-
-  /* Social section */
-  .contact-links {
-    text-align: center;
-  }
-
-  ul.social {
-    justify-content: center;
-  }
-
-  /* Contact + mailing forms */
-  .contact-form {
-   margin: 0 auto;
-  
-    width: 80%;
-  }
-
-  .contact-form form {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  /* Inputs */
-  .contact-form input,
-  .contact-form textarea {
-    font-size: 16px;
-    padding: 12px 14px;
-  }
-
-  /* Buttons = full width */
-  .main-button {
-    width: 100%;
-    padding: 14px;
-    font-size: 16px;
-    border-radius: 999px;
-  }
-
-  /* Mailing list specific */
-  .contact-form h2 {
-    text-align: center;
-    font-size: 1.6rem;
-    margin-bottom: 10px;
-  }
-
-  /* Footer text */
-  .sub-footer {
-    font-size: 0.8rem;
-    margin-top: 24px;
-    color: #fff;
-  }
-}
-
-  `;
-  document.head.appendChild(style);
-
-  // Contact form submission
-  const form = document.getElementById("contact");
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
-    const name = form.querySelector("input[name='name']").value;
-    const email = form.querySelector("input[name='email']").value;
-    const subject = form.querySelector("input[name='subject']").value;
-    const message = form.querySelector("textarea[name='message']").value;
-
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-    );
-
-    const mailtoLink = `mailto:info@impactcolliders.com?subject=${subject}&body=${body}`;
-    window.location.href = mailtoLink;
-  });
-
-  // Mobile reorder function
-  function reorderForMobile() {
-    const row = container.querySelector(".contact-row");
-    const links = container.querySelector(".contact-links");
-
-    if (window.innerWidth < 992) {
-      row.prepend(links);
-    } else {
-      row.appendChild(links);
-    }
-  }
-
-  // Initial check
-  reorderForMobile();
-
-  // Recheck on window resize
-  window.addEventListener("resize", reorderForMobile);
-}
-
-// Inject the contact form
-createContactForm("contact-container");
+  document.addEventListener("DOMContentLoaded", initFooter);
+})();

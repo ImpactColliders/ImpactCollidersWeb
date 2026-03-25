@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+<title>Corporate Partnerships - Impact Colliders</title>
+
+<link rel="icon" href="/assets/images/logo.jpg">
+
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800" rel="stylesheet"/>
+
+<link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="assets/css/font-awesome.css"/>
+<link rel="stylesheet" href="assets/css/templatemo-lava.css"/>
+
+<style>
+
+body{
+font-family:Poppins;
+background:#f5f5f5;
+margin:0;
+}
+
+/* HERO */
+
+.corporate-hero{
+padding:160px 10% 120px;
+text-align:center;
+}
+
+.corporate-hero h1{
+font-size:42px;
+font-weight:700;
+color:#004aad;
+margin-bottom:20px;
+}
+
+.corporate-hero p{
+max-width:700px;
+margin:auto;
+font-size:16px;
+color:#666;
+}
+
+/* GALLERY */
+
+.gallery{
+padding:120px 10%;
+background:white;
+}
+
+.gallery h2{
+text-align:center;
+margin-bottom:60px;
+font-weight:700;
+color:#004aad;
+}
+
+.gallery-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+}
+
+.gallery-grid img{
+width:100%;
+height:260px;
+object-fit:cover;
+border-radius:14px;
+box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* VIDEO */
+
+.video-section{
+padding:120px 10%;
+background:#f5f5f5;
+text-align:center;
+}
+
+.video-section h2{
+font-weight:700;
+color:#004aad;
+margin-bottom:40px;
+}
+
+.video-wrapper{
+max-width:900px;
+margin:auto;
+aspect-ratio:16/9;
+}
+
+.video-wrapper iframe{
+width:100%;
+height:100%;
+border-radius:12px;
+}
+
+/* TEXT SECTION */
+
+.corporate-text{
+padding:120px 10%;
+background:white;
+text-align:center;
+}
+
+.corporate-text h2{
+font-weight:700;
+color:#004aad;
+margin-bottom:20px;
+}
+
+.corporate-text p{
+max-width:800px;
+margin:auto;
+color:#666;
+line-height:1.7;
+}
+
+/* CONTACT FORM */
+
+.partnership{
+padding:120px 10%;
+text-align:center;
+background:#f5f5f5;
+}
+
+.partnership h2{
+font-weight:700;
+color:#004aad;
+margin-bottom:40px;
+}
+
+.partnership-form{
+max-width:600px;
+margin:auto;
+}
+
+.partnership-form input,
+.partnership-form textarea{
+width:100%;
+padding:14px;
+margin-bottom:20px;
+border-radius:8px;
+border:1px solid #ddd;
+}
+
+.partnership-form button{
+background:#d43d2b;
+border:none;
+color:white;
+padding:14px 30px;
+border-radius:8px;
+font-weight:600;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.gallery-grid{
+grid-template-columns:1fr;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="header-area header-sticky" id="nav-placeholder"></header>
+
+
+<!-- HERO -->
+
+<section class="corporate-hero">
+
+<h1>Corporate Engagement</h1>
+
+<p>
+Impact Colliders partners with corporations to deliver engaging
+community workshops that bridge digital literacy gaps while
+creating meaningful volunteer experiences for employees.
+</p>
+
+</section>
+
+
+
+<!-- WORKSHOP GALLERY -->
+
+<section class="gallery">
+
+<h2>Corporate Workshops</h2>
+
+<div class="gallery-grid">
+
+<img src="assets/images/WebPhotos/Arts.jpg">
+<img src="assets/images/WebPhotos/workshop1.jpg">
+<img src="assets/images/WebPhotos/workshop2.jpg">
+<img src="assets/images/WebPhotos/workshop3.jpeg">
+<img src="assets/images/WebPhotos/workshop4.jpeg">
+<img src="assets/images/WebPhotos/workshop5.jpg">
+
+</div>
+
+</section>
+
+
+
+<!-- YOUTUBE VIDEO -->
+
+<section class="video-section">
+
+<h2>Mapletree Workshop</h2>
+
+<div class="video-wrapper">
+
+  <iframe
+    src="https://www.youtube.com/embed/nXm3ZUzhQL8"
+    title="YouTube Shorts"
+    allowfullscreen>
+  </iframe>
+
+</div>
+
+</section>
+
+
+
+<!-- TEXT PLACEHOLDER -->
+
+<section class="corporate-text">
+
+<h2>How Corporations Partner With Us</h2>
+
+<p>
+Impact Colliders collaborates with corporations to design meaningful community engagement experiences that combine play, learning and social impact. Through our workshops, companies can empower employees to volunteer, support digital literacy initiatives and contribute to building stronger, more connected communities.
+
+Our programmes are designed to be engaging, accessible and impactful, allowing corporate partners to participate in initiatives that bridge generational gaps while creating memorable team volunteering experiences.
+
+For more details about our corporate programmes, partnership opportunities and collaboration models please contact us via the email form below.
+</p>
+
+</section>
+
+
+
+<!-- PARTNERSHIP FORM -->
+
+<section class="partnership">
+
+<h2>Partner With Us</h2>
+
+<form class="partnership-form"
+action="mailto:impactcolliders@gmail.com"
+method="POST"
+enctype="text/plain">
+
+<input type="text" name="name" placeholder="Your Name" required>
+
+<input type="email" name="email" placeholder="Your Email" required>
+
+<input type="text" name="company" placeholder="Company Name">
+
+<input type="hidden" name="subject" value="Partnerships">
+
+<textarea name="message" rows="5"
+placeholder="Tell us about your organisation and how you'd like to collaborate"></textarea>
+
+<button type="submit">Contact Us</button>
+
+</form>
+
+</section>
+
+
+
+<footer id="contact-us">
+<div class="container" id="contact-container"></div>
+</footer>
+
+
+<script src="mailinglist.js"></script>
+<script src="assets/js/jquery-2.1.0.min.js"></script>
+<script src="assets/js/popper.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+
+<script src="navbar.js"></script>
+<script src="assets/js/custom.js"></script>
+
+</body>
+</html>

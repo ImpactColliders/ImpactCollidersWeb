@@ -172,6 +172,20 @@
         font-size: 14px;
         color: #555;
       }
+
+      /* Make main section headings blue */
+.about-text h1,
+.about-text h2,
+#team .center-heading h2 {
+  color: #004aad !important;   /* your blue */
+}
+
+/* Make emphasized words blue too */
+.about-text h1 em,
+#team .center-heading h2 em {
+  color: #004aad !important;
+}
+   
     </style>
   </head>
 
@@ -369,12 +383,7 @@
           bio: "",
           roles: { advisor: "Advisor" },
         },
-        {
-          name: "Clarrise Tan",
-          image: "assets/images/user.jpeg",
-          bio: "",
-          roles: { marketing: "Marketing" },
-        },
+      
         {
           name: "Riz",
           image: "assets/images/user.jpeg",
@@ -382,53 +391,12 @@
           roles: { marketing: "Marketing" },
         },
         {
-          name: "Yong Xin",
-          image: "assets/images/YongXin.jpg",
-          bio: "",
-          roles: { developer: "Developer" },
-        },
-        {
-          name: "Joel",
-          image: "assets/images/user.jpeg",
-          bio: "",
-          roles: { developer: "Developer" },
-        },
-        {
-          name: "Zach Alandy",
-          image: "assets/images/user.jpeg",
-          bio: "",
-          roles: { developer: "Developer" },
-        },
-        {
-          name: "Aqil Danial",
-          image: "assets/images/user.jpeg",
-          bio: "",
-          roles: { developer: "Developer" },
-        },
-        {
           name: "Aaron",
           image: "assets/images/user.jpeg",
           bio: "",
           roles: { developer: "Developer" },
         },
-        {
-          name: "Yong Han",
-          image: "assets/images/user.jpeg",
-          bio: "",
-          roles: { developer: "Developer" },
-        },
-        {
-          name: "Ren Kai",
-          image: "assets/images/user.jpeg",
-          bio: "",
-          roles: { developer: "Developer" },
-        },
-        {
-          name: "Akid",
-          image: "assets/images/user.jpeg",
-          bio: "",
-          roles: { developer: "Developer" },
-        },
+       
       ];
 
       function renderTeam(tag = "all") {

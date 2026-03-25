@@ -4,17 +4,18 @@
 
   const navItems = [
     { name: "Home", href: "index.html" },
-   
-    {
+   { name: "About us", href: "about.html" },
+  
+    { name: "Eh, How Ah?", href: "ehhowahproduct.html" },
+     {
       name: "Explore",
       dropdown: [
-        { name: "About Us", href: "about.html" },
         { name: "Video Library", href: "appnav.html" }
       ]
     },
-    { name: "Shop", href: "shop.html" },
-   
-    { name: "Contact", href: "contactus.html" }
+
+     { name: "Volunteer", href: "ourimpact.html" },
+    { name: "Partner", href: "corporates.html" }
   ];
 
   function injectStyles() {
@@ -28,9 +29,17 @@
   position: sticky;
   top: 0;
   z-index: 1100;
-  background: #fff;
+  height: 90px;
+  background: #ce3f2e;
 }
 
+.header-area .main-nav .nav {
+    background-color: #ce3f2e;
+}
+
+.header-area .main-nav .nav li a {
+  color: rgba(255,255,255,0.6);
+}
 /* ALWAYS hidden by default */
 .mobile-nav {
   display: none;
@@ -42,7 +51,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 72px;
+  height: 10px;
 }
 
 .logo img {
@@ -53,20 +62,22 @@
 .main-nav .nav {
   display: flex;
   align-items: center;
-
+  
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .main-nav .nav li a {
-  color: #333;
+  color: #999;
   text-decoration: none;
   font-weight: 500;
 }
 
+
+
 .main-nav .nav li.active a {
-  color: #f4813f;
+  color: rgb(255, 255, 255);
   font-weight: 600;
 }
 
@@ -220,7 +231,7 @@
 <div class="container">
   <nav class="main-nav">
     <a href="index.html" class="logo">
-      <img src="assets/images/Impact Colliders_Black.png" alt="Impact Colliders Logo">
+      <img src="assets/images/Impact Colliders_White.png" alt="Impact Colliders Logo">
     </a>
 
     <ul class="nav">
@@ -241,9 +252,7 @@
         </li>`;
       }).join("")}
 
-      <li class="nav-cta">
-        <a href="public/game.html" target="_blank">Play Game</a>
-      </li>
+
     </ul>
 
     <a class="menu-trigger"><span></span></a>
@@ -258,17 +267,17 @@
 
   <ul>
     <li><a href="index.html">Home</a></li>
-  
+      
     <li><a href="about.html">About Us</a></li>
+    
     <li><a href="appnav.html">Video Library</a></li>
-    <li><a href="public/game.html" target="_blank">Digital Game</a></li>
-    <li><a href="shop.html">Shop</a></li>
-     <li><a href="contactus.html">Contact Us</a></li>
+    <li><a href="ehhowahproduct.html">Eh, How Ah?</a></li>
+
+    <li><a href="ourimpact.html">Volunteer</a></li>
+      <li><a href="corporates.html">Partner</a></li>
+   
   </ul>
 
-  <div class="mobile-cta">
-    <a href="public/game.html" target="_blank">Play Game</a>
-  </div>
 </div>
 `;
   }
