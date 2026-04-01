@@ -165,7 +165,7 @@
         <div class="footer-col">
           <h4>Any Questions?</h4>
           <ul>
-            <li><a href="#">FAQs</a></li>
+           
             <li><a href="ehhowahproduct.html">Product</a></li>
           </ul>
         </div>
@@ -199,12 +199,20 @@
             <button type="submit">Subscribe</button>
           </form>
 
-          <div class="social-icons">
+         <div class="social-icons">
   <a href="https://www.facebook.com/p/Impact-Colliders-61571335654695/" target="_blank" rel="noopener">
     <i class="fa fa-facebook"></i>
   </a>
   <a href="https://www.instagram.com/impactcolliders/" target="_blank" rel="noopener">
     <i class="fa fa-instagram"></i>
+  </a>
+ <a href="https://www.tiktok.com/@impactcolliders" target="_blank" rel="noopener">
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
+    <path d="M12.5 2h2.6c.2 1.6 1.1 3.1 2.6 4 .9.6 2 .9 3.3.9v2.7c-1.4 0-2.7-.4-3.9-1.1-.7-.4-1.4-1-2-1.6v7.2c0 3.6-2.9 6.5-6.5 6.5S2 17.7 2 14.1s2.9-6.5 6.5-6.5c.4 0 .8 0 1.2.1v2.8c-.4-.1-.8-.2-1.2-.2-2 0-3.6 1.6-3.6 3.6S6.5 17.5 8.5 17.5 12 15.9 12 13.9V2h.5z"/>
+  </svg>
+</a>
+  <a href="https://www.linkedin.com/company/impact-colliders" target="_blank" rel="noopener">
+    <i class="fa fa-linkedin"></i>
   </a>
 </div>
         </div>

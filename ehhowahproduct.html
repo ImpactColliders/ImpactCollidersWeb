@@ -10,51 +10,51 @@
     <link rel="stylesheet" href="assets/css/templatemo-lava.css" />
 
     <style>
+      html {
+        scroll-behavior: smooth;
+      }
+
       body {
         font-family: "Poppins", sans-serif;
         margin: 0;
       }
 
-      /* ===== Grid Layout ===== */
       .product-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
         max-width: 80dvw;
         margin: 48px auto;
         gap: 32px;
-        padding: 0 16px;
+        padding: 80px 16px 40px;
         align-items: start;
       }
 
-      /* Left carousel */
       .product-carousel {
         width: 100%;
         position: relative;
       }
-      /* Carousel wrapper fixed size */
-     .carousel-wrapper {
-  width: 100%;
-  aspect-ratio: 1 / 1; /* square */
-  position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-}
 
+      .carousel-wrapper {
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        position: relative;
+        border-radius: 12px;
+        overflow: hidden;
+      }
 
-      /* Each slide fills the wrapper */
       .carousel-slide {
         width: 100%;
         height: 100%;
         position: relative;
       }
 
-      /* Images scale to fill slide */
       .carousel-slide img {
         width: 100%;
         height: 100%;
-        object-fit: cover; /* keeps aspect ratio and fills container */
+        object-fit: cover;
         display: block;
       }
+
       .carousel-caption {
         position: absolute;
         left: 12px;
@@ -67,7 +67,6 @@
         font-size: 0.9rem;
       }
 
-      /* Buttons */
       .carousel-btn {
         position: absolute;
         top: 50%;
@@ -84,18 +83,20 @@
         cursor: pointer;
         z-index: 5;
       }
+
       .carousel-btn.prev {
         left: -8px;
       }
+
       .carousel-btn.next {
         right: -8px;
       }
 
-      /* Dots */
       .carousel-indicators {
         text-align: center;
         margin-top: 12px;
       }
+
       .carousel-dot {
         display: inline-block;
         width: 10px;
@@ -105,43 +106,47 @@
         border-radius: 50%;
         cursor: pointer;
       }
+
       .carousel-dot.active {
         background: #333;
         transform: scale(1.15);
       }
 
-      /* Right description */
       .product-description {
         display: flex;
         flex-direction: column;
         gap: 16px;
       }
+
       .product-description h1 {
         font-size: 2.2rem;
         margin-bottom: 16px;
         color: #004aad;
-         font-weight: 700;
+        font-weight: 700;
       }
+
+      .product-description h3 {
+        margin: 0;
+      }
+
       .product-description p {
         font-size: 1.1rem;
         color: #555;
         line-height: 1.6;
       }
+
       .product-description ul {
         padding-left: 20px;
         color: #555;
       }
+
       .product-description ul li {
         margin-bottom: 8px;
       }
 
-      .product-grid {
-        padding: 80px 0px;
-      }
-
       .product-description button {
         padding: 12px 28px;
-        background: #ff6b6b; /* Bright accent color */
+        background: #ff6b6b;
         color: #fff;
         border: none;
         border-radius: 8px;
@@ -155,7 +160,7 @@
       }
 
       .product-description button:hover {
-        background: #ff4757; /* Darker shade on hover */
+        background: #ff4757;
         transform: translateY(-2px);
         box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
       }
@@ -165,150 +170,257 @@
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
       }
 
-      /* Responsive */
+      .floating-scroll-cue {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  z-index: 999;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.floating-scroll-cue.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(12px);
+}
+
+.scroll-cue {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: #004aad;
+  font-weight: 700;
+  font-size: 1rem;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 12px 18px;
+  border-radius: 999px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.scroll-arrow {
+  font-size: 2rem;
+  line-height: 1;
+  animation: bounceDown 1.4s infinite;
+}
+
+@keyframes bounceDown {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  40% {
+    transform: translateY(8px);
+    opacity: 0.85;
+  }
+  60% {
+    transform: translateY(4px);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .floating-scroll-cue {
+    bottom: 18px;
+    width: calc(100% - 32px);
+    display: flex;
+    justify-content: center;
+  }
+
+  .scroll-cue {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
+      .demo-section {
+        max-width: 1100px;
+        margin: 20px auto 80px;
+        text-align: center;
+        padding: 0 16px;
+      }
+
+      .demo-section h2 {
+        color: #004aad;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      .table {
+        background: #f4f6fb;
+        padding: 40px;
+        border-radius: 16px;
+      }
+
+      .mission-row {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+      }
+
+      .mission {
+        width: 200px;
+        background: white;
+        border-radius: 12px;
+        padding: 14px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      }
+
+      .mission img {
+        width: 100%;
+        border-radius: 8px;
+      }
+
+      .slots {
+        display: flex;
+        gap: 6px;
+        margin-top: 10px;
+        justify-content: center;
+      }
+
+      .slot {
+        width: 40px;
+        height: 60px;
+        border: 2px dashed #ccc;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background: #fff;
+      }
+
+      .slot img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .slot img.prefilled-card {
+        border-radius: 2px;
+      }
+
+      .hand-row {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .card {
+        width: 80px;
+        cursor: grab;
+        transition: transform 0.2s;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      .card img {
+        width: 100%;
+        border-radius: 6px;
+      }
+
+      .demo-result {
+        margin-top: 20px;
+        font-weight: 600;
+        font-size: 18px;
+        min-height: 28px;
+      }
+
+      .reset-demo-btn {
+        margin-top: 20px;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 10px;
+        background: #004aad;
+        color: #fff;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .reset-demo-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+      }
+
+      .mission-complete {
+        animation: missionBounce 0.6s ease;
+        box-shadow: 0 0 20px rgba(255, 200, 0, 0.8);
+      }
+
+      @keyframes missionBounce {
+        0% {
+          transform: scale(1);
+        }
+        40% {
+          transform: scale(1.1);
+        }
+        70% {
+          transform: scale(0.95);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      .card-complete img {
+        border: 3px solid gold;
+        box-shadow: 0 0 12px gold;
+      }
+
+      .confetti {
+        position: fixed;
+        width: 10px;
+        height: 10px;
+        top: -10px;
+        z-index: 9999;
+        animation: fall linear forwards;
+      }
+
+      @keyframes fall {
+        to {
+          transform: translateY(110vh) rotate(720deg);
+        }
+      }
+
       @media (max-width: 768px) {
         .product-grid {
           grid-template-columns: 1fr;
           gap: 32px;
+          max-width: 100%;
+          padding: 80px 16px 24px;
         }
+
         .product-description button {
           width: 100%;
           padding: 16px 0;
           font-size: 1.1rem;
           border-radius: 12px;
         }
+
+        .table {
+          padding: 24px 16px;
+        }
+
+        .scroll-cue-wrap {
+          margin-bottom: 16px;
+        }
       }
-
-  .demo-section{
-max-width:1100px;
-margin:80px auto;
-text-align:center;
-}
-
-.table{
-background:#f4f6fb;
-padding:40px;
-border-radius:16px;
-}
-
-.mission-row{
-display:flex;
-justify-content:center;
-gap:30px;
-margin-bottom:40px;
-flex-wrap:wrap;
-}
-
-.mission{
-width:200px;
-background:white;
-border-radius:12px;
-padding:14px;
-box-shadow:0 4px 10px rgba(0,0,0,0.08);
-}
-
-.mission img{
-width:100%;
-border-radius:8px;
-}
-
-.slots{
-display:flex;
-gap:6px;
-margin-top:10px;
-justify-content:center;
-}
-
-.slot{
-width:40px;
-height:60px;
-border:2px dashed #ccc;
-border-radius:6px;
-display:flex;
-align-items:center;
-justify-content:center;
-}
-
-.slot img{
-width:100%;
-height:100%;
-object-fit:cover;
-}
-
-.hand-row{
-display:flex;
-justify-content:center;
-gap:12px;
-flex-wrap:wrap;
-}
-
-.card{
-width:80px;
-cursor:grab;
-transition:transform .2s;
-}
-
-.card:hover{
-transform:translateY(-5px);
-}
-
-.card img{
-width:100%;
-border-radius:6px;
-}
-
-.demo-result{
-margin-top:20px;
-font-weight:600;
-font-size:18px;
-}
-
-/* Celebration */
-
-.mission-complete {
-  animation: missionBounce 0.6s ease;
-  box-shadow: 0 0 20px rgba(255, 200, 0, 0.8);
-}
-
-@keyframes missionBounce {
-  0% { transform: scale(1); }
-  40% { transform: scale(1.1); }
-  70% { transform: scale(0.95); }
-  100% { transform: scale(1); }
-}
-
-/* Gold glow for matched cards */
-
-.card-complete img {
-  border: 3px solid gold;
-  box-shadow: 0 0 12px gold;
-}
-
-/* Confetti */
-
-.confetti {
-  position: fixed;
-  width: 10px;
-  height: 10px;
-  top: -10px;
-  z-index: 9999;
-  animation: fall linear forwards;
-}
-
-@keyframes fall {
-  to {
-    transform: translateY(110vh) rotate(720deg);
-  }
-}
     </style>
   </head>
+
   <body>
-    <!-- Navbar -->
     <header class="header-area header-sticky" id="nav-placeholder"></header>
 
-    <!-- Product Grid -->
     <div class="product-grid">
-      <!-- Left: Carousel -->
       <div class="product-carousel">
         <div class="carousel-wrapper">
           <button class="carousel-btn prev">
@@ -318,33 +430,27 @@ font-size:18px;
           <button class="carousel-btn next">
             <i class="fa fa-chevron-right"></i>
           </button>
-          <div class="carousel-indicators" id="carouselDots"></div>
         </div>
+        <div class="carousel-indicators" id="carouselDots"></div>
       </div>
 
-      <!-- Right: Description -->
       <div class="product-description" style="text-align: left">
         <h1>Eh How Ah? 2nd Edition</h1>
-        <h3><s>$39.90</s>$21</h3>
-  
+        <h3><s>$39.90</s> $21</h3>
+
         <button
           onclick="window.open('https://sg.shp.ee/7Vn8xjD', '_blank')"
           style="margin-top: 10px"
         >
           Buy Now
         </button>
-         
+
         <p>
           "Eh How Ah?" is the solution to empower our parents to learn tech and
           protect against scams when we're not free. Gen 2 builds on the
           original game's success - bringing families together while promoting
           digital literacy and scam prevention.
-          <br />
-         
-    
-
-         
-          <br />
+          <br /><br />
           <strong>Features:</strong>
           <br />
           <strong>Quick to Learn</strong>: Pick it up in under 10 minutes.
@@ -355,44 +461,46 @@ font-size:18px;
           and Communication - through step-matching and pseudo apps.
           <br /><br />
           <strong>Scam Prevention</strong>: Stay protected with regularly
-          updated phygital scam prevention portal. <br /><br />
+          updated phygital scam prevention portal.
+          <br /><br />
           <strong>Phygital Expansion</strong>: Includes a complimentary digital
           game and pseudo apps for deeper learning and scam awareness.
           <br /><br />
         </p>
-
-        
       </div>
     </div>
 
-   <section class="demo-section">
-
-<h2>Try the Matching Demo</h2>
-<p>Drag the step cards from your hand to the correct mission card.</p>
-
-<div class="table">
-
-<div class="mission-row" id="missionRow"></div>
-
-<h3>Your Hand</h3>
-
-<div class="hand-row" id="handRow"></div>
-
-<div class="demo-result" id="demoResult"></div>
-
+   <div class="floating-scroll-cue" id="floatingScrollCue">
+  <a href="#matching-demo" class="scroll-cue" aria-label="Scroll to matching demo">
+    <span>Try it for yourself</span>
+    <i class="fa fa-angle-down scroll-arrow" aria-hidden="true"></i>
+  </a>
 </div>
 
-</section>  
-    <!-- Contact Us -->
+    <section class="demo-section" id="matching-demo">
+      <h2>Try the Matching Demo</h2>
+      <p>Drag the step cards from your hand to the correct mission card.</p>
+
+      <div class="table">
+        <div class="mission-row" id="missionRow"></div>
+
+        <h3>Your Hand</h3>
+
+        <div class="hand-row" id="handRow"></div>
+
+        <div class="demo-result" id="demoResult"></div>
+        <button class="reset-demo-btn" id="resetDemoBtn" type="button">
+          Reset Demo
+        </button>
+      </div>
+    </section>
 
     <footer id="contact-us">
-      <div class="container" id="contact-container">
-        <!-- Contact form will be injected here -->
-      </div>
+      <div class="container" id="contact-container"></div>
     </footer>
+
     <script src="mailinglist.js"></script>
 
-    <!-- Carousel Script -->
     <script>
       (function () {
         const slides = [
@@ -412,15 +520,12 @@ font-size:18px;
 
         function renderSlide(index) {
           const slide = slides[index];
-          slideDiv.innerHTML = `<img src="${slide.src}" alt="Slide ${
-            index + 1
-          }">`;
+          slideDiv.innerHTML = `<img src="${slide.src}" alt="Slide ${index + 1}">`;
           document.querySelectorAll(".carousel-dot").forEach((d, i) => {
             d.classList.toggle("active", i === index);
           });
         }
 
-        // Render dots
         slides.forEach((_, i) => {
           const dot = document.createElement("span");
           dot.className = "carousel-dot" + (i === 0 ? " active" : "");
@@ -431,13 +536,13 @@ font-size:18px;
           dotsContainer.appendChild(dot);
         });
 
-        // Prev/Next
         document
           .querySelector(".carousel-btn.prev")
           .addEventListener("click", () => {
             currentIndex = (currentIndex - 1 + slides.length) % slides.length;
             renderSlide(currentIndex);
           });
+
         document
           .querySelector(".carousel-btn.next")
           .addEventListener("click", () => {
@@ -460,254 +565,322 @@ font-size:18px;
     <script src="assets/js/custom.js"></script>
     <script src="navbar.js"></script>
     <script src="assets/js/custom.js"></script>
-
-<script>
-
-const missions = [
-
-{
-app:"grab",
-image:"assets/cards/grab_mission.png",
-slots:4,
-prefill:[
-"assets/cards/grab_step1.png",
-null,
-null,
-null
-]
-},
-
-{
-app:"whatsapp",
-image:"assets/cards/whatsapp_mission.png",
-slots:4,
-prefill:[
-"assets/cards/whatsapp_step1.png",
-"assets/cards/whatsapp_step2.png",
-null,
-null
-]
-},
-
-{
-app:"paylah",
-image:"assets/cards/paylah_mission.png",
-slots:4,
-prefill:[
-null,
-null,
-null,
-"assets/cards/paylah_step4.png"
-]
-}
-
-]
-
-const handCards=[
-
-{app:"grab",img:"assets/cards/grab_step2.png"},
-{app:"grab",img:"assets/cards/grab_step3.png"},
-{app:"grab",img:"assets/cards/grab_step4.png"},
-
-{app:"whatsapp",img:"assets/cards/whatsapp_step3.png"},
-{app:"whatsapp",img:"assets/cards/whatsapp_step4.png"},
-
-{app:"paylah",img:"assets/cards/paylah_step1.png"},
-{app:"paylah",img:"assets/cards/paylah_step2.png"},
-{app:"paylah",img:"assets/cards/paylah_step3.png"}
-
-]
-
-const missionRow=document.getElementById("missionRow")
-const handRow=document.getElementById("handRow")
-const result=document.getElementById("demoResult")
-
-let draggedCard=null
-
-
-
-/* ---------- CREATE MISSIONS ---------- */
-
-function createMissions(){
-
-missions.forEach((mission,missionIndex)=>{
-
-const missionDiv=document.createElement("div")
-missionDiv.className="mission"
-
-const img=document.createElement("img")
-img.src=mission.image
-
-const slotsDiv=document.createElement("div")
-slotsDiv.className="slots"
-
-mission.prefill.forEach((card)=>{
-
-const slot=document.createElement("div")
-slot.className="slot"
-
-slot.addEventListener("dragover",(e)=>e.preventDefault())
-
-slot.addEventListener("drop",()=>{
-
-if(slot.querySelector("img")) return
-if(!draggedCard) return
-
-const missionApp=missions[missionIndex].app
-
-/* WRONG CARD */
-
-if(draggedCard.app!==missionApp){
-
-result.innerHTML="❌ Wrong Mission"
-result.style.color="red"
-
-return
-}
-
-/* CORRECT CARD */
-
-result.innerHTML=""   // CLEAR ERROR MESSAGE
-
-slot.appendChild(draggedCard.element)
-
-draggedCard.element.draggable=false
-
-checkWin()
-
-})
-
-/* PREFILLED CARDS */
-
-if(card){
-
-const img=document.createElement("img")
-img.src=card
-slot.appendChild(img)
-
-}
-
-slotsDiv.appendChild(slot)
-
-})
-
-missionDiv.appendChild(img)
-missionDiv.appendChild(slotsDiv)
-
-missionRow.appendChild(missionDiv)
-
-})
-
-}
-
-
-
-/* ---------- CREATE PLAYER HAND ---------- */
-
-function createHand(){
-
-handCards.forEach(card=>{
-
-const cardDiv=document.createElement("div")
-cardDiv.className="card"
-cardDiv.draggable=true
-
-const img=document.createElement("img")
-img.src=card.img
-
-cardDiv.appendChild(img)
-
-cardDiv.addEventListener("dragstart",()=>{
-
-draggedCard={
-app:card.app,
-element:cardDiv
-}
-
-})
-
-handRow.appendChild(cardDiv)
-
-})
-
-}
-
-
-
-/* ---------- WIN CONDITION ---------- */
-
-function checkWin(){
-
-if(handRow.children.length === 0){
-
-result.innerHTML="🎉 Mission Completed! Great job! and that's not all! Buy our set to have more features like Lobang Cards, Scam prevention activities and a digital game and pseudo app component"
-result.style.color="green"
-
-celebrate()
-
-}
-
-}
-
-
-
-/* ---------- CELEBRATION ---------- */
-
-function celebrate(){
-
-document.querySelectorAll(".card").forEach(card=>{
-card.classList.add("card-complete")
-})
-
-document.querySelectorAll(".mission").forEach(m=>{
-m.classList.add("mission-complete")
-})
-
-for(let i=0;i<120;i++){
-
-const conf=document.createElement("div")
-conf.className="confetti"
-
-conf.style.left=Math.random()*100+"vw"
-conf.style.backgroundColor=randomColor()
-conf.style.animationDuration=(2+Math.random()*2)+"s"
-
-document.body.appendChild(conf)
-
-setTimeout(()=>{
-conf.remove()
-},4000)
-
-}
-
-}
-
-
-
-/* ---------- RANDOM CONFETTI COLORS ---------- */
-
-function randomColor(){
-
-const colors=[
-"#ff4757",
-"#ffa502",
-"#2ed573",
-"#1e90ff",
-"#e84393",
-"#f1c40f"
-]
-
-return colors[Math.floor(Math.random()*colors.length)]
-
-}
-
-
-
-/* ---------- INIT ---------- */
-
-createMissions()
-createHand()
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.min.js"></script>
+
+    <script>
+      const missions = [
+        {
+          app: "grab",
+          image: "assets/cards/grab_mission.png",
+          slots: 4,
+          prefill: [
+            "assets/cards/grab_step1.png",
+            null,
+            null,
+            null
+          ]
+        },
+        {
+          app: "whatsapp",
+          image: "assets/cards/whatsapp_mission.png",
+          slots: 4,
+          prefill: [
+            "assets/cards/whatsapp_step1.png",
+            "assets/cards/whatsapp_step2.png",
+            null,
+            null
+          ]
+        },
+        {
+          app: "paylah",
+          image: "assets/cards/paylah_mission.png",
+          slots: 4,
+          prefill: [
+            null,
+            null,
+            null,
+            "assets/cards/paylah_step4.png"
+          ]
+        }
+      ]
+
+      const handCards = [
+        { app: "grab", img: "assets/cards/grab_step2.png", step: 2 },
+        { app: "grab", img: "assets/cards/grab_step3.png", step: 3 },
+        { app: "grab", img: "assets/cards/grab_step4.png", step: 4 },
+        { app: "whatsapp", img: "assets/cards/whatsapp_step3.png", step: 3 },
+        { app: "whatsapp", img: "assets/cards/whatsapp_step4.png", step: 4 },
+        { app: "paylah", img: "assets/cards/paylah_step1.png", step: 1 },
+        { app: "paylah", img: "assets/cards/paylah_step2.png", step: 2 },
+        { app: "paylah", img: "assets/cards/paylah_step3.png", step: 3 }
+      ]
+
+      const missionRow = document.getElementById("missionRow")
+      const handRow = document.getElementById("handRow")
+      const result = document.getElementById("demoResult")
+      const resetDemoBtn = document.getElementById("resetDemoBtn")
+
+      let draggedCard = null
+      let audioStarted = false
+      let hasWon = false
+
+      const correctSynth = new Tone.Synth({
+        oscillator: { type: "triangle" },
+        envelope: { attack: 0.01, decay: 0.08, sustain: 0, release: 0.08 }
+      }).toDestination()
+
+      const wrongSynth = new Tone.Synth({
+        oscillator: { type: "sine" },
+        envelope: { attack: 0.01, decay: 0.12, sustain: 0, release: 0.08 }
+      }).toDestination()
+
+      const winSynth = new Tone.PolySynth(Tone.Synth, {
+        oscillator: { type: "triangle" },
+        envelope: { attack: 0.01, decay: 0.2, sustain: 0, release: 0.2 }
+      }).toDestination()
+
+      const pickupSynth = new Tone.Synth({
+        oscillator: { type: "triangle" },
+        envelope: { attack: 0.005, decay: 0.05, sustain: 0, release: 0.05 }
+      }).toDestination()
+
+      async function startAudio() {
+        if (audioStarted) return
+        await Tone.start()
+        audioStarted = true
+      }
+
+      async function playPickupSound() {
+        await startAudio()
+        pickupSynth.triggerAttackRelease("E5", "32n")
+      }
+
+      async function playCorrectSound() {
+        await startAudio()
+        correctSynth.triggerAttackRelease("C5", "16n")
+      }
+
+      async function playWrongSound() {
+        await startAudio()
+        wrongSynth.triggerAttackRelease("C3", "16n")
+      }
+
+      async function playWinSound() {
+        await startAudio()
+        const now = Tone.now()
+        winSynth.triggerAttackRelease(["C5", "E5", "G5"], "8n", now)
+        winSynth.triggerAttackRelease(["D5", "F5", "A5"], "8n", now + 0.18)
+      }
+
+      function clearDemo() {
+        missionRow.innerHTML = ""
+        handRow.innerHTML = ""
+        result.innerHTML = ""
+        result.style.color = ""
+        draggedCard = null
+        hasWon = false
+        document.querySelectorAll(".confetti").forEach(conf => conf.remove())
+      }
+
+      function createMissions() {
+        missions.forEach((mission, missionIndex) => {
+          const missionDiv = document.createElement("div")
+          missionDiv.className = "mission"
+
+          const img = document.createElement("img")
+          img.src = mission.image
+
+          const slotsDiv = document.createElement("div")
+          slotsDiv.className = "slots"
+
+          mission.prefill.forEach((card, slotIndex) => {
+            const slot = document.createElement("div")
+            slot.className = "slot"
+            slot.dataset.app = mission.app
+            slot.dataset.step = String(slotIndex + 1)
+
+            slot.addEventListener("dragover", (e) => {
+              e.preventDefault()
+            })
+
+            slot.addEventListener("drop", async () => {
+              if (slot.querySelector("img")) return
+              if (!draggedCard) return
+
+              const missionApp = missions[missionIndex].app
+              const expectedStep = Number(slot.dataset.step)
+
+              if (draggedCard.app !== missionApp) {
+                result.innerHTML = "❌ Wrong Mission"
+                result.style.color = "red"
+                playWrongSound()
+                return
+              }
+
+              if (draggedCard.step !== expectedStep) {
+                result.innerHTML = "❌ Wrong Step Order"
+                result.style.color = "red"
+                playWrongSound()
+                return
+              }
+
+              result.innerHTML = ""
+              result.style.color = ""
+
+              slot.appendChild(draggedCard.element)
+              draggedCard.element.draggable = false
+              draggedCard.element.classList.add("card-complete")
+
+              if (draggedCard.element.parentElement === slot) {
+                playCorrectSound()
+              }
+
+              draggedCard = null
+
+              checkMissionComplete(missionDiv)
+              checkWin()
+            })
+
+            if (card) {
+              const prefillImg = document.createElement("img")
+              prefillImg.src = card
+              prefillImg.classList.add("prefilled-card")
+              slot.appendChild(prefillImg)
+            }
+
+            slotsDiv.appendChild(slot)
+          })
+
+          missionDiv.appendChild(img)
+          missionDiv.appendChild(slotsDiv)
+          missionRow.appendChild(missionDiv)
+        })
+      }
+
+      function createHand() {
+        handCards.forEach(card => {
+          const cardDiv = document.createElement("div")
+          cardDiv.className = "card"
+          cardDiv.draggable = true
+          cardDiv.dataset.app = card.app
+          cardDiv.dataset.step = String(card.step)
+
+          const img = document.createElement("img")
+          img.src = card.img
+          cardDiv.appendChild(img)
+
+          cardDiv.addEventListener("dragstart", async () => {
+            await startAudio()
+            playPickupSound()
+
+            draggedCard = {
+              app: card.app,
+              step: card.step,
+              element: cardDiv
+            }
+          })
+
+          cardDiv.addEventListener("dragend", () => {
+            draggedCard = null
+          })
+
+          handRow.appendChild(cardDiv)
+        })
+      }
+
+      function checkMissionComplete(missionDiv) {
+        const slots = missionDiv.querySelectorAll(".slot")
+        const isComplete = Array.from(slots).every(slot => slot.querySelector("img"))
+
+        if (isComplete) {
+          missionDiv.classList.add("mission-complete")
+        }
+      }
+
+      function checkWin() {
+        if (hasWon) return
+
+        const remainingCards = handRow.querySelectorAll(".card[draggable='true']").length
+
+        if (remainingCards === 0) {
+          hasWon = true
+          result.innerHTML = "🎉 Mission Completed! Great job! and that's not all! Buy our set to have more features like Lobang Cards, Scam prevention activities and a digital game and pseudo app component"
+          result.style.color = "green"
+          playWinSound()
+          celebrate()
+        }
+      }
+
+      function celebrate() {
+        document.querySelectorAll(".mission").forEach(m => {
+          m.classList.add("mission-complete")
+        })
+
+        for (let i = 0; i < 120; i++) {
+          const conf = document.createElement("div")
+          conf.className = "confetti"
+          conf.style.left = Math.random() * 100 + "vw"
+          conf.style.backgroundColor = randomColor()
+          conf.style.animationDuration = (2 + Math.random() * 2) + "s"
+          document.body.appendChild(conf)
+
+          setTimeout(() => {
+            conf.remove()
+          }, 4000)
+        }
+      }
+
+      function randomColor() {
+        const colors = [
+          "#ff4757",
+          "#ffa502",
+          "#2ed573",
+          "#1e90ff",
+          "#e84393",
+          "#f1c40f"
+        ]
+        return colors[Math.floor(Math.random() * colors.length)]
+      }
+
+      function initDemo() {
+        clearDemo()
+        createMissions()
+        createHand()
+      }
+
+      document.addEventListener("click", startAudio, { once: true })
+      document.addEventListener("touchstart", startAudio, { once: true })
+
+      if (resetDemoBtn) {
+        resetDemoBtn.addEventListener("click", initDemo)
+      }
+
+      initDemo()
+
+      
+    </script>
+    <script>
+  const floatingScrollCue = document.getElementById("floatingScrollCue");
+  const matchingDemo = document.getElementById("matching-demo");
+
+  const demoObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          floatingScrollCue.classList.add("hidden");
+        } else {
+          floatingScrollCue.classList.remove("hidden");
+        }
+      });
+    },
+    {
+      threshold: 0.25
+    }
+  );
+
+  if (matchingDemo && floatingScrollCue) {
+    demoObserver.observe(matchingDemo);
+  }
 </script>
   </body>
 </html>

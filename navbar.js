@@ -7,14 +7,9 @@
    { name: "About us", href: "about.html" },
   
     { name: "Eh, How Ah?", href: "ehhowahproduct.html" },
-     {
-      name: "Explore",
-      dropdown: [
-        { name: "Video Library", href: "appnav.html" }
-      ]
-    },
+    
 
-     { name: "Volunteer", href: "ourimpact.html" },
+    
     { name: "Partner", href: "corporates.html" }
   ];
 
@@ -270,10 +265,8 @@
       
     <li><a href="about.html">About Us</a></li>
     
-    <li><a href="appnav.html">Video Library</a></li>
     <li><a href="ehhowahproduct.html">Eh, How Ah?</a></li>
 
-    <li><a href="ourimpact.html">Volunteer</a></li>
       <li><a href="corporates.html">Partner</a></li>
    
   </ul>

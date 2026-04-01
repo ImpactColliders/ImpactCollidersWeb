@@ -18,6 +18,9 @@
 
 <style>
 
+h1, h2, h3 {
+  color: #004aad;
+}
 body{
 font-family:Poppins;
 background:#f5f5f5;
@@ -29,6 +32,7 @@ margin:0;
 .corporate-hero{
 padding:160px 10% 120px;
 text-align:center;
+background:#ffffff;
 }
 
 .corporate-hero h1{
@@ -45,6 +49,28 @@ font-size:16px;
 color:#666;
 }
 
+
+
+.impact-stats{
+display:flex;
+justify-content:center;
+gap:120px;
+padding:100px 10%;
+background:#f5f5f5;
+text-align:center;
+}
+
+.stat-number{
+font-size:56px;
+font-weight:700;
+color:#d43d2b;
+}
+
+.stat-label{
+margin-top:10px;
+font-size:16px;
+color:#666;
+}
 /* GALLERY */
 
 .gallery{
@@ -157,13 +183,84 @@ border-radius:8px;
 font-weight:600;
 }
 
+
+.story-section{
+display:grid;
+grid-template-columns:1fr 1fr;
+align-items:center;
+gap:80px;
+padding:120px 10%;
+background:white;
+}
+
+.story-image img{
+width:100%;
+border-radius:16px;
+box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+.story-text h2{
+font-weight:700;
+margin-bottom:20px;
+}
+
+.story-text p{
+color:#666;
+line-height:1.7;
+}
+
+/* CONTACT FORM */
+
+.volunteer{
+padding:120px 10%;
+text-align:center;
+}
+
+.volunteer h2{
+font-weight:700;
+margin-bottom:40px;
+}
+
+.volunteer-form{
+max-width:600px;
+margin:auto;
+}
+
+.volunteer-form input,
+.volunteer-form textarea{
+width:100%;
+padding:14px;
+margin-bottom:20px;
+border-radius:8px;
+border:1px solid #ddd;
+}
+
+.volunteer-form button{
+background:#d43d2b;
+border:none;
+color:white;
+padding:14px 30px;
+border-radius:8px;
+font-weight:600;
+}
+
 /* MOBILE */
 
 @media(max-width:900px){
 
+.impact-stats{
+flex-direction:column;
+gap:40px;
+}
+
 .gallery-grid{
 grid-template-columns:1fr;
 }
+
+.story-section{
+grid-template-columns:1fr;
+}
+
 
 }
 
@@ -190,7 +287,24 @@ creating meaningful volunteer experiences for employees.
 
 </section>
 
+<section class="impact-stats">
 
+<div>
+<div class="stat-number">30+</div>
+<div class="stat-label">Workshops Conducted</div>
+</div>
+
+<div>
+<div class="stat-number">500+</div>
+<div class="stat-label">Participants Reached</div>
+</div>
+
+<div>
+<div class="stat-number">50+</div>
+<div class="stat-label">Volunteers</div>
+</div>
+
+</section>
 
 <!-- WORKSHOP GALLERY -->
 
@@ -280,6 +394,54 @@ placeholder="Tell us about your organisation and how you'd like to collaborate">
 </section>
 
 
+<section class="story-section">
+
+<div class="story-image">
+<img src="assets/images/WebPhotos/RHB.jpg">
+</div>
+
+<div class="story-text">
+
+<h2>Building Connections Through Play</h2>
+
+<p>
+Our workshops bring together seniors, volunteers and families
+to explore technology through play. By transforming digital
+learning into a social experience, we help participants gain
+confidence while building stronger relationships within the
+community.
+</p>
+
+</div>
+
+</section>
+
+
+
+<!-- VOLUNTEER FORM -->
+
+<section class="volunteer">
+
+<h2>Volunteer With Us</h2>
+
+<form class="volunteer-form"
+action="mailto:impactcolliders@gmail.com"
+method="POST"
+enctype="text/plain">
+
+<input type="text" name="name" placeholder="Your Name" required>
+
+<input type="email" name="email" placeholder="Your Email" required>
+
+<input type="hidden" name="subject" value="Volunteering">
+
+<textarea name="message" rows="5" placeholder="Tell us how you'd like to help"></textarea>
+
+<button type="submit">Contact Us</button>
+
+</form>
+
+</section>
 
 <footer id="contact-us">
 <div class="container" id="contact-container"></div>
