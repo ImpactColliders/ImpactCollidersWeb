@@ -1,8 +1,98 @@
 <linker>
+  <assembly fullname="Coffee.UnmaskForUGUI, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="Coffee.UIExtensions.Unmask" preserve="all" />
+    <type fullname="Coffee.UIExtensions.UnmaskRaycastFilter" preserve="all" />
+  </assembly>
+  <assembly fullname="EhHowAh, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="com.impactcolliders.ehhowah.contacts.ContactButton" preserve="all" />
+    <type fullname="com.impactcolliders.ehhowah.dbs.ContactButton" preserve="all" />
+    <type fullname="com.impactcolliders.ehhowah.dbs.Tutorial_DBS_ScanOrPaynow" preserve="all" />
+    <type fullname="com.impactcolliders.ehhowah.facebook.FriendPrefab" preserve="all" />
+    <type fullname="com.impactcolliders.ehhowah.facebook.SearchResultButton" preserve="all" />
+    <type fullname="com.impactcolliders.ehhowah.HelpSystem" preserve="all" />
+    <type fullname="com.impactcolliders.ehhowah.notes.Note" preserve="all" />
+    <type fullname="com.impactcolliders.ehhowah.notes.NoteView" preserve="all" />
+    <type fullname="com.impactcolliders.ehhowah.PageButton" preserve="all" />
+    <type fullname="com.impactcolliders.ehhowah.telegram.ChatAutoScroll" preserve="all" />
+    <type fullname="com.impactcolliders.ehhowah.telegram.ChatManager" preserve="all" />
+    <type fullname="com.impactcolliders.ehhowah.telegram.ChatUIController" preserve="all" />
+    <type fullname="com.impactcolliders.ehhowah.telegram.MessageDisplay" preserve="all" />
+    <type fullname="com.impactcolliders.ehhowah.telegram.NewContactCreator" preserve="all" />
+    <type fullname="com.impactcolliders.ehhowah.telegram.PageManager" preserve="all" />
+    <type fullname="com.impactcolliders.ehhowah.telegram.ProfileButton" preserve="all" />
+    <type fullname="com.impactcolliders.ehhowah.telegram.ProfileSO" preserve="all" />
+    <type fullname="com.impactcolliders.ehhowah.telegram.SetButton" preserve="all" />
+    <type fullname="com.impactcolliders.ehhowah.TutorialEvent" preserve="all" />
+    <type fullname="com.impactcolliders.ehhowah.TutorialManager" preserve="all" />
+    <type fullname="com.impactcolliders.ehhowah.TutorialStep_DefaultButtonPress" preserve="all" />
+    <type fullname="com.impactcolliders.webnav.WebSearchResultView" preserve="all" />
+    <type fullname="DocumentationSO" preserve="all" />
+    <type fullname="EhHowAh.EndMenuPopup" preserve="all" />
+    <type fullname="EhHowAh.MascotAnimation" preserve="all" />
+    <type fullname="EhHowAh.VirtualKey" preserve="all" />
+    <type fullname="EhHowAh.VirtualKeyboardManager" preserve="all" />
+    <type fullname="EhHowAh.VirtualSandbox.Alarms.PickerItem" preserve="all" />
+    <type fullname="EhHowAh.VirtualSandbox.Alarms.PickerWheel" preserve="all" />
+    <type fullname="EhHowAh.VirtualSandbox.Keyboard.UnityKeyboardButton" preserve="all" />
+    <type fullname="EhHowAh.VirtualSandbox.Keyboard.UnityKeyboardScript" preserve="all" />
+    <type fullname="EhHowAh.VirtualSandbox.Tutorial.TutorialHightlight" preserve="all" />
+    <type fullname="EhHowAh.VirtualSandbox.Tutorial.TutorialManager" preserve="all" />
+    <type fullname="EhHowAh.VirtualSandbox.UI.DeviceOrientationDetectionScript" preserve="all" />
+    <type fullname="EhHowAh.VirtualSandbox.UI.LocalisationButton" preserve="all" />
+    <type fullname="EhHowAh.VirtualSandbox.UI.ReselectPreviousButton" preserve="all" />
+    <type fullname="EhHowAh.VirtualSandbox.UI.SceneEvent" preserve="all" />
+    <type fullname="EhHowAh.VirtualSandbox.UI.SwitchButton" preserve="all" />
+    <type fullname="EhHowAh.VirtualSandbox.UI.UIAnimationController" preserve="all" />
+    <type fullname="EhHowAh.VirtualSandbox.UI.UIScreen" preserve="all" />
+    <type fullname="EhHowAh.VirtualSandbox.UI.UIScreenManager" preserve="all" />
+    <type fullname="Oogway.CanvasObject" preserve="all" />
+    <type fullname="Oogway.CanvasStack" preserve="all" />
+    <type fullname="QuasarFramework.Lerp.QuasarAnimator" preserve="all" />
+    <type fullname="QuasarFramework.StartEvent" preserve="all" />
+    <type fullname="SwipeUpExitMenu" preserve="all" />
+    <type fullname="DocumentationSO/DocumentationData" preserve="nothing" serialized="true" />
+    <type fullname="EhHowAh.VirtualSandbox.Alarms.PickerData" preserve="nothing" serialized="true" />
+    <type fullname="EhHowAh.VirtualSandbox.Tutorial.TutorialBehaviour" preserve="nothing" serialized="true" />
+    <type fullname="EhHowAh.VirtualSandbox.Tutorial.TutorialButtonListener" preserve="nothing" serialized="true" />
+    <type fullname="EhHowAh.VirtualSandbox.Tutorial.TutorialDraggableBehaviour" preserve="nothing" serialized="true" />
+    <type fullname="EhHowAh.VirtualSandbox.Tutorial.TutorialHighlightBehaviour" preserve="nothing" serialized="true" />
+    <type fullname="EhHowAh.VirtualSandbox.Tutorial.TutorialInputFieldListener" preserve="nothing" serialized="true" />
+    <type fullname="EhHowAh.VirtualSandbox.Tutorial.TutorialLocalizedStringBehaviour" preserve="nothing" serialized="true" />
+    <type fullname="EhHowAh.VirtualSandbox.Tutorial.TutorialManager/TutorialStage" preserve="nothing" serialized="true" />
+    <type fullname="EhHowAh.VirtualSandbox.Tutorial.TutorialMultiButtonListener" preserve="nothing" serialized="true" />
+    <type fullname="EhHowAh.VirtualSandbox.UI.CreateNewSequence" preserve="nothing" serialized="true" />
+    <type fullname="EhHowAh.VirtualSandbox.UI.GraphicColorFade" preserve="nothing" serialized="true" />
+    <type fullname="EhHowAh.VirtualSandbox.UI.MultiRectScale" preserve="nothing" serialized="true" />
+    <type fullname="EhHowAh.VirtualSandbox.UI.RectScale" preserve="nothing" serialized="true" />
+    <type fullname="EhHowAh.VirtualSandbox.UI.RectScaleToFrom" preserve="nothing" serialized="true" />
+    <type fullname="EhHowAh.VirtualSandbox.UI.RotateTo" preserve="nothing" serialized="true" />
+    <type fullname="EhHowAh.VirtualSandbox.UI.SequenceCompleteEvent" preserve="nothing" serialized="true" />
+    <type fullname="EhHowAh.VirtualSandbox.UI.SlideIn" preserve="nothing" serialized="true" />
+    <type fullname="EhHowAh.VirtualSandbox.UI.SlideOut" preserve="nothing" serialized="true" />
+    <type fullname="EhHowAh.VirtualSandbox.UI.UIAnimation" preserve="nothing" serialized="true" />
+    <type fullname="Oogway.CanvasStack/AlchemySerializationData" preserve="nothing" serialized="true" />
+    <type fullname="Oogway.FadeTransition" preserve="nothing" serialized="true" />
+    <type fullname="QuasarFramework.SerializeableList.SerializableList`1" preserve="nothing" serialized="true" />
+    <type fullname="com.impactcolliders.ehhowah.HelpPrompt" preserve="nothing" serialized="true" />
+    <type fullname="com.impactcolliders.ehhowah.notes.NoteData" preserve="nothing" serialized="true" />
+    <type fullname="com.impactcolliders.ehhowah.telegram.ChatData" preserve="nothing" serialized="true" />
+    <type fullname="com.impactcolliders.ehhowah.telegram.Contact" preserve="nothing" serialized="true" />
+  </assembly>
   <assembly fullname="Unity.Addressables, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
     <type fullname="UnityEngine.AddressableAssets.Addressables" preserve="all" />
   </assembly>
+  <assembly fullname="Unity.InputSystem, Version=1.14.2.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.InputSystem.InputActionAsset" preserve="all" />
+    <type fullname="UnityEngine.InputSystem.InputActionReference" preserve="all" />
+    <type fullname="UnityEngine.InputSystem.UI.InputSystemUIInputModule" preserve="all" />
+    <type fullname="UnityEngine.InputSystem.InputAction" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.InputSystem.InputActionMap" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.InputSystem.InputBinding" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.InputSystem.InputControlScheme" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.InputSystem.InputControlScheme/DeviceRequirement" preserve="nothing" serialized="true" />
+  </assembly>
   <assembly fullname="Unity.Localization, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Localization.Components.LocalizeStringEvent" preserve="all" />
     <type fullname="UnityEngine.Localization.Locale" preserve="all" />
     <type fullname="UnityEngine.Localization.Tables.SharedTableData" preserve="all" />
     <type fullname="UnityEngine.Localization.Tables.StringTable" preserve="all" />
@@ -10,8 +100,17 @@
     <type fullname="UnityEngine.Localization.Metadata.MetadataCollection" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Localization.Metadata.SmartFormatTag" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Localization.Tables.TableEntryData" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Localization.Events.UnityEventString" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Localization.LocalizedString" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Localization.Tables.TableEntryReference" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Localization.Tables.TableReference" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Localization.Tables.DistributedUIDGenerator" preserve="nothing" serialized="true" />
     <type fullname="UnityEngine.Localization.Tables.SharedTableData/SharedTableEntry" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="Unity.RenderPipelines.Universal.Runtime, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Rendering.Universal.UniversalAdditionalCameraData" preserve="all" />
+    <type fullname="UnityEngine.Rendering.Universal.UniversalAdditionalLightData" preserve="all" />
+    <type fullname="UnityEngine.Rendering.Universal.TemporalAA/Settings" preserve="nothing" serialized="true" />
   </assembly>
   <assembly fullname="Unity.ResourceManager, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null" preserve="all">
     <type fullname="UnityEngine.ResourceManagement.ResourceProviders.AssetBundleProvider" preserve="all" />
@@ -19,7 +118,89 @@
     <type fullname="UnityEngine.ResourceManagement.ResourceProviders.InstanceProvider" preserve="all" />
     <type fullname="UnityEngine.ResourceManagement.ResourceProviders.SceneProvider" preserve="all" />
   </assembly>
+  <assembly fullname="Unity.TextMeshPro, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="TMPro.TextMeshProUGUI" preserve="all" />
+    <type fullname="TMPro.TMP_FontAsset" preserve="all" />
+    <type fullname="TMPro.TMP_InputField" preserve="all" />
+    <type fullname="TMPro.FaceInfo_Legacy" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.FontAssetCreationSettings" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.GlyphAnchorPoint" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.KerningTable" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.LigatureSubstitutionRecord" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.MarkPositionAdjustment" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.MarkToBaseAdjustmentRecord" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_Character" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_FontFeatureTable" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_FontWeightPair" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.VertexGradient" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_InputField/OnChangeEvent" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_InputField/SelectionEvent" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_InputField/SubmitEvent" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_InputField/TextSelectionEvent" preserve="nothing" serialized="true" />
+    <type fullname="TMPro.TMP_InputField/TouchScreenKeyboardEvent" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="UnityEngine.AudioModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.AudioListener" preserve="all" />
+  </assembly>
   <assembly fullname="UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Camera" preserve="all" />
+    <type fullname="UnityEngine.Cubemap" preserve="all" />
+    <type fullname="UnityEngine.GameObject" preserve="all" />
+    <type fullname="UnityEngine.Light" preserve="all" />
+    <type fullname="UnityEngine.LightmapSettings" preserve="all" />
+    <type fullname="UnityEngine.Material" preserve="all" />
     <type fullname="UnityEngine.Object" preserve="all" />
+    <type fullname="UnityEngine.RectTransform" preserve="all" />
+    <type fullname="UnityEngine.RenderSettings" preserve="all" />
+    <type fullname="UnityEngine.Shader" preserve="all" />
+    <type fullname="UnityEngine.Sprite" preserve="all" />
+    <type fullname="UnityEngine.Texture2D" preserve="all" />
+    <type fullname="UnityEngine.Transform" preserve="all" />
+    <type fullname="UnityEngine.Events.ArgumentCache" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Events.PersistentCallGroup" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Events.PersistentListenerMode" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Events.UnityEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.Events.UnityEvent`1" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.RectOffset" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="UnityEngine.TextRenderingModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Font" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.UI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.EventSystems.EventSystem" preserve="all" />
+    <type fullname="UnityEngine.UI.Button" preserve="all" />
+    <type fullname="UnityEngine.UI.CanvasScaler" preserve="all" />
+    <type fullname="UnityEngine.UI.ContentSizeFitter" preserve="all" />
+    <type fullname="UnityEngine.UI.GraphicRaycaster" preserve="all" />
+    <type fullname="UnityEngine.UI.HorizontalLayoutGroup" preserve="all" />
+    <type fullname="UnityEngine.UI.Image" preserve="all" />
+    <type fullname="UnityEngine.UI.LayoutElement" preserve="all" />
+    <type fullname="UnityEngine.UI.Mask" preserve="all" />
+    <type fullname="UnityEngine.UI.RectMask2D" preserve="all" />
+    <type fullname="UnityEngine.UI.Scrollbar" preserve="all" />
+    <type fullname="UnityEngine.UI.ScrollRect" preserve="all" />
+    <type fullname="UnityEngine.UI.VerticalLayoutGroup" preserve="all" />
+    <type fullname="UnityEngine.UI.AnimationTriggers" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.Button/ButtonClickedEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.ColorBlock" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.MaskableGraphic/CullStateChangedEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.Navigation" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.ScrollRect/ScrollRectEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.Scrollbar/ScrollEvent" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.UI.SpriteState" preserve="nothing" serialized="true" />
+  </assembly>
+  <assembly fullname="UnityEngine.UIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <type fullname="UnityEngine.Canvas" preserve="all" />
+    <type fullname="UnityEngine.CanvasGroup" preserve="all" />
+    <type fullname="UnityEngine.CanvasRenderer" preserve="all" />
+  </assembly>
+  <assembly fullname="UnityEngine.TextCoreFontEngineModule">
+    <type fullname="UnityEngine.TextCore.FaceInfo" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.TextCore.Glyph" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.TextCore.GlyphMetrics" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.TextCore.GlyphRect" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.TextCore.LowLevel.GlyphAdjustmentRecord" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.TextCore.LowLevel.GlyphPairAdjustmentRecord" preserve="nothing" serialized="true" />
+    <type fullname="UnityEngine.TextCore.LowLevel.GlyphValueRecord" preserve="nothing" serialized="true" />
   </assembly>
 </linker>
