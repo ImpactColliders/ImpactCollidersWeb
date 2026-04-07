@@ -1,6 +1,7 @@
 // footer.js
 (function () {
 
+  //blah blah blah
   function injectFooterStyles() {
     if (document.getElementById("footer-styles")) return;
 
