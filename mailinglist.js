@@ -174,8 +174,8 @@
         <div class="footer-col">
           <h4>Partner With Us</h4>
           <ul>
-            <li><a href="corporates.html">Corporate Partnerships</a></li>
-            <li><a href="ourimpact.html">Volunteer Opportunities</a></li>
+            <li><a href="corporates.html">Partnerships</a></li>
+          
           </ul>
         </div>
 
