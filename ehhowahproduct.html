@@ -27,14 +27,47 @@
     min-width: 10dvw;
   }
 
+  .purchase-box {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+  margin: 12px 0 8px;
+}
+
+.qty-select {
+  padding: 12px 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  min-width: 220px;
+  background: #fff;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .purchase-box {
+    width: 100%;
+  }
+
+  .qty-select {
+    width: 100%;
+  }
+
+  .buy-now-btn {
+    width: 100%;
+  }
+}
+
   .buy-now-btn:hover {
     background: #ff4757;
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   }
-      html {
-        scroll-behavior: smooth;
-      }
+     html {
+  scroll-behavior: auto;
+}
 
       body {
         font-family: "Poppins", sans-serif;
@@ -458,16 +491,26 @@
 
       <div class="product-description" style="text-align: left">
         <h1>Eh How Ah? 2nd Edition</h1>
-        <h3><s>$39.90</s> $21</h3>
+        <h3><s>$39.90</s> $21.90</h3>
 
-        <a
-  href="https://buy.stripe.com/eVqaEXgOw52N4oU00r0x201"
-  target="_blank"
-  rel="noopener noreferrer"
-  class="buy-now-btn"
->
-  Buy Now
-</a>
+     <div class="purchase-box">
+  <label for="qtySelect"><strong>Choose Quantity:</strong></label>
+  <select id="qtySelect" class="qty-select">
+    <option value="1">1 Set — $21</option>
+    <option value="2">2 Sets — $40</option>
+    <option value="3">3 Sets — $50</option>
+  </select>
+
+  <a
+    href="https://buy.stripe.com/eVqaEXgOw52N4oU00r0x201"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="buy-now-btn"
+    id="buyNowBtn"
+  >
+    Buy Now
+  </a>
+</div>
 
         <p>
           "Eh How Ah?" is the solution to empower our parents to learn tech and
@@ -898,12 +941,46 @@
       });
     },
     {
-      threshold: 0.25
+      threshold: 0.6
     }
   );
 
   if (matchingDemo && floatingScrollCue) {
     demoObserver.observe(matchingDemo);
+  }
+</script>
+<script>
+  const qtySelect = document.getElementById("qtySelect");
+  const buyNowBtn = document.getElementById("buyNowBtn");
+
+  const stripeLinks = {
+    1: "https://buy.stripe.com/dRm8wHeP248u9BV57FbjW00",
+    2: "https://buy.stripe.com/dRm8wHgXa20m4hB43BbjW01",
+    3: "https://buy.stripe.com/5kQbIT0Yc8oKeWf1VtbjW03"
+  };
+
+  if (qtySelect && buyNowBtn) {
+    qtySelect.addEventListener("change", () => {
+      buyNowBtn.href = stripeLinks[qtySelect.value];
+    });
+  }
+</script>
+<script>
+  const scrollBtn = document.querySelector(".scroll-cue");
+
+  if (scrollBtn) {
+    scrollBtn.addEventListener("click", function (e) {
+      e.preventDefault();
+
+      const target = document.querySelector("#matching-demo");
+
+      if (target) {
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        });
+      }
+    });
   }
 </script>
   </body>
