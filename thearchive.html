@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="The Archive — an Impact Colliders event. Join us for an evening of conversation, community and play."
+    />
+    <meta name="author" content="Impact Colliders" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
+      rel="stylesheet"
+    />
+    <title>The Archive - Impact Colliders</title>
+    <link rel="icon" type="image/x-icon" href="/assets/images/logo.jpg" />
+    <!-- Additional CSS Files -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="assets/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css" />
+    <link rel="stylesheet" href="assets/css/templatemo-lava.css" />
+    <link rel="stylesheet" href="assets/css/owl-carousel.css" />
+    <style>
+      :root {
+        --ic-blue: #004aad;
+        --ic-accent: #ff6b6b;
+      }
+
+      .archive-hero {
+        position: relative;
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 120px 20px 80px;
+        background: linear-gradient(
+            135deg,
+            rgba(0, 74, 173, 0.85),
+            rgba(0, 30, 80, 0.9)
+          ),
+          url("assets/images/WebPhotos/Arts.jpg") center/cover no-repeat;
+        color: #fff;
+      }
+
+      .archive-hero-inner {
+        max-width: 820px;
+      }
+
+      .archive-eyebrow {
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        font-size: 0.85em;
+        opacity: 0.85;
+        margin-bottom: 18px;
+      }
+
+      .archive-hero h1 {
+        font-size: clamp(2.4em, 6vw, 4em);
+        font-weight: 800;
+        margin: 0 0 18px;
+        line-height: 1.1;
+      }
+
+      .archive-hero h1 em {
+        color: #ffd166;
+        font-style: normal;
+      }
+
+      .archive-tagline {
+        font-size: 1.2em;
+        line-height: 1.6;
+        opacity: 0.92;
+        margin-bottom: 36px;
+      }
+
+      .archive-meta {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 24px 40px;
+        margin-bottom: 40px;
+        font-size: 1em;
+      }
+
+      .archive-meta div {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .archive-meta strong {
+        display: block;
+        font-size: 0.75em;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        opacity: 0.75;
+        font-weight: 600;
+      }
+
+      .archive-meta span {
+        font-size: 1.05em;
+        font-weight: 500;
+      }
+
+      .archive-cta {
+        display: inline-block;
+        background: #ffd166;
+        color: var(--ic-blue);
+        padding: 16px 42px;
+        border-radius: 999px;
+        font-weight: 700;
+        text-decoration: none;
+        letter-spacing: 1px;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+      }
+
+      .archive-cta:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+        color: var(--ic-blue);
+        text-decoration: none;
+      }
+
+      .archive-about {
+        padding: 90px 20px;
+        background: #fff;
+      }
+
+      .archive-about-inner {
+        max-width: 880px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .archive-about h2 {
+        color: var(--ic-blue);
+        font-weight: 700;
+        margin-bottom: 24px;
+        font-size: clamp(1.8em, 4vw, 2.4em);
+      }
+
+      .archive-about h2 em {
+        color: var(--ic-blue);
+        font-style: normal;
+      }
+
+      .archive-about p {
+        font-size: 1.1em;
+        line-height: 1.8;
+        color: #444;
+        margin-bottom: 18px;
+      }
+
+      .archive-signup {
+        padding: 90px 20px;
+        background: #f7f9fc;
+      }
+
+      .archive-signup-inner {
+        max-width: 720px;
+        margin: 0 auto;
+        text-align: center;
+      }
+
+      .archive-signup h2 {
+        color: var(--ic-blue);
+        font-weight: 700;
+        margin-bottom: 16px;
+        font-size: clamp(1.8em, 4vw, 2.4em);
+      }
+
+      .archive-signup p {
+        font-size: 1.05em;
+        color: #555;
+        line-height: 1.7;
+        margin-bottom: 32px;
+      }
+
+      .signup-embed {
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+        min-height: 600px;
+      }
+
+      .signup-embed iframe {
+        width: 100%;
+        min-height: 600px;
+        border: 0;
+        display: block;
+      }
+
+      .signup-fallback {
+        padding: 60px 30px;
+        text-align: center;
+      }
+
+      .signup-fallback p {
+        margin-bottom: 20px;
+      }
+
+      @media (max-width: 600px) {
+        .archive-hero {
+          min-height: 70vh;
+          padding: 100px 18px 60px;
+        }
+        .archive-meta {
+          gap: 18px 24px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="preloader">
+      <div class="jumper">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
+    <!-- Nav Bar -->
+    <header class="header-area header-sticky" id="nav-placeholder"></header>
+
+    <!-- Hero -->
+    <section class="archive-hero" id="welcome">
+      <div class="archive-hero-inner">
+        <div class="archive-eyebrow">Impact Colliders Presents</div>
+        <h1>The <em>Archive</em></h1>
+        <p class="archive-tagline">
+          <!-- TODO: replace with your event tagline / one-liner -->
+          A one-night gathering for the curious, the collaborators, and the
+          quietly building. Come for the conversation, stay for the people.
+        </p>
+
+        <div class="archive-meta">
+          <div>
+            <div>
+              <strong>Date</strong>
+              <span><!-- TODO: e.g. Sat, 12 Jul 2026 -->TBD</span>
+            </div>
+          </div>
+          <div>
+            <div>
+              <strong>Time</strong>
+              <span><!-- TODO: e.g. 7:00 PM – 10:00 PM -->TBD</span>
+            </div>
+          </div>
+          <div>
+            <div>
+              <strong>Venue</strong>
+              <span><!-- TODO: e.g. Singapore (exact venue on RSVP) -->TBD</span>
+            </div>
+          </div>
+        </div>
+
+        <a href="#signup" class="archive-cta">Reserve your spot</a>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section class="archive-about" id="about">
+      <div class="archive-about-inner">
+        <h2>What is <em>The Archive</em>?</h2>
+        <p>
+          <!-- TODO: replace with the real event description -->
+          The Archive is our space to slow down and trade notes — on the
+          problems we're each chipping away at, the games and tools we're
+          building, and the people behind them. Expect short talks, an open
+          floor, and plenty of room to actually talk to someone new.
+        </p>
+        <p>
+          <!-- TODO: who it's for / what they'll leave with -->
+          It's for founders, makers, students, and friends of Impact Colliders.
+          No pitch decks required.
+        </p>
+      </div>
+    </section>
+
+    <!-- Signup -->
+    <section class="archive-signup" id="signup">
+      <div class="archive-signup-inner">
+        <h2>Sign up</h2>
+        <p>
+          Spots are limited. Drop your details below and we'll send venue
+          confirmation closer to the date.
+        </p>
+
+        <div class="signup-embed">
+          <!--
+            TODO: replace SIGNUP_URL with your form embed.
+            Examples:
+              Google Form:  https://docs.google.com/forms/d/e/FORM_ID/viewform?embedded=true
+              Luma:         https://lu.ma/embed/event/EVENT_ID/simple
+              Eventbrite:   https://www.eventbrite.com/static/widgets/eb_widget_iframe.html?eid=EVENT_ID
+          -->
+          <iframe
+            src="SIGNUP_URL"
+            title="The Archive signup form"
+            loading="lazy"
+            allowfullscreen
+          >
+            <div class="signup-fallback">
+              <p>Loading the signup form…</p>
+              <p>
+                If it doesn't appear,
+                <a href="SIGNUP_URL" target="_blank" rel="noopener">
+                  click here to open it in a new tab</a
+                >.
+              </p>
+            </div>
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact-us">
+      <div class="container" id="contact-container">
+        <!-- Contact form will be injected here -->
+      </div>
+    </footer>
+
+    <script src="mailinglist.js"></script>
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/scrollreveal.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/imgfix.min.js"></script>
+    <script src="navbar.js"></script>
+    <script src="assets/js/custom.js"></script>
+  </body>
+</html>
