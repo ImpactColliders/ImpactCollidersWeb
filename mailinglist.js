@@ -225,7 +225,7 @@
 
       <div class="footer-bottom">
         <img src="assets/images/Impact Colliders_White.png" alt="Impact Colliders Logo">
-        <p>© 2025 Impact Colliders. All rights reserved.</p>
+        <p>© 2026 Impact Colliders. All rights reserved.</p>
       </div>
     `;
   }
