@@ -225,7 +225,7 @@
     return `
 <div class="container">
   <nav class="main-nav">
-    <a href="index.html" class="logo">
+    <a href="/" class="logo">
       <img src="assets/images/Impact Colliders_White.png" alt="Impact Colliders Logo">
     </a>
 
@@ -261,13 +261,13 @@
   </div>
 
   <ul>
-    <li><a href="index.html">Home</a></li>
+    <li><a href="/">Home</a></li>
       
-    <li><a href="about.html">About Us</a></li>
+    <li><a href="about">About Us</a></li>
     
-    <li><a href="ehhowahproduct.html">Eh, How Ah?</a></li>
+    <li><a href="ehhowahproduct">Eh, How Ah?</a></li>
 
-      <li><a href="corporates.html">Partner</a></li>
+      <li><a href="corporates">Partner</a></li>
    
   </ul>
 
