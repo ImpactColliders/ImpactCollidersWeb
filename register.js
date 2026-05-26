@@ -37,7 +37,7 @@ codeForm.addEventListener("submit", async (e) => {
     await setDoc(doc(db, "users", uid), { code }, { merge: true });
 
     // Redirect to game
-    window.location.href = "public/game.html";
+    window.location.href = "public/game";
   } catch (err) {
     codeError.textContent = err.message || "Access failed";
   }
