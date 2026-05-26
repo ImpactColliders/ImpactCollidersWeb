@@ -1,16 +1,16 @@
 // navbar.js
 (function () {
-  const activePage = location.pathname.split("/").pop() || "index.html";
+  const activePage = location.pathname.split("/").pop().replace(/\.html$/, "") || "";
 
   const navItems = [
-    { name: "Home", href: "index.html" },
-   { name: "About us", href: "about.html" },
-  
-    { name: "Eh, How Ah?", href: "ehhowahproduct.html" },
-    
+    { name: "Home", href: "/" },
+   { name: "About us", href: "about" },
 
-    
-    { name: "Partner", href: "corporates.html" }
+    { name: "Eh, How Ah?", href: "ehhowahproduct" },
+
+
+
+    { name: "Partner", href: "corporates" }
   ];
 
   function injectStyles() {

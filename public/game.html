@@ -186,14 +186,14 @@
       document.body.appendChild(script);
     } else {
       console.warn("🚫 Not logged in, redirecting...");
-      window.location.href = "../ehhowah.html";
+      window.location.href = "../ehhowah";
     }
   });
 
   document.getElementById("logout").addEventListener("click", async () => {
     try {
       await signOut(auth);
-      window.location.href = "../ehhowah.html";
+      window.location.href = "../ehhowah";
     } catch (err) {
       console.error("Logout failed:", err);
     }
