@@ -45,7 +45,9 @@
 
     { name: "Partner", href: "/corporates" },
 
-    { name: "Press Releases", href: "/press-releases" }
+    { name: "Press Releases", href: "/press-releases" },
+
+    { name: "The Archive", href: "/thearchive/" }
   ];
 
   function injectStyles() {
@@ -305,6 +307,8 @@
       <li><a href="/corporates">Partner</a></li>
 
       <li><a href="/press-releases">Press Releases</a></li>
+
+      <li><a href="/thearchive/">The Archive</a></li>
 
   </ul>
 

@@ -75,14 +75,17 @@
       }
 
       .newsletter-form input {
-        flex: 1;
-        padding: 12px 16px;
+        flex: 1 1 0;
+        min-width: 0;
+        padding: 12px 14px;
         border: none;
         outline: none;
+        font: inherit;
       }
 
       .newsletter-form button {
-        padding: 0 20px;
+        flex-shrink: 0;
+        padding: 0 18px;
         border: none;
         background: #f6d7c8;
         color: #ce3f2e;
@@ -92,12 +95,31 @@
 
       .social-icons {
         margin-top: 20px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        flex-wrap: wrap;
       }
 
-      .social-icons i {
-        margin-right: 12px;
+      .social-icons a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        color: #fff;
+        line-height: 1;
+      }
+
+      .social-icons i,
+      .social-icons svg {
+        display: inline-block;
         font-size: 20px;
-        cursor: pointer;
+        width: 20px;
+        height: 20px;
+        color: #fff;
+        fill: currentColor;
+        line-height: 1;
       }
 
       .footer-divider {
