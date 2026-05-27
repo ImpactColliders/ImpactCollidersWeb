@@ -14,14 +14,20 @@
     <meta name="author" content="Impact Colliders" />
     <title>The Archive · Impact Colliders</title>
 
+    <link rel="icon" href="/assets/images/logo.jpg" />
+
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
 
+    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/css/font-awesome.css" />
+    <link rel="stylesheet" href="/assets/css/templatemo-lava.css" />
+
     <style>
       /* ============================================================
-         The Archive — standalone Luma-style event page.
+         The Archive — aligned with the Our Impact page style.
 
          For non-technical editors:
          All text you can safely change is wrapped in
@@ -34,351 +40,86 @@
         --ic-orange: #ff6522;
         --brand: #ff6522;
         --brand-hover: #e6571a;
-        --bg-tint: #f6f3ee;
-        --card: #ffffff;
-        --border-soft: rgba(0, 0, 0, 0.06);
         --text: #14110f;
-        --text-muted: rgba(20, 17, 15, 0.6);
-        --text-soft: rgba(20, 17, 15, 0.78);
-        --radius-lg: 20px;
-        --radius: 14px;
-        --radius-sm: 10px;
-        --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
+        --text-muted: #666;
+        --border-soft: #e9e6e0;
         --cover-image: url("/assets/images/MapleTree.jpg");
-        /*
-          To use a real photo instead of the gradient placeholder:
-          1. Upload your image somewhere (or put it in the same folder as this file)
-          2. Replace the line above with, for example:
-             --cover-image: url("your-image.jpg");
-        */
       }
 
       * { box-sizing: border-box; }
 
-      html, body {
-        margin: 0;
-        padding: 0;
-        background:
-          radial-gradient(circle at 12% 18%, rgba(255, 101, 34, 0.12), transparent 38%),
-          radial-gradient(circle at 88% 8%, rgba(0, 74, 173, 0.10), transparent 42%),
-          var(--bg-tint);
-        min-height: 100vh;
-      }
-
       body {
-        color: var(--text);
         font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI",
           Roboto, sans-serif;
+        background: #f5f5f5;
+        color: var(--text);
+        margin: 0;
+        line-height: 1.6;
         -webkit-font-smoothing: antialiased;
-        line-height: 1.5;
       }
 
       a { color: var(--ic-blue); text-decoration: none; }
       a:hover { text-decoration: underline; }
 
-      /* ===== Top bar ===== */
-      .topbar {
-        position: sticky;
-        top: 0;
-        z-index: 50;
-        background: rgba(246, 243, 238, 0.85);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border-bottom: 1px solid var(--border-soft);
-      }
-
-      .topbar-inner {
-        max-width: 1080px;
-        margin: 0 auto;
-        padding: 14px 24px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .topbar-brand {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        font-weight: 600;
-        color: var(--text);
-      }
-      .topbar-brand:hover { text-decoration: none; color: var(--text); }
-
-      .topbar-logo {
-        width: 32px; height: 32px;
-        border-radius: 8px;
-        background: linear-gradient(135deg, var(--ic-blue), var(--ic-orange));
-        color: #fff;
-        display: flex; align-items: center; justify-content: center;
-        font-weight: 700; font-size: 0.85em;
-      }
-
-      .topbar-back {
-        font-size: 0.88em;
-        color: var(--text-muted);
-        font-weight: 500;
-      }
-      .topbar-back:hover { color: var(--text); text-decoration: none; }
-
-      /* ===== Page layout ===== */
-      .archive-page {
-        max-width: 1080px;
-        margin: 0 auto;
-        padding: 36px 24px 80px;
-      }
-
+      /* ===== HERO ===== */
       .archive-hero {
-        display: grid;
-        grid-template-columns: 380px 1fr;
-        gap: 40px;
-        align-items: start;
+        padding: 80px 10% 60px;
+        text-align: center;
+        background: #fff;
       }
 
-      @media (max-width: 880px) {
-        .archive-hero {
-          grid-template-columns: 1fr;
-          gap: 24px;
-        }
-        .archive-page { padding: 24px 18px 60px; }
-      }
-
-      /* ===== LEFT COLUMN ===== */
-      .archive-left {
-        position: sticky;
-        top: 80px;
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
-      }
-      @media (max-width: 880px) { .archive-left { position: static; } }
-
-      .cover-image {
-        width: 100%;
-        aspect-ratio: 1 / 1;
-        border-radius: var(--radius-lg);
-        background: var(--cover-image);
-        background-size: cover;
-        background-position: center;
-        box-shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.25),
-                    0 8px 20px -10px rgba(255, 101, 34, 0.2);
-        position: relative;
-        overflow: hidden;
-      }
-
-      .cover-image::after {
-        content: "The Archive";
-        position: absolute;
-        bottom: 24px; left: 24px;
-        color: #fff;
-        font-size: 1.4em;
-        font-weight: 700;
-        letter-spacing: 0.5px;
-        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
-      }
-
-      .presenter-card {
-        background: var(--card);
-        border-radius: var(--radius);
-        padding: 18px;
-        box-shadow: var(--shadow-sm);
-      }
-
-      .presenter-label {
-        font-size: 0.72em;
-        font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 1.2px;
-        color: var(--text-muted);
-        margin-bottom: 10px;
-      }
-
-      .presenter-row { display: flex; align-items: center; gap: 12px; }
-
-      .presenter-logo {
-        width: 40px; height: 40px;
-        border-radius: 8px;
-        background: linear-gradient(135deg, var(--ic-blue), var(--ic-orange));
-        color: #fff;
-        display: flex; align-items: center; justify-content: center;
-        font-weight: 700; font-size: 0.85em;
-        flex-shrink: 0;
-      }
-
-      .presenter-meta strong {
-        display: block;
-        font-size: 0.95em;
-        font-weight: 600;
-        color: var(--text);
-        line-height: 1.2;
-      }
-      .presenter-meta span {
-        font-size: 0.82em;
-        color: var(--text-muted);
-        line-height: 1.4;
-      }
-
-      /* ===== RIGHT COLUMN ===== */
-      .archive-right {
-        display: flex;
-        flex-direction: column;
-        gap: 22px;
-        min-width: 0;
-      }
-
-      .visi-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 5px 12px;
-        background: rgba(0, 0, 0, 0.05);
+      .archive-pill {
+        display: inline-block;
+        background: rgba(255, 101, 34, 0.12);
+        color: var(--brand);
+        padding: 6px 16px;
         border-radius: 999px;
-        font-size: 0.74em;
-        font-weight: 500;
-        color: var(--text-muted);
-        letter-spacing: 0.3px;
-        width: fit-content;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 20px;
       }
 
-      .archive-title {
-        font-size: clamp(2em, 4.4vw, 2.9em);
+      .archive-hero h1 {
+        font-size: 48px;
         font-weight: 700;
+        color: var(--ic-blue);
+        margin: 0 0 14px;
         line-height: 1.1;
-        letter-spacing: -0.01em;
-        margin: 0;
-        color: var(--text);
       }
-      .archive-title em {
+      .archive-hero h1 em {
         font-style: normal;
         color: var(--brand);
       }
 
-      .host-row {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        color: var(--text-soft);
-        font-size: 0.92em;
-      }
-      .host-row .stack { display: flex; }
-      .host-row .stack .av {
-        width: 28px; height: 28px;
-        border-radius: 50%;
-        border: 2px solid var(--bg-tint);
-        margin-left: -6px;
-        background: linear-gradient(135deg, var(--ic-blue), var(--ic-orange));
-        color: #fff;
-        font-size: 0.65em;
-        font-weight: 600;
-        display: flex; align-items: center; justify-content: center;
-      }
-      .host-row .stack .av:first-child { margin-left: 0; }
-
-      /* When / Where rows */
-      .info-row {
-        display: flex; align-items: center; gap: 14px;
-      }
-
-      .info-icon {
-        width: 54px; height: 54px;
-        border-radius: var(--radius-sm);
-        background: var(--card);
-        border: 1px solid var(--border-soft);
-        display: flex; flex-direction: column;
-        align-items: center; justify-content: center;
-        overflow: hidden;
-        flex-shrink: 0;
-        box-shadow: var(--shadow-sm);
-      }
-
-      .info-icon.calendar .month {
-        background: rgba(255, 101, 34, 0.14);
-        color: var(--brand);
-        font-size: 0.58em;
-        font-weight: 700;
-        width: 100%;
-        text-align: center;
-        padding: 3px 0;
-        letter-spacing: 1px;
-        text-transform: uppercase;
-      }
-      .info-icon.calendar .day {
-        font-size: 1.3em;
-        font-weight: 700;
-        color: var(--text);
-        line-height: 1;
-        margin-top: 6px;
-      }
-      .info-icon svg {
-        width: 24px; height: 24px;
-        color: var(--text-soft);
-      }
-
-      .info-text strong {
-        display: block;
-        font-size: 1em;
-        font-weight: 600;
-        color: var(--text);
-        line-height: 1.3;
-      }
-      .info-text span {
-        font-size: 0.88em;
+      .archive-hero .lede {
+        max-width: 680px;
+        margin: 0 auto 36px;
+        font-size: 1.05rem;
         color: var(--text-muted);
-        line-height: 1.5;
       }
 
-      /* ===== Cards ===== */
-      .card-block {
-        background: var(--card);
-        border-radius: var(--radius);
-        box-shadow: var(--shadow-sm);
-        overflow: hidden;
+      .cover-image {
+        max-width: 720px;
+        margin: 0 auto 32px;
+        aspect-ratio: 16 / 9;
+        background: var(--cover-image) center/cover no-repeat;
+        border-radius: 16px;
+        box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.25);
       }
-      .card-block-header {
-        font-size: 0.74em;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1.2px;
-        color: var(--text-muted);
-        padding: 14px 22px;
-        background: rgba(0, 0, 0, 0.02);
-        border-bottom: 1px solid var(--border-soft);
-      }
-      .card-block-body { padding: 22px 24px; }
-      .card-block-body p {
-        color: var(--text-soft);
-        line-height: 1.65;
-        font-size: 0.98em;
-        margin: 0 0 12px;
-      }
-      .card-block-body p:last-child { margin-bottom: 0; }
 
-      /* Registration card */
-      .reg-card .card-block-body { padding-bottom: 0; }
-      .reg-intro {
-        color: var(--text-soft);
-        font-size: 0.95em;
-        line-height: 1.6;
-        margin: 0 0 18px;
-      }
       .register-btn {
         display: inline-flex;
         align-items: center;
-        justify-content: center;
         gap: 10px;
-        width: 100%;
         background: var(--brand);
         color: #fff;
-        padding: 14px 24px;
-        border-radius: 12px;
+        padding: 16px 36px;
+        border-radius: 999px;
         font-weight: 600;
-        font-size: 1em;
+        font-size: 1rem;
         border: 0;
-        cursor: pointer;
-        font-family: inherit;
         text-decoration: none;
-        transition: transform 0.15s ease, background 0.15s ease;
-        margin-bottom: 22px;
+        transition: background 0.15s ease, transform 0.15s ease;
       }
       .register-btn:hover {
         background: var(--brand-hover);
@@ -388,98 +129,181 @@
       }
       .register-btn svg { width: 18px; height: 18px; }
 
+      /* ===== KEY FACTS STRIP ===== */
+      .facts-strip {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 40px 10%;
+      }
+
+      .fact {
+        background: #fff;
+        border-radius: 14px;
+        padding: 24px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      }
+
+      .fact-icon {
+        width: 56px; height: 56px;
+        border-radius: 12px;
+        background: rgba(0, 74, 173, 0.08);
+        color: var(--ic-blue);
+        display: flex; align-items: center; justify-content: center;
+        flex-shrink: 0;
+      }
+      .fact-icon svg { width: 26px; height: 26px; }
+      .fact-text strong {
+        display: block;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 2px;
+      }
+      .fact-text span {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+
+      /* ===== GENERIC SECTION ===== */
+      .section {
+        padding: 80px 10%;
+      }
+      .section.bg-white { background: #fff; }
+      .section h2 {
+        font-size: 32px;
+        font-weight: 700;
+        color: var(--ic-blue);
+        text-align: center;
+        margin: 0 0 16px;
+      }
+      .section .section-sub {
+        text-align: center;
+        max-width: 680px;
+        margin: 0 auto 48px;
+        color: var(--text-muted);
+      }
+      .section .content {
+        max-width: 760px;
+        margin: 0 auto;
+      }
+      .section .content p {
+        color: var(--text-muted);
+        font-size: 1rem;
+        line-height: 1.8;
+        margin: 0 0 16px;
+      }
+      .section .content p:last-child { margin-bottom: 0; }
+
+      /* ===== HIGHLIGHTS ===== */
+      .highlights {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+      .highlight {
+        background: #fff;
+        padding: 28px 22px;
+        border-radius: 14px;
+        text-align: center;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      }
+      .highlight-emoji { font-size: 2rem; margin-bottom: 10px; }
+      .highlight h4 {
+        font-size: 1rem;
+        font-weight: 600;
+        margin: 0 0 6px;
+        color: var(--text);
+      }
+      .highlight p {
+        font-size: 0.88rem;
+        color: var(--text-muted);
+        margin: 0;
+        line-height: 1.5;
+      }
+
+      /* ===== REGISTRATION ===== */
+      .signup-wrap {
+        max-width: 760px;
+        margin: 0 auto;
+        background: #fff;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      }
       .signup-embed {
         min-height: 680px;
-        border-top: 1px solid var(--border-soft);
       }
       .signup-embed iframe {
         width: 100%; min-height: 680px;
         border: 0; display: block;
       }
 
-      /* Highlights */
-      .highlights {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-        gap: 14px;
-      }
-      .highlight {
-        padding: 16px;
-        background: rgba(0, 0, 0, 0.02);
-        border: 1px solid var(--border-soft);
-        border-radius: var(--radius-sm);
-      }
-      .highlight-emoji { font-size: 1.6em; margin-bottom: 6px; }
-      .highlight h4 {
-        font-size: 0.95em; font-weight: 600;
-        margin: 0 0 4px; color: var(--text);
-      }
-      .highlight p {
-        font-size: 0.84em; color: var(--text-muted);
-        line-height: 1.5; margin: 0;
-      }
-
-      /* Hosts */
-      .hosts-list { display: flex; flex-direction: column; }
-      .host-item {
-        display: flex; align-items: center; gap: 14px;
-        padding: 12px 0;
-        border-bottom: 1px solid var(--border-soft);
-      }
-      .host-item:first-child { padding-top: 0; }
-      .host-item:last-child { border-bottom: 0; padding-bottom: 0; }
-      .host-avatar {
-        width: 44px; height: 44px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, var(--ic-blue), var(--ic-orange));
-        color: #fff; font-weight: 700; font-size: 0.9em;
-        display: flex; align-items: center; justify-content: center;
-        flex-shrink: 0;
-      }
-      .host-meta strong {
-        display: block; font-size: 0.95em;
-        font-weight: 600; color: var(--text);
-      }
-      .host-meta span {
-        font-size: 0.83em; color: var(--text-muted);
-      }
-
-      /* Map */
-      .map-embed {
-        border-radius: var(--radius-sm);
+      /* ===== LOCATION ===== */
+      .location-card {
+        max-width: 900px;
+        margin: 0 auto;
+        background: #fff;
+        border-radius: 16px;
         overflow: hidden;
-        border: 1px solid var(--border-soft);
-        margin: 4px 0 14px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      }
+      .location-text {
+        padding: 28px 32px;
+      }
+      .location-text strong {
+        display: block;
+        color: var(--text);
+        font-size: 1.1rem;
+        margin-bottom: 4px;
+      }
+      .location-text .addr { color: var(--text-muted); margin-bottom: 16px; }
+      .location-text .tip {
+        font-size: 0.92rem;
+        color: var(--text-muted);
+        margin: 16px 0 0;
       }
       .map-embed iframe {
-        width: 100%; height: 260px;
+        width: 100%; height: 320px;
         border: 0; display: block;
       }
 
-      /* Share */
+      /* ===== SHARE ===== */
       .share-row {
-        display: flex; flex-wrap: wrap; gap: 8px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
       }
       .share-btn {
-        display: inline-flex; align-items: center; gap: 8px;
-        background: rgba(0, 0, 0, 0.04);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #fff;
         color: var(--text);
-        border: 0;
-        padding: 9px 14px;
+        border: 1px solid var(--border-soft);
+        padding: 10px 18px;
         border-radius: 999px;
         font-weight: 500;
-        font-size: 0.86em;
-        text-decoration: none;
+        font-size: 0.9rem;
         cursor: pointer;
         font-family: inherit;
-        transition: background 0.15s ease;
+        transition: background 0.15s ease, border-color 0.15s ease;
       }
       .share-btn:hover {
-        background: rgba(0, 0, 0, 0.08);
+        background: #fafafa;
+        border-color: #d8d3ca;
         color: var(--text);
         text-decoration: none;
       }
-      .share-btn svg { width: 15px; height: 15px; fill: currentColor; }
+      .share-btn svg { width: 16px; height: 16px; fill: currentColor; }
 
       .copy-toast {
         margin-left: 4px; color: #2ca878;
@@ -488,44 +312,33 @@
       }
       .copy-toast.show { opacity: 1; }
 
-      /* Footer */
-      .archive-footer {
-        max-width: 1080px;
+      /* ===== CONTACT ===== */
+      .contact-block {
+        max-width: 680px;
         margin: 0 auto;
-        padding: 24px;
         text-align: center;
         color: var(--text-muted);
-        font-size: 0.85em;
-        border-top: 1px solid var(--border-soft);
       }
-      .archive-footer a {
-        color: var(--text-muted);
-        text-decoration: underline;
+
+      /* ===== MOBILE ===== */
+      @media (max-width: 900px) {
+        .archive-hero { padding: 60px 6% 40px; }
+        .archive-hero h1 { font-size: 36px; }
+        .facts-strip {
+          grid-template-columns: 1fr;
+          padding: 32px 6%;
+        }
+        .section { padding: 60px 6%; }
+        .section h2 { font-size: 26px; }
+        .highlights { grid-template-columns: repeat(2, 1fr); }
+      }
+      @media (max-width: 520px) {
+        .highlights { grid-template-columns: 1fr; }
       }
     </style>
-
-    <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1501219458149424');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1501219458149424&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
- 
   </head>
 
   <body>
-
 
     <!--
       ===========================================================
@@ -541,304 +354,266 @@ src="https://www.facebook.com/tr?id=1501219458149424&ev=PageView&noscript=1"
         1. Luma form URL — search the file for YOUR_LUMA_EVENT_ID
            (appears in iframe src and the fallback link)
         2. Cover image — see "cover-image" near the top of the
-           style block for how to swap the gradient placeholder
-           for a real photo.
+           style block for how to swap the placeholder image.
       ===========================================================
     -->
 
+    <!-- SITE NAVBAR -->
+    <header class="header-area header-sticky" id="nav-placeholder"></header>
 
-    <!-- Top bar -->
-    <nav class="topbar">
-      <div class="topbar-inner">
-        <!-- EDIT: brand name and link back to main site -->
-        <a class="topbar-brand" href="https://www.impactcolliders.com">
-          <span class="topbar-logo">IC</span>
-          Impact Colliders
-        </a>
+
+    <!-- ============ HERO ============ -->
+    <section class="archive-hero">
+      <!-- EDIT: small pill above the title -->
+      <div class="archive-pill">🎉 $100 · Free with Culture Pass</div>
+      <!-- /EDIT -->
+
+      <!-- EDIT: title (word inside <em> shows in orange) -->
+      <h1>The <em>Archive</em></h1>
+      <!-- /EDIT -->
+
+      <!-- EDIT: short intro under the title -->
+      <p class="lede">
+        An interactive community storytelling exhibition that connects seniors
+        and youths through art, conversation, and technology.
+      </p>
+      <!-- /EDIT -->
+
+      <div class="cover-image" role="img" aria-label="The Archive event"></div>
+
+      <!-- EDIT: button label -->
+      <a href="#signup" class="register-btn">
+        Register Now
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14M13 5l7 7-7 7"/>
+        </svg>
+      </a>
+      <!-- /EDIT -->
+    </section>
+
+
+    <!-- ============ KEY FACTS ============ -->
+    <div class="facts-strip">
+      <div class="fact">
+        <div class="fact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+          </svg>
+        </div>
+        <div class="fact-text">
+          <!-- EDIT: date + time -->
+          <strong>Saturday, 25 July 2026</strong>
+          <span>11:00 AM &mdash; 12:55 PM SGT</span>
+          <!-- /EDIT -->
+        </div>
+      </div>
+
+      <div class="fact">
+        <div class="fact-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 2a8 8 0 0 0-8 8c0 5.5 8 12 8 12s8-6.5 8-12a8 8 0 0 0-8-8z"/>
+            <circle cx="12" cy="10" r="3"/>
+          </svg>
+        </div>
+        <div class="fact-text">
+          <!-- EDIT: venue + short address -->
+          <strong>10 Square @ Orchard Central</strong>
+          <span>181 Orchard Road, #10-01, Singapore</span>
+          <!-- /EDIT -->
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ============ ABOUT ============ -->
+    <section class="section bg-white">
+      <h2>About the Event</h2>
+      <div class="content">
+        <!-- EDIT: about paragraphs -->
+        <p>
+          The Archive is an interactive community storytelling exhibition
+          that connects seniors and youths through art, conversation, and
+          technology.
+        </p>
+        <p>
+          Seniors are invited to share personal memories and life
+          experiences through an AI-assisted platform that transcribes,
+          summarises, and categorises their stories — creating a
+          collective archive of lived experiences.
+        </p>
+        <p>
+          Youths create illustrated portraits of the seniors, exhibited
+          alongside their stories as a celebration of identity and memory,
+          and given as a keepsake. Together we read and share one
+          another's stories — fostering empathy, understanding, and
+          stronger community bonds.
+        </p>
         <!-- /EDIT -->
       </div>
-    </nav>
+    </section>
 
 
-    <main class="archive-page">
-      <section class="archive-hero">
-
-        <!-- ============================================
-             LEFT COLUMN
-             ============================================ -->
-        <aside class="archive-left">
-          <div class="cover-image" role="img" aria-label="The Archive event"></div>
-
-          <div class="presenter-card">
-            <div class="presenter-label">Presented by</div>
-            <div class="presenter-row">
-              <div class="presenter-logo">IC</div>
-              <div class="presenter-meta">
-                <!-- EDIT: presenter name + tagline -->
-                <strong>Impact Colliders</strong>
-                <span>Games to solve problems in society.</span>
-                <!-- /EDIT -->
-              </div>
-            </div>
-          </div>
-        </aside>
-
-
-        <!-- ============================================
-             RIGHT COLUMN
-             ============================================ -->
-        <div class="archive-right">
-
-          <!-- EDIT: small pill above the title -->
-          <div class="visi-pill">🎉 $100 · Free with Culture Pass</div>
-          <!-- /EDIT -->
-
-          <!-- EDIT: title (word inside <em> shows in orange) -->
-          <h1 class="archive-title">The <em>Archive</em></h1>
-          <!-- /EDIT -->
-
-          <!-- Host strip under the title -->
-          <div class="host-row">
-            <div class="stack">
-              <!-- EDIT: host initials shown in avatars (2 letters each) -->
-              <div class="av">IC</div>
-              <!-- /EDIT -->
-            </div>
-            <!-- EDIT: short hosted-by line -->
-            <span>Hosted by Impact Colliders</span>
-            <!-- /EDIT -->
-          </div>
-
-          <!-- When row -->
-          <div class="info-row">
-            <!-- EDIT: month (3 letters) + day in calendar icon -->
-            <div class="info-icon calendar">
-              <div class="month">Jul</div>
-              <div class="day">25</div>
-            </div>
-            <!-- /EDIT -->
-            <div class="info-text">
-              <!-- EDIT: date + time -->
-              <strong>Saturday, 25 July 2026</strong>
-              <span>11:00 AM &mdash; 12:55 PM SGT</span>
-              <!-- /EDIT -->
-            </div>
-          </div>
-
-          <!-- Where row -->
-          <div class="info-row">
-            <div class="info-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M12 2a8 8 0 0 0-8 8c0 5.5 8 12 8 12s8-6.5 8-12a8 8 0 0 0-8-8z"/>
-                <circle cx="12" cy="10" r="3"/>
-              </svg>
-            </div>
-            <div class="info-text">
-              <!-- EDIT: venue + address -->
-              <strong>10 Square @ Orchard Central</strong>
-              <span>181 Orchard Road, #10-01, Singapore</span>
-              <!-- /EDIT -->
-            </div>
-          </div>
-
-
-          <!-- Registration card -->
-          <div class="card-block reg-card" id="signup">
-            <div class="card-block-header">Registration</div>
-            <div class="card-block-body">
-              <!-- EDIT: registration intro -->
-              <p class="reg-intro">
-                Tickets are $100 and can be fully covered by SG Culture Pass —
-                so it's free for eligible seniors. Spots are limited to 400.
-                Reserve yours below and we'll send confirmation details closer
-                to the date.
-              </p>
-              <!-- /EDIT -->
-
-              <!-- EDIT: button label -->
-              <a href="#signup-embed" class="register-btn">
-                Register Now
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M5 12h14M13 5l7 7-7 7"/>
-                </svg>
-              </a>
-              <!-- /EDIT -->
-            </div>
-
-            <div class="signup-embed" id="signup-embed">
-              <!--
-                EDIT: Luma event embed.
-
-                To find your event ID:
-                  1. Open your event page on Luma (e.g. https://lu.ma/abc1234)
-                  2. The ID is the short code after "lu.ma/" — e.g. "abc1234"
-
-                Replace BOTH "YOUR_LUMA_EVENT_ID" placeholders below.
-              -->
-              <iframe
-                src="https://lu.ma/embed/event/YOUR_LUMA_EVENT_ID/simple"
-                title="Sign up via Luma"
-                loading="lazy"
-                allowfullscreen
-              ></iframe>
-            </div>
-          </div>
-
-
-          <!-- About -->
-          <div class="card-block">
-            <div class="card-block-header">About Event</div>
-            <div class="card-block-body">
-              <!-- EDIT: about paragraphs -->
-              <p>
-                The Archive is an interactive community storytelling exhibition
-                that connects seniors and youths through art, conversation, and
-                technology.
-              </p>
-              <p>
-                Seniors are invited to share personal memories and life
-                experiences through an AI-assisted platform that transcribes,
-                summarises, and categorises their stories — creating a
-                collective archive of lived experiences.
-              </p>
-              <p>
-                Youths create illustrated portraits of the seniors, exhibited
-                alongside their stories as a celebration of identity and memory,
-                and given as a keepsake. Together we read and share one
-                another's stories — fostering empathy, understanding, and
-                stronger community bonds.
-              </p>
-              <!-- /EDIT -->
-            </div>
-          </div>
-
-
-          <!-- What to expect -->
-          <div class="card-block">
-            <div class="card-block-header">What to Expect</div>
-            <div class="card-block-body">
-              <!-- EDIT: highlight tiles. Copy or delete a whole
-                         <div class="highlight"> block to add or remove. -->
-              <div class="highlights">
-                <div class="highlight">
-                  <div class="highlight-emoji">🎙️</div>
-                  <h4>Share your story</h4>
-                  <p>Record memories in any language with our AI platform.</p>
-                </div>
-                <div class="highlight">
-                  <div class="highlight-emoji">🎨</div>
-                  <h4>Live portraits</h4>
-                  <p>Get an illustrated portrait by a young artist to take home.</p>
-                </div>
-                <div class="highlight">
-                  <div class="highlight-emoji">✨</div>
-                  <h4>Shrink art</h4>
-                  <p>Make your own keepsake at our guided craft booth.</p>
-                </div>
-                <div class="highlight">
-                  <div class="highlight-emoji">🍱</div>
-                  <h4>Lunch &amp; lucky draw</h4>
-                  <p>Stay for lunch, mingle, and join our lucky draw.</p>
-                </div>
-              </div>
-              <!-- /EDIT -->
-            </div>
-          </div>
-
-
-          <!-- Location -->
-          <div class="card-block">
-            <div class="card-block-header">Location</div>
-            <div class="card-block-body">
-              <!-- EDIT: venue and address -->
-              <p style="margin-bottom: 14px;">
-                <strong style="color: var(--text);">10 Square @ Orchard Central</strong><br />
-                181 Orchard Road, #10-01, Singapore 238896
-              </p>
-              <!-- /EDIT -->
-
-              <div class="map-embed">
-                <!-- EDIT: map embed. To change the venue:
-                           1. Open https://www.google.com/maps and find the place
-                           2. Click Share → Embed a map → copy the src URL
-                           3. Replace the src below -->
-                <iframe
-                  src="https://www.google.com/maps?q=Orchard+Central,+181+Orchard+Road,+Singapore&output=embed"
-                  loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"
-                  title="Map to 10 Square at Orchard Central"
-                ></iframe>
-                <!-- /EDIT -->
-              </div>
-
-              <!-- EDIT: travel tip -->
-              <p style="font-size: 0.88em;">
-                Nearest MRT: Somerset (NS23). Orchard Central is a 3-minute
-                sheltered walk away.
-              </p>
-              <!-- /EDIT -->
-            </div>
-          </div>
-
-
-          <!-- Share -->
-          <div class="card-block">
-            <div class="card-block-header">Share</div>
-            <div class="card-block-body">
-              <!-- EDIT: prompt above share buttons -->
-              <p style="margin-bottom: 14px;">
-                Know a senior who'd love this, or a youth who'd like to
-                volunteer? Help us spread the word.
-              </p>
-              <!-- /EDIT -->
-
-              <div class="share-row">
-                <a class="share-btn"
-                   href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.impactcolliders.com%2Fthearchive"
-                   target="_blank" rel="noopener" aria-label="Share on Facebook">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H8v-3h2.4V9.4c0-2.4 1.4-3.7 3.6-3.7 1 0 2.1.2 2.1.2v2.3h-1.2c-1.2 0-1.5.7-1.5 1.5V12h2.6l-.4 3h-2.2v7A10 10 0 0 0 22 12z"/></svg>
-                  Facebook
-                </a>
-                <a class="share-btn"
-                   href="https://api.whatsapp.com/send?text=Join%20us%20at%20The%20Archive%20%E2%80%94%20a%20community%20storytelling%20exhibition%20by%20Impact%20Colliders.%20https%3A%2F%2Fwww.impactcolliders.com%2Fthearchive"
-                   target="_blank" rel="noopener" aria-label="Share on WhatsApp">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 3.5A11 11 0 0 0 3.4 18l-1.4 5 5.1-1.4A11 11 0 1 0 20 3.5zm-8 17.7a9 9 0 0 1-4.6-1.3l-.3-.2-3 .8.8-3-.2-.3A9 9 0 1 1 12 21.2zm5.2-6.7c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1-.2.2-.3.2-.6.1a7.4 7.4 0 0 1-3.7-3.2c-.3-.5.3-.5.8-1.5.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3a3 3 0 0 0-1 2.2c0 1.3 1 2.6 1.1 2.7.1.2 2 3 4.7 4.2 1.7.7 2.4.8 3.2.7.5-.1 1.6-.6 1.9-1.3.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3z"/></svg>
-                  WhatsApp
-                </a>
-                <a class="share-btn"
-                   href="https://t.me/share/url?url=https%3A%2F%2Fwww.impactcolliders.com%2Fthearchive&text=Join%20us%20at%20The%20Archive"
-                   target="_blank" rel="noopener" aria-label="Share on Telegram">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.7 3.3 2.7 10.6c-1 .4-1 1-.2 1.2l4.8 1.5L19.7 6c.5-.3.9-.1.6.3l-9.9 9 .4 5.8c.6 0 .9-.3 1.2-.6l3-2.9 4.8 3.6c.9.5 1.6.2 1.8-.8l3.3-15.5c.3-1.2-.4-1.7-1.2-1.5z"/></svg>
-                  Telegram
-                </a>
-                <button class="share-btn" id="copyLinkBtn" type="button">
-                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1a1 1 0 0 0 1 1l1-1a3 3 0 1 1 4 4l-3 3a3 3 0 0 1-4 0 1 1 0 0 0-1 1zM14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1a1 1 0 0 0-1-1l-1 1a3 3 0 1 1-4-4l3-3a3 3 0 0 1 4 0 1 1 0 0 0 1-1z"/></svg>
-                  Copy link
-                  <span class="copy-toast" id="copyToast">Copied</span>
-                </button>
-              </div>
-            </div>
-          </div>
-
-
-          <!-- Contact -->
-          <div class="card-block">
-            <div class="card-block-header">Contact</div>
-            <div class="card-block-body">
-              <!-- EDIT: contact lines -->
-              <p>
-                Reach out at
-                <a href="mailto:avinteo@impactcolliders.com">avinteo@impactcolliders.com</a>
-                for general enquiries or bulk sign-ups (community centres,
-                schools, RC groups). We'll respond within a day or two.
-              </p>
-              <!-- /EDIT -->
-            </div>
-          </div>
-
+    <!-- ============ WHAT TO EXPECT ============ -->
+    <section class="section">
+      <h2>What to Expect</h2>
+      <!-- EDIT: highlight tiles. Copy or delete a whole
+                 <div class="highlight"> block to add or remove. -->
+      <div class="highlights">
+        <div class="highlight">
+          <div class="highlight-emoji">🎙️</div>
+          <h4>Share your story</h4>
+          <p>Record memories in any language with our AI platform.</p>
         </div>
-      </section>
-    </main>
+        <div class="highlight">
+          <div class="highlight-emoji">🎨</div>
+          <h4>Live portraits</h4>
+          <p>Get an illustrated portrait by a young artist to take home.</p>
+        </div>
+        <div class="highlight">
+          <div class="highlight-emoji">✨</div>
+          <h4>Shrink art</h4>
+          <p>Make your own keepsake at our guided craft booth.</p>
+        </div>
+        <div class="highlight">
+          <div class="highlight-emoji">🍱</div>
+          <h4>Lunch &amp; lucky draw</h4>
+          <p>Stay for lunch, mingle, and join our lucky draw.</p>
+        </div>
+      </div>
+      <!-- /EDIT -->
+    </section>
+
+
+    <!-- ============ REGISTRATION ============ -->
+    <section class="section bg-white" id="signup">
+      <h2>Registration</h2>
+      <!-- EDIT: registration intro -->
+      <p class="section-sub">
+        Tickets are $100 and can be fully covered by SG Culture Pass —
+        so it's free for eligible seniors. Spots are limited to 400.
+        Reserve yours below and we'll send confirmation details closer
+        to the date.
+      </p>
+      <!-- /EDIT -->
+
+      <div class="signup-wrap">
+        <div class="signup-embed">
+          <!--
+            EDIT: Luma event embed.
+
+            To find your event ID:
+              1. Open your event page on Luma (e.g. https://lu.ma/abc1234)
+              2. The ID is the short code after "lu.ma/" — e.g. "abc1234"
+
+            Replace "YOUR_LUMA_EVENT_ID" below.
+          -->
+          <iframe
+            src="https://lu.ma/embed/event/YOUR_LUMA_EVENT_ID/simple"
+            title="Sign up via Luma"
+            loading="lazy"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ LOCATION ============ -->
+    <section class="section">
+      <h2>Location</h2>
+      <div class="location-card">
+        <div class="location-text">
+          <!-- EDIT: venue + full address -->
+          <strong>10 Square @ Orchard Central</strong>
+          <div class="addr">181 Orchard Road, #10-01, Singapore 238896</div>
+          <!-- /EDIT -->
+
+          <!-- EDIT: travel tip -->
+          <p class="tip">
+            Nearest MRT: Somerset (NS23). Orchard Central is a 3-minute
+            sheltered walk away.
+          </p>
+          <!-- /EDIT -->
+        </div>
+
+        <div class="map-embed">
+          <!-- EDIT: map embed. To change the venue:
+                     1. Open https://www.google.com/maps and find the place
+                     2. Click Share → Embed a map → copy the src URL
+                     3. Replace the src below -->
+          <iframe
+            src="https://www.google.com/maps?q=Orchard+Central,+181+Orchard+Road,+Singapore&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Map to 10 Square at Orchard Central"
+          ></iframe>
+          <!-- /EDIT -->
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============ SHARE ============ -->
+    <section class="section bg-white">
+      <h2>Share</h2>
+      <!-- EDIT: prompt above share buttons -->
+      <p class="section-sub">
+        Know a senior who'd love this, or a youth who'd like to
+        volunteer? Help us spread the word.
+      </p>
+      <!-- /EDIT -->
+
+      <div class="share-row">
+        <a class="share-btn"
+           href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fwww.impactcolliders.com%2Fthearchive"
+           target="_blank" rel="noopener" aria-label="Share on Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H8v-3h2.4V9.4c0-2.4 1.4-3.7 3.6-3.7 1 0 2.1.2 2.1.2v2.3h-1.2c-1.2 0-1.5.7-1.5 1.5V12h2.6l-.4 3h-2.2v7A10 10 0 0 0 22 12z"/></svg>
+          Facebook
+        </a>
+        <a class="share-btn"
+           href="https://api.whatsapp.com/send?text=Join%20us%20at%20The%20Archive%20%E2%80%94%20a%20community%20storytelling%20exhibition%20by%20Impact%20Colliders.%20https%3A%2F%2Fwww.impactcolliders.com%2Fthearchive"
+           target="_blank" rel="noopener" aria-label="Share on WhatsApp">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 3.5A11 11 0 0 0 3.4 18l-1.4 5 5.1-1.4A11 11 0 1 0 20 3.5zm-8 17.7a9 9 0 0 1-4.6-1.3l-.3-.2-3 .8.8-3-.2-.3A9 9 0 1 1 12 21.2zm5.2-6.7c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.7.9-.9 1-.2.2-.3.2-.6.1a7.4 7.4 0 0 1-3.7-3.2c-.3-.5.3-.5.8-1.5.1-.2 0-.3 0-.5 0-.1-.7-1.6-.9-2.2-.2-.6-.4-.5-.6-.5h-.5c-.2 0-.5.1-.7.3a3 3 0 0 0-1 2.2c0 1.3 1 2.6 1.1 2.7.1.2 2 3 4.7 4.2 1.7.7 2.4.8 3.2.7.5-.1 1.6-.6 1.9-1.3.2-.6.2-1.2.2-1.3-.1-.1-.3-.2-.6-.3z"/></svg>
+          WhatsApp
+        </a>
+        <a class="share-btn"
+           href="https://t.me/share/url?url=https%3A%2F%2Fwww.impactcolliders.com%2Fthearchive&text=Join%20us%20at%20The%20Archive"
+           target="_blank" rel="noopener" aria-label="Share on Telegram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.7 3.3 2.7 10.6c-1 .4-1 1-.2 1.2l4.8 1.5L19.7 6c.5-.3.9-.1.6.3l-9.9 9 .4 5.8c.6 0 .9-.3 1.2-.6l3-2.9 4.8 3.6c.9.5 1.6.2 1.8-.8l3.3-15.5c.3-1.2-.4-1.7-1.2-1.5z"/></svg>
+          Telegram
+        </a>
+        <button class="share-btn" id="copyLinkBtn" type="button">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1a1 1 0 0 0 1 1l1-1a3 3 0 1 1 4 4l-3 3a3 3 0 0 1-4 0 1 1 0 0 0-1 1zM14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1a1 1 0 0 0-1-1l-1 1a3 3 0 1 1-4-4l3-3a3 3 0 0 1 4 0 1 1 0 0 0 1-1z"/></svg>
+          Copy link
+          <span class="copy-toast" id="copyToast">Copied</span>
+        </button>
+      </div>
+    </section>
+
+
+    <!-- ============ CONTACT ============ -->
+    <section class="section">
+      <h2>Contact</h2>
+      <div class="contact-block">
+        <!-- EDIT: contact lines -->
+        <p>
+          Reach out at
+          <a href="mailto:avinteo@impactcolliders.com">avinteo@impactcolliders.com</a>
+          for general enquiries or bulk sign-ups (community centres,
+          schools, RC groups). We'll respond within a day or two.
+        </p>
+        <!-- /EDIT -->
+      </div>
+    </section>
+
+
+    <!-- SITE FOOTER -->
+    <footer id="contact-us">
+      <div class="container" id="contact-container"></div>
+    </footer>
 
 
     <script>
@@ -862,5 +637,12 @@ src="https://www.facebook.com/tr?id=1501219458149424&ev=PageView&noscript=1"
         });
       })();
     </script>
+
+    <script src="/mailinglist.js"></script>
+    <script src="/assets/js/jquery-2.1.0.min.js"></script>
+    <script src="/assets/js/popper.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/navbar.js"></script>
+    <script src="/assets/js/custom.js"></script>
   </body>
 </html>
