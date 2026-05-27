@@ -89,21 +89,16 @@
 
       /* ===== Layout ===== */
       .archive-container {
-        max-width: 1080px;
+        max-width: 820px;
         margin: 0 auto;
         padding: 50px 20px 80px;
       }
       .archive-grid {
-        display: grid;
-        grid-template-columns: 360px 1fr;
-        gap: 36px;
-        align-items: start;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
       }
       @media (max-width: 880px) {
-        .archive-grid {
-          grid-template-columns: 1fr;
-          gap: 24px;
-        }
         .page-hero {
           padding: 120px 6% 36px;
         }
@@ -115,21 +110,26 @@
         }
       }
 
-      /* ===== Sidebar ===== */
+      /* ===== Event summary (cover + presenter + when/where) ===== */
       .archive-sidebar {
-        position: sticky;
-        top: 110px;
         display: flex;
         flex-direction: column;
         gap: 18px;
       }
-      @media (max-width: 880px) {
-        .archive-sidebar { position: static; }
+      .archive-sidebar-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+      @media (max-width: 600px) {
+        .archive-sidebar-row {
+          grid-template-columns: 1fr;
+        }
       }
 
       .cover-image {
         width: 100%;
-        aspect-ratio: 1 / 1;
+        aspect-ratio: 16 / 9;
         border-radius: 16px;
         background-image: url("/assets/images/MapleTree.jpg");
         background-size: cover;
@@ -524,61 +524,63 @@
       <div class="archive-grid">
 
         <!-- ============================================
-             LEFT COLUMN
+             EVENT SUMMARY (cover + presenter + when/where)
              ============================================ -->
         <aside class="archive-sidebar">
           <div class="cover-image" role="img" aria-label="The Archive event"></div>
 
-          <div class="presenter-card">
-            <div class="presenter-label">Presented by</div>
-            <div class="presenter-row">
-              <div class="presenter-logo">IC</div>
-              <div class="presenter-meta">
-                <!-- EDIT: presenter name + tagline -->
-                <strong>Impact Colliders</strong>
-                <span>Games to solve problems in society.</span>
-                <!-- /EDIT -->
-              </div>
-            </div>
-          </div>
-
-          <div class="info-row-card">
-            <!-- When row -->
-            <div class="info-row">
-              <!-- EDIT: month (3 letters) + day in calendar icon -->
-              <div class="info-icon calendar">
-                <div class="month">Jul</div>
-                <div class="day">25</div>
-              </div>
-              <!-- /EDIT -->
-              <div class="info-text">
-                <!-- EDIT: date + time -->
-                <strong>Saturday, 25 July 2026</strong>
-                <span>11:00 AM &mdash; 12:55 PM SGT</span>
-                <!-- /EDIT -->
+          <div class="archive-sidebar-row">
+            <div class="presenter-card">
+              <div class="presenter-label">Presented by</div>
+              <div class="presenter-row">
+                <div class="presenter-logo">IC</div>
+                <div class="presenter-meta">
+                  <!-- EDIT: presenter name + tagline -->
+                  <strong>Impact Colliders</strong>
+                  <span>Games to solve problems in society.</span>
+                  <!-- /EDIT -->
+                </div>
               </div>
             </div>
 
-            <!-- Where row -->
-            <div class="info-row">
-              <div class="info-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M12 2a8 8 0 0 0-8 8c0 5.5 8 12 8 12s8-6.5 8-12a8 8 0 0 0-8-8z"/>
-                  <circle cx="12" cy="10" r="3"/>
-                </svg>
-              </div>
-              <div class="info-text">
-                <!-- EDIT: venue + address -->
-                <strong>10 Square @ Orchard Central</strong>
-                <span>181 Orchard Road, #10-01, Singapore</span>
+            <div class="info-row-card">
+              <!-- When row -->
+              <div class="info-row">
+                <!-- EDIT: month (3 letters) + day in calendar icon -->
+                <div class="info-icon calendar">
+                  <div class="month">Jul</div>
+                  <div class="day">25</div>
+                </div>
                 <!-- /EDIT -->
+                <div class="info-text">
+                  <!-- EDIT: date + time -->
+                  <strong>Saturday, 25 July 2026</strong>
+                  <span>11:00 AM &mdash; 12:55 PM SGT</span>
+                  <!-- /EDIT -->
+                </div>
+              </div>
+
+              <!-- Where row -->
+              <div class="info-row">
+                <div class="info-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 2a8 8 0 0 0-8 8c0 5.5 8 12 8 12s8-6.5 8-12a8 8 0 0 0-8-8z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                  </svg>
+                </div>
+                <div class="info-text">
+                  <!-- EDIT: venue + address -->
+                  <strong>10 Square @ Orchard Central</strong>
+                  <span>181 Orchard Road, #10-01, Singapore</span>
+                  <!-- /EDIT -->
+                </div>
               </div>
             </div>
           </div>
         </aside>
 
         <!-- ============================================
-             RIGHT COLUMN
+             CONTENT CARDS
              ============================================ -->
         <div class="archive-content">
 
