@@ -18,12 +18,12 @@ window.PRESS_RELEASES = [
   {
     slug: "annual-report-launch",
     title: "Launch of Our First Annual Report",
-    date: "27 May 2026",
+    date: "28 May 2026",
     image: "assets/images/Annual Report Cover.jpg",
     imageAlt: "Impact Colliders 1st Anniversary Edition Annual Report cover",
     body: `
       <p>
-        <strong>Singapore, May 2026</strong> — One year after its formal
+        <strong>Singapore, 28 May 2026</strong> — One year after its formal
         incorporation, Impact Colliders has released its first Annual Report,
         reflecting on a year of using games and community-led learning to help
         seniors build digital confidence.
