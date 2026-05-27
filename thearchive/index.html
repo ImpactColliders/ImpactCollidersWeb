@@ -21,11 +21,12 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="/assets/css/font-awesome.css" />
-    <link rel="stylesheet" href="/assets/css/templatemo-lava.css" />
-
     <style>
+      /* Minimal reset (replaces the main-site stylesheets we no longer load) */
+      *, *::before, *::after { box-sizing: border-box; }
+      html, body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, figure, blockquote, dl, dd { margin: 0; padding: 0; }
+      img, svg, iframe { display: block; max-width: 100%; }
+      button { font: inherit; }
       /* ============================================================
          The Archive — aligned with the Our Impact page style.
 
@@ -81,7 +82,103 @@
       }
 
       /* Anchor offset so sticky navbar doesn't cover section headings */
-      section[id] { scroll-margin-top: 110px; }
+      section[id] { scroll-margin-top: 80px; }
+
+      /* ===== DEDICATED NAV ===== */
+      .archive-nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(255, 255, 255, 0.92);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border-soft);
+      }
+      .archive-nav-inner {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 12px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      .archive-brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--text);
+        font-weight: 600;
+        font-size: 0.95rem;
+        text-decoration: none;
+      }
+      .archive-brand:hover { text-decoration: none; color: var(--text); }
+      .archive-brand img { height: 32px; width: auto; }
+      .archive-brand-mark {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--text-muted);
+        font-size: 0.82rem;
+      }
+      .archive-brand-mark::before {
+        content: "";
+        display: inline-block;
+        width: 1px;
+        height: 16px;
+        background: var(--border-soft);
+        margin: 0 4px;
+      }
+      .nav-register {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--brand);
+        color: #fff;
+        padding: 10px 22px;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 0.92rem;
+        text-decoration: none;
+        transition: background 0.15s ease, transform 0.15s ease;
+      }
+      .nav-register:hover {
+        background: var(--brand-hover);
+        color: #fff;
+        text-decoration: none;
+        transform: translateY(-1px);
+      }
+      @media (max-width: 600px) {
+        .archive-nav-inner { padding: 10px 16px; }
+        .archive-brand-mark { display: none; }
+        .nav-register { padding: 9px 18px; font-size: 0.88rem; }
+        .archive-brand img { height: 28px; }
+      }
+
+      /* ===== DEDICATED FOOTER ===== */
+      .archive-footer {
+        background: #14110f;
+        color: rgba(255, 255, 255, 0.7);
+        padding: 36px 24px;
+        text-align: center;
+        font-size: 0.9rem;
+      }
+      .archive-footer a {
+        color: #fff;
+        font-weight: 500;
+      }
+      .archive-footer .footer-row {
+        max-width: 760px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+      }
+      .archive-footer .copy {
+        color: rgba(255, 255, 255, 0.45);
+        font-size: 0.82rem;
+      }
 
       /* Skip-to-content link for keyboard users */
       .skip-link {
@@ -509,8 +606,19 @@
 
     <a href="#main" class="skip-link">Skip to content</a>
 
-    <!-- SITE NAVBAR -->
-    <header class="header-area header-sticky" id="nav-placeholder"></header>
+    <!-- DEDICATED NAV -->
+    <nav class="archive-nav" aria-label="The Archive">
+      <div class="archive-nav-inner">
+        <!-- EDIT: brand block. Logo links back to main Impact Colliders site. -->
+        <a class="archive-brand" href="https://www.impactcolliders.com" aria-label="Impact Colliders home">
+          <img src="/assets/images/Impact Colliders_Black.png" alt="Impact Colliders" />
+          <span class="archive-brand-mark">The Archive</span>
+        </a>
+        <!-- /EDIT -->
+
+        <a class="nav-register" href="#signup">Register</a>
+      </div>
+    </nav>
 
 
     <main id="main">
@@ -779,9 +887,18 @@
     </div>
 
 
-    <!-- SITE FOOTER -->
-    <footer id="contact-us">
-      <div class="container" id="contact-container"></div>
+    <!-- DEDICATED FOOTER -->
+    <footer class="archive-footer">
+      <div class="footer-row">
+        <!-- EDIT: footer links -->
+        <div>
+          <a href="https://www.impactcolliders.com">impactcolliders.com</a>
+          &nbsp;·&nbsp;
+          <a href="mailto:avinteo@impactcolliders.com">avinteo@impactcolliders.com</a>
+        </div>
+        <div class="copy">© 2026 Impact Colliders · The Archive</div>
+        <!-- /EDIT -->
+      </div>
     </footer>
 
 
@@ -848,11 +965,20 @@
       })();
     </script>
 
-    <script src="/mailinglist.js"></script>
-    <script src="/assets/js/jquery-2.1.0.min.js"></script>
-    <script src="/assets/js/popper.js"></script>
-    <script src="/assets/js/bootstrap.min.js"></script>
-    <script src="/navbar.js"></script>
-    <script src="/assets/js/custom.js"></script>
+    <!-- Meta Pixel (was previously loaded site-wide via navbar.js) -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1501219458149424');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1501219458149424&ev=PageView&noscript=1" alt="" /></noscript>
   </body>
 </html>
