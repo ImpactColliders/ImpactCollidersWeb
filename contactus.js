@@ -218,7 +218,7 @@
         </div>
 
         <div class="sub-footer">
-          <p>&copy; 2025 Impact Colliders. All rights reserved.</p>
+          <p>&copy; 2026 Impact Colliders. All rights reserved.</p>
         </div>
       </section>
     `;

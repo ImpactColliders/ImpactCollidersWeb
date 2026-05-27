@@ -67,6 +67,40 @@ width:100%;
 background:#b83a28;
 }
 
+/* ADDRESS BLOCK */
+
+.contact-address{
+margin-top:30px;
+padding-top:25px;
+border-top:1px solid #eee;
+text-align:center;
+}
+
+.contact-address-label{
+font-size:12px;
+font-weight:600;
+text-transform:uppercase;
+letter-spacing:1.2px;
+color:#004aad;
+margin-bottom:10px;
+}
+
+.contact-address-line{
+display:flex;
+align-items:flex-start;
+justify-content:center;
+gap:10px;
+color:#555;
+font-size:14px;
+line-height:1.6;
+}
+
+.contact-address-line svg{
+flex-shrink:0;
+color:#004aad;
+margin-top:2px;
+}
+
 /* MOBILE */
 
 @media(max-width:900px){
@@ -79,23 +113,6 @@ padding:40px 30px;
 
 </style>
 
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1501219458149424');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1501219458149424&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 </head>
 
 <body>
@@ -127,6 +144,17 @@ src="https://www.facebook.com/tr?id=1501219458149424&ev=PageView&noscript=1"
 <button type="submit">Send Message</button>
 
 </form>
+
+<div class="contact-address">
+<div class="contact-address-label">Our Office</div>
+<div class="contact-address-line">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M12 2a8 8 0 0 0-8 8c0 5.5 8 12 8 12s8-6.5 8-12a8 8 0 0 0-8-8z"/>
+<circle cx="12" cy="10" r="3"/>
+</svg>
+<span>Block 58, #02-03A, Ngee Ann Polytechnic,<br>535 Clementi Road, Singapore 599489</span>
+</div>
+</div>
 
 </div>
 

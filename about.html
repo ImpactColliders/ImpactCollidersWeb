@@ -123,6 +123,41 @@
         }
       }
 
+      /* Annual Report */
+      .annual-report {
+        text-align: center;
+        padding: 40px 20px;
+      }
+      .annual-report-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: #ff6b6b;
+        color: #fff;
+        padding: 14px 28px;
+        border-radius: 10px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: 0.3s;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        max-width: 100%;
+      }
+      .annual-report-link:hover {
+        transform: translateY(-3px);
+        background: #ff5252;
+        color: #fff;
+        text-decoration: none;
+      }
+      .annual-report-link svg {
+        flex-shrink: 0;
+      }
+      @media (max-width: 524px) {
+        .annual-report-link {
+          padding: 12px 20px;
+          font-size: 14px;
+        }
+      }
+
       /* Team Tabs */
       .tabs {
         text-align: center;
@@ -187,23 +222,6 @@
 }
    
     </style>
-  <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1501219458149424');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1501219458149424&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
 </head>
 
   <body>
@@ -310,6 +328,26 @@ src="https://www.facebook.com/tr?id=1501219458149424&ev=PageView&noscript=1"
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Corporate Relations -->
+    <section class="section annual-report" id="corporate-relations">
+      <div class="container">
+        <div class="center-heading">
+          <h2>Corporate <em>Relations</em></h2>
+          <p>Annual reports, partnerships, and information for our corporate stakeholders.</p>
+        </div>
+        <a
+          class="annual-report-link"
+          href="corporaterelations"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+          </svg>
+          Visit Corporate Relations
+        </a>
       </div>
     </section>
 

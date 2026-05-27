@@ -164,17 +164,20 @@
       <div class="footer-grid">
 
         <div class="footer-col">
-          <h4>Any Questions?</h4>
+          <h4>Quick Links</h4>
           <ul>
-           
-            <li><a href="ehhowahproduct.html">Product</a></li>
+
+            <li><a href="/ehhowahproduct">Product</a></li>
+            <li><a href="https://www.impactcolliders.com/ehhowah">Pseudo Apps</a></li>
+            <li><a href="/corporaterelations">Corporate Relations</a></li>
+            <li><a href="/thearchive/">The Archive</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
           <h4>Partner With Us</h4>
           <ul>
-            <li><a href="corporates.html">Partnerships</a></li>
+            <li><a href="/corporates">Partnerships</a></li>
           
           </ul>
         </div>
@@ -183,7 +186,7 @@
           <h4>Contact</h4>
           <p>For inquiries or partnership opportunities, email us at:</p>
           <p><a href="mailto:info@impactcolliders.com">info@impactcolliders.com</a></p>
-          <a href="contactus.html" class="contact-btn">Contact Us ></a>
+          <a href="/contactus" class="contact-btn">Contact Us ></a>
         </div>
 
         <div class="footer-col">
@@ -223,8 +226,8 @@
       <hr class="footer-divider">
 
       <div class="footer-bottom">
-        <img src="assets/images/Impact Colliders_White.png" alt="Impact Colliders Logo">
-        <p>© 2025 Impact Colliders. All rights reserved.</p>
+        <img src="/assets/images/Impact Colliders_White.png" alt="Impact Colliders Logo">
+        <p>© 2026 Impact Colliders. All rights reserved.</p>
       </div>
     `;
   }

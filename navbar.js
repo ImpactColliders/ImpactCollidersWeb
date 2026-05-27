@@ -1,16 +1,51 @@
 // navbar.js
 (function () {
-  const activePage = location.pathname.split("/").pop() || "index.html";
+  // ================= META PIXEL (site-wide) =================
+  // Loaded here so every page that includes navbar.js gets the pixel
+  // without duplicating the snippet in each HTML file.
+  function initMetaPixel() {
+    if (window.fbq) return; // already initialized (e.g. inline on this page)
+    !(function (f, b, e, v, n, t, s) {
+      if (f.fbq) return;
+      n = f.fbq = function () {
+        n.callMethod
+          ? n.callMethod.apply(n, arguments)
+          : n.queue.push(arguments);
+      };
+      if (!f._fbq) f._fbq = n;
+      n.push = n;
+      n.loaded = !0;
+      n.version = "2.0";
+      n.queue = [];
+      t = b.createElement(e);
+      t.async = !0;
+      t.src = v;
+      s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s);
+    })(
+      window,
+      document,
+      "script",
+      "https://connect.facebook.net/en_US/fbevents.js"
+    );
+    window.fbq("init", "1501219458149424");
+    window.fbq("track", "PageView");
+  }
+  initMetaPixel();
+
+  const activePage = location.pathname.split("/").pop().replace(/\.html$/, "") || "";
 
   const navItems = [
-    { name: "Home", href: "index.html" },
-   { name: "About us", href: "about.html" },
-  
-    { name: "Eh, How Ah?", href: "ehhowahproduct.html" },
-    
+    { name: "Home", href: "/" },
+    { name: "About us", href: "/about" },
 
-    
-    { name: "Partner", href: "corporates.html" }
+    { name: "Eh, How Ah?", href: "/ehhowahproduct" },
+
+
+
+    { name: "Partner", href: "/corporates" },
+
+    { name: "Press Releases", href: "/press-releases" }
   ];
 
   function injectStyles() {
@@ -225,8 +260,8 @@
     return `
 <div class="container">
   <nav class="main-nav">
-    <a href="index.html" class="logo">
-      <img src="assets/images/Impact Colliders_White.png" alt="Impact Colliders Logo">
+    <a href="/" class="logo">
+      <img src="/assets/images/Impact Colliders_White.png" alt="Impact Colliders Logo">
     </a>
 
     <ul class="nav">
@@ -256,19 +291,21 @@
 
 <div class="mobile-nav" id="mobileNav">
   <div class="mobile-nav-header">
-    <img src="assets/images/Impact Colliders_Black.png" alt="Impact Colliders Logo">
+    <img src="/assets/images/Impact Colliders_Black.png" alt="Impact Colliders Logo">
     <span class="mobile-close">&times;</span>
   </div>
 
   <ul>
-    <li><a href="index.html">Home</a></li>
-      
-    <li><a href="about.html">About Us</a></li>
-    
-    <li><a href="ehhowahproduct.html">Eh, How Ah?</a></li>
+    <li><a href="/">Home</a></li>
 
-      <li><a href="corporates.html">Partner</a></li>
-   
+    <li><a href="/about">About Us</a></li>
+
+    <li><a href="/ehhowahproduct">Eh, How Ah?</a></li>
+
+      <li><a href="/corporates">Partner</a></li>
+
+      <li><a href="/press-releases">Press Releases</a></li>
+
   </ul>
 
 </div>
