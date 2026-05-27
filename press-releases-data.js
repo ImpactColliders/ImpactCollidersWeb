@@ -19,7 +19,7 @@ window.PRESS_RELEASES = [
     slug: "annual-report-launch",
     title: "Launch of Our First Annual Report",
     date: "28 May 2026",
-    image: "assets/images/Annual Report Cover.jpg",
+    image: "assets/images/Annual Report Cover Square.jpg",
     imageAlt: "Impact Colliders 1st Anniversary Edition Annual Report cover",
     body: `
       <p>
