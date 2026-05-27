@@ -37,15 +37,15 @@
 
   const navItems = [
     { name: "Home", href: "/" },
-   { name: "About us", href: "about" },
+    { name: "About us", href: "/about" },
 
-    { name: "Eh, How Ah?", href: "ehhowahproduct" },
+    { name: "Eh, How Ah?", href: "/ehhowahproduct" },
 
 
 
-    { name: "Partner", href: "corporates" },
+    { name: "Partner", href: "/corporates" },
 
-    { name: "Press Releases", href: "press-releases" }
+    { name: "Press Releases", href: "/press-releases" }
   ];
 
   function injectStyles() {
@@ -261,7 +261,7 @@
 <div class="container">
   <nav class="main-nav">
     <a href="/" class="logo">
-      <img src="assets/images/Impact Colliders_White.png" alt="Impact Colliders Logo">
+      <img src="/assets/images/Impact Colliders_White.png" alt="Impact Colliders Logo">
     </a>
 
     <ul class="nav">
@@ -291,20 +291,20 @@
 
 <div class="mobile-nav" id="mobileNav">
   <div class="mobile-nav-header">
-    <img src="assets/images/Impact Colliders_Black.png" alt="Impact Colliders Logo">
+    <img src="/assets/images/Impact Colliders_Black.png" alt="Impact Colliders Logo">
     <span class="mobile-close">&times;</span>
   </div>
 
   <ul>
     <li><a href="/">Home</a></li>
-      
-    <li><a href="about">About Us</a></li>
-    
-    <li><a href="ehhowahproduct">Eh, How Ah?</a></li>
 
-      <li><a href="corporates">Partner</a></li>
+    <li><a href="/about">About Us</a></li>
 
-      <li><a href="press-releases">Press Releases</a></li>
+    <li><a href="/ehhowahproduct">Eh, How Ah?</a></li>
+
+      <li><a href="/corporates">Partner</a></li>
+
+      <li><a href="/press-releases">Press Releases</a></li>
 
   </ul>
 

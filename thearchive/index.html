@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="utf-8" />
     <meta
@@ -12,16 +11,27 @@
       content="The Archive — an interactive community storytelling exhibition by Impact Colliders connecting seniors and youths through art, conversation, and technology."
     />
     <meta name="author" content="Impact Colliders" />
-    <title>The Archive · Impact Colliders</title>
-
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
       rel="stylesheet"
     />
-
+    <title>The Archive - Impact Colliders</title>
+    <link rel="icon" type="image/x-icon" href="/assets/images/logo.jpg" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/assets/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="/assets/css/font-awesome.css"
+    />
+    <link rel="stylesheet" href="/assets/css/templatemo-lava.css" />
+    <link rel="stylesheet" href="/assets/css/owl-carousel.css" />
     <style>
       /* ============================================================
-         The Archive — standalone Luma-style event page.
+         The Archive — aligned with the rest of the Impact Colliders site.
 
          For non-technical editors:
          All text you can safely change is wrapped in
@@ -29,272 +39,179 @@
          Only change the words between the markers.
          ============================================================ */
 
-      :root {
-        --ic-blue: #004aad;
-        --ic-orange: #ff6522;
-        --brand: #ff6522;
-        --brand-hover: #e6571a;
-        --bg-tint: #f6f3ee;
-        --card: #ffffff;
-        --border-soft: rgba(0, 0, 0, 0.06);
-        --text: #14110f;
-        --text-muted: rgba(20, 17, 15, 0.6);
-        --text-soft: rgba(20, 17, 15, 0.78);
-        --radius-lg: 20px;
-        --radius: 14px;
-        --radius-sm: 10px;
-        --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.04);
-        --cover-image: url("/assets/images/MapleTree.jpg");
-        /*
-          To use a real photo instead of the gradient placeholder:
-          1. Upload your image somewhere (or put it in the same folder as this file)
-          2. Replace the line above with, for example:
-             --cover-image: url("your-image.jpg");
-        */
-      }
-
-      * { box-sizing: border-box; }
-
-      html, body {
-        margin: 0;
-        padding: 0;
-        background:
-          radial-gradient(circle at 12% 18%, rgba(255, 101, 34, 0.12), transparent 38%),
-          radial-gradient(circle at 88% 8%, rgba(0, 74, 173, 0.10), transparent 42%),
-          var(--bg-tint);
-        min-height: 100vh;
-      }
-
       body {
-        color: var(--text);
-        font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI",
-          Roboto, sans-serif;
-        -webkit-font-smoothing: antialiased;
-        line-height: 1.5;
+        font-family: Poppins, sans-serif;
+        background: #f5f5f5;
       }
 
-      a { color: var(--ic-blue); text-decoration: none; }
-      a:hover { text-decoration: underline; }
-
-      /* ===== Top bar ===== */
-      .topbar {
-        position: sticky;
-        top: 0;
-        z-index: 50;
-        background: rgba(246, 243, 238, 0.85);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border-bottom: 1px solid var(--border-soft);
+      /* ===== Hero ===== */
+      .page-hero {
+        padding: 140px 10% 50px;
+        text-align: center;
+        background: #ffffff;
       }
-
-      .topbar-inner {
-        max-width: 1080px;
-        margin: 0 auto;
-        padding: 14px 24px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-      }
-
-      .topbar-brand {
-        display: flex;
-        align-items: center;
-        gap: 10px;
+      .page-hero .pill {
+        display: inline-block;
+        font-size: 13px;
         font-weight: 600;
-        color: var(--text);
+        color: #ff6b6b;
+        background: rgba(255, 107, 107, 0.1);
+        padding: 6px 14px;
+        border-radius: 999px;
+        letter-spacing: 0.3px;
+        margin-bottom: 18px;
       }
-      .topbar-brand:hover { text-decoration: none; color: var(--text); }
-
-      .topbar-logo {
-        width: 32px; height: 32px;
-        border-radius: 8px;
-        background: linear-gradient(135deg, var(--ic-blue), var(--ic-orange));
-        color: #fff;
-        display: flex; align-items: center; justify-content: center;
-        font-weight: 700; font-size: 0.85em;
+      .page-hero h1 {
+        font-size: 42px;
+        font-weight: 700;
+        color: #004aad;
+        margin-bottom: 16px;
+        line-height: 1.2;
+      }
+      .page-hero h1 em {
+        color: #004aad;
+        font-style: normal;
+      }
+      .page-hero .hosted {
+        font-size: 15px;
+        color: #666;
       }
 
-      .topbar-back {
-        font-size: 0.88em;
-        color: var(--text-muted);
-        font-weight: 500;
-      }
-      .topbar-back:hover { color: var(--text); text-decoration: none; }
-
-      /* ===== Page layout ===== */
-      .archive-page {
+      /* ===== Layout ===== */
+      .archive-container {
         max-width: 1080px;
         margin: 0 auto;
-        padding: 36px 24px 80px;
+        padding: 50px 20px 80px;
       }
-
-      .archive-hero {
+      .archive-grid {
         display: grid;
-        grid-template-columns: 380px 1fr;
-        gap: 40px;
+        grid-template-columns: 360px 1fr;
+        gap: 36px;
         align-items: start;
       }
-
       @media (max-width: 880px) {
-        .archive-hero {
+        .archive-grid {
           grid-template-columns: 1fr;
           gap: 24px;
         }
-        .archive-page { padding: 24px 18px 60px; }
+        .page-hero {
+          padding: 120px 6% 36px;
+        }
+        .page-hero h1 {
+          font-size: 30px;
+        }
+        .archive-container {
+          padding: 30px 16px 60px;
+        }
       }
 
-      /* ===== LEFT COLUMN ===== */
-      .archive-left {
+      /* ===== Sidebar ===== */
+      .archive-sidebar {
         position: sticky;
-        top: 80px;
+        top: 110px;
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        gap: 18px;
       }
-      @media (max-width: 880px) { .archive-left { position: static; } }
+      @media (max-width: 880px) {
+        .archive-sidebar { position: static; }
+      }
 
       .cover-image {
         width: 100%;
         aspect-ratio: 1 / 1;
-        border-radius: var(--radius-lg);
-        background: var(--cover-image);
+        border-radius: 16px;
+        background-image: url("/assets/images/MapleTree.jpg");
         background-size: cover;
         background-position: center;
-        box-shadow: 0 20px 60px -20px rgba(0, 0, 0, 0.25),
-                    0 8px 20px -10px rgba(255, 101, 34, 0.2);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
         position: relative;
         overflow: hidden;
       }
-
       .cover-image::after {
         content: "The Archive";
         position: absolute;
-        bottom: 24px; left: 24px;
+        bottom: 22px;
+        left: 22px;
         color: #fff;
-        font-size: 1.4em;
+        font-size: 22px;
         font-weight: 700;
         letter-spacing: 0.5px;
-        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
       }
 
-      .presenter-card {
-        background: var(--card);
-        border-radius: var(--radius);
-        padding: 18px;
-        box-shadow: var(--shadow-sm);
+      .presenter-card,
+      .info-row-card {
+        background: #fff;
+        border-radius: 16px;
+        padding: 20px 22px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
       }
 
       .presenter-label {
-        font-size: 0.72em;
-        font-weight: 500;
+        font-size: 12px;
+        font-weight: 600;
         text-transform: uppercase;
         letter-spacing: 1.2px;
-        color: var(--text-muted);
+        color: #888;
         margin-bottom: 10px;
       }
-
-      .presenter-row { display: flex; align-items: center; gap: 12px; }
-
+      .presenter-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
       .presenter-logo {
-        width: 40px; height: 40px;
-        border-radius: 8px;
-        background: linear-gradient(135deg, var(--ic-blue), var(--ic-orange));
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        background: #004aad;
         color: #fff;
-        display: flex; align-items: center; justify-content: center;
-        font-weight: 700; font-size: 0.85em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 14px;
         flex-shrink: 0;
       }
-
       .presenter-meta strong {
         display: block;
-        font-size: 0.95em;
+        font-size: 15px;
         font-weight: 600;
-        color: var(--text);
+        color: #222;
         line-height: 1.2;
       }
       .presenter-meta span {
-        font-size: 0.82em;
-        color: var(--text-muted);
-        line-height: 1.4;
+        font-size: 13px;
+        color: #777;
       }
-
-      /* ===== RIGHT COLUMN ===== */
-      .archive-right {
-        display: flex;
-        flex-direction: column;
-        gap: 22px;
-        min-width: 0;
-      }
-
-      .visi-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        padding: 5px 12px;
-        background: rgba(0, 0, 0, 0.05);
-        border-radius: 999px;
-        font-size: 0.74em;
-        font-weight: 500;
-        color: var(--text-muted);
-        letter-spacing: 0.3px;
-        width: fit-content;
-      }
-
-      .archive-title {
-        font-size: clamp(2em, 4.4vw, 2.9em);
-        font-weight: 700;
-        line-height: 1.1;
-        letter-spacing: -0.01em;
-        margin: 0;
-        color: var(--text);
-      }
-      .archive-title em {
-        font-style: normal;
-        color: var(--brand);
-      }
-
-      .host-row {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        color: var(--text-soft);
-        font-size: 0.92em;
-      }
-      .host-row .stack { display: flex; }
-      .host-row .stack .av {
-        width: 28px; height: 28px;
-        border-radius: 50%;
-        border: 2px solid var(--bg-tint);
-        margin-left: -6px;
-        background: linear-gradient(135deg, var(--ic-blue), var(--ic-orange));
-        color: #fff;
-        font-size: 0.65em;
-        font-weight: 600;
-        display: flex; align-items: center; justify-content: center;
-      }
-      .host-row .stack .av:first-child { margin-left: 0; }
 
       /* When / Where rows */
       .info-row {
-        display: flex; align-items: center; gap: 14px;
+        display: flex;
+        align-items: center;
+        gap: 14px;
       }
-
+      .info-row + .info-row {
+        margin-top: 14px;
+      }
       .info-icon {
-        width: 54px; height: 54px;
-        border-radius: var(--radius-sm);
-        background: var(--card);
-        border: 1px solid var(--border-soft);
-        display: flex; flex-direction: column;
-        align-items: center; justify-content: center;
+        width: 54px;
+        height: 54px;
+        border-radius: 12px;
+        background: #f5f5f5;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         overflow: hidden;
         flex-shrink: 0;
-        box-shadow: var(--shadow-sm);
       }
-
       .info-icon.calendar .month {
-        background: rgba(255, 101, 34, 0.14);
-        color: var(--brand);
-        font-size: 0.58em;
+        background: rgba(255, 107, 107, 0.15);
+        color: #ff6b6b;
+        font-size: 11px;
         font-weight: 700;
         width: 100%;
         text-align: center;
@@ -303,98 +220,104 @@
         text-transform: uppercase;
       }
       .info-icon.calendar .day {
-        font-size: 1.3em;
+        font-size: 20px;
         font-weight: 700;
-        color: var(--text);
+        color: #222;
         line-height: 1;
         margin-top: 6px;
       }
       .info-icon svg {
-        width: 24px; height: 24px;
-        color: var(--text-soft);
+        width: 24px;
+        height: 24px;
+        color: #004aad;
       }
-
       .info-text strong {
         display: block;
-        font-size: 1em;
+        font-size: 15px;
         font-weight: 600;
-        color: var(--text);
+        color: #222;
         line-height: 1.3;
       }
       .info-text span {
-        font-size: 0.88em;
-        color: var(--text-muted);
-        line-height: 1.5;
+        font-size: 13px;
+        color: #777;
       }
 
-      /* ===== Cards ===== */
+      /* ===== Content cards ===== */
+      .archive-content {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        min-width: 0;
+      }
+
       .card-block {
-        background: var(--card);
-        border-radius: var(--radius);
-        box-shadow: var(--shadow-sm);
+        background: #fff;
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
         overflow: hidden;
       }
       .card-block-header {
-        font-size: 0.74em;
-        font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 1.2px;
-        color: var(--text-muted);
-        padding: 14px 22px;
-        background: rgba(0, 0, 0, 0.02);
-        border-bottom: 1px solid var(--border-soft);
+        font-size: 20px;
+        font-weight: 700;
+        color: #004aad;
+        padding: 22px 28px 0;
       }
-      .card-block-body { padding: 22px 24px; }
+      .card-block-body {
+        padding: 14px 28px 26px;
+      }
       .card-block-body p {
-        color: var(--text-soft);
-        line-height: 1.65;
-        font-size: 0.98em;
+        color: #555;
+        line-height: 1.7;
+        font-size: 15px;
         margin: 0 0 12px;
       }
-      .card-block-body p:last-child { margin-bottom: 0; }
+      .card-block-body p:last-child {
+        margin-bottom: 0;
+      }
 
-      /* Registration card */
-      .reg-card .card-block-body { padding-bottom: 0; }
+      /* Registration */
       .reg-intro {
-        color: var(--text-soft);
-        font-size: 0.95em;
-        line-height: 1.6;
-        margin: 0 0 18px;
+        color: #555;
+        font-size: 15px;
+        line-height: 1.7;
+        margin: 0 0 20px;
       }
       .register-btn {
         display: inline-flex;
         align-items: center;
         justify-content: center;
         gap: 10px;
-        width: 100%;
-        background: var(--brand);
+        background: #ff6b6b;
         color: #fff;
-        padding: 14px 24px;
-        border-radius: 12px;
+        padding: 14px 28px;
+        border-radius: 10px;
         font-weight: 600;
-        font-size: 1em;
-        border: 0;
-        cursor: pointer;
-        font-family: inherit;
+        font-size: 15px;
         text-decoration: none;
-        transition: transform 0.15s ease, background 0.15s ease;
+        transition: 0.3s;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         margin-bottom: 22px;
       }
       .register-btn:hover {
-        background: var(--brand-hover);
+        transform: translateY(-2px);
+        background: #ff5252;
         color: #fff;
         text-decoration: none;
-        transform: translateY(-1px);
       }
-      .register-btn svg { width: 18px; height: 18px; }
-
+      .register-btn svg {
+        width: 18px;
+        height: 18px;
+      }
       .signup-embed {
-        min-height: 680px;
-        border-top: 1px solid var(--border-soft);
+        border-top: 1px solid rgba(0, 0, 0, 0.06);
+        background: #fafafa;
       }
       .signup-embed iframe {
-        width: 100%; min-height: 680px;
-        border: 0; display: block;
+        width: 100%;
+        min-height: 680px;
+        border: 0;
+        display: block;
       }
 
       /* Highlights */
@@ -404,127 +327,94 @@
         gap: 14px;
       }
       .highlight {
-        padding: 16px;
-        background: rgba(0, 0, 0, 0.02);
-        border: 1px solid var(--border-soft);
-        border-radius: var(--radius-sm);
+        padding: 18px;
+        background: #f5f5f5;
+        border-radius: 12px;
       }
-      .highlight-emoji { font-size: 1.6em; margin-bottom: 6px; }
+      .highlight-emoji {
+        font-size: 26px;
+        margin-bottom: 6px;
+      }
       .highlight h4 {
-        font-size: 0.95em; font-weight: 600;
-        margin: 0 0 4px; color: var(--text);
+        font-size: 15px;
+        font-weight: 600;
+        margin: 0 0 4px;
+        color: #004aad;
       }
       .highlight p {
-        font-size: 0.84em; color: var(--text-muted);
-        line-height: 1.5; margin: 0;
-      }
-
-      /* Hosts */
-      .hosts-list { display: flex; flex-direction: column; }
-      .host-item {
-        display: flex; align-items: center; gap: 14px;
-        padding: 12px 0;
-        border-bottom: 1px solid var(--border-soft);
-      }
-      .host-item:first-child { padding-top: 0; }
-      .host-item:last-child { border-bottom: 0; padding-bottom: 0; }
-      .host-avatar {
-        width: 44px; height: 44px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, var(--ic-blue), var(--ic-orange));
-        color: #fff; font-weight: 700; font-size: 0.9em;
-        display: flex; align-items: center; justify-content: center;
-        flex-shrink: 0;
-      }
-      .host-meta strong {
-        display: block; font-size: 0.95em;
-        font-weight: 600; color: var(--text);
-      }
-      .host-meta span {
-        font-size: 0.83em; color: var(--text-muted);
+        font-size: 13px;
+        color: #666;
+        line-height: 1.55;
+        margin: 0;
       }
 
       /* Map */
       .map-embed {
-        border-radius: var(--radius-sm);
+        border-radius: 12px;
         overflow: hidden;
-        border: 1px solid var(--border-soft);
-        margin: 4px 0 14px;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        margin: 6px 0 14px;
       }
       .map-embed iframe {
-        width: 100%; height: 260px;
-        border: 0; display: block;
+        width: 100%;
+        height: 280px;
+        border: 0;
+        display: block;
       }
 
       /* Share */
       .share-row {
-        display: flex; flex-wrap: wrap; gap: 8px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
       }
       .share-btn {
-        display: inline-flex; align-items: center; gap: 8px;
-        background: rgba(0, 0, 0, 0.04);
-        color: var(--text);
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: #f5f5f5;
+        color: #333;
         border: 0;
-        padding: 9px 14px;
+        padding: 10px 16px;
         border-radius: 999px;
         font-weight: 500;
-        font-size: 0.86em;
+        font-size: 14px;
         text-decoration: none;
         cursor: pointer;
         font-family: inherit;
-        transition: background 0.15s ease;
+        transition: background 0.2s ease, color 0.2s ease;
       }
       .share-btn:hover {
-        background: rgba(0, 0, 0, 0.08);
-        color: var(--text);
+        background: #ff6b6b;
+        color: #fff;
         text-decoration: none;
       }
-      .share-btn svg { width: 15px; height: 15px; fill: currentColor; }
-
+      .share-btn svg {
+        width: 15px;
+        height: 15px;
+        fill: currentColor;
+      }
       .copy-toast {
-        margin-left: 4px; color: #2ca878;
-        font-size: 0.85em; opacity: 0;
+        margin-left: 4px;
+        color: #2ca878;
+        font-size: 13px;
+        opacity: 0;
         transition: opacity 0.3s ease;
       }
-      .copy-toast.show { opacity: 1; }
-
-      /* Footer */
-      .archive-footer {
-        max-width: 1080px;
-        margin: 0 auto;
-        padding: 24px;
-        text-align: center;
-        color: var(--text-muted);
-        font-size: 0.85em;
-        border-top: 1px solid var(--border-soft);
-      }
-      .archive-footer a {
-        color: var(--text-muted);
-        text-decoration: underline;
+      .copy-toast.show {
+        opacity: 1;
       }
     </style>
-
-    <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1501219458149424');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1501219458149424&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
   </head>
 
   <body>
-
+    <div id="preloader">
+      <div class="jumper">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
 
     <!--
       ===========================================================
@@ -540,32 +430,37 @@ src="https://www.facebook.com/tr?id=1501219458149424&ev=PageView&noscript=1"
         1. Luma form URL — search the file for YOUR_LUMA_EVENT_ID
            (appears in iframe src and the fallback link)
         2. Cover image — see "cover-image" near the top of the
-           style block for how to swap the gradient placeholder
-           for a real photo.
+           style block for how to swap the placeholder for a
+           different photo.
       ===========================================================
     -->
 
+    <!-- Nav Bar -->
+    <header class="header-area header-sticky" id="nav-placeholder"></header>
 
-    <!-- Top bar -->
-    <nav class="topbar">
-      <div class="topbar-inner">
-        <!-- EDIT: brand name and link back to main site -->
-        <a class="topbar-brand" href="https://www.impactcolliders.com">
-          <span class="topbar-logo">IC</span>
-          Impact Colliders
-        </a>
-        <!-- /EDIT -->
-      </div>
-    </nav>
+    <!-- Hero -->
+    <section class="page-hero">
+      <!-- EDIT: small pill above the title -->
+      <div class="pill">🎉 $100 · Free with Culture Pass · Singapore</div>
+      <!-- /EDIT -->
 
+      <!-- EDIT: title (word inside <em> shows in orange) -->
+      <h1>The <em>Archive</em></h1>
+      <!-- /EDIT -->
 
-    <main class="archive-page">
-      <section class="archive-hero">
+      <!-- EDIT: short hosted-by line -->
+      <p class="hosted">Hosted by Impact Colliders</p>
+      <!-- /EDIT -->
+    </section>
+
+    <!-- Main content -->
+    <main class="archive-container">
+      <div class="archive-grid">
 
         <!-- ============================================
              LEFT COLUMN
              ============================================ -->
-        <aside class="archive-left">
+        <aside class="archive-sidebar">
           <div class="cover-image" role="img" aria-label="The Archive event"></div>
 
           <div class="presenter-card">
@@ -580,69 +475,49 @@ src="https://www.facebook.com/tr?id=1501219458149424&ev=PageView&noscript=1"
               </div>
             </div>
           </div>
-        </aside>
 
+          <div class="info-row-card">
+            <!-- When row -->
+            <div class="info-row">
+              <!-- EDIT: month (3 letters) + day in calendar icon -->
+              <div class="info-icon calendar">
+                <div class="month">Jul</div>
+                <div class="day">25</div>
+              </div>
+              <!-- /EDIT -->
+              <div class="info-text">
+                <!-- EDIT: date + time -->
+                <strong>Saturday, 25 July 2026</strong>
+                <span>11:00 AM &mdash; 12:55 PM SGT</span>
+                <!-- /EDIT -->
+              </div>
+            </div>
+
+            <!-- Where row -->
+            <div class="info-row">
+              <div class="info-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M12 2a8 8 0 0 0-8 8c0 5.5 8 12 8 12s8-6.5 8-12a8 8 0 0 0-8-8z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </div>
+              <div class="info-text">
+                <!-- EDIT: venue + address -->
+                <strong>10 Square @ Orchard Central</strong>
+                <span>181 Orchard Road, #10-01, Singapore</span>
+                <!-- /EDIT -->
+              </div>
+            </div>
+          </div>
+        </aside>
 
         <!-- ============================================
              RIGHT COLUMN
              ============================================ -->
-        <div class="archive-right">
-
-          <!-- EDIT: small pill above the title -->
-          <div class="visi-pill">🎉 $100 · Free with Culture Pass · Singapore</div>
-          <!-- /EDIT -->
-
-          <!-- EDIT: title (word inside <em> shows in orange) -->
-          <h1 class="archive-title">The <em>Archive</em></h1>
-          <!-- /EDIT -->
-
-          <!-- Host strip under the title -->
-          <div class="host-row">
-            <div class="stack">
-              <!-- EDIT: host initials shown in avatars (2 letters each) -->
-              <div class="av">IC</div>
-              <!-- /EDIT -->
-            </div>
-            <!-- EDIT: short hosted-by line -->
-            <span>Hosted by Impact Colliders</span>
-            <!-- /EDIT -->
-          </div>
-
-          <!-- When row -->
-          <div class="info-row">
-            <!-- EDIT: month (3 letters) + day in calendar icon -->
-            <div class="info-icon calendar">
-              <div class="month">Jul</div>
-              <div class="day">25</div>
-            </div>
-            <!-- /EDIT -->
-            <div class="info-text">
-              <!-- EDIT: date + time -->
-              <strong>Saturday, 25 July 2026</strong>
-              <span>11:00 AM &mdash; 12:55 PM SGT</span>
-              <!-- /EDIT -->
-            </div>
-          </div>
-
-          <!-- Where row -->
-          <div class="info-row">
-            <div class="info-icon">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M12 2a8 8 0 0 0-8 8c0 5.5 8 12 8 12s8-6.5 8-12a8 8 0 0 0-8-8z"/>
-                <circle cx="12" cy="10" r="3"/>
-              </svg>
-            </div>
-            <div class="info-text">
-              <!-- EDIT: venue + address -->
-              <strong>10 Square @ Orchard Central</strong>
-              <span>181 Orchard Road, #10-01, Singapore</span>
-              <!-- /EDIT -->
-            </div>
-          </div>
-
+        <div class="archive-content">
 
           <!-- Registration card -->
-          <div class="card-block reg-card" id="signup">
+          <div class="card-block" id="signup">
             <div class="card-block-header">Registration</div>
             <div class="card-block-body">
               <!-- EDIT: registration intro -->
@@ -683,7 +558,6 @@ src="https://www.facebook.com/tr?id=1501219458149424&ev=PageView&noscript=1"
             </div>
           </div>
 
-
           <!-- About -->
           <div class="card-block">
             <div class="card-block-header">About Event</div>
@@ -710,7 +584,6 @@ src="https://www.facebook.com/tr?id=1501219458149424&ev=PageView&noscript=1"
               <!-- /EDIT -->
             </div>
           </div>
-
 
           <!-- What to expect -->
           <div class="card-block">
@@ -744,14 +617,13 @@ src="https://www.facebook.com/tr?id=1501219458149424&ev=PageView&noscript=1"
             </div>
           </div>
 
-
           <!-- Location -->
           <div class="card-block">
             <div class="card-block-header">Location</div>
             <div class="card-block-body">
               <!-- EDIT: venue and address -->
-              <p style="margin-bottom: 14px;">
-                <strong style="color: var(--text);">10 Square @ Orchard Central</strong><br />
+              <p>
+                <strong style="color: #222;">10 Square @ Orchard Central</strong><br />
                 181 Orchard Road, #10-01, Singapore 238896
               </p>
               <!-- /EDIT -->
@@ -771,7 +643,7 @@ src="https://www.facebook.com/tr?id=1501219458149424&ev=PageView&noscript=1"
               </div>
 
               <!-- EDIT: travel tip -->
-              <p style="font-size: 0.88em;">
+              <p>
                 Nearest MRT: Somerset (NS23). Orchard Central is a 3-minute
                 sheltered walk away.
               </p>
@@ -779,13 +651,12 @@ src="https://www.facebook.com/tr?id=1501219458149424&ev=PageView&noscript=1"
             </div>
           </div>
 
-
           <!-- Share -->
           <div class="card-block">
             <div class="card-block-header">Share</div>
             <div class="card-block-body">
               <!-- EDIT: prompt above share buttons -->
-              <p style="margin-bottom: 14px;">
+              <p>
                 Know a senior who'd love this, or a youth who'd like to
                 volunteer? Help us spread the word.
               </p>
@@ -819,7 +690,6 @@ src="https://www.facebook.com/tr?id=1501219458149424&ev=PageView&noscript=1"
             </div>
           </div>
 
-
           <!-- Contact -->
           <div class="card-block">
             <div class="card-block-header">Contact</div>
@@ -827,7 +697,7 @@ src="https://www.facebook.com/tr?id=1501219458149424&ev=PageView&noscript=1"
               <!-- EDIT: contact lines -->
               <p>
                 Reach out at
-                <a href="mailto:avinteo@impactcolliders.com">avinteo@impactcolliders.com</a>
+                <a href="mailto:avinteo@impactcolliders.com" style="color: #004aad; font-weight: 600;">avinteo@impactcolliders.com</a>
                 for general enquiries or bulk sign-ups (community centres,
                 schools, RC groups). We'll respond within a day or two.
               </p>
@@ -836,9 +706,15 @@ src="https://www.facebook.com/tr?id=1501219458149424&ev=PageView&noscript=1"
           </div>
 
         </div>
-      </section>
+      </div>
     </main>
 
+    <!-- Footer -->
+    <footer id="contact-us">
+      <div class="container" id="contact-container">
+        <!-- Footer will be injected here -->
+      </div>
+    </footer>
 
     <script>
       (function () {
@@ -861,5 +737,17 @@ src="https://www.facebook.com/tr?id=1501219458149424&ev=PageView&noscript=1"
         });
       })();
     </script>
+
+    <script src="/mailinglist.js"></script>
+    <script src="/assets/js/jquery-2.1.0.min.js"></script>
+    <script src="/assets/js/popper.js"></script>
+    <script src="/assets/js/bootstrap.min.js"></script>
+    <script src="/assets/js/owl-carousel.js"></script>
+    <script src="/assets/js/scrollreveal.min.js"></script>
+    <script src="/assets/js/waypoints.min.js"></script>
+    <script src="/assets/js/jquery.counterup.min.js"></script>
+    <script src="/assets/js/imgfix.min.js"></script>
+    <script src="/navbar.js"></script>
+    <script src="/assets/js/custom.js"></script>
   </body>
 </html>
