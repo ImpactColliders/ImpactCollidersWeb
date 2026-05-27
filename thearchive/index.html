@@ -130,6 +130,31 @@
         background: rgba(255, 255, 255, 0.4);
         margin-right: 12px;
       }
+      .archive-nav-links {
+        display: flex;
+        gap: 26px;
+        list-style: none;
+        margin: 0 auto;
+        padding: 0;
+      }
+      .archive-nav-links a {
+        color: rgba(255, 255, 255, 0.82);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.92rem;
+        padding: 6px 0;
+        border-bottom: 2px solid transparent;
+        transition: color 0.15s ease, border-color 0.15s ease;
+      }
+      .archive-nav-links a:hover {
+        color: #fff;
+        text-decoration: none;
+        border-color: rgba(255, 255, 255, 0.5);
+      }
+      .archive-nav-links a[aria-current="page"] {
+        color: #fff;
+        border-color: var(--brand);
+      }
       .nav-register {
         display: inline-flex;
         align-items: center;
@@ -149,11 +174,17 @@
         text-decoration: none;
         transform: translateY(-1px);
       }
-      @media (max-width: 600px) {
-        .archive-nav-inner { padding: 10px 16px; }
+      @media (max-width: 700px) {
+        .archive-nav-inner { padding: 10px 14px; gap: 8px; }
         .archive-brand-mark { display: none; }
-        .nav-register { padding: 9px 18px; font-size: 0.88rem; }
-        .archive-brand img { height: 32px; }
+        .archive-brand img { height: 30px; }
+        .archive-nav-links { gap: 14px; }
+        .archive-nav-links a { font-size: 0.82rem; }
+        .nav-register { padding: 8px 14px; font-size: 0.82rem; }
+      }
+      @media (max-width: 360px) {
+        .archive-nav-links { gap: 10px; }
+        .archive-nav-links a { font-size: 0.78rem; }
       }
 
       /* Skip-to-content link for keyboard users */
@@ -585,12 +616,17 @@
     <!-- DEDICATED NAV -->
     <nav class="archive-nav" aria-label="The Archive">
       <div class="archive-nav-inner">
-        <!-- EDIT: brand block. Logo links back to main Impact Colliders site. -->
-        <a class="archive-brand" href="https://www.impactcolliders.com" aria-label="Impact Colliders home">
+        <!-- EDIT: brand block. Logo links to The Archive home. -->
+        <a class="archive-brand" href="/thearchive/" aria-label="The Archive home">
           <img src="/assets/images/Impact Colliders_White.png" alt="Impact Colliders" />
           <span class="archive-brand-mark">The Archive</span>
         </a>
         <!-- /EDIT -->
+
+        <ul class="archive-nav-links" role="list">
+          <li><a href="/thearchive/sponsors">Sponsors</a></li>
+          <li><a href="/thearchive/referrals">Referrals</a></li>
+        </ul>
 
         <a class="nav-register" href="#signup">Register</a>
       </div>
