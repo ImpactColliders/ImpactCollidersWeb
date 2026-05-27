@@ -48,6 +48,11 @@
 
       * { box-sizing: border-box; }
 
+      html { scroll-behavior: smooth; }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+      }
+
       body {
         font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI",
           Roboto, sans-serif;
@@ -60,6 +65,39 @@
 
       a { color: var(--ic-blue); text-decoration: none; }
       a:hover { text-decoration: underline; }
+
+      /* Visible focus for keyboard users */
+      a:focus-visible,
+      button:focus-visible,
+      .share-btn:focus-visible,
+      .register-btn:focus-visible,
+      .secondary-btn:focus-visible,
+      .section-nav a:focus-visible {
+        outline: 3px solid var(--ic-blue);
+        outline-offset: 3px;
+        border-radius: 6px;
+      }
+
+      /* Anchor offset so sticky navbar doesn't cover section headings */
+      section[id] { scroll-margin-top: 110px; }
+
+      /* Skip-to-content link for keyboard users */
+      .skip-link {
+        position: absolute;
+        left: -9999px;
+        top: 0;
+        background: var(--ic-blue);
+        color: #fff;
+        padding: 10px 16px;
+        border-radius: 6px;
+        z-index: 2000;
+        font-weight: 600;
+      }
+      .skip-link:focus {
+        left: 12px;
+        top: 12px;
+        text-decoration: none;
+      }
 
       /* ===== HERO ===== */
       .archive-hero {
@@ -107,6 +145,13 @@
         box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.25);
       }
 
+      .cta-row {
+        display: inline-flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+      }
+
       .register-btn {
         display: inline-flex;
         align-items: center;
@@ -119,6 +164,7 @@
         font-size: 1rem;
         border: 0;
         text-decoration: none;
+        min-height: 48px;
         transition: background 0.15s ease, transform 0.15s ease;
       }
       .register-btn:hover {
@@ -128,6 +174,90 @@
         transform: translateY(-1px);
       }
       .register-btn svg { width: 18px; height: 18px; }
+
+      .secondary-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: #fff;
+        color: var(--ic-blue);
+        border: 2px solid var(--ic-blue);
+        padding: 14px 28px;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 1rem;
+        text-decoration: none;
+        min-height: 48px;
+        transition: background 0.15s ease, color 0.15s ease;
+      }
+      .secondary-btn:hover {
+        background: var(--ic-blue);
+        color: #fff;
+        text-decoration: none;
+      }
+      .secondary-btn svg { width: 18px; height: 18px; }
+
+      /* ===== SECTION QUICK-JUMP NAV ===== */
+      .section-nav {
+        position: sticky;
+        top: 90px;
+        z-index: 40;
+        background: rgba(245, 245, 245, 0.92);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border-soft);
+      }
+      .section-nav-inner {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 12px 24px;
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+      }
+      .section-nav-inner::-webkit-scrollbar { display: none; }
+      .section-nav a {
+        flex-shrink: 0;
+        padding: 8px 16px;
+        border-radius: 999px;
+        background: #fff;
+        color: var(--text-muted);
+        font-size: 0.88rem;
+        font-weight: 500;
+        border: 1px solid var(--border-soft);
+        white-space: nowrap;
+        transition: background 0.15s, color 0.15s, border-color 0.15s;
+      }
+      .section-nav a:hover {
+        background: var(--ic-blue);
+        color: #fff;
+        border-color: var(--ic-blue);
+        text-decoration: none;
+      }
+
+      /* ===== STICKY MOBILE CTA BAR ===== */
+      .mobile-cta-bar {
+        position: fixed;
+        left: 0; right: 0; bottom: 0;
+        z-index: 90;
+        background: rgba(255, 255, 255, 0.96);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-top: 1px solid var(--border-soft);
+        padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+        display: none;
+        transform: translateY(120%);
+        transition: transform 0.25s ease;
+        box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.06);
+      }
+      .mobile-cta-bar.show { transform: translateY(0); }
+      .mobile-cta-bar .register-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 14px 24px;
+      }
 
       /* ===== KEY FACTS STRIP ===== */
       .facts-strip {
@@ -245,6 +375,9 @@
         width: 100%; min-height: 680px;
         border: 0; display: block;
       }
+      @media (max-width: 600px) {
+        .signup-embed, .signup-embed iframe { min-height: 560px; }
+      }
 
       /* ===== LOCATION ===== */
       .location-card {
@@ -322,18 +455,28 @@
 
       /* ===== MOBILE ===== */
       @media (max-width: 900px) {
-        .archive-hero { padding: 60px 6% 40px; }
-        .archive-hero h1 { font-size: 36px; }
+        .archive-hero { padding: 48px 6% 36px; }
+        .archive-hero h1 { font-size: 34px; }
+        .archive-hero .lede { font-size: 1rem; }
         .facts-strip {
           grid-template-columns: 1fr;
-          padding: 32px 6%;
+          padding: 28px 6%;
+          gap: 14px;
         }
-        .section { padding: 60px 6%; }
+        .fact { padding: 18px; }
+        .section { padding: 56px 6%; }
         .section h2 { font-size: 26px; }
         .highlights { grid-template-columns: repeat(2, 1fr); }
+        .section-nav { top: 70px; }
+        .section-nav-inner { padding: 10px 16px; }
+        body.has-mobile-cta { padding-bottom: 88px; }
+        .mobile-cta-bar { display: block; }
+        .secondary-btn { padding: 12px 22px; font-size: 0.95rem; }
       }
       @media (max-width: 520px) {
         .highlights { grid-template-columns: 1fr; }
+        .archive-hero h1 { font-size: 30px; }
+        .cover-image { aspect-ratio: 4 / 3; }
       }
     </style>
   </head>
@@ -358,10 +501,13 @@
       ===========================================================
     -->
 
+    <a href="#main" class="skip-link">Skip to content</a>
+
     <!-- SITE NAVBAR -->
     <header class="header-area header-sticky" id="nav-placeholder"></header>
 
 
+    <main id="main">
     <!-- ============ HERO ============ -->
     <section class="archive-hero">
       <!-- EDIT: small pill above the title -->
@@ -381,15 +527,47 @@
 
       <div class="cover-image" role="img" aria-label="The Archive event"></div>
 
-      <!-- EDIT: button label -->
-      <a href="#signup" class="register-btn">
-        Register Now
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M5 12h14M13 5l7 7-7 7"/>
-        </svg>
-      </a>
-      <!-- /EDIT -->
+      <div class="cta-row">
+        <!-- EDIT: button label -->
+        <a href="#signup" class="register-btn">
+          Register Now
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M5 12h14M13 5l7 7-7 7"/>
+          </svg>
+        </a>
+        <!-- /EDIT -->
+
+        <!-- EDIT: Add to Calendar opens Google Calendar with the event pre-filled.
+                   To change the event in the calendar invite, update the dates
+                   (in YYYYMMDDTHHMMSS format, Singapore time = SGT) and text below. -->
+        <a class="secondary-btn"
+           href="https://www.google.com/calendar/render?action=TEMPLATE&text=The+Archive+%C2%B7+Impact+Colliders&dates=20260725T030000Z/20260725T045500Z&details=An+interactive+community+storytelling+exhibition+by+Impact+Colliders.+More+info%3A+https%3A%2F%2Fwww.impactcolliders.com%2Fthearchive&location=10+Square+%40+Orchard+Central%2C+181+Orchard+Road%2C+%2310-01%2C+Singapore+238896"
+           target="_blank" rel="noopener" aria-label="Add to Google Calendar">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+            <line x1="12" y1="14" x2="12" y2="18"/>
+            <line x1="10" y1="16" x2="14" y2="16"/>
+          </svg>
+          Add to Calendar
+        </a>
+        <!-- /EDIT -->
+      </div>
     </section>
+
+
+    <!-- ============ QUICK-JUMP NAV ============ -->
+    <nav class="section-nav" aria-label="Page sections">
+      <div class="section-nav-inner">
+        <a href="#about">About</a>
+        <a href="#expect">What to Expect</a>
+        <a href="#signup">Register</a>
+        <a href="#location">Location</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
 
 
     <!-- ============ KEY FACTS ============ -->
@@ -429,7 +607,7 @@
 
 
     <!-- ============ ABOUT ============ -->
-    <section class="section bg-white">
+    <section class="section bg-white" id="about">
       <h2>About the Event</h2>
       <div class="content">
         <!-- EDIT: about paragraphs -->
@@ -457,7 +635,7 @@
 
 
     <!-- ============ WHAT TO EXPECT ============ -->
-    <section class="section">
+    <section class="section" id="expect">
       <h2>What to Expect</h2>
       <!-- EDIT: highlight tiles. Copy or delete a whole
                  <div class="highlight"> block to add or remove. -->
@@ -522,13 +700,17 @@
 
 
     <!-- ============ LOCATION ============ -->
-    <section class="section">
+    <section class="section" id="location">
       <h2>Location</h2>
       <div class="location-card">
         <div class="location-text">
-          <!-- EDIT: venue + full address -->
-          <strong>10 Square @ Orchard Central</strong>
-          <div class="addr">181 Orchard Road, #10-01, Singapore 238896</div>
+          <!-- EDIT: venue + full address. Clicking opens Google Maps. -->
+          <a href="https://www.google.com/maps/dir/?api=1&destination=10+Square+%40+Orchard+Central%2C+181+Orchard+Road%2C+%2310-01%2C+Singapore+238896"
+             target="_blank" rel="noopener"
+             style="color: inherit; text-decoration: none;">
+            <strong>10 Square @ Orchard Central</strong>
+            <div class="addr">181 Orchard Road, #10-01, Singapore 238896 ↗</div>
+          </a>
           <!-- /EDIT -->
 
           <!-- EDIT: travel tip -->
@@ -595,7 +777,7 @@
 
 
     <!-- ============ CONTACT ============ -->
-    <section class="section">
+    <section class="section" id="contact">
       <h2>Contact</h2>
       <div class="contact-block">
         <!-- EDIT: contact lines -->
@@ -608,6 +790,20 @@
         <!-- /EDIT -->
       </div>
     </section>
+
+
+    </main>
+
+
+    <!-- STICKY MOBILE CTA -->
+    <div class="mobile-cta-bar" id="mobileCtaBar" aria-hidden="true">
+      <a href="#signup" class="register-btn">
+        Register Now
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 12h14M13 5l7 7-7 7"/>
+        </svg>
+      </a>
+    </div>
 
 
     <!-- SITE FOOTER -->
@@ -635,6 +831,33 @@
             window.prompt("Copy this link:", url);
           }
         });
+      })();
+
+      // Sticky mobile CTA: show after the user scrolls past the hero CTA,
+      // hide once they reach the Registration section (the embed itself is the CTA there).
+      (function () {
+        var bar = document.getElementById("mobileCtaBar");
+        var signup = document.getElementById("signup");
+        if (!bar || !signup) return;
+
+        // Only activate on small screens
+        var mq = window.matchMedia("(max-width: 900px)");
+        if (!mq.matches) return;
+
+        document.body.classList.add("has-mobile-cta");
+
+        var hero = document.querySelector(".archive-hero");
+        function update() {
+          var heroBottom = hero ? hero.getBoundingClientRect().bottom : 0;
+          var signupTop = signup.getBoundingClientRect().top;
+          var vh = window.innerHeight;
+          var shouldShow = heroBottom < 0 && signupTop > vh * 0.4;
+          bar.classList.toggle("show", shouldShow);
+          bar.setAttribute("aria-hidden", shouldShow ? "false" : "true");
+        }
+        window.addEventListener("scroll", update, { passive: true });
+        window.addEventListener("resize", update);
+        update();
       })();
     </script>
 
