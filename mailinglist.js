@@ -15,9 +15,16 @@
         font-family: "Poppins", sans-serif;
       }
 
+      #contact-us .container {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 0;
+        width: 100%;
+      }
+
       .footer-grid {
         display: grid;
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, minmax(0, 1fr));
         gap: 60px;
       }
 
@@ -104,9 +111,15 @@
         text-align: center;
       }
 
+      .footer-bottom a {
+        display: inline-block;
+        text-decoration: none;
+      }
+
       .footer-bottom img {
         height: 40px;
         margin-bottom: 12px;
+        display: block;
       }
 
       .footer-bottom p {
@@ -170,7 +183,6 @@
             <li><a href="/ehhowahproduct">Product</a></li>
             <li><a href="https://www.impactcolliders.com/ehhowah">Pseudo Apps</a></li>
             <li><a href="/corporaterelations">Corporate Relations</a></li>
-            <li><a href="/press-releases">Press Releases</a></li>
           </ul>
         </div>
 
@@ -226,7 +238,9 @@
       <hr class="footer-divider">
 
       <div class="footer-bottom">
-        <img src="/assets/images/Impact Colliders_White.png" alt="Impact Colliders Logo">
+        <a href="/" aria-label="Impact Colliders home">
+          <img src="/assets/images/Impact Colliders_White.png" alt="Impact Colliders Logo">
+        </a>
         <p>© 2026 Impact Colliders. All rights reserved.</p>
       </div>
     `;
