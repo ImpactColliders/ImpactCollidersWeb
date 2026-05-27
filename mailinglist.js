@@ -170,6 +170,7 @@
             <li><a href="/ehhowahproduct">Product</a></li>
             <li><a href="https://www.impactcolliders.com/ehhowah">Pseudo Apps</a></li>
             <li><a href="/corporaterelations">Corporate Relations</a></li>
+            <li><a href="/press-releases">Press Releases</a></li>
             <li><a href="/thearchive/">The Archive</a></li>
           </ul>
         </div>
