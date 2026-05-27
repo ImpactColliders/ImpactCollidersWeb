@@ -21,6 +21,9 @@
       rel="stylesheet"
     />
 
+    <!-- Font Awesome 4 — only loaded so the main-site footer's social icons render -->
+    <link rel="stylesheet" href="/assets/css/font-awesome.css" />
+
     <style>
       /* Minimal reset (replaces the main-site stylesheets we no longer load) */
       *, *::before, *::after { box-sizing: border-box; }
@@ -39,6 +42,7 @@
       :root {
         --ic-blue: #004aad;
         --ic-orange: #ff6522;
+        --ic-red: #ce3f2e;
         --brand: #ff6522;
         --brand-hover: #e6571a;
         --text: #14110f;
@@ -89,10 +93,8 @@
         position: sticky;
         top: 0;
         z-index: 100;
-        background: rgba(255, 255, 255, 0.92);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        border-bottom: 1px solid var(--border-soft);
+        background: var(--ic-red);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
       }
       .archive-nav-inner {
         max-width: 1080px;
@@ -106,28 +108,27 @@
       .archive-brand {
         display: inline-flex;
         align-items: center;
-        gap: 10px;
-        color: var(--text);
+        gap: 12px;
+        color: #fff;
         font-weight: 600;
         font-size: 0.95rem;
         text-decoration: none;
       }
-      .archive-brand:hover { text-decoration: none; color: var(--text); }
-      .archive-brand img { height: 32px; width: auto; }
+      .archive-brand:hover { text-decoration: none; color: #fff; }
+      .archive-brand img { height: 36px; width: auto; }
       .archive-brand-mark {
         display: inline-flex;
         align-items: center;
-        gap: 6px;
-        color: var(--text-muted);
-        font-size: 0.82rem;
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 0.85rem;
       }
       .archive-brand-mark::before {
         content: "";
         display: inline-block;
         width: 1px;
-        height: 16px;
-        background: var(--border-soft);
-        margin: 0 4px;
+        height: 18px;
+        background: rgba(255, 255, 255, 0.4);
+        margin-right: 12px;
       }
       .nav-register {
         display: inline-flex;
@@ -152,32 +153,7 @@
         .archive-nav-inner { padding: 10px 16px; }
         .archive-brand-mark { display: none; }
         .nav-register { padding: 9px 18px; font-size: 0.88rem; }
-        .archive-brand img { height: 28px; }
-      }
-
-      /* ===== DEDICATED FOOTER ===== */
-      .archive-footer {
-        background: #14110f;
-        color: rgba(255, 255, 255, 0.7);
-        padding: 36px 24px;
-        text-align: center;
-        font-size: 0.9rem;
-      }
-      .archive-footer a {
-        color: #fff;
-        font-weight: 500;
-      }
-      .archive-footer .footer-row {
-        max-width: 760px;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        align-items: center;
-      }
-      .archive-footer .copy {
-        color: rgba(255, 255, 255, 0.45);
-        font-size: 0.82rem;
+        .archive-brand img { height: 32px; }
       }
 
       /* Skip-to-content link for keyboard users */
@@ -611,7 +587,7 @@
       <div class="archive-nav-inner">
         <!-- EDIT: brand block. Logo links back to main Impact Colliders site. -->
         <a class="archive-brand" href="https://www.impactcolliders.com" aria-label="Impact Colliders home">
-          <img src="/assets/images/Impact Colliders_Black.png" alt="Impact Colliders" />
+          <img src="/assets/images/Impact Colliders_White.png" alt="Impact Colliders" />
           <span class="archive-brand-mark">The Archive</span>
         </a>
         <!-- /EDIT -->
@@ -887,18 +863,9 @@
     </div>
 
 
-    <!-- DEDICATED FOOTER -->
-    <footer class="archive-footer">
-      <div class="footer-row">
-        <!-- EDIT: footer links -->
-        <div>
-          <a href="https://www.impactcolliders.com">impactcolliders.com</a>
-          &nbsp;·&nbsp;
-          <a href="mailto:avinteo@impactcolliders.com">avinteo@impactcolliders.com</a>
-        </div>
-        <div class="copy">© 2026 Impact Colliders · The Archive</div>
-        <!-- /EDIT -->
-      </div>
+    <!-- MAIN-SITE FOOTER (injected by mailinglist.js) -->
+    <footer id="contact-us">
+      <div class="container" id="contact-container"></div>
     </footer>
 
 
@@ -980,5 +947,8 @@
     </script>
     <noscript><img height="1" width="1" style="display:none"
       src="https://www.facebook.com/tr?id=1501219458149424&ev=PageView&noscript=1" alt="" /></noscript>
+
+    <!-- Main-site footer injector -->
+    <script src="/mailinglist.js"></script>
   </body>
 </html>
