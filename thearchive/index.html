@@ -174,17 +174,28 @@
         text-decoration: none;
         transform: translateY(-1px);
       }
-      @media (max-width: 700px) {
-        .archive-nav-inner { padding: 10px 14px; gap: 8px; }
+      @media (max-width: 820px) {
+        .archive-nav-inner {
+          flex-wrap: wrap;
+          padding: 10px 16px;
+          gap: 10px;
+        }
         .archive-brand-mark { display: none; }
+        .archive-brand { order: 1; }
+        .nav-register { order: 2; padding: 8px 16px; font-size: 0.85rem; }
+        .archive-nav-links {
+          order: 3;
+          width: 100%;
+          justify-content: center;
+          margin: 4px 0 2px;
+          gap: 18px;
+        }
         .archive-brand img { height: 30px; }
-        .archive-nav-links { gap: 14px; }
-        .archive-nav-links a { font-size: 0.82rem; }
-        .nav-register { padding: 8px 14px; font-size: 0.82rem; }
+        .archive-nav-links a { font-size: 0.86rem; }
       }
-      @media (max-width: 360px) {
-        .archive-nav-links { gap: 10px; }
-        .archive-nav-links a { font-size: 0.78rem; }
+      @media (max-width: 380px) {
+        .archive-nav-links { gap: 12px; }
+        .archive-nav-links a { font-size: 0.8rem; }
       }
 
       /* Skip-to-content link for keyboard users */
@@ -627,6 +638,7 @@
           <li><a href="/thearchive/" aria-current="page">Home</a></li>
           <li><a href="/thearchive/sponsors">Sponsors</a></li>
           <li><a href="/thearchive/referrals">Referrals</a></li>
+          <li><a href="/press-releases">Press Releases</a></li>
         </ul>
 
         <a class="nav-register" href="#signup">Register</a>
