@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="Ticketing — pay by cash and reserve your slot for The Archive by Impact Colliders."
+    />
+    <meta name="author" content="Impact Colliders" />
+    <!-- Hidden page: not linked in the main navigation. -->
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Ticketing · The Archive · Impact Colliders</title>
+
+    <link rel="icon" href="/assets/images/logo.jpg" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome 4 — only loaded so the main-site footer's social icons render -->
+    <link rel="stylesheet" href="/assets/css/font-awesome.css" />
+
+    <style>
+      *, *::before, *::after { box-sizing: border-box; }
+      html, body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, figure, blockquote, dl, dd { margin: 0; padding: 0; }
+      img, svg, iframe { display: block; max-width: 100%; }
+      button { font: inherit; }
+
+      :root {
+        --ic-blue: #004aad;
+        --ic-orange: #ff6522;
+        --ic-red: #ce3f2e;
+        --brand: #ff6522;
+        --brand-hover: #e6571a;
+        --text: #14110f;
+        --text-muted: #666;
+        --border-soft: #e9e6e0;
+      }
+
+      html { scroll-behavior: smooth; }
+      @media (prefers-reduced-motion: reduce) {
+        html { scroll-behavior: auto; }
+      }
+
+      body {
+        font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, sans-serif;
+        background: #f5f5f5;
+        color: var(--text);
+        margin: 0;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      img, iframe { max-width: 100%; }
+
+      a { color: var(--ic-blue); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      a:focus-visible,
+      button:focus-visible {
+        outline: 3px solid var(--ic-blue);
+        outline-offset: 3px;
+        border-radius: 6px;
+      }
+
+      section[id] { scroll-margin-top: 80px; }
+
+      /* ===== DEDICATED NAV (matches index.html) ===== */
+      .archive-nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: var(--ic-red);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+      .archive-nav-inner {
+        max-width: 1080px;
+        margin: 0 auto;
+        padding: 12px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      .archive-brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        color: #fff;
+        font-weight: 600;
+        font-size: 0.95rem;
+        text-decoration: none;
+      }
+      .archive-brand:hover { text-decoration: none; color: #fff; }
+      .archive-brand img { height: 36px; width: auto; }
+      .archive-brand-mark {
+        display: inline-flex;
+        align-items: center;
+        color: rgba(255, 255, 255, 0.82);
+        font-size: 0.85rem;
+      }
+      .archive-brand-mark::before {
+        content: "";
+        display: inline-block;
+        width: 1px;
+        height: 18px;
+        background: rgba(255, 255, 255, 0.4);
+        margin-right: 12px;
+      }
+      .archive-nav-links {
+        display: flex;
+        gap: 26px;
+        list-style: none;
+        margin: 0 auto;
+        padding: 0;
+      }
+      .archive-nav-links a {
+        color: rgba(255, 255, 255, 0.82);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.92rem;
+        padding: 6px 0;
+        border-bottom: 2px solid transparent;
+        transition: color 0.15s ease, border-color 0.15s ease;
+      }
+      .archive-nav-links a:hover {
+        color: #fff;
+        text-decoration: none;
+        border-color: rgba(255, 255, 255, 0.5);
+      }
+      .nav-register {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--brand);
+        color: #fff;
+        padding: 10px 22px;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 0.92rem;
+        text-decoration: none;
+        transition: background 0.15s ease, transform 0.15s ease;
+      }
+      .nav-register:hover {
+        background: var(--brand-hover);
+        color: #fff;
+        text-decoration: none;
+        transform: translateY(-1px);
+      }
+      @media (max-width: 820px) {
+        .archive-nav-inner {
+          flex-wrap: wrap;
+          padding: 10px 16px;
+          gap: 10px;
+        }
+        .archive-brand-mark { display: none; }
+        .archive-brand { order: 1; }
+        .nav-register { order: 2; padding: 8px 16px; font-size: 0.85rem; }
+        .archive-nav-links {
+          order: 3;
+          width: 100%;
+          justify-content: center;
+          margin: 4px 0 2px;
+          gap: 18px;
+        }
+        .archive-brand img { height: 30px; }
+        .archive-nav-links a { font-size: 0.86rem; }
+      }
+
+      .skip-link {
+        position: absolute;
+        left: -9999px;
+        top: 0;
+        background: var(--ic-blue);
+        color: #fff;
+        padding: 10px 16px;
+        border-radius: 6px;
+        z-index: 2000;
+        font-weight: 600;
+      }
+      .skip-link:focus {
+        left: 12px;
+        top: 12px;
+        text-decoration: none;
+      }
+
+      /* ===== PAGE HEADER ===== */
+      .page-header {
+        padding: 60px 10% 30px;
+        text-align: center;
+        background: #fff;
+      }
+      .page-header h1 {
+        font-size: 40px;
+        font-weight: 700;
+        color: var(--ic-blue);
+        margin: 0 0 12px;
+        line-height: 1.15;
+      }
+      .page-header p {
+        max-width: 620px;
+        margin: 0 auto;
+        color: var(--text-muted);
+        font-size: 1.02rem;
+      }
+      .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.9rem;
+        color: var(--ic-blue);
+        margin-bottom: 18px;
+      }
+      .back-link svg { width: 16px; height: 16px; }
+
+      /* ===== SECTIONS ===== */
+      .section {
+        padding: 56px 10%;
+      }
+      .section.bg-white { background: #fff; }
+      .section h2 {
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--ic-blue);
+        text-align: center;
+        margin: 0 0 14px;
+      }
+      .section .section-sub {
+        text-align: center;
+        max-width: 700px;
+        margin: 0 auto 40px;
+        color: var(--text-muted);
+      }
+
+      /* ===== STEP NUMBERS ===== */
+      .step-eyebrow {
+        display: inline-block;
+        background: rgba(0, 74, 173, 0.08);
+        color: var(--ic-blue);
+        padding: 4px 14px;
+        border-radius: 999px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        margin-bottom: 12px;
+      }
+
+      /* ===== PAYMENT INSTRUCTIONS ===== */
+      .pay-card {
+        max-width: 880px;
+        margin: 0 auto;
+        background: #fff;
+        border-radius: 16px;
+        padding: 32px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        align-items: center;
+      }
+      .pay-info p {
+        color: var(--text-muted);
+        margin-bottom: 14px;
+        line-height: 1.7;
+      }
+      .pay-info p:last-child { margin-bottom: 0; }
+      .pay-detail {
+        background: #fafafa;
+        border: 1px solid var(--border-soft);
+        border-radius: 12px;
+        padding: 14px 18px;
+        margin-bottom: 12px;
+      }
+      .pay-detail-label {
+        display: block;
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-bottom: 2px;
+      }
+      .pay-detail-value {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text);
+        word-break: break-all;
+      }
+      .pay-detail-value a {
+        color: var(--text);
+        text-decoration: none;
+      }
+      .pay-detail-value a:hover { text-decoration: underline; }
+      .pay-note {
+        font-size: 0.88rem;
+        color: var(--text-muted);
+        font-style: italic;
+      }
+      .pay-qr {
+        text-align: center;
+      }
+      .pay-qr img {
+        width: 100%;
+        max-width: 260px;
+        margin: 0 auto;
+        border-radius: 12px;
+        border: 1px solid var(--border-soft);
+        background: #fafafa;
+      }
+      .pay-qr-fallback {
+        width: 100%;
+        max-width: 260px;
+        aspect-ratio: 1 / 1;
+        margin: 0 auto;
+        border-radius: 12px;
+        border: 2px dashed var(--border-soft);
+        background: #fafafa;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        text-align: center;
+        padding: 16px;
+      }
+      .pay-qr-caption {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        margin-top: 10px;
+      }
+      @media (max-width: 760px) {
+        .pay-card {
+          grid-template-columns: 1fr;
+          padding: 24px;
+        }
+      }
+
+      /* ===== SLOT PICKER ===== */
+      .slot-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        max-width: 820px;
+        margin: 0 auto 36px;
+      }
+      .slot-btn {
+        display: block;
+        text-align: left;
+        background: #fff;
+        border: 2px solid var(--border-soft);
+        border-radius: 14px;
+        padding: 18px 20px;
+        cursor: pointer;
+        font-family: inherit;
+        color: var(--text);
+        transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+        width: 100%;
+      }
+      .slot-btn:hover {
+        border-color: var(--brand);
+        transform: translateY(-1px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+      }
+      .slot-btn[aria-pressed="true"] {
+        border-color: var(--brand);
+        background: rgba(255, 101, 34, 0.06);
+        box-shadow: 0 8px 24px rgba(255, 101, 34, 0.12);
+      }
+      .slot-date {
+        display: block;
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--brand);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        margin-bottom: 4px;
+      }
+      .slot-time {
+        display: block;
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 2px;
+      }
+      .slot-meal {
+        display: block;
+        font-size: 0.88rem;
+        color: var(--text-muted);
+      }
+      @media (max-width: 720px) {
+        .slot-grid { grid-template-columns: 1fr; }
+      }
+
+      /* ===== LUMA EMBED ===== */
+      .luma-wrap {
+        max-width: 820px;
+        margin: 0 auto;
+        background: #fff;
+        border-radius: 16px;
+        padding: 24px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+        text-align: center;
+      }
+      .luma-wrap.is-empty {
+        padding: 48px 24px;
+        color: var(--text-muted);
+      }
+      .luma-frame {
+        display: none;
+      }
+      .luma-frame.is-active {
+        display: block;
+      }
+      .luma-frame iframe {
+        width: 100%;
+        max-width: 600px;
+        height: 450px;
+        margin: 0 auto;
+      }
+
+      /* ===== INLINE QR ON SLOT ===== */
+      .slot-qr-reminder {
+        max-width: 600px;
+        margin: 20px auto 0;
+        padding: 18px;
+        background: #fafafa;
+        border: 1px solid var(--border-soft);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        text-align: left;
+      }
+      .slot-qr-reminder img,
+      .slot-qr-reminder .pay-qr-fallback {
+        width: 96px;
+        height: 96px;
+        max-width: 96px;
+        margin: 0;
+        flex-shrink: 0;
+        font-size: 0.7rem;
+      }
+      .slot-qr-reminder-text {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+      .slot-qr-reminder-text strong {
+        display: block;
+        color: var(--text);
+        margin-bottom: 2px;
+      }
+
+      @media (max-width: 900px) {
+        .page-header { padding: 40px 24px 20px; }
+        .page-header h1 { font-size: 30px; }
+        .section { padding: 40px 20px; }
+        .section h2 { font-size: 22px; }
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <!-- DEDICATED NAV (matches index.html) -->
+    <nav class="archive-nav" aria-label="The Archive">
+      <div class="archive-nav-inner">
+        <a class="archive-brand" href="/thearchive/" aria-label="The Archive home">
+          <img src="/assets/images/Impact Colliders_White.png" alt="Impact Colliders" />
+          <span class="archive-brand-mark">The Archive</span>
+        </a>
+
+        <ul class="archive-nav-links" role="list">
+          <li><a href="/thearchive/">Home</a></li>
+          <li><a href="/thearchive/sponsors">Sponsors</a></li>
+          <li><a href="/thearchive/referrals">Referrals</a></li>
+          <li><a href="/press-releases">Press Releases</a></li>
+        </ul>
+
+        <a class="nav-register" href="/thearchive/#signup">Register</a>
+      </div>
+    </nav>
+
+    <main id="main">
+
+      <!-- ============ HEADER ============ -->
+      <section class="page-header">
+        <a class="back-link" href="/thearchive/#signup">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          Back to The Archive
+        </a>
+        <h1>Ticketing</h1>
+        <p>
+          Pay by cash and reserve your preferred slot. Complete payment first,
+          then pick your session below to register on Luma.
+        </p>
+      </section>
+
+      <!-- ============ STEP 1: PAYMENT ============ -->
+      <section class="section bg-white" id="payment">
+        <div style="text-align:center;">
+          <span class="step-eyebrow">Step 1</span>
+        </div>
+        <h2>Make Payment</h2>
+        <p class="section-sub">
+          Please make payment to Impact Colliders via UEN or by scanning the QR
+          code. After payment, send proof of payment via WhatsApp.
+        </p>
+
+        <div class="pay-card">
+          <div class="pay-info">
+            <div class="pay-detail">
+              <span class="pay-detail-label">PayNow UEN</span>
+              <span class="pay-detail-value">T25LL0556E</span>
+            </div>
+            <div class="pay-detail">
+              <span class="pay-detail-label">Payee</span>
+              <span class="pay-detail-value">Impact Colliders</span>
+            </div>
+            <div class="pay-detail">
+              <span class="pay-detail-label">Proof of payment via WhatsApp</span>
+              <span class="pay-detail-value">
+                <a href="https://wa.me/6588370379" target="_blank" rel="noopener">+65 8837 0379</a>
+              </span>
+            </div>
+            <p class="pay-note">
+              Alternatively, you may pay through Luma when registering below,
+              though this includes a 5% payment processing fee.
+            </p>
+          </div>
+          <div class="pay-qr">
+            <!--
+              EDIT: drop the PayNow QR image at /assets/images/archive-payment-qr.png
+              and it will replace the placeholder below.
+            -->
+            <img
+              src="/assets/images/archive-payment-qr.png"
+              alt="PayNow QR code for Impact Colliders (UEN T25LL0556E)"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+            />
+            <div class="pay-qr-fallback" style="display:none;">
+              QR code image goes here<br/>(/assets/images/archive-payment-qr.png)
+            </div>
+            <div class="pay-qr-caption">Scan to pay via PayNow</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ STEP 2: SLOT + LUMA ============ -->
+      <section class="section" id="slots">
+        <div style="text-align:center;">
+          <span class="step-eyebrow">Step 2</span>
+        </div>
+        <h2>Choose Your Slot</h2>
+        <p class="section-sub">
+          Pick the session you'd like to attend. The Luma registration for that
+          slot will appear below.
+        </p>
+
+        <div class="slot-grid" role="group" aria-label="Choose your event slot">
+          <button type="button" class="slot-btn" data-slot="1" aria-pressed="false">
+            <span class="slot-date">Sun, 26 Jul 2026</span>
+            <span class="slot-time">1:30 PM &ndash; 4:00 PM</span>
+            <span class="slot-meal">Lunch included</span>
+          </button>
+          <button type="button" class="slot-btn" data-slot="2" aria-pressed="false">
+            <span class="slot-date">Sun, 26 Jul 2026</span>
+            <span class="slot-time">5:00 PM &ndash; 7:30 PM</span>
+            <span class="slot-meal">Dinner included</span>
+          </button>
+          <button type="button" class="slot-btn" data-slot="3" aria-pressed="false">
+            <span class="slot-date">Sun, 2 Aug 2026</span>
+            <span class="slot-time">1:30 PM &ndash; 4:00 PM</span>
+            <span class="slot-meal">Lunch included</span>
+          </button>
+          <button type="button" class="slot-btn" data-slot="4" aria-pressed="false">
+            <span class="slot-date">Sun, 2 Aug 2026</span>
+            <span class="slot-time">5:00 PM &ndash; 7:30 PM</span>
+            <span class="slot-meal">Dinner included</span>
+          </button>
+        </div>
+
+        <div class="luma-wrap is-empty" id="lumaWrap">
+          <div id="lumaEmpty">Select a slot above to load its registration form.</div>
+
+          <div class="luma-frame" data-slot="1">
+            <iframe
+              src="https://luma.com/embed/event/evt-ThasYw0lspElw3C/simple"
+              width="600"
+              height="450"
+              frameborder="0"
+              style="border: 1px solid #bfcbda88; border-radius: 4px;"
+              allow="fullscreen; payment"
+              aria-hidden="false"
+              tabindex="0"
+              loading="lazy"
+              title="Luma registration — Sun 26 Jul, 1:30 PM"
+            ></iframe>
+            <div class="slot-qr-reminder">
+              <img
+                src="/assets/images/archive-payment-qr.png"
+                alt="PayNow QR code (UEN T25LL0556E)"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <div class="pay-qr-fallback" style="display:none;">QR<br/>placeholder</div>
+              <div class="slot-qr-reminder-text">
+                <strong>Don't forget to pay</strong>
+                PayNow UEN <strong style="display:inline;">T25LL0556E</strong> &middot; send proof to
+                <a href="https://wa.me/6588370379" target="_blank" rel="noopener">+65 8837 0379</a>.
+              </div>
+            </div>
+          </div>
+
+          <div class="luma-frame" data-slot="2">
+            <iframe
+              src="https://luma.com/embed/event/evt-7Eiva0rYoEzAACI/simple"
+              width="600"
+              height="450"
+              frameborder="0"
+              style="border: 1px solid #bfcbda88; border-radius: 4px;"
+              allow="fullscreen; payment"
+              aria-hidden="false"
+              tabindex="0"
+              loading="lazy"
+              title="Luma registration — Sun 26 Jul, 5:00 PM"
+            ></iframe>
+            <div class="slot-qr-reminder">
+              <img
+                src="/assets/images/archive-payment-qr.png"
+                alt="PayNow QR code (UEN T25LL0556E)"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <div class="pay-qr-fallback" style="display:none;">QR<br/>placeholder</div>
+              <div class="slot-qr-reminder-text">
+                <strong>Don't forget to pay</strong>
+                PayNow UEN <strong style="display:inline;">T25LL0556E</strong> &middot; send proof to
+                <a href="https://wa.me/6588370379" target="_blank" rel="noopener">+65 8837 0379</a>.
+              </div>
+            </div>
+          </div>
+
+          <div class="luma-frame" data-slot="3">
+            <iframe
+              src="https://luma.com/embed/event/evt-kCxHcQSctGWkWVE/simple"
+              width="600"
+              height="450"
+              frameborder="0"
+              style="border: 1px solid #bfcbda88; border-radius: 4px;"
+              allow="fullscreen; payment"
+              aria-hidden="false"
+              tabindex="0"
+              loading="lazy"
+              title="Luma registration — Sun 2 Aug, 1:30 PM"
+            ></iframe>
+            <div class="slot-qr-reminder">
+              <img
+                src="/assets/images/archive-payment-qr.png"
+                alt="PayNow QR code (UEN T25LL0556E)"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <div class="pay-qr-fallback" style="display:none;">QR<br/>placeholder</div>
+              <div class="slot-qr-reminder-text">
+                <strong>Don't forget to pay</strong>
+                PayNow UEN <strong style="display:inline;">T25LL0556E</strong> &middot; send proof to
+                <a href="https://wa.me/6588370379" target="_blank" rel="noopener">+65 8837 0379</a>.
+              </div>
+            </div>
+          </div>
+
+          <div class="luma-frame" data-slot="4">
+            <iframe
+              src="https://luma.com/embed/event/evt-DhPz2A3u1ZMwBxJ/simple"
+              width="600"
+              height="450"
+              frameborder="0"
+              style="border: 1px solid #bfcbda88; border-radius: 4px;"
+              allow="fullscreen; payment"
+              aria-hidden="false"
+              tabindex="0"
+              loading="lazy"
+              title="Luma registration — Sun 2 Aug, 5:00 PM"
+            ></iframe>
+            <div class="slot-qr-reminder">
+              <img
+                src="/assets/images/archive-payment-qr.png"
+                alt="PayNow QR code (UEN T25LL0556E)"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+              />
+              <div class="pay-qr-fallback" style="display:none;">QR<br/>placeholder</div>
+              <div class="slot-qr-reminder-text">
+                <strong>Don't forget to pay</strong>
+                PayNow UEN <strong style="display:inline;">T25LL0556E</strong> &middot; send proof to
+                <a href="https://wa.me/6588370379" target="_blank" rel="noopener">+65 8837 0379</a>.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- MAIN-SITE FOOTER (injected by mailinglist.js) -->
+    <footer id="contact-us">
+      <div class="container" id="contact-container"></div>
+    </footer>
+
+    <script>
+      (function () {
+        var buttons = document.querySelectorAll(".slot-btn");
+        var frames = document.querySelectorAll(".luma-frame");
+        var wrap = document.getElementById("lumaWrap");
+        var empty = document.getElementById("lumaEmpty");
+
+        function selectSlot(slot) {
+          buttons.forEach(function (b) {
+            b.setAttribute("aria-pressed", b.dataset.slot === slot ? "true" : "false");
+          });
+          var found = false;
+          frames.forEach(function (f) {
+            if (f.dataset.slot === slot) {
+              f.classList.add("is-active");
+              found = true;
+            } else {
+              f.classList.remove("is-active");
+            }
+          });
+          if (found) {
+            wrap.classList.remove("is-empty");
+            if (empty) empty.style.display = "none";
+          } else {
+            wrap.classList.add("is-empty");
+            if (empty) empty.style.display = "";
+          }
+        }
+
+        buttons.forEach(function (b) {
+          b.addEventListener("click", function () {
+            selectSlot(b.dataset.slot);
+            var wrapEl = document.getElementById("lumaWrap");
+            if (wrapEl && wrapEl.scrollIntoView) {
+              wrapEl.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+          });
+        });
+      })();
+    </script>
+
+    <!-- Meta Pixel -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1501219458149424');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1501219458149424&ev=PageView&noscript=1" alt="" /></noscript>
+
+    <!-- Main-site footer injector -->
+    <script src="/mailinglist.js"></script>
+  </body>
+</html>

@@ -488,6 +488,93 @@
         .signup-embed, .signup-embed iframe { min-height: 560px; }
       }
 
+      /* ===== PAYMENT METHOD CARDS ===== */
+      .payment-options {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+        max-width: 820px;
+        margin: 0 auto;
+      }
+      .payment-card {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        background: #fff;
+        border: 2px solid var(--border-soft);
+        border-radius: 16px;
+        padding: 22px 24px;
+        text-decoration: none;
+        color: var(--text);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+        transition: border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+        position: relative;
+      }
+      .payment-card:hover {
+        border-color: var(--brand);
+        color: var(--text);
+        text-decoration: none;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
+      }
+      .payment-card.is-disabled {
+        opacity: 0.65;
+        cursor: not-allowed;
+        background: #fafafa;
+      }
+      .payment-card.is-disabled:hover {
+        border-color: var(--border-soft);
+        transform: none;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+      }
+      .payment-card-icon {
+        width: 52px;
+        height: 52px;
+        border-radius: 12px;
+        background: rgba(255, 101, 34, 0.12);
+        color: var(--brand);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .payment-card-icon svg { width: 26px; height: 26px; }
+      .payment-card-text {
+        flex: 1;
+        min-width: 0;
+      }
+      .payment-card-text strong {
+        display: block;
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 2px;
+      }
+      .payment-card-text span {
+        font-size: 0.9rem;
+        color: var(--text-muted);
+      }
+      .payment-card-arrow {
+        color: var(--brand);
+        flex-shrink: 0;
+      }
+      .payment-card-arrow svg { width: 22px; height: 22px; }
+      .payment-card-tag {
+        font-size: 0.7rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--text-muted);
+        background: #fff;
+        border: 1px solid var(--border-soft);
+        padding: 4px 10px;
+        border-radius: 999px;
+        flex-shrink: 0;
+      }
+      @media (max-width: 720px) {
+        .payment-options { grid-template-columns: 1fr; }
+      }
+
       /* ===== LOCATION ===== */
       .location-card {
         max-width: 900px;
@@ -791,23 +878,37 @@
       </p>
       <!-- /EDIT -->
 
-      <div class="signup-wrap">
-        <div class="signup-embed">
-          <!--
-            EDIT: Luma event embed.
+      <div class="payment-options">
+        <a class="payment-card" href="/thearchive/ticketing">
+          <div class="payment-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="6" width="20" height="12" rx="2" ry="2"/>
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M6 12h.01M18 12h.01"/>
+            </svg>
+          </div>
+          <div class="payment-card-text">
+            <strong>Payment by Cash</strong>
+            <span>Pay via PayNow / bank transfer and choose your slot.</span>
+          </div>
+          <div class="payment-card-arrow" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 5l7 7-7 7"/>
+            </svg>
+          </div>
+        </a>
 
-            To find your event ID:
-              1. Open your event page on Luma (e.g. https://lu.ma/abc1234)
-              2. The ID is the short code after "lu.ma/" — e.g. "abc1234"
-
-            Replace "YOUR_LUMA_EVENT_ID" below.
-          -->
-          <iframe
-            src="https://lu.ma/embed/event/YOUR_LUMA_EVENT_ID/simple"
-            title="Sign up via Luma"
-            loading="lazy"
-            allowfullscreen
-          ></iframe>
+        <div class="payment-card is-disabled" aria-disabled="true">
+          <div class="payment-card-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M20 7L9 18l-5-5"/>
+            </svg>
+          </div>
+          <div class="payment-card-text">
+            <strong>Culture Pass</strong>
+            <span>Coming soon &mdash; redeem your SG Culture Pass credits.</span>
+          </div>
+          <div class="payment-card-tag">Coming soon</div>
         </div>
       </div>
     </section>
