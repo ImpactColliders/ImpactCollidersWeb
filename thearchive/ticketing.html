@@ -278,6 +278,14 @@
         border-radius: 12px;
         padding: 14px 18px;
         margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .pay-detail-main {
+        flex: 1;
+        min-width: 0;
       }
       .pay-detail-label {
         display: block;
@@ -561,11 +569,8 @@
         <h1>Ticketing</h1>
       </section>
 
-      <!-- ============ STEP 1: PAYMENT ============ -->
+      <!-- ============ PAYMENT BY PAYNOW ============ -->
       <section class="section bg-white" id="payment">
-        <div style="text-align:center;">
-          <span class="step-eyebrow">Step 1</span>
-        </div>
         <h2>Payment by PayNow</h2>
         <p class="section-sub">
           Please make payment to Impact Colliders LLP via UEN or by scanning the QR
@@ -575,25 +580,38 @@
         <div class="pay-card">
           <div class="pay-info">
             <div class="pay-detail">
-              <span class="pay-detail-label">PayNow UEN</span>
-              <span class="pay-detail-value">T25LL0556E</span>
+              <div class="pay-detail-main">
+                <span class="pay-detail-label">PayNow UEN</span>
+                <span class="pay-detail-value">T25LL0556E</span>
+              </div>
+              <button type="button" class="copy-num-btn" data-copy="T25LL0556E" aria-label="Copy PayNow UEN">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                </svg>
+                <span class="copy-num-label">Copy</span>
+              </button>
             </div>
             <div class="pay-detail">
-              <span class="pay-detail-label">Payee</span>
-              <span class="pay-detail-value">Impact Colliders LLP</span>
+              <div class="pay-detail-main">
+                <span class="pay-detail-label">Payee</span>
+                <span class="pay-detail-value">Impact Colliders LLP</span>
+              </div>
             </div>
             <div class="pay-detail">
-              <span class="pay-detail-label">Proof of payment via WhatsApp</span>
-              <span class="pay-detail-value">
-                <a href="https://wa.me/6588370379" target="_blank" rel="noopener">+65 8837 0379</a>
-                <button type="button" class="copy-num-btn" data-copy="+65 8837 0379" aria-label="Copy phone number">
-                  <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-                  </svg>
-                  <span class="copy-num-label">Copy</span>
-                </button>
-              </span>
+              <div class="pay-detail-main">
+                <span class="pay-detail-label">Proof of payment via WhatsApp</span>
+                <span class="pay-detail-value">
+                  <a href="https://wa.me/6588370379" target="_blank" rel="noopener">+65 8837 0379</a>
+                </span>
+              </div>
+              <button type="button" class="copy-num-btn" data-copy="+65 8837 0379" aria-label="Copy phone number">
+                <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                </svg>
+                <span class="copy-num-label">Copy</span>
+              </button>
             </div>
             <p class="pay-note">
               Alternatively, register via Luma (below) with a 5% processing
@@ -619,11 +637,8 @@
         </div>
       </section>
 
-      <!-- ============ STEP 2: SLOT + LUMA ============ -->
+      <!-- ============ PAYMENT BY CARD ============ -->
       <section class="section" id="slots">
-        <div style="text-align:center;">
-          <span class="step-eyebrow">Step 2</span>
-        </div>
         <h2>Payment by Card</h2>
         <p class="section-sub">
           Pick the session you'd like to attend. The Luma registration for that
