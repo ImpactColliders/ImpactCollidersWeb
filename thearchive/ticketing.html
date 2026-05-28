@@ -400,8 +400,14 @@
       }
 
       /* ===== LUMA EMBED ===== */
+      /* On desktop the #slots section shrinks its horizontal padding so
+         the embedded Luma form can use most of the viewport. */
+      #slots {
+        padding-left: max(20px, 2vw);
+        padding-right: max(20px, 2vw);
+      }
       .luma-wrap {
-        max-width: 820px;
+        max-width: 1400px;
         margin: 0 auto;
         background: #fff;
         border-radius: 16px;
@@ -421,9 +427,16 @@
       }
       .luma-frame iframe {
         width: 100%;
-        max-width: 600px;
-        height: 450px;
+        max-width: 100%;
+        height: 720px;
         margin: 0 auto;
+        display: block;
+      }
+      @media (max-width: 900px) {
+        .luma-frame iframe { height: 600px; }
+      }
+      @media (max-width: 600px) {
+        .luma-frame iframe { height: 540px; }
       }
 
       /* ===== INLINE QR ON SLOT ===== */
@@ -514,7 +527,7 @@
         </div>
         <h2>Make Payment</h2>
         <p class="section-sub">
-          Please make payment to Impact Colliders via UEN or by scanning the QR
+          Please make payment to Impact Colliders LLP via UEN or by scanning the QR
           code. After payment, send proof of payment via WhatsApp.
         </p>
 
@@ -526,7 +539,7 @@
             </div>
             <div class="pay-detail">
               <span class="pay-detail-label">Payee</span>
-              <span class="pay-detail-value">Impact Colliders</span>
+              <span class="pay-detail-value">Impact Colliders LLP</span>
             </div>
             <div class="pay-detail">
               <span class="pay-detail-label">Proof of payment via WhatsApp</span>
@@ -546,7 +559,7 @@
             -->
             <img
               src="/assets/images/archive-payment-qr.png"
-              alt="PayNow QR code for Impact Colliders (UEN T25LL0556E)"
+              alt="PayNow QR code for Impact Colliders LLP (UEN T25LL0556E)"
               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
             />
             <div class="pay-qr-fallback" style="display:none;">
@@ -572,22 +585,18 @@
           <button type="button" class="slot-btn" data-slot="1" aria-pressed="false">
             <span class="slot-date">Sun, 26 Jul 2026</span>
             <span class="slot-time">1:30 PM &ndash; 4:00 PM</span>
-            <span class="slot-meal">Lunch included</span>
           </button>
           <button type="button" class="slot-btn" data-slot="2" aria-pressed="false">
             <span class="slot-date">Sun, 26 Jul 2026</span>
             <span class="slot-time">5:00 PM &ndash; 7:30 PM</span>
-            <span class="slot-meal">Dinner included</span>
           </button>
           <button type="button" class="slot-btn" data-slot="3" aria-pressed="false">
             <span class="slot-date">Sun, 2 Aug 2026</span>
             <span class="slot-time">1:30 PM &ndash; 4:00 PM</span>
-            <span class="slot-meal">Lunch included</span>
           </button>
           <button type="button" class="slot-btn" data-slot="4" aria-pressed="false">
             <span class="slot-date">Sun, 2 Aug 2026</span>
             <span class="slot-time">5:00 PM &ndash; 7:30 PM</span>
-            <span class="slot-meal">Dinner included</span>
           </button>
         </div>
 
@@ -615,9 +624,12 @@
               />
               <div class="pay-qr-fallback" style="display:none;">QR<br/>placeholder</div>
               <div class="slot-qr-reminder-text">
-                <strong>Don't forget to pay</strong>
+                <strong>Paying by PayNow? Don't forget to pay</strong>
                 PayNow UEN <strong style="display:inline;">T25LL0556E</strong> &middot; send proof to
                 <a href="https://wa.me/6588370379" target="_blank" rel="noopener">+65 8837 0379</a>.
+                Ignore this if you intend to pay via Luma. For those paying
+                via PayNow, we'll follow up on WhatsApp for your email and send
+                your ticket within 2 working days.
               </div>
             </div>
           </div>
@@ -643,9 +655,12 @@
               />
               <div class="pay-qr-fallback" style="display:none;">QR<br/>placeholder</div>
               <div class="slot-qr-reminder-text">
-                <strong>Don't forget to pay</strong>
+                <strong>Paying by PayNow? Don't forget to pay</strong>
                 PayNow UEN <strong style="display:inline;">T25LL0556E</strong> &middot; send proof to
                 <a href="https://wa.me/6588370379" target="_blank" rel="noopener">+65 8837 0379</a>.
+                Ignore this if you intend to pay via Luma. For those paying
+                via PayNow, we'll follow up on WhatsApp for your email and send
+                your ticket within 2 working days.
               </div>
             </div>
           </div>
@@ -671,9 +686,12 @@
               />
               <div class="pay-qr-fallback" style="display:none;">QR<br/>placeholder</div>
               <div class="slot-qr-reminder-text">
-                <strong>Don't forget to pay</strong>
+                <strong>Paying by PayNow? Don't forget to pay</strong>
                 PayNow UEN <strong style="display:inline;">T25LL0556E</strong> &middot; send proof to
                 <a href="https://wa.me/6588370379" target="_blank" rel="noopener">+65 8837 0379</a>.
+                Ignore this if you intend to pay via Luma. For those paying
+                via PayNow, we'll follow up on WhatsApp for your email and send
+                your ticket within 2 working days.
               </div>
             </div>
           </div>
@@ -699,9 +717,12 @@
               />
               <div class="pay-qr-fallback" style="display:none;">QR<br/>placeholder</div>
               <div class="slot-qr-reminder-text">
-                <strong>Don't forget to pay</strong>
+                <strong>Paying by PayNow? Don't forget to pay</strong>
                 PayNow UEN <strong style="display:inline;">T25LL0556E</strong> &middot; send proof to
                 <a href="https://wa.me/6588370379" target="_blank" rel="noopener">+65 8837 0379</a>.
+                Ignore this if you intend to pay via Luma. For those paying
+                via PayNow, we'll follow up on WhatsApp for your email and send
+                your ticket within 2 working days.
               </div>
             </div>
           </div>
