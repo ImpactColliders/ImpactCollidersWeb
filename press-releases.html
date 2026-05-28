@@ -40,6 +40,27 @@
         text-align: center;
         background: #ffffff;
       }
+      .page-hero .back-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 18px;
+        padding: 8px 16px;
+        background: #fff;
+        color: #004aad;
+        border: 1.5px solid #004aad;
+        border-radius: 999px;
+        font-size: 0.88rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background 0.15s ease, color 0.15s ease;
+      }
+      .page-hero .back-link:hover {
+        background: #004aad;
+        color: #fff;
+        text-decoration: none;
+      }
+      .page-hero .back-link svg { width: 14px; height: 14px; }
       .page-hero h1 {
         font-size: 42px;
         font-weight: 700;
@@ -205,6 +226,12 @@
 
     <!-- Hero -->
     <section class="page-hero">
+      <a class="back-link" href="/" id="backLink" aria-label="Go back">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+        Back
+      </a>
       <h1>Press <em>Releases</em></h1>
       <p>
         Stay up to date with the latest news, announcements, and milestones
@@ -297,5 +324,21 @@
     <script src="assets/js/imgfix.min.js"></script>
     <script src="navbar.js"></script>
     <script src="assets/js/custom.js"></script>
+    <script>
+      // Back button: go to previous page if user navigated here from the
+      // same site; otherwise fall back to the link's href (home).
+      (function () {
+        var link = document.getElementById("backLink");
+        if (!link) return;
+        link.addEventListener("click", function (e) {
+          var ref = document.referrer || "";
+          var sameOrigin = ref.indexOf(window.location.origin) === 0;
+          if (sameOrigin && window.history.length > 1) {
+            e.preventDefault();
+            window.history.back();
+          }
+        });
+      })();
+    </script>
   </body>
 </html>
