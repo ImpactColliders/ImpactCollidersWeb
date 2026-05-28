@@ -369,11 +369,11 @@
       /* ===== KEY FACTS STRIP ===== */
       .facts-strip {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr);
         gap: 18px;
-        max-width: 1120px;
+        max-width: 1240px;
         margin: 0 auto;
-        padding: 28px 10%;
+        padding: 28px 6%;
       }
 
       .fact {
@@ -414,6 +414,23 @@
       .fact-tip {
         font-size: 0.82rem !important;
         color: var(--text-muted);
+      }
+      /* On desktop, show address + MRT tip on one line for a tidy venue card */
+      @media (min-width: 760px) {
+        .fact-meta {
+          display: flex;
+          flex-wrap: wrap;
+          align-items: baseline;
+          gap: 4px 10px;
+        }
+        .fact-meta .fact-tip {
+          font-size: 0.82rem !important;
+        }
+        .fact-meta .fact-tip::before {
+          content: "·";
+          margin-right: 8px;
+          color: var(--border-soft);
+        }
       }
       .fact-map-link {
         display: inline-flex;
@@ -828,8 +845,10 @@
         <div class="fact-text">
           <!-- EDIT: venue + address + travel tip -->
           <strong>10 Square, Orchard Central</strong>
-          <span>181 Orchard Road, #10-01, Singapore 238896</span>
-          <span class="fact-tip">Nearest MRT: Somerset (NS23) &mdash; 3-min walk.</span>
+          <div class="fact-meta">
+            <span>181 Orchard Road, #10-01, Singapore 238896</span>
+            <span class="fact-tip">Nearest MRT: Somerset (NS23) &mdash; 3-min walk.</span>
+          </div>
           <!-- /EDIT -->
         </div>
         <!-- EDIT: Open in Google Maps button -->
@@ -954,7 +973,7 @@
 
 
     <!-- ============ SHARE & CONTACT ============ -->
-    <section class="section bg-white" id="contact">
+    <section class="section" id="contact">
       <h2>Share &amp; Contact</h2>
       <!-- EDIT: prompt above share buttons -->
       <p class="section-sub">
