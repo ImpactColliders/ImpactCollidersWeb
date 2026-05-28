@@ -84,6 +84,7 @@
   align-items: center;
   justify-content: space-between;
   height: 10px;
+  gap: 16px;
 }
 
 .logo img {
@@ -94,10 +95,15 @@
 .main-nav .nav {
   display: flex;
   align-items: center;
-  
+  flex-wrap: nowrap;
+  gap: 18px;
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.main-nav .nav li {
+  white-space: nowrap;
 }
 
 .main-nav .nav li a {
@@ -167,11 +173,13 @@
 .menu-trigger span::after  { top: 7px; }
 
 /* ================= MOBILE OVERLAY ================= */
-@media (max-width: 991px) {
-  .menu-trigger { display: block; }
+@media (max-width: 1199px) {
+  .header-area .main-nav .menu-trigger,
+  .menu-trigger { display: block !important; }
 
   /* hide desktop nav */
-  .main-nav .nav { display: none; }
+  .header-area .main-nav .nav,
+  .main-nav .nav { display: none !important; }
 
   /* overlay */
   .mobile-nav {
