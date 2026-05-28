@@ -549,7 +549,10 @@
             </div>
             <p class="pay-note">
               Alternatively, you may pay through Luma when registering below,
-              though this includes a 5% payment processing fee.
+              though this includes a 5% payment processing fee. For those
+              paying via PayNow, we'll follow up on WhatsApp for your email
+              and send your ticket within 2 working days after you have sent
+              proof of payment.
             </p>
           </div>
           <div class="pay-qr">
@@ -624,12 +627,11 @@
               />
               <div class="pay-qr-fallback" style="display:none;">QR<br/>placeholder</div>
               <div class="slot-qr-reminder-text">
-                <strong>Paying by PayNow? Don't forget to pay</strong>
-                PayNow UEN <strong style="display:inline;">T25LL0556E</strong> &middot; send proof to
-                <a href="https://wa.me/6588370379" target="_blank" rel="noopener">+65 8837 0379</a>.
-                Ignore this if you intend to pay via Luma. For those paying
-                via PayNow, we'll follow up on WhatsApp for your email and send
-                your ticket within 2 working days.
+                <strong>Get tickets cheaper?</strong>
+                Pay via PayNow to <strong style="display:inline;">T25LL0556E</strong>
+                and send proof to
+                <a href="https://wa.me/6588370379" target="_blank" rel="noopener">+65 8837 0379</a>
+                to save $5 on the ticket cost.
               </div>
             </div>
           </div>
@@ -655,12 +657,11 @@
               />
               <div class="pay-qr-fallback" style="display:none;">QR<br/>placeholder</div>
               <div class="slot-qr-reminder-text">
-                <strong>Paying by PayNow? Don't forget to pay</strong>
-                PayNow UEN <strong style="display:inline;">T25LL0556E</strong> &middot; send proof to
-                <a href="https://wa.me/6588370379" target="_blank" rel="noopener">+65 8837 0379</a>.
-                Ignore this if you intend to pay via Luma. For those paying
-                via PayNow, we'll follow up on WhatsApp for your email and send
-                your ticket within 2 working days.
+                <strong>Get tickets cheaper?</strong>
+                Pay via PayNow to <strong style="display:inline;">T25LL0556E</strong>
+                and send proof to
+                <a href="https://wa.me/6588370379" target="_blank" rel="noopener">+65 8837 0379</a>
+                to save $5 on the ticket cost.
               </div>
             </div>
           </div>
@@ -686,12 +687,11 @@
               />
               <div class="pay-qr-fallback" style="display:none;">QR<br/>placeholder</div>
               <div class="slot-qr-reminder-text">
-                <strong>Paying by PayNow? Don't forget to pay</strong>
-                PayNow UEN <strong style="display:inline;">T25LL0556E</strong> &middot; send proof to
-                <a href="https://wa.me/6588370379" target="_blank" rel="noopener">+65 8837 0379</a>.
-                Ignore this if you intend to pay via Luma. For those paying
-                via PayNow, we'll follow up on WhatsApp for your email and send
-                your ticket within 2 working days.
+                <strong>Get tickets cheaper?</strong>
+                Pay via PayNow to <strong style="display:inline;">T25LL0556E</strong>
+                and send proof to
+                <a href="https://wa.me/6588370379" target="_blank" rel="noopener">+65 8837 0379</a>
+                to save $5 on the ticket cost.
               </div>
             </div>
           </div>
@@ -717,12 +717,11 @@
               />
               <div class="pay-qr-fallback" style="display:none;">QR<br/>placeholder</div>
               <div class="slot-qr-reminder-text">
-                <strong>Paying by PayNow? Don't forget to pay</strong>
-                PayNow UEN <strong style="display:inline;">T25LL0556E</strong> &middot; send proof to
-                <a href="https://wa.me/6588370379" target="_blank" rel="noopener">+65 8837 0379</a>.
-                Ignore this if you intend to pay via Luma. For those paying
-                via PayNow, we'll follow up on WhatsApp for your email and send
-                your ticket within 2 working days.
+                <strong>Get tickets cheaper?</strong>
+                Pay via PayNow to <strong style="display:inline;">T25LL0556E</strong>
+                and send proof to
+                <a href="https://wa.me/6588370379" target="_blank" rel="noopener">+65 8837 0379</a>
+                to save $5 on the ticket cost.
               </div>
             </div>
           </div>
@@ -768,10 +767,18 @@
         buttons.forEach(function (b) {
           b.addEventListener("click", function () {
             selectSlot(b.dataset.slot);
-            var wrapEl = document.getElementById("lumaWrap");
-            if (wrapEl && wrapEl.scrollIntoView) {
-              wrapEl.scrollIntoView({ behavior: "smooth", block: "start" });
-            }
+            // Scroll the active Luma iframe into view, accounting for the
+            // sticky nav. Wait one frame so the iframe is rendered before
+            // we measure its position.
+            requestAnimationFrame(function () {
+              var active = document.querySelector(".luma-frame.is-active");
+              if (!active) return;
+              var nav = document.querySelector(".archive-nav");
+              var navH = nav ? nav.getBoundingClientRect().height : 0;
+              var rect = active.getBoundingClientRect();
+              var targetY = window.scrollY + rect.top - navH - 16;
+              window.scrollTo({ top: targetY, behavior: "smooth" });
+            });
           });
         });
       })();
