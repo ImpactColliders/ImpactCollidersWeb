@@ -50,10 +50,16 @@
 
 /* BASE */
 
+html,body{
+overflow-x:hidden;
+max-width:100%;
+}
+
 body{
 font-family:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
 color:var(--ink);
 background:var(--surface);
+margin:0;
 }
 
 /* HERO */
@@ -130,18 +136,6 @@ border-radius:var(--radius);
 padding:32px;
 box-shadow:var(--shadow-card);
 overflow:hidden;
-}
-
-.info-panel:after{
-content:"";
-position:absolute;
-right:-80px;
-bottom:-80px;
-width:260px;
-height:260px;
-border-radius:50%;
-background:radial-gradient(circle,rgba(255,255,255,0.10),transparent 70%);
-pointer-events:none;
 }
 
 .info-panel h2{
