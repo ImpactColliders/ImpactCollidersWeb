@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /admincodespage.html
+Disallow: /appnav.html
+Disallow: /corporaterelations.html
+Disallow: /impact.html
+
+Sitemap: https://www.impactcolliders.com/sitemap.xml
