@@ -172,30 +172,6 @@ color:#004aad;
 margin-bottom:40px;
 }
 
-.partnership-form{
-max-width:600px;
-margin:auto;
-}
-
-.partnership-form input,
-.partnership-form textarea{
-width:100%;
-padding:14px;
-margin-bottom:20px;
-border-radius:8px;
-border:1px solid #ddd;
-}
-
-.partnership-form button{
-background:#d43d2b;
-border:none;
-color:white;
-padding:14px 30px;
-border-radius:8px;
-font-weight:600;
-}
-
-
 .story-section{
 display:grid;
 grid-template-columns:1fr 1fr;
@@ -233,29 +209,6 @@ font-weight:700;
 margin-bottom:40px;
 }
 
-.volunteer-form{
-max-width:600px;
-margin:auto;
-}
-
-.volunteer-form input,
-.volunteer-form textarea{
-width:100%;
-padding:14px;
-margin-bottom:20px;
-border-radius:8px;
-border:1px solid #ddd;
-}
-
-.volunteer-form button{
-background:#d43d2b;
-border:none;
-color:white;
-padding:14px 30px;
-border-radius:8px;
-font-weight:600;
-}
-
 /* MOBILE */
 
 @media(max-width:900px){
@@ -274,6 +227,161 @@ grid-template-columns:1fr;
 }
 
 
+}
+
+/* ===== CONTACT FORM (matches the Contact Us page) ===== */
+
+:root{
+--brand:#004aad;
+--brand-deep:#003680;
+--brand-soft:rgba(0,74,173,0.08);
+--accent:#d44732;
+--accent-hover:#b83a28;
+--ink:#0f172a;
+--ink-muted:#5b6473;
+--ink-faint:#8a8f99;
+--border:#e3e6ec;
+--border-strong:#cfd4dc;
+--field-bg:#ffffff;
+--surface:#ffffff;
+--success:#15803d;
+--success-soft:#dcfce7;
+--danger:#b42318;
+--danger-soft:#fef3f2;
+--radius:18px;
+--radius-xs:8px;
+--shadow-card:0 1px 2px rgba(16,24,40,0.04), 0 14px 36px rgba(16,24,40,0.07);
+}
+
+.form-card{
+background:var(--surface);
+border:1px solid var(--border);
+border-radius:var(--radius);
+padding:36px;
+box-shadow:var(--shadow-card);
+max-width:640px;
+margin:0 auto;
+text-align:left;
+}
+
+.cc-form{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:18px;
+}
+
+.field{ display:flex; flex-direction:column; gap:6px; min-width:0; }
+.field-full{ grid-column:1 / -1; }
+
+.field-label{
+font-size:13px;
+font-weight:600;
+color:var(--ink);
+letter-spacing:0.01em;
+display:flex;
+align-items:center;
+gap:6px;
+}
+.field-label .required{ color:var(--accent); }
+.field-label .optional{ color:var(--ink-faint); font-weight:400; font-size:12px; }
+
+.field input,
+.field textarea{
+width:100%;
+padding:13px 14px;
+border-radius:var(--radius-xs);
+border:1.5px solid var(--border);
+background:var(--field-bg);
+color:var(--ink);
+font-size:15px;
+font-family:inherit;
+line-height:1.4;
+transition:border-color .15s ease, box-shadow .15s ease, background .15s ease;
+-webkit-appearance:none;
+appearance:none;
+margin-bottom:0;
+}
+.field input{ height:46px; }
+.field textarea{ min-height:150px; resize:vertical; }
+.field input::placeholder,
+.field textarea::placeholder{ color:var(--ink-faint); opacity:1; }
+.field input:hover,
+.field textarea:hover{ border-color:var(--border-strong); }
+.field input:focus,
+.field textarea:focus{ outline:none; border-color:var(--brand); box-shadow:0 0 0 4px var(--brand-soft); }
+.field.has-error input,
+.field.has-error textarea{ border-color:var(--danger); background:var(--danger-soft); }
+.field.has-error input:focus,
+.field.has-error textarea:focus{ box-shadow:0 0 0 4px rgba(180,35,24,0.12); }
+
+.field-meta{ display:flex; justify-content:space-between; align-items:center; margin-top:2px; min-height:18px; }
+.field-error{
+font-size:12.5px;
+color:var(--danger);
+display:flex;
+align-items:center;
+gap:6px;
+opacity:0;
+transform:translateY(-2px);
+transition:opacity .15s ease, transform .15s ease;
+}
+.field.has-error .field-error{ opacity:1; transform:translateY(0); }
+.field-counter{ font-size:12px; color:var(--ink-faint); margin-left:auto; font-variant-numeric:tabular-nums; }
+
+.form-actions{ grid-column:1 / -1; display:flex; align-items:center; justify-content:flex-end; gap:16px; margin-top:6px; }
+
+.submit-btn{
+background:var(--accent);
+color:#fff;
+border:none;
+padding:0 28px;
+height:48px;
+border-radius:var(--radius-xs);
+font-weight:600;
+font-size:15px;
+font-family:inherit;
+letter-spacing:0.01em;
+cursor:pointer;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:8px;
+box-shadow:0 1px 2px rgba(212,71,50,0.25), 0 6px 18px rgba(212,71,50,0.20);
+transition:background .15s ease, transform .1s ease, box-shadow .15s ease;
+white-space:nowrap;
+text-decoration:none;
+}
+.submit-btn:hover{ background:var(--accent-hover); box-shadow:0 1px 2px rgba(212,71,50,0.3), 0 10px 24px rgba(212,71,50,0.28); }
+.submit-btn:active{ transform:translateY(1px); }
+.submit-btn:focus-visible{ outline:none; box-shadow:0 0 0 4px rgba(212,71,50,0.25), 0 6px 18px rgba(212,71,50,0.20); }
+.submit-btn[disabled]{ opacity:0.7; cursor:wait; }
+.submit-btn .arrow{ transition:transform .2s ease; }
+.submit-btn:hover .arrow{ transform:translateX(3px); }
+
+.success-banner{
+grid-column:1 / -1;
+display:none;
+align-items:flex-start;
+gap:12px;
+padding:14px 16px;
+border-radius:var(--radius-xs);
+background:var(--success-soft);
+border:1px solid #bbf7d0;
+color:#14532d;
+font-size:14px;
+line-height:1.5;
+text-align:left;
+}
+.success-banner.is-visible{ display:flex; }
+.success-banner svg{ flex-shrink:0; color:var(--success); margin-top:1px; }
+
+@media(max-width:600px){
+.form-card{ padding:24px 20px; border-radius:14px; }
+.cc-form{ grid-template-columns:1fr; gap:16px; }
+.field input,
+.field textarea{ font-size:16px; }
+.form-actions{ align-items:stretch; }
+.submit-btn{ width:100%; }
 }
 
 </style>
@@ -383,25 +491,58 @@ For more details about our corporate programmes, partnership opportunities and c
 
 <h2>Partner With Us</h2>
 
-<form class="partnership-form"
-action="mailto:impactcolliders@gmail.com"
-method="POST"
-enctype="text/plain">
+<div class="form-card">
 
-<input type="text" name="name" placeholder="Your Name" required>
+<form class="cc-form" novalidate data-subject-prefix="Partnerships:">
 
-<input type="email" name="email" placeholder="Your Email" required>
+<div class="success-banner" role="status" aria-live="polite">
+<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+<path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+<polyline points="22 4 12 14.01 9 11.01"/>
+</svg>
+<div>Your mail app is opening with the draft. Review it and hit send to deliver your message.</div>
+</div>
 
-<input type="text" name="company" placeholder="Company Name">
+<div class="field">
+<label class="field-label" for="partner-name">Full Name <span class="required" aria-hidden="true">*</span></label>
+<input id="partner-name" name="name" type="text" placeholder="Jane Doe" required autocomplete="name">
+<div class="field-meta"><span class="field-error"></span></div>
+</div>
 
-<input type="hidden" name="subject" value="Partnerships">
+<div class="field">
+<label class="field-label" for="partner-email">Email Address <span class="required" aria-hidden="true">*</span></label>
+<input id="partner-email" name="email" type="email" placeholder="you@example.com" required autocomplete="email">
+<div class="field-meta"><span class="field-error"></span></div>
+</div>
 
-<textarea name="message" rows="5"
-placeholder="Tell us about your organisation and how you'd like to collaborate"></textarea>
+<div class="field field-full">
+<label class="field-label" for="partner-subject">Subject <span class="optional">(optional)</span></label>
+<input id="partner-subject" name="subject" type="text" placeholder="What's this about?">
+<div class="field-meta"><span class="field-error"></span></div>
+</div>
 
-<button type="submit">Contact Us</button>
+<div class="field field-full">
+<label class="field-label" for="partner-message">Your Message <span class="optional">(optional)</span></label>
+<textarea id="partner-message" name="message" rows="5" placeholder="Tell us about your organisation and how you'd like to collaborate" maxlength="2000"></textarea>
+<div class="field-meta">
+<span class="field-error"></span>
+<span class="field-counter"><span class="msg-count">0</span>/2000</span>
+</div>
+</div>
+
+<div class="form-actions">
+<button type="submit" class="submit-btn">
+<span class="btn-text">Send Message</span>
+<svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+<line x1="5" y1="12" x2="19" y2="12"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</button>
+</div>
 
 </form>
+
+</div>
 
 </section>
 
@@ -436,28 +577,133 @@ community.
 
 <h2>Volunteer With Us</h2>
 
-<form class="volunteer-form"
-action="mailto:impactcolliders@gmail.com"
-method="POST"
-enctype="text/plain">
-
-<input type="text" name="name" placeholder="Your Name" required>
-
-<input type="email" name="email" placeholder="Your Email" required>
-
-<input type="hidden" name="subject" value="Volunteering">
-
-<textarea name="message" rows="5" placeholder="Tell us how you'd like to help"></textarea>
-
-<button type="submit">Contact Us</button>
-
-</form>
+<a class="submit-btn volunteer-cta" href="https://forms.gle/xYSZdXDDz1c5n4LW9" target="_blank" rel="noopener">
+<span class="btn-text">Sign Up to Volunteer</span>
+<svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+<line x1="5" y1="12" x2="19" y2="12"/>
+<polyline points="12 5 19 12 12 19"/>
+</svg>
+</a>
 
 </section>
 
 <footer id="contact-us">
 <div class="container" id="contact-container"></div>
 </footer>
+
+
+<script>
+
+/* Contact form behaviour (shared by the Partner With Us and
+   Volunteer With Us forms). Mirrors the Contact Us page: validates,
+   then opens the user's mail app with a pre-filled draft.
+   Each form's subject is prepended with its data-subject-prefix. */
+
+(function(){
+
+const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const RECIPIENT = "info@impactcolliders.com";
+
+function initForm(form){
+
+const prefix = (form.getAttribute("data-subject-prefix") || "").trim();
+
+const defs = [
+{ name:"name",    required:true,  type:"text"  },
+{ name:"email",   required:true,  type:"email" },
+{ name:"subject", required:false, type:"text"  },
+{ name:"message", required:false, type:"text"  }
+];
+
+function fieldEl(name){ return form.querySelector('[name="' + name + '"]'); }
+function wrapOf(el){ return el.closest(".field"); }
+
+function setError(el, msg){
+const wrap = wrapOf(el);
+const err = wrap.querySelector(".field-error");
+if(msg){ wrap.classList.add("has-error"); err.textContent = msg; }
+else { wrap.classList.remove("has-error"); err.textContent = ""; }
+}
+
+function validate(def){
+const el = fieldEl(def.name);
+if(!el) return true;
+const val = el.value.trim();
+if(def.required && !val){ setError(el, "This field is required."); return false; }
+if(def.type === "email" && val && !emailRe.test(val)){ setError(el, "Please enter a valid email address."); return false; }
+setError(el, "");
+return true;
+}
+
+defs.forEach(function(def){
+const el = fieldEl(def.name);
+if(!el) return;
+el.addEventListener("blur", function(){ validate(def); });
+el.addEventListener("input", function(){
+if(wrapOf(el).classList.contains("has-error")) validate(def);
+});
+});
+
+const messageInput = fieldEl("message");
+const counter = form.querySelector(".msg-count");
+if(messageInput && counter){
+messageInput.addEventListener("input", function(){ counter.textContent = messageInput.value.length; });
+}
+
+const successBanner = form.querySelector(".success-banner");
+
+form.addEventListener("submit", function(event){
+event.preventDefault();
+
+const valid = defs.map(validate).every(Boolean);
+if(!valid){
+const firstErr = form.querySelector(".field.has-error input, .field.has-error textarea");
+if(firstErr) firstErr.focus();
+return;
+}
+
+const name = fieldEl("name").value.trim();
+const email = fieldEl("email").value.trim();
+const subjectRaw = fieldEl("subject").value.trim();
+const message = fieldEl("message").value.trim();
+
+let subject;
+if(prefix && subjectRaw) subject = prefix + " " + subjectRaw;
+else if(prefix) subject = prefix;
+else subject = subjectRaw;
+
+const body = encodeURIComponent(
+"Name: " + name +
+"\nEmail: " + email +
+(message ? "\n\nMessage:\n" + message : "")
+);
+
+const mailtoLink = "mailto:" + RECIPIENT + "?subject=" + encodeURIComponent(subject) + "&body=" + body;
+
+const btn = form.querySelector(".submit-btn");
+const btnText = btn.querySelector(".btn-text");
+const originalText = btnText.textContent;
+btn.disabled = true;
+btnText.textContent = "Opening mail app…";
+
+window.location.href = mailtoLink;
+
+setTimeout(function(){
+successBanner.classList.add("is-visible");
+btn.disabled = false;
+btnText.textContent = originalText;
+successBanner.scrollIntoView({behavior:"smooth", block:"nearest"});
+}, 400);
+
+});
+
+}
+
+document.querySelectorAll(".cc-form").forEach(initForm);
+
+})();
+
+</script>
 
 
 <script src="mailinglist.js"></script>

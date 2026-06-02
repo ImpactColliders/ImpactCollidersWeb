@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="The Archive by Impact Colliders — quick links to sign up and to volunteer."
+    />
+    <meta name="author" content="Impact Colliders" />
+    <title>The Archive · Links</title>
+    <link rel="canonical" href="https://www.impactcolliders.com/thearchive/tree" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Impact Colliders" />
+    <meta property="og:title" content="The Archive · Links" />
+    <meta property="og:description" content="The Archive by Impact Colliders — quick links to sign up and to volunteer." />
+    <meta property="og:url" content="https://www.impactcolliders.com/thearchive/tree" />
+    <meta property="og:image" content="https://www.impactcolliders.com/assets/images/logo.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="The Archive · Links" />
+    <meta name="twitter:description" content="The Archive by Impact Colliders — quick links to sign up and to volunteer." />
+    <meta name="twitter:image" content="https://www.impactcolliders.com/assets/images/logo.jpg" />
+
+    <link rel="icon" href="/assets/images/logo.jpg" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/assets/css/font-awesome.css" />
+
+    <style>
+      *, *::before, *::after { box-sizing: border-box; }
+      html, body { margin: 0; padding: 0; }
+      img { display: block; max-width: 100%; }
+
+      :root {
+        --ic-blue: #004aad;
+        --ic-orange: #ff6522;
+        --ic-red: #ce3f2e;
+        --brand: #ff6522;
+        --brand-hover: #e6571a;
+        --text: #14110f;
+      }
+
+      body {
+        font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        color: var(--text);
+        min-height: 100dvh;
+        display: flex;
+        flex-direction: column;
+        background:
+          radial-gradient(120% 80% at 50% 0%, rgba(255, 101, 34, 0.10), transparent 60%),
+          radial-gradient(120% 80% at 50% 100%, rgba(0, 74, 173, 0.08), transparent 60%),
+          #f5f5f5;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* width wrapper used by the injected global nav + footer */
+      .container {
+        width: 100%;
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 0 16px;
+      }
+
+      /* Center the injected global nav within its 90px bar.
+         The site's template CSS normally does this; this page is
+         standalone, so replicate it here. The #nav-placeholder id
+         outranks navbar.js's single-class rules. */
+      #nav-placeholder.header-area {
+        display: flex;
+        align-items: center;
+      }
+      #nav-placeholder .main-nav {
+        height: auto;
+      }
+
+      .tree-main {
+        flex: 1 1 auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 48px 20px;
+      }
+
+      .tree {
+        width: 100%;
+        max-width: 420px;
+        text-align: center;
+      }
+
+      .tree-logo {
+        background: #fff;
+        border-radius: 20px;
+        padding: 26px 28px;
+        box-shadow: 0 14px 40px rgba(0, 0, 0, 0.08);
+        margin-bottom: 36px;
+      }
+      .tree-logo img {
+        width: 100%;
+        max-width: 280px;
+        height: auto;
+        margin: 0 auto;
+      }
+
+      .tree-links {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .tree-btn {
+        display: block;
+        width: 100%;
+        padding: 17px 24px;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 1.05rem;
+        text-decoration: none;
+        transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+      }
+      .tree-btn:focus-visible {
+        outline: 3px solid var(--ic-blue);
+        outline-offset: 3px;
+      }
+
+      .tree-btn.primary {
+        background: var(--brand);
+        color: #fff;
+        box-shadow: 0 8px 22px rgba(255, 101, 34, 0.28);
+      }
+      .tree-btn.primary:hover {
+        background: var(--brand-hover);
+        transform: translateY(-2px);
+      }
+
+      .tree-btn.secondary {
+        background: #fff;
+        color: var(--brand);
+        border: 2px solid var(--brand);
+      }
+      .tree-btn.secondary:hover {
+        background: var(--brand);
+        color: #fff;
+        transform: translateY(-2px);
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="header-area header-sticky" id="nav-placeholder"></header>
+
+    <main class="tree-main">
+      <div class="tree">
+        <div class="tree-logo">
+          <img src="/assets/images/The Archive Logo Full.jpg" alt="The Archive by Impact Colliders" />
+        </div>
+
+        <nav class="tree-links" aria-label="The Archive links">
+          <a class="tree-btn primary" href="https://www.impactcolliders.com/thearchive/">Sign Up Here</a>
+          <a class="tree-btn secondary" href="https://www.impactcolliders.com/thearchive/volunteers">Volunteers</a>
+        </nav>
+      </div>
+    </main>
+
+    <footer id="contact-us">
+      <div class="container" id="contact-container"></div>
+    </footer>
+
+    <script src="/navbar.js"></script>
+    <script src="/mailinglist.js"></script>
+  </body>
+</html>
