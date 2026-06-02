@@ -561,7 +561,7 @@
   </div>
 
   
-  <button class="back-btn" onclick="window.location.href='appnav.html'">Back</button>
+  <button class="back-btn" onclick="window.location.href='appnav'">Back</button>
 `;
 
         videoContainer.appendChild(section);
@@ -580,7 +580,7 @@
             topBtn.addEventListener("click", () => {
               const prevIndex = index - 1;
               if (prevIndex >= 0) {
-                window.location.href = `videos.html?show=${prevIndex + 1}`;
+                window.location.href = `videos?show=${prevIndex + 1}`;
               } else {
                 console.log("Already at the first video");
               }
@@ -592,7 +592,7 @@
             bottomBtn.addEventListener("click", () => {
               const nextIndex = index + 1;
               if (nextIndex < sections.length) {
-                window.location.href = `videos.html?show=${nextIndex + 1}`;
+                window.location.href = `videos?show=${nextIndex + 1}`;
               } else {
                 console.log("Already at the last video");
               }

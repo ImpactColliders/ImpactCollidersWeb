@@ -1,10 +1,10 @@
 User-agent: *
 Allow: /
-Disallow: /admincodespage.html
-Disallow: /appnav.html
-Disallow: /corporaterelations.html
-Disallow: /impact.html
+Disallow: /admincodespage
+Disallow: /appnav
+Disallow: /corporaterelations
+Disallow: /impact
 Disallow: /namecards/
-Disallow: /thearchive/volunteers.html
+Disallow: /thearchive/volunteers
 
 Sitemap: https://www.impactcolliders.com/sitemap.xml
