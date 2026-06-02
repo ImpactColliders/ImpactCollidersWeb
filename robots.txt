@@ -4,5 +4,6 @@ Disallow: /admincodespage.html
 Disallow: /appnav.html
 Disallow: /corporaterelations.html
 Disallow: /impact.html
+Disallow: /namecards/
 
 Sitemap: https://www.impactcolliders.com/sitemap.xml

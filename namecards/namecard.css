@@ -1,0 +1,261 @@
+/* ============================================================
+   DIGITAL NAME CARDS — shared styling
+   Mirrors the Impact Colliders site design system.
+   Everything is pill-shaped (cards, buttons, links).
+   ============================================================ */
+
+:root{
+--brand:#004aad;
+--brand-deep:#003680;
+--brand-soft:rgba(0,74,173,0.08);
+--brand-tint:#eef3fb;
+--accent:#d44732;
+--accent-hover:#b83a28;
+--ink:#0f172a;
+--ink-muted:#5b6473;
+--ink-faint:#8a8f99;
+--border:#e3e6ec;
+--border-strong:#cfd4dc;
+--surface:#ffffff;
+--shadow-card:0 1px 2px rgba(16,24,40,0.04), 0 14px 36px rgba(16,24,40,0.07);
+--shadow-card-hover:0 1px 2px rgba(16,24,40,0.04), 0 22px 48px rgba(16,24,40,0.10);
+}
+
+*{box-sizing:border-box;}
+
+html,body{
+margin:0;
+padding:0;
+overflow-x:hidden;
+max-width:100%;
+}
+
+body{
+font-family:'Poppins',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif;
+color:var(--ink);
+}
+
+/* STAGE — holds the card between the site header and footer */
+
+.nc-stage{
+background:linear-gradient(160deg,var(--brand-tint) 0%,#ffffff 55%);
+min-height:calc(100vh - 90px);
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+padding:56px 20px 72px;
+}
+
+/* BRAND MARK ABOVE CARD */
+
+/* CARD COLUMN — owns the width so children can fill it */
+
+#namecard{
+width:100%;
+max-width:400px;
+margin:0 auto;
+display:flex;
+flex-direction:column;
+align-items:stretch;
+}
+
+.nc-brand{
+margin-bottom:22px;
+text-align:center;
+}
+
+.nc-brand img{
+height:34px;
+width:auto;
+opacity:0.9;
+}
+
+/* CARD — pill-shaped (large rounded radius) */
+
+.nc-card{
+width:100%;
+max-width:400px;
+background:var(--surface);
+border:1px solid var(--border);
+border-radius:36px;
+box-shadow:var(--shadow-card);
+padding:40px 32px 32px;
+text-align:center;
+}
+
+/* PROFILE IMAGE — pill (circular) */
+
+.nc-photo{
+width:148px;
+height:148px;
+border-radius:999px;
+object-fit:cover;
+margin:0 auto 22px;
+display:block;
+border:4px solid var(--surface);
+box-shadow:0 6px 22px rgba(16,24,40,0.16);
+background:var(--brand-tint);
+}
+
+.nc-name{
+font-weight:700;
+font-size:26px;
+line-height:1.2;
+letter-spacing:-0.01em;
+margin:0 0 4px;
+color:var(--ink);
+}
+
+.nc-title{
+font-size:15px;
+color:var(--ink-muted);
+margin:6px 0 26px;
+line-height:1.4;
+}
+
+.nc-org{
+font-size:13px;
+font-weight:600;
+letter-spacing:0.4px;
+text-transform:uppercase;
+color:var(--brand);
+margin:0 0 26px;
+}
+
+.nc-org.nc-org--spaced{margin-top:8px;}
+
+/* ACTION BUTTONS — pill-shaped */
+
+.nc-actions{
+display:flex;
+flex-direction:column;
+gap:12px;
+}
+
+/* extra breathing room when actions follow the name directly */
+.nc-actions--top{
+margin-top:26px;
+}
+
+.nc-btn{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+width:100%;
+height:52px;
+padding:0 22px;
+border-radius:999px;
+font-family:inherit;
+font-size:15.5px;
+font-weight:600;
+letter-spacing:0.01em;
+text-decoration:none;
+cursor:pointer;
+border:1.5px solid var(--border);
+background:var(--surface);
+color:var(--ink);
+transition:transform .12s ease, box-shadow .15s ease, background .15s ease, border-color .15s ease;
+-webkit-tap-highlight-color:transparent;
+}
+
+.nc-btn svg{flex-shrink:0;}
+
+.nc-btn:hover{
+border-color:var(--border-strong);
+box-shadow:var(--shadow-card-hover);
+transform:translateY(-2px);
+}
+
+.nc-btn:active{transform:translateY(0);}
+
+.nc-btn:focus-visible{
+outline:none;
+box-shadow:0 0 0 4px var(--brand-soft);
+}
+
+/* Primary (brand) — Call */
+.nc-btn--primary{
+background:var(--brand);
+border-color:var(--brand);
+color:#fff;
+box-shadow:0 1px 2px rgba(0,74,173,0.25), 0 8px 20px rgba(0,74,173,0.20);
+}
+.nc-btn--primary:hover{
+background:var(--brand-deep);
+border-color:var(--brand-deep);
+box-shadow:0 1px 2px rgba(0,74,173,0.3), 0 12px 26px rgba(0,74,173,0.28);
+}
+
+/* Accent — Save Contact */
+.nc-btn--accent{
+background:var(--accent);
+border-color:var(--accent);
+color:#fff;
+box-shadow:0 1px 2px rgba(212,71,50,0.25), 0 8px 20px rgba(212,71,50,0.20);
+}
+.nc-btn--accent:hover{
+background:var(--accent-hover);
+border-color:var(--accent-hover);
+box-shadow:0 1px 2px rgba(212,71,50,0.3), 0 12px 26px rgba(212,71,50,0.28);
+}
+
+/* FOOTER LINK BACK TO SITE — pill */
+
+.nc-foot{
+margin-top:24px;
+text-align:center;
+}
+
+.nc-foot a{
+display:inline-block;
+font-size:12.5px;
+font-weight:600;
+letter-spacing:0.3px;
+color:var(--ink-muted);
+text-decoration:none;
+padding:8px 18px;
+border-radius:999px;
+border:1px solid var(--border);
+background:rgba(255,255,255,0.6);
+transition:color .15s ease, border-color .15s ease;
+}
+
+.nc-foot a:hover{
+color:var(--brand);
+border-color:var(--border-strong);
+}
+
+/* NOT FOUND STATE */
+
+.nc-missing{
+max-width:400px;
+text-align:center;
+}
+
+.nc-missing h1{
+font-size:22px;
+font-weight:700;
+margin:0 0 10px;
+}
+
+.nc-missing p{
+font-size:15px;
+color:var(--ink-muted);
+margin:0 0 22px;
+line-height:1.6;
+}
+
+/* MOBILE */
+
+@media(max-width:480px){
+.nc-stage{padding:36px 16px 52px;}
+.nc-card{
+padding:34px 22px 26px;
+border-radius:30px;
+}
+.nc-photo{width:128px;height:128px;}
+.nc-name{font-size:23px;}
+.nc-brand img{height:30px;}
+}
