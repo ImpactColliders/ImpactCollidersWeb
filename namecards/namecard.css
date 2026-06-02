@@ -47,8 +47,6 @@ justify-content:center;
 padding:56px 20px 72px;
 }
 
-/* BRAND MARK ABOVE CARD */
-
 /* CARD COLUMN — owns the width so children can fill it */
 
 #namecard{
@@ -58,17 +56,6 @@ margin:0 auto;
 display:flex;
 flex-direction:column;
 align-items:stretch;
-}
-
-.nc-brand{
-margin-bottom:22px;
-text-align:center;
-}
-
-.nc-brand img{
-height:34px;
-width:auto;
-opacity:0.9;
 }
 
 /* CARD — pill-shaped (large rounded radius) */
@@ -161,6 +148,36 @@ transition:transform .12s ease, box-shadow .15s ease, background .15s ease, bord
 }
 
 .nc-btn svg{flex-shrink:0;}
+
+/* CALL + COPY ROW */
+
+.nc-call-row{
+display:flex;
+gap:12px;
+}
+
+.nc-call-row .nc-btn--primary{
+flex:1 1 auto;
+}
+
+/* square-ish icon-only pill button beside Call */
+.nc-btn--icon{
+flex:0 0 52px;
+width:52px;
+padding:0;
+color:var(--brand);
+}
+
+.nc-btn--icon:hover{
+border-color:var(--brand);
+color:var(--brand-deep);
+}
+
+.nc-btn--icon.is-copied{
+background:var(--brand);
+border-color:var(--brand);
+color:#fff;
+}
 
 .nc-btn:hover{
 border-color:var(--border-strong);
@@ -257,5 +274,4 @@ border-radius:30px;
 }
 .nc-photo{width:128px;height:128px;}
 .nc-name{font-size:23px;}
-.nc-brand img{height:30px;}
 }
