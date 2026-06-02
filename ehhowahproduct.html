@@ -243,8 +243,12 @@
         font-weight: 700;
       }
 
-      .product-description h3 {
+      .product-description .product-price {
         margin: 0;
+        font-size: 28px;
+        font-weight: 500;
+        line-height: 1.2;
+        color: #212529;
       }
 
       .product-description p {
@@ -558,7 +562,8 @@
         <div class="product-video">
           <iframe
             src="https://www.youtube.com/embed/VMoxvBluWm4?si=svfSGCoRqKpEm8Ax"
-            title="YouTube video player"
+            title="Eh How Ah? 2nd Edition — gameplay video"
+            loading="lazy"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin"
             allowfullscreen
@@ -568,7 +573,7 @@
 
       <div class="product-description" style="text-align: left">
         <h1>Eh How Ah? 2nd Edition</h1>
-        <h3><s>$39.90</s> $21</h3>
+        <p class="product-price"><s>$39.90</s> $21</p>
 
      <div class="purchase-box">
   <label for="qtySelect"><strong>Choose Quantity:</strong></label>
@@ -663,7 +668,7 @@
 
         function renderSlide(index) {
           const slide = slides[index];
-          slideDiv.innerHTML = `<img src="${slide.src}" alt="Slide ${index + 1}">`;
+          slideDiv.innerHTML = `<img src="${slide.src}" alt="Eh How Ah? 2nd Edition card game — photo ${index + 1}" loading="lazy">`;
           document.querySelectorAll(".carousel-dot").forEach((d, i) => {
             d.classList.toggle("active", i === index);
           });
@@ -832,6 +837,7 @@
 
           const img = document.createElement("img")
           img.src = mission.image
+          img.alt = "Mission card"
 
           const slotsDiv = document.createElement("div")
           slotsDiv.className = "slots"
@@ -887,6 +893,7 @@
             if (card) {
               const prefillImg = document.createElement("img")
               prefillImg.src = card
+              prefillImg.alt = "Completed step card"
               prefillImg.classList.add("prefilled-card")
               slot.appendChild(prefillImg)
             }
@@ -910,6 +917,7 @@
 
           const img = document.createElement("img")
           img.src = card.img
+          img.alt = card.app + " app — step " + card.step + " card"
           cardDiv.appendChild(img)
 
           cardDiv.addEventListener("dragstart", async () => {
