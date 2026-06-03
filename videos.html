@@ -260,6 +260,25 @@
          a scroll container — "hidden" would break the sticky button row. */
       html, body { overflow-x: clip; }
 
+      /* ----- No header layout shift on scroll -----
+         templatemo's custom.js adds a "background-header" class once you
+         start scrolling. Its CSS is `position: fixed !important;
+         height: 80px !important`, which switches the header from in-flow
+         (sticky) to out-of-flow (fixed) and changes its height — making the
+         page jump. Lock the header's box to the SAME values in BOTH states
+         (sticky, in normal flow, fixed 80px height) so only the background/
+         shadow from background-header can change. Because it stays sticky
+         (in flow), its 80px height is already reserved — no body padding
+         needed and nothing jumps. */
+      .header-area,
+      .header-area.background-header {
+        position: sticky !important;
+        top: 0 !important;
+        height: 80px !important;
+        min-height: 80px !important;
+        margin: 0 !important;
+      }
+
       .content-container {
         max-width: 760px;
         /* generous, viewport-WIDTH-based gap before the footer so the
@@ -284,7 +303,7 @@
         font-size: clamp(1.15rem, 3.5vw, 1.5rem);
         /* Large gap above so the sticky button bar never blocks the
            title; smaller gap below to the video. */
-        margin: clamp(90px, 22vw, 140px) 0 28px;
+        margin: clamp(20px, 5vw, 32px) 0 24px;
       }
       .content-container section > br { display: none; }
 
@@ -300,7 +319,7 @@
         margin: 0 auto;
         flex-wrap: nowrap;
         position: sticky;
-        top: 90px;
+        top: 80px;
         z-index: 40;
         background: #f9f9f9;
         padding: 12px 0;
