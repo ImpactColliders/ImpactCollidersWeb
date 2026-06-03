@@ -7,6 +7,7 @@
   <meta name="author" content="Impact Colliders" />
   <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet" />
   <title>Impact Quiz - Impact Colliders</title>
+  <link rel="icon" type="image/x-icon" href="/assets/images/logo.jpg" />
   <link rel="canonical" href="https://www.impactcolliders.com/quiz" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Impact Colliders" />
@@ -31,7 +32,9 @@
       border-radius: 20px;
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
       max-width: 800px;
-      margin: 80px auto;
+      /* Big top margin: the global nav is position:fixed and overlaps
+         content, so the visible gap is roughly (margin − nav height). */
+      margin: 200px auto 80px;
     }
     .quiz-box h2 {
       margin-bottom: 20px;
@@ -80,7 +83,7 @@
   <p id="feedback" class="feedback text-center"></p>
   <div class="text-center">
     <button id="nextBtn" class="btn btn-secondary mt-3" style="display:none;">Next Question</button>
-    <button id="backToHomeBtn" class="btn btn-outline-dark mt-2">Back to Home</button>
+    <button id="backToHomeBtn" class="btn btn-outline-dark mt-2">Restart</button>
   </div>
 </div>
     </div>

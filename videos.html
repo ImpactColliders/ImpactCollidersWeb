@@ -258,8 +258,10 @@
         max-width: 760px;
       }
 
-      /* Clear the 90px sticky nav so the title never hides under it */
-      body { padding-top: 96px; }
+      /* The nav is position:sticky (in normal flow), so the content
+         already sits below it — no body padding-top is needed. Adding
+         one only created blank space above the nav until you scrolled. */
+      body { padding-top: 0; }
 
       /* Each video card sizes to its content (was a fixed 85dvh) */
       .content-container section {

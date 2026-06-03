@@ -11,7 +11,10 @@
       #contact-us {
         background: #ce3f2e;
         color: #fff;
-        padding: 80px 8% 50px;
+        /* !important so a page's CSS reset / templatemo "footer" rules
+           can't zero out the footer's top padding (which made the
+           footer look cramped on some pages). */
+        padding: 80px 8% 50px !important;
         font-family: "Poppins", sans-serif;
       }
 
