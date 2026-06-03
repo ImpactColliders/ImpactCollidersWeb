@@ -204,7 +204,6 @@
         <div class="footer-col">
           <h4>Quick Links</h4>
           <ul>
-            <li><a href="/thearchive/">The Archive</a></li>
             <li><a href="/ehhowahproduct">Product</a></li>
             <li><a href="https://www.impactcolliders.com/ehhowah">Pseudo Apps</a></li>
             <li><a href="/corporaterelations">Corporate Relations</a></li>
@@ -215,7 +214,7 @@
           <h4>Partner With Us</h4>
           <ul>
             <li><a href="/corporates">Partnerships</a></li>
-          
+            <li><a href="/thearchive/">The Archive</a></li>
           </ul>
         </div>
 
