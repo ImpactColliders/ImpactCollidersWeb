@@ -463,6 +463,11 @@
         background: #fff;
       }
 
+      .slot.slot-ready {
+        border-color: #004aad;
+        background: #eef5ff;
+      }
+
       .slot img {
         width: 100%;
         height: 100%;
@@ -484,10 +489,20 @@
         width: 80px;
         cursor: grab;
         transition: transform 0.2s;
+        touch-action: manipulation;
       }
 
       .card:hover {
         transform: translateY(-5px);
+      }
+
+      .card.card-selected {
+        transform: translateY(-6px);
+      }
+
+      .card.card-selected img {
+        border: 3px solid #004aad;
+        box-shadow: 0 0 14px rgba(0, 74, 173, 0.45);
       }
 
       .card img {
@@ -578,8 +593,84 @@
           padding: 24px 16px;
         }
 
+        .demo-section {
+          margin: 12px auto 56px;
+          padding: 0 12px;
+        }
+
+        .demo-section h2 {
+          font-size: 1.65rem;
+        }
+
+        .demo-section p {
+          max-width: 330px;
+          margin: 0 auto 18px;
+          line-height: 1.45;
+        }
+
+        .mission-row {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          gap: 10px;
+          margin-bottom: 28px;
+        }
+
+        .mission {
+          width: 100%;
+          padding: 8px;
+          border-radius: 10px;
+        }
+
+        .slots {
+          gap: 4px;
+          margin-top: 8px;
+        }
+
+        .slot {
+          width: clamp(24px, 7.4vw, 36px);
+          height: clamp(36px, 11vw, 54px);
+          border-radius: 5px;
+        }
+
+        .hand-row {
+          gap: 8px;
+        }
+
+        .card {
+          width: clamp(54px, 18vw, 72px);
+          cursor: pointer;
+        }
+
+        .card:hover {
+          transform: none;
+        }
+
+        .demo-result {
+          font-size: 1rem;
+          line-height: 1.4;
+        }
+
+        .reset-demo-btn {
+          width: 100%;
+          max-width: 280px;
+        }
+
         .scroll-cue-wrap {
           margin-bottom: 16px;
+        }
+      }
+
+      @media (max-width: 420px) {
+        .table {
+          padding: 20px 10px;
+        }
+
+        .mission-row {
+          gap: 8px;
+        }
+
+        .mission {
+          padding: 6px;
         }
       }
     </style>
@@ -670,7 +761,7 @@
 
     <section class="demo-section" id="matching-demo">
       <h2>Try the Matching Demo</h2>
-      <p>Drag the step cards from your hand to the correct mission card.</p>
+      <p>Drag or tap the step cards from your hand to the correct mission card.</p>
 
       <div class="table">
         <div class="mission-row" id="missionRow"></div>
@@ -882,8 +973,72 @@
         document.querySelectorAll(".confetti").forEach(conf => conf.remove())
       }
 
+      function clearActiveCard() {
+        document.querySelectorAll(".card-selected").forEach(card => {
+          card.classList.remove("card-selected")
+        })
+        document.querySelectorAll(".slot-ready").forEach(slot => {
+          slot.classList.remove("slot-ready")
+        })
+      }
+
+      function setActiveCard(cardData) {
+        clearActiveCard()
+        draggedCard = cardData
+        cardData.element.classList.add("card-selected")
+        document.querySelectorAll(".slot").forEach(slot => {
+          if (!slot.querySelector("img")) {
+            slot.classList.add("slot-ready")
+          }
+        })
+      }
+
+      async function placeCardInSlot(slot, missionDiv) {
+        if (slot.querySelector("img")) return
+
+        if (!draggedCard) {
+          result.innerHTML = "Tap a step card first"
+          result.style.color = "#004aad"
+          return
+        }
+
+        const missionApp = slot.dataset.app
+        const expectedStep = Number(slot.dataset.step)
+
+        if (draggedCard.app !== missionApp) {
+          result.innerHTML = "❌ Wrong Mission"
+          result.style.color = "red"
+          playWrongSound()
+          return
+        }
+
+        if (draggedCard.step !== expectedStep) {
+          result.innerHTML = "❌ Wrong Step Order"
+          result.style.color = "red"
+          playWrongSound()
+          return
+        }
+
+        const placedCard = draggedCard.element
+        result.innerHTML = ""
+        result.style.color = ""
+
+        slot.appendChild(placedCard)
+        placedCard.draggable = false
+        placedCard.classList.add("card-complete")
+        clearActiveCard()
+        draggedCard = null
+
+        if (placedCard.parentElement === slot) {
+          playCorrectSound()
+        }
+
+        checkMissionComplete(missionDiv)
+        checkWin()
+      }
+
       function createMissions() {
-        missions.forEach((mission, missionIndex) => {
+        missions.forEach((mission) => {
           const missionDiv = document.createElement("div")
           missionDiv.className = "mission"
 
@@ -905,41 +1060,11 @@
             })
 
             slot.addEventListener("drop", async () => {
-              if (slot.querySelector("img")) return
-              if (!draggedCard) return
+              await placeCardInSlot(slot, missionDiv)
+            })
 
-              const missionApp = missions[missionIndex].app
-              const expectedStep = Number(slot.dataset.step)
-
-              if (draggedCard.app !== missionApp) {
-                result.innerHTML = "❌ Wrong Mission"
-                result.style.color = "red"
-                playWrongSound()
-                return
-              }
-
-              if (draggedCard.step !== expectedStep) {
-                result.innerHTML = "❌ Wrong Step Order"
-                result.style.color = "red"
-                playWrongSound()
-                return
-              }
-
-              result.innerHTML = ""
-              result.style.color = ""
-
-              slot.appendChild(draggedCard.element)
-              draggedCard.element.draggable = false
-              draggedCard.element.classList.add("card-complete")
-
-              if (draggedCard.element.parentElement === slot) {
-                playCorrectSound()
-              }
-
-              draggedCard = null
-
-              checkMissionComplete(missionDiv)
-              checkWin()
+            slot.addEventListener("click", async () => {
+              await placeCardInSlot(slot, missionDiv)
             })
 
             if (card) {
@@ -976,15 +1101,36 @@
             await startAudio()
             playPickupSound()
 
-            draggedCard = {
+            setActiveCard({
               app: card.app,
               step: card.step,
               element: cardDiv
-            }
+            })
           })
 
           cardDiv.addEventListener("dragend", () => {
-            draggedCard = null
+            if (cardDiv.parentElement === handRow) {
+              clearActiveCard()
+              draggedCard = null
+            }
+          })
+
+          cardDiv.addEventListener("click", async () => {
+            if (cardDiv.draggable === false) return
+            await startAudio()
+            playPickupSound()
+
+            if (draggedCard && draggedCard.element === cardDiv) {
+              clearActiveCard()
+              draggedCard = null
+              return
+            }
+
+            setActiveCard({
+              app: card.app,
+              step: card.step,
+              element: cardDiv
+            })
           })
 
           handRow.appendChild(cardDiv)
