@@ -226,17 +226,6 @@
 }
 
 
-      .touch-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        z-index: 10;
-        background: transparent;
-        touch-action: none; /* ensures touch events are captured */
-      }
-
     @media (max-width: 768px) {
   .video-section {
   display: flex;
@@ -256,6 +245,102 @@
   }
 
 }
+
+      /* ============================================================
+         RESPONSIVE VIDEO DISPLAY (overrides the rules above)
+         Portrait (9:16) tutorial videos, centred and sized to fit
+         the viewport on desktop and fill the width on mobile.
+         Targets the .video-section step containers that actually
+         render the iframe (the intended .video-wrapper is not built).
+         ============================================================ */
+
+      .content-container {
+        max-width: 760px;
+      }
+
+      /* Clear the 90px sticky nav so the title never hides under it */
+      body { padding-top: 96px; }
+
+      /* Each video card sizes to its content (was a fixed 85dvh) */
+      .content-container section {
+        height: auto;
+        padding: 18px 18px 26px;
+        text-align: center;
+      }
+      .content-container section h2 {
+        text-align: center;
+        font-size: clamp(1.15rem, 3.5vw, 1.5rem);
+        margin-bottom: 0.75rem;
+      }
+      .content-container section > br { display: none; }
+
+      /* Navigation row: Prev · Back · Next — three compact, equal pills */
+      .video-holder {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        align-items: stretch;
+        margin: 0 auto 16px;
+        max-width: 520px;
+        flex-wrap: nowrap;
+      }
+      .video-holder .video-arrow,
+      .video-holder .back-btn {
+        position: static;
+        flex: 1 1 0;
+        min-width: 0;
+        width: auto;
+        height: auto;
+        padding: 10px 8px;
+        font-size: 0.95rem;
+        font-weight: 600;
+        line-height: 1.1;
+        border: none;
+        border-radius: 999px;
+        background: #e43f5a;
+        color: #fff;
+        cursor: pointer;
+        text-align: center;
+      }
+      .video-holder .video-arrow:hover,
+      .video-holder .back-btn:hover { background: #b92c41; }
+
+      /* Each step is a portrait (9:16) video frame — height-driven so
+         it never overflows vertically; max-width guards narrow phones.
+         Only one step is visible at a time (JS toggles display). */
+      .content-container .video-section {
+        width: auto;
+        height: min(68dvh, 600px);
+        aspect-ratio: 9 / 16;
+        max-width: 94vw;
+        margin: 0 auto;
+        padding: 0;
+        background: #000;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.20);
+      }
+      .content-container .video-section iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+        border-radius: 0;
+        display: block;
+      }
+
+      @media (max-width: 768px) {
+        .content-container { padding: 0 12px; }
+        .content-container .video-section {
+          height: min(58dvh, 480px);
+          max-width: 92vw;
+        }
+        .video-holder { gap: 6px; }
+        .video-holder .video-arrow,
+        .video-holder .back-btn {
+          padding: 11px 6px;
+          font-size: 0.9rem;
+        }
+      }
 
     </style>
 </head>
@@ -501,18 +586,6 @@
           time3: 15,
           time4: 20,
         },
-        {
-          title: "Tutorial",
-          youtubeId: "/content/videos/TheStraitsTimes.mp4",
-          description1: "Step 1",
-          description2: "Step 2",
-          description3: "Step 3",
-          description4: "Step 4",
-          time1: 5,
-          time2: 10,
-          time3: 15,
-          time4: 20,
-        },
         // Add more videos here
       ];
 
@@ -524,49 +597,32 @@
         section.innerHTML = `
   <h2>${video.title}</h2>
 
-  
-    <div class="video-holder">
-        <!-- 🔼 Top Button -->
-      <button class="video-arrow top-btn" onclick="topButtonAction()"
-        style="">Prev Video</button>
-        <!-- 🔽 Bottom Button -->
-      <button class="video-arrow bottom-btn" onclick="bottomButtonAction()"
-        style="">Next Video</button>
-      </div
-
-
-  <div class="video-wrapper" data-index="${index + 1}" 
-    style="position: relative; display: flex; justify-content: center; align-items: center; flex-direction: column;">
-    
-   
-<br>
-    <!-- Video Sections -->
-   <div class="video-section" style="display:flex;">
-  <iframe
-    data-step="0"
-    src=""
-    allow="autoplay; encrypted-media"
-    allowfullscreen
-  ></iframe>
-</div>
-
-<div class="video-section" style="display:none;">
-  <iframe data-step="1" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-</div>
-
-<div class="video-section" style="display:none;">
-  <iframe data-step="2" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-</div>
-
-<div class="video-section" style="display:none;">
-  <iframe data-step="3" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-</div>
-
-    </div>
+  <div class="video-holder">
+    <button class="video-arrow top-btn">Prev</button>
+    <button class="back-btn" onclick="window.location.href='appnav'">Back</button>
+    <button class="video-arrow bottom-btn">Next</button>
   </div>
 
-  
-  <button class="back-btn" onclick="window.location.href='appnav'">Back</button>
+  <div class="video-section" style="display:flex;">
+    <iframe
+      data-step="0"
+      src=""
+      allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+    ></iframe>
+  </div>
+
+  <div class="video-section" style="display:none;">
+    <iframe data-step="1" src="" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+
+  <div class="video-section" style="display:none;">
+    <iframe data-step="2" src="" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
+
+  <div class="video-section" style="display:none;">
+    <iframe data-step="3" src="" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
 `;
 
         videoContainer.appendChild(section);
@@ -580,27 +636,19 @@
           const topBtn = section.querySelector(".top-btn");
           const bottomBtn = section.querySelector(".bottom-btn");
 
-          // Go to previous video
+          // Go to previous video (loops to the last when on the first)
           if (topBtn) {
             topBtn.addEventListener("click", () => {
-              const prevIndex = index - 1;
-              if (prevIndex >= 0) {
-                window.location.href = `videos?show=${prevIndex + 1}`;
-              } else {
-                console.log("Already at the first video");
-              }
+              const prevIndex = (index - 1 + sections.length) % sections.length;
+              window.location.href = `videos.html?show=${prevIndex + 1}`;
             });
           }
 
-          // Go to next video
+          // Go to next video (loops to the first when on the last)
           if (bottomBtn) {
             bottomBtn.addEventListener("click", () => {
-              const nextIndex = index + 1;
-              if (nextIndex < sections.length) {
-                window.location.href = `videos?show=${nextIndex + 1}`;
-              } else {
-                console.log("Already at the last video");
-              }
+              const nextIndex = (index + 1) % sections.length;
+              window.location.href = `videos.html?show=${nextIndex + 1}`;
             });
           }
           
@@ -765,12 +813,21 @@ function loadInitialVideoForSection(sectionIndex) {
 
   const videoData = videos[sectionIndex - 1];
 
-  loadYoutubeStep(
-    iframe,
-    videoData.youtubeId,
-    0,
-    false
-  );
+  // Set the embed src DIRECTLY (no blank-then-rAF reassign). The
+  // reset pattern in loadYoutubeStep leaves the iframe on about:blank
+  // (black) on iOS Safari, even though desktop browsers recover.
+  const params = new URLSearchParams({
+    autoplay: 0,
+    start: 0,
+    rel: 0,
+    modestbranding: 1,
+    playsinline: 1
+  });
+  iframe.src =
+    "https://www.youtube.com/embed/" +
+    videoData.youtubeId +
+    "?" +
+    params.toString();
 }
 
 
@@ -778,7 +835,7 @@ function loadInitialVideoForSection(sectionIndex) {
       document.querySelectorAll("button.copy-btn").forEach((btn) => {
         btn.addEventListener("click", () => {
           const sectionId = btn.getAttribute("data-section");
-          const url = `https://www.impactcolliders.com/videos?show=${sectionId}`;
+          const url = `https://www.impactcolliders.com/videos.html?show=${sectionId}`;
           navigator.clipboard
             .writeText(url)
             .then(() => {
@@ -793,7 +850,7 @@ function loadInitialVideoForSection(sectionIndex) {
       document.querySelectorAll("button.copy-qr-btn").forEach((btn) => {
         btn.addEventListener("click", async () => {
           const sectionId = btn.getAttribute("data-section");
-          const url = `https://www.impactcolliders.com/videos?show=${sectionId}`;
+          const url = `https://www.impactcolliders.com/videos.html?show=${sectionId}`;
           try {
             const container = document.createElement("div");
             container.style.position = "fixed";
