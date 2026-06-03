@@ -11,6 +11,18 @@
       content="Press release from Impact Colliders."
     />
     <meta name="author" content="Impact Colliders" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+    <link rel="canonical" href="https://www.impactcolliders.com/press-release" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Impact Colliders" />
+    <meta property="og:title" content="Press Release - Impact Colliders" />
+    <meta property="og:description" content="Read the latest press release from Impact Colliders." />
+    <meta property="og:url" content="https://www.impactcolliders.com/press-release" />
+    <meta property="og:image" content="https://www.impactcolliders.com/assets/images/logo.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Press Release - Impact Colliders" />
+    <meta name="twitter:description" content="Read the latest press release from Impact Colliders." />
+    <meta name="twitter:image" content="https://www.impactcolliders.com/assets/images/logo.jpg" />
     <link
       href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap"
       rel="stylesheet"
@@ -246,13 +258,23 @@
         }
 
         document.title = `${item.title} - Impact Colliders`;
-        const descMeta = document.querySelector('meta[name="description"]');
-        if (descMeta) {
-          descMeta.setAttribute(
-            "content",
-            item.summary || deriveSummary(item.body)
-          );
-        }
+        const pageDescription = item.summary || deriveSummary(item.body);
+        const pageUrl = `${window.location.origin}${window.location.pathname}?slug=${encodeURIComponent(item.slug)}`;
+        const pageImage = new URL(item.image, window.location.href).href;
+        const setMeta = (selector, attr, value) => {
+          const el = document.querySelector(selector);
+          if (el && value) el.setAttribute(attr, value);
+        };
+
+        setMeta('meta[name="description"]', "content", pageDescription);
+        setMeta('link[rel="canonical"]', "href", pageUrl);
+        setMeta('meta[property="og:title"]', "content", item.title);
+        setMeta('meta[property="og:description"]', "content", pageDescription);
+        setMeta('meta[property="og:url"]', "content", pageUrl);
+        setMeta('meta[property="og:image"]', "content", pageImage);
+        setMeta('meta[name="twitter:title"]', "content", item.title);
+        setMeta('meta[name="twitter:description"]', "content", pageDescription);
+        setMeta('meta[name="twitter:image"]', "content", pageImage);
 
         heroEl.innerHTML = `
           <div class="eyebrow">Press Release</div>

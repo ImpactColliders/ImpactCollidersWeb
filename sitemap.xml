@@ -16,4 +16,6 @@
   <url><loc>https://www.impactcolliders.com/thearchive/sponsors</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://www.impactcolliders.com/tree</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
   <url><loc>https://www.impactcolliders.com/thearchive/tree</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
+  <url><loc>https://www.impactcolliders.com/tutorial</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.impactcolliders.com/qr</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
 </urlset>

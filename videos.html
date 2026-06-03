@@ -75,7 +75,7 @@
     padding-top: 56px;
   }
 
- 
+
 }
 
 
@@ -136,7 +136,7 @@
         button.copy-qr-btn {
           right: 100px;
         }
-       
+
       }
 
 .video-wrapper {
@@ -184,7 +184,7 @@
         margin-top: 0.5rem;
         margin-bottom: 1.2rem;
       }
-   
+
 
       .video-holder {
   display: flex;
@@ -208,9 +208,9 @@
         transition: background 0.3s ease;
       }
 
-   
 
-   
+
+
 
       .content-container section {
         height: 85dvh;
@@ -378,12 +378,25 @@
         }
       }
 
+
+      .seo-heading {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
     </style>
 </head>
   <body>
     <!-- Navbar -->
     <header class="header-area header-sticky" id="nav-placeholder"></header>
 
+    <h1 class="seo-heading">Impact Colliders Video Library</h1>
     <main class="content-container" id="video-container"></main>
 
     <footer id="contact-us">
@@ -687,7 +700,7 @@
               window.location.href = `videos.html?show=${nextIndex + 1}`;
             });
           }
-          
+
         });
       }, 0);
 
@@ -697,7 +710,7 @@
           navigator.userAgent
         );
 
-      
+
 
       // After your sections are created
       document.querySelectorAll(".video-wrapper").forEach((wrapper) => {
@@ -996,7 +1009,7 @@ function loadInitialVideoForSection(sectionIndex) {
         return `${baseUrl}?${query.toString()}`;
       }
 
- 
+
 
 
     </script>
