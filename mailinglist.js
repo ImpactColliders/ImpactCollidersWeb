@@ -236,7 +236,7 @@
             target="_self"
             class="newsletter-form"
           >
-            <input type="email" name="EMAIL" placeholder="Your email" required />
+            <input type="email" name="EMAIL" placeholder="Email" required />
             <button type="submit">Subscribe</button>
           </form>
 

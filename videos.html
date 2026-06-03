@@ -254,37 +254,56 @@
          render the iframe (the intended .video-wrapper is not built).
          ============================================================ */
 
-      .content-container {
-        max-width: 760px;
-      }
-
-      /* The nav is position:sticky (in normal flow), so the content
-         already sits below it — no body padding-top is needed. Adding
-         one only created blank space above the nav until you scrolled. */
       body { padding-top: 0; }
 
-      /* Each video card sizes to its content (was a fixed 85dvh) */
+      /* overflow-x: clip prevents horizontal scroll WITHOUT making <body>
+         a scroll container — "hidden" would break the sticky button row. */
+      html, body { overflow-x: clip; }
+
+      .content-container {
+        max-width: 760px;
+        /* generous, viewport-WIDTH-based gap before the footer so the
+           "Quick Links" area is never cramped/cut off (esp. iOS Safari) */
+        margin: 24px auto clamp(48px, 9vw, 88px);
+        padding: 0 16px;
+      }
+
+      /* No white "card": the nav row and the video sit as separate,
+         standalone blocks directly on the page. */
       .content-container section {
         height: auto;
-        padding: 18px 18px 26px;
+        background: transparent;
+        box-shadow: none;
+        border-radius: 0;
+        padding: 0;
+        margin: 0;
         text-align: center;
       }
       .content-container section h2 {
         text-align: center;
         font-size: clamp(1.15rem, 3.5vw, 1.5rem);
-        margin-bottom: 0.75rem;
+        /* Large gap above so the sticky button bar never blocks the
+           title; smaller gap below to the video. */
+        margin: clamp(90px, 22vw, 140px) 0 28px;
       }
       .content-container section > br { display: none; }
 
-      /* Navigation row: Prev · Back · Next — three compact, equal pills */
+      /* Standalone navigation row (Prev · Back · Next) ABOVE the video.
+         Sticky just below the 90px global nav so it always stays below the
+         nav and is never overlapped when scrolling back up. */
       .video-holder {
         display: flex;
         gap: 8px;
         justify-content: center;
         align-items: stretch;
-        margin: 0 auto 16px;
         max-width: 520px;
+        margin: 0 auto;
         flex-wrap: nowrap;
+        position: sticky;
+        top: 90px;
+        z-index: 40;
+        background: #f9f9f9;
+        padding: 12px 0;
       }
       .video-holder .video-arrow,
       .video-holder .back-btn {
@@ -293,7 +312,7 @@
         min-width: 0;
         width: auto;
         height: auto;
-        padding: 10px 8px;
+        padding: 11px 8px;
         font-size: 0.95rem;
         font-weight: 600;
         line-height: 1.1;
@@ -307,14 +326,13 @@
       .video-holder .video-arrow:hover,
       .video-holder .back-btn:hover { background: #b92c41; }
 
-      /* Each step is a portrait (9:16) video frame — height-driven so
-         it never overflows vertically; max-width guards narrow phones.
-         Only one step is visible at a time (JS toggles display). */
+      /* Portrait (9:16) video frame — sized by WIDTH (capped), never by
+         viewport height, so the layout doesn't shift with iOS Safari's
+         dynamic toolbar. Only one step is shown at a time (JS toggles). */
       .content-container .video-section {
-        width: auto;
-        height: min(68dvh, 600px);
+        width: min(360px, 86vw);
         aspect-ratio: 9 / 16;
-        max-width: 94vw;
+        height: auto;
         margin: 0 auto;
         padding: 0;
         background: #000;
@@ -332,14 +350,11 @@
 
       @media (max-width: 768px) {
         .content-container { padding: 0 12px; }
-        .content-container .video-section {
-          height: min(58dvh, 480px);
-          max-width: 92vw;
-        }
+        .content-container .video-section { width: min(330px, 82vw); }
         .video-holder { gap: 6px; }
         .video-holder .video-arrow,
         .video-holder .back-btn {
-          padding: 11px 6px;
+          padding: 12px 6px;
           font-size: 0.9rem;
         }
       }
@@ -597,13 +612,13 @@
         section.id = `Section${index + 1}`;
 
         section.innerHTML = `
-  <h2>${video.title}</h2>
-
   <div class="video-holder">
     <button class="video-arrow top-btn">Prev</button>
     <button class="back-btn" onclick="window.location.href='appnav'">Back</button>
     <button class="video-arrow bottom-btn">Next</button>
   </div>
+
+  <h2>${video.title}</h2>
 
   <div class="video-section" style="display:flex;">
     <iframe
