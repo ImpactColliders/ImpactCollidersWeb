@@ -57,26 +57,8 @@
     <div class="jumper"><div></div><div></div><div></div></div>
   </div>
 
-  <!-- Header -->
-  <header class="header-area header-sticky">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <nav class="main-nav">
-            <a href="/" class="logo">Impact Colliders</a>
-            <ul class="nav">
-              <li><a href="/">Home</a></li>
-              <li><a href="videos?show=all">About Us</a></li>
-              <li><a href="videos?show=all">Video Library</a></li>
-              <li><a href="videos?show=all">Digital Game</a></li>
-              <li><a href="videos?show=all">Shop</a></li>
-            </ul>
-            <a class='menu-trigger'><span>Menu</span></a>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </header>
+  <!-- Header (global nav injected by navbar.js) -->
+  <header class="header-area header-sticky" id="nav-placeholder"></header>
 
 
 
@@ -282,6 +264,13 @@ document.getElementById("backToHomeBtn").onclick = function() {
 
     loadQuestion();
   </script>
+
+  <!-- Footer (injected by mailinglist.js) -->
+  <footer id="contact-us">
+    <div class="container" id="contact-container"></div>
+  </footer>
+
   <script src="navbar.js"></script>
+  <script src="mailinglist.js"></script>
 </body>
 </html>
