@@ -237,6 +237,20 @@
         text-align: center;
         margin: 0 0 14px;
       }
+      .soon-badge {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 10px;
+        padding: 4px 12px;
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 1;
+        color: var(--brand);
+        background: rgba(255, 101, 34, 0.12);
+        border: 1px solid rgba(255, 101, 34, 0.35);
+        border-radius: 999px;
+        white-space: nowrap;
+      }
       .section .section-sub {
         text-align: center;
         max-width: 700px;
@@ -644,7 +658,7 @@
 
       <!-- ============ PAYMENT BY CARD ============ -->
       <section class="section" id="slots">
-        <h2>Payment by Card</h2>
+        <h2>Payment by Card <span class="soon-badge">Coming soon</span></h2>
         <p class="section-sub">
           Pick the session you'd like to attend. The Luma registration for that
           slot will appear below.
@@ -652,19 +666,19 @@
 
         <div class="slot-grid" role="group" aria-label="Choose your event slot">
           <button type="button" class="slot-btn" data-slot="1" aria-pressed="false">
-            <span class="slot-date">Sun, 26 Jul 2026</span>
+            <span class="slot-date">Sun, 4 Oct 2026</span>
             <span class="slot-time">1:30 PM &ndash; 4:00 PM</span>
           </button>
           <button type="button" class="slot-btn" data-slot="2" aria-pressed="false">
-            <span class="slot-date">Sun, 26 Jul 2026</span>
+            <span class="slot-date">Sun, 4 Oct 2026</span>
             <span class="slot-time">5:00 PM &ndash; 7:30 PM</span>
           </button>
           <button type="button" class="slot-btn" data-slot="3" aria-pressed="false">
-            <span class="slot-date">Sun, 2 Aug 2026</span>
+            <span class="slot-date">Sun, 11 Oct 2026</span>
             <span class="slot-time">1:30 PM &ndash; 4:00 PM</span>
           </button>
           <button type="button" class="slot-btn" data-slot="4" aria-pressed="false">
-            <span class="slot-date">Sun, 2 Aug 2026</span>
+            <span class="slot-date">Sun, 11 Oct 2026</span>
             <span class="slot-time">5:00 PM &ndash; 7:30 PM</span>
           </button>
         </div>
@@ -683,7 +697,7 @@
               aria-hidden="false"
               tabindex="0"
               loading="lazy"
-              title="Luma registration — Sun 26 Jul, 1:30 PM"
+              title="Luma registration — Sun 4 Oct, 1:30 PM"
             ></iframe>
             <div class="slot-qr-reminder">
               <img
@@ -720,7 +734,7 @@
               aria-hidden="false"
               tabindex="0"
               loading="lazy"
-              title="Luma registration — Sun 26 Jul, 5:00 PM"
+              title="Luma registration — Sun 4 Oct, 5:00 PM"
             ></iframe>
             <div class="slot-qr-reminder">
               <img
@@ -757,7 +771,7 @@
               aria-hidden="false"
               tabindex="0"
               loading="lazy"
-              title="Luma registration — Sun 2 Aug, 1:30 PM"
+              title="Luma registration — Sun 11 Oct, 1:30 PM"
             ></iframe>
             <div class="slot-qr-reminder">
               <img
@@ -794,7 +808,7 @@
               aria-hidden="false"
               tabindex="0"
               loading="lazy"
-              title="Luma registration — Sun 2 Aug, 5:00 PM"
+              title="Luma registration — Sun 11 Oct, 5:00 PM"
             ></iframe>
             <div class="slot-qr-reminder">
               <img

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Digital Name Card – Impact Colliders</title>
+
+<link rel="icon" type="image/x-icon" href="/assets/images/logo.jpg"/>
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap" rel="stylesheet"/>
+
+<!-- site-wide styles (used by the shared header & footer) -->
+<link rel="stylesheet" href="/assets/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="/assets/css/font-awesome.css"/>
+<link rel="stylesheet" href="/assets/css/templatemo-lava.css"/>
+
+<!-- name card styles (loaded last so they win) -->
+<link rel="stylesheet" href="/namecards/namecard.css"/>
+</head>
+<body>
+
+<!-- SITE HEADER -->
+<header class="header-area header-sticky" id="nav-placeholder"></header>
+
+<!-- NAME CARD -->
+<section class="nc-stage">
+<main id="namecard"></main>
+</section>
+
+<!-- SITE FOOTER -->
+<footer id="contact-us">
+<div class="container" id="contact-container"></div>
+</footer>
+
+<!-- which card to show (matches the folder / URL slug) -->
+<script>window.NAMECARD_SLUG = "shiying";</script>
+
+<!-- shared header + footer -->
+<script src="/navbar.js"></script>
+<script src="/mailinglist.js"></script>
+
+<!-- name card data + renderer -->
+<script src="/namecards/cards.js"></script>
+<script src="/namecards/namecard.js"></script>
+
+</body>
+</html>

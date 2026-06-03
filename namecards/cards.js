@@ -63,6 +63,26 @@ window.NAMECARDS = {
     phone: "+6587783419",
     email: "avinteo@impactcolliders.com",
     linkedin: "https://www.linkedin.com/in/avin-teo/"
+  },
+
+  jocelyn: {
+    name: "Jocelyn Chng",
+    title: "Lead",
+    org: "The Archive",
+    photo: "/assets/images/Jocelyn Chng Namecard-4jun26.jpg",
+    phone: "+6589010684",
+    email: "jocelynchng06@gmail.com",
+    linkedin: "https://www.linkedin.com/in/jocelynchnghuipheng/"
+  },
+
+  shiying: {
+    name: "Shi Ying Ng",
+    title: "Program Lead",
+    org: "The Archive",
+    photo: "/assets/images/Shi Ying Ng Namecard-4jun26.jpg",
+    phone: "+6588096839",
+    email: "ngshiying06@gmail.com",
+    linkedin: "https://www.linkedin.com/in/shi-ying-ng-0b846a347/"
   }
 
   // Add more cards here. Remember the comma after the block above
