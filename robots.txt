@@ -19,7 +19,6 @@ Disallow: /admincodespage
 Disallow: /appnav
 Disallow: /corporaterelations
 Disallow: /impact
-Disallow: /thearchive/volunteers
 
 # Search engines and everything else — name cards remain private.
 User-agent: *
@@ -29,6 +28,5 @@ Disallow: /appnav
 Disallow: /corporaterelations
 Disallow: /impact
 Disallow: /namecards/
-Disallow: /thearchive/volunteers
 
 Sitemap: https://www.impactcolliders.com/sitemap.xml
