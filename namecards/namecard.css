@@ -244,6 +244,41 @@ color:var(--brand);
 border-color:var(--border-strong);
 }
 
+/* DOWNLOAD QR — secondary action outside the card frame */
+
+.nc-qr-link{
+display:inline-flex;
+align-items:center;
+gap:8px;
+font-family:inherit;
+font-size:12.5px;
+font-weight:600;
+letter-spacing:0.3px;
+color:var(--ink-muted);
+cursor:pointer;
+padding:8px 18px;
+border-radius:999px;
+border:1px solid var(--border);
+background:rgba(255,255,255,0.6);
+transition:color .15s ease, border-color .15s ease;
+-webkit-tap-highlight-color:transparent;
+}
+
+.nc-qr-link svg{width:15px;height:15px;flex-shrink:0;}
+
+.nc-qr-link:hover{
+color:var(--brand);
+border-color:var(--border-strong);
+}
+
+/* never show the square UA outline — keep the rounded pill shape */
+.nc-qr-link:focus{outline:none;}
+
+.nc-qr-link:focus-visible{
+outline:none;
+box-shadow:0 0 0 4px var(--brand-soft);
+}
+
 /* NOT FOUND STATE */
 
 .nc-missing{

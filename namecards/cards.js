@@ -51,6 +51,8 @@
  *             to hide the Email button.
  *   linkedin  Full LinkedIn profile URL. Powers the LinkedIn
  *             button. Leave "" to hide the LinkedIn button.
+ *   instagram Full Instagram profile URL. Powers the Instagram
+ *             button. Omit or leave "" to hide the Instagram button.
  * ===============================================================
  */
 window.NAMECARDS = {
@@ -62,7 +64,8 @@ window.NAMECARDS = {
     photo: "/assets/images/Avin Teo Namecard.jpg",
     phone: "+6587783419",
     email: "avinteo@impactcolliders.com",
-    linkedin: "https://www.linkedin.com/in/avin-teo/"
+    linkedin: "https://www.linkedin.com/in/avin-teo/",
+    instagram: "https://www.instagram.com/avinteo/"
   },
 
   jocelyn: {
