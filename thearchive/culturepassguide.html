@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="How to use your SG Culture Pass to pay for a ticket to The Archive."
+    />
+    <meta name="author" content="Impact Colliders" />
+    <title>Culture Pass Guide · The Archive</title>
+    <link rel="canonical" href="https://www.impactcolliders.com/thearchive/culturepassguide" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Impact Colliders" />
+    <meta property="og:title" content="Culture Pass Guide · The Archive" />
+    <meta property="og:description" content="How to use your SG Culture Pass to pay for a ticket to The Archive." />
+    <meta property="og:url" content="https://www.impactcolliders.com/thearchive/culturepassguide" />
+    <meta property="og:image" content="https://www.impactcolliders.com/assets/images/logo.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Culture Pass Guide · The Archive" />
+    <meta name="twitter:description" content="How to use your SG Culture Pass to pay for a ticket to The Archive." />
+    <meta name="twitter:image" content="https://www.impactcolliders.com/assets/images/logo.jpg" />
+
+    <link rel="icon" href="/assets/images/logo.jpg" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/assets/css/font-awesome.css" />
+
+    <style>
+      *, *::before, *::after { box-sizing: border-box; }
+      html, body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, figure, blockquote, dl, dd { margin: 0; padding: 0; }
+      img, svg, iframe { display: block; max-width: 100%; }
+      button { font: inherit; }
+
+      :root {
+        --ic-blue: #004aad;
+        --ic-orange: #ff6522;
+        --ic-red: #ce3f2e;
+        --brand: #ff6522;
+        --brand-hover: #e6571a;
+        --text: #14110f;
+        --text-muted: #666;
+        --border-soft: #e9e6e0;
+      }
+
+      html { scroll-behavior: smooth; }
+      @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+      body {
+        font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: #f5f5f5;
+        color: var(--text);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      a { color: var(--ic-blue); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      a:focus-visible, button:focus-visible {
+        outline: 3px solid var(--ic-blue);
+        outline-offset: 3px;
+        border-radius: 6px;
+      }
+
+      .skip-link {
+        position: absolute; left: -9999px; top: 0;
+        background: var(--ic-blue); color: #fff;
+        padding: 10px 16px; border-radius: 6px;
+        z-index: 2000; font-weight: 600;
+      }
+      .skip-link:focus { left: 12px; top: 12px; text-decoration: none; }
+
+      /* ===== DEDICATED NAV (shared with The Archive home) ===== */
+      .archive-nav {
+        position: sticky; top: 0; z-index: 100;
+        background: var(--ic-red);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+      .archive-nav-inner {
+        max-width: 1080px; margin: 0 auto;
+        padding: 12px 24px;
+        display: flex; align-items: center; justify-content: space-between;
+        gap: 16px;
+      }
+      .archive-brand {
+        display: inline-flex; align-items: center; gap: 12px;
+        color: #fff; font-weight: 600; font-size: 0.95rem;
+        text-decoration: none;
+      }
+      .archive-brand:hover { text-decoration: none; color: #fff; }
+      .archive-brand img {
+        height: 34px; width: auto;
+        background: #fff;
+        padding: 5px 9px;
+        border-radius: 8px;
+      }
+      .archive-nav-links {
+        display: flex; gap: 26px; list-style: none;
+        margin: 0 auto; padding: 0;
+      }
+      .archive-nav-links a {
+        color: rgba(255, 255, 255, 0.82);
+        text-decoration: none;
+        font-weight: 500; font-size: 0.92rem;
+        padding: 6px 0;
+        border-bottom: 2px solid transparent;
+        transition: color 0.15s, border-color 0.15s;
+      }
+      .archive-nav-links a:hover {
+        color: #fff; text-decoration: none;
+        border-color: rgba(255, 255, 255, 0.5);
+      }
+      .archive-nav-links a[aria-current="page"] {
+        color: #fff; border-color: var(--brand);
+      }
+      .nav-register {
+        display: inline-flex; align-items: center; gap: 8px;
+        background: var(--brand); color: #fff;
+        padding: 10px 22px; border-radius: 999px;
+        font-weight: 600; font-size: 0.92rem;
+        text-decoration: none;
+        transition: background 0.15s, transform 0.15s;
+      }
+      .nav-register:hover {
+        background: var(--brand-hover); color: #fff;
+        text-decoration: none; transform: translateY(-1px);
+      }
+      @media (max-width: 820px) {
+        .archive-nav-inner {
+          flex-wrap: wrap;
+          padding: 10px 16px;
+          gap: 10px;
+        }
+        .archive-brand { order: 1; }
+        .nav-register { order: 2; padding: 8px 16px; font-size: 0.85rem; }
+        .archive-nav-links {
+          order: 3;
+          width: 100%;
+          justify-content: center;
+          margin: 4px 0 2px;
+          gap: 18px;
+        }
+        .archive-brand img { height: 30px; }
+        .archive-nav-links a { font-size: 0.86rem; }
+      }
+      @media (max-width: 380px) {
+        .archive-nav-links { gap: 12px; }
+        .archive-nav-links a { font-size: 0.8rem; }
+      }
+
+      /* ===== HERO ===== */
+      .page-hero {
+        padding: 80px 24px 48px;
+        text-align: center;
+        background: #fff;
+      }
+      .badge-pill {
+        display: inline-block;
+        background: rgba(255, 101, 34, 0.12);
+        color: var(--brand);
+        padding: 6px 16px;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 18px;
+      }
+      .page-hero h1 {
+        font-size: clamp(2rem, 4.4vw, 2.8rem);
+        font-weight: 700;
+        color: var(--ic-blue);
+        line-height: 1.15;
+        margin-bottom: 14px;
+      }
+      .page-hero .lede {
+        max-width: 600px; margin: 0 auto;
+        color: var(--text-muted);
+        font-size: 1.05rem;
+      }
+
+      /* ===== STEPS + CTA ===== */
+      .section { padding: 56px 24px 72px; }
+
+      .cpg-card {
+        max-width: 640px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 34px 30px;
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+        border: 1px solid var(--border-soft);
+      }
+
+      .cpg-steps { list-style: none; counter-reset: step; margin: 0 0 30px; }
+      .cpg-steps li {
+        position: relative;
+        counter-increment: step;
+        padding: 5px 0 5px 56px;
+        min-height: 38px;
+        margin-bottom: 20px;
+        font-size: 1rem;
+        color: var(--text);
+        line-height: 1.55;
+      }
+      .cpg-steps li:last-child { margin-bottom: 0; }
+      .cpg-steps li::before {
+        content: counter(step);
+        position: absolute;
+        left: 0; top: 0;
+        width: 38px; height: 38px;
+        border-radius: 50%;
+        background: var(--brand);
+        color: #fff;
+        font-weight: 700;
+        display: flex; align-items: center; justify-content: center;
+      }
+      .cpg-steps a { color: var(--ic-blue); font-weight: 600; }
+
+      .cpg-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+        background: var(--brand);
+        color: #fff;
+        padding: 15px 22px;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 1rem;
+        text-decoration: none;
+        transition: background 0.15s, transform 0.15s;
+      }
+      .cpg-btn:hover {
+        background: var(--brand-hover);
+        color: #fff; text-decoration: none;
+        transform: translateY(-1px);
+      }
+
+      /* ===== BACK TO TOP ===== */
+      .back-to-top {
+        position: fixed;
+        right: 20px; bottom: 24px;
+        z-index: 80;
+        width: 48px; height: 48px;
+        border-radius: 50%;
+        background: var(--ic-blue);
+        color: #fff; border: 0;
+        display: flex; align-items: center; justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+        opacity: 0; visibility: hidden; transform: translateY(10px);
+        transition: opacity 0.2s, transform 0.2s, visibility 0.2s, background 0.15s;
+      }
+      .back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+      .back-to-top:hover { background: #003c8c; }
+      .back-to-top svg { width: 22px; height: 22px; }
+
+      @media (max-width: 900px) {
+        .page-hero { padding: 56px 20px 32px; }
+        .section { padding: 40px 18px 56px; }
+        .cpg-card { padding: 28px 20px; }
+        .back-to-top { right: 16px; bottom: 24px; width: 44px; height: 44px; }
+        .back-to-top svg { width: 20px; height: 20px; }
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <!-- DEDICATED NAV (this page is intentionally NOT listed here — direct URL only) -->
+    <nav class="archive-nav" aria-label="The Archive">
+      <div class="archive-nav-inner">
+        <a class="archive-brand" href="/thearchive/" aria-label="The Archive home">
+          <img src="/assets/images/The Archive Logo Full.jpg" alt="The Archive" />
+        </a>
+
+        <ul class="archive-nav-links" role="list">
+          <li><a href="/thearchive/">Home</a></li>
+          <li><a href="/thearchive/sponsors">Sponsors</a></li>
+          <li><a href="/thearchive/referrals">Referrals</a></li>
+          <li><a href="/press-releases">Press Releases</a></li>
+        </ul>
+
+        <a class="nav-register" href="/thearchive/#signup">Register</a>
+      </div>
+    </nav>
+
+
+    <main id="main">
+
+      <!-- ============ HERO ============ -->
+      <section class="page-hero">
+        <h1>Culture Pass Guide</h1>
+        <p class="lede">
+          How to use your SG Culture Pass to pay for a ticket to The Archive.
+        </p>
+      </section>
+
+
+      <!-- ============ STEPS + CTA ============ -->
+      <section class="section">
+        <div class="cpg-card">
+          <ol class="cpg-steps">
+            <li>Log in to SG Culture Pass with Singpass.</li>
+            <li>Select <a href="/thearchive/">The Archive event</a>.</li>
+            <li>Choose &ldquo;SG Culture Pass&rdquo; at checkout.</li>
+            <li>Confirm your booking and enjoy the event.</li>
+          </ol>
+
+          <a class="cpg-btn" id="cpg-pseudo-app" href="#" target="_blank" rel="noopener">
+            Culture Pass Pseudo App
+          </a>
+        </div>
+      </section>
+
+    </main>
+
+
+    <!-- BACK TO TOP -->
+    <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 19V5M5 12l7-7 7 7"/>
+      </svg>
+    </button>
+
+
+    <!-- MAIN-SITE FOOTER (injected by mailinglist.js) -->
+    <footer id="contact-us">
+      <div class="container" id="contact-container"></div>
+    </footer>
+
+
+    <script>
+      // ---------------------------------------------------------------
+      // Set this to the Culture Pass simulation/demo URL when it's ready.
+      // The button opens it in a new tab so users can try Culture Pass in
+      // a simulated environment. (Placeholder for now.)
+      var CULTURE_PASS_DEMO_URL = "";
+      // ---------------------------------------------------------------
+
+      (function () {
+        var btn = document.getElementById("cpg-pseudo-app");
+        if (CULTURE_PASS_DEMO_URL) {
+          btn.href = CULTURE_PASS_DEMO_URL;
+        } else {
+          btn.addEventListener("click", function (e) {
+            e.preventDefault();
+            alert("The Culture Pass Pseudo App is coming soon.");
+          });
+        }
+      })();
+    </script>
+
+    <script>
+      (function () {
+        var btn = document.getElementById("backToTop");
+        if (!btn) return;
+        function update() { btn.classList.toggle("show", window.scrollY > 400); }
+        window.addEventListener("scroll", update, { passive: true });
+        btn.addEventListener("click", function () {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+        update();
+      })();
+    </script>
+
+    <!-- Meta Pixel -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1501219458149424');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1501219458149424&ev=PageView&noscript=1" alt="" /></noscript>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N9ZZ5DN4');</script>
+    <!-- End Google Tag Manager -->
+
+    <script src="/mailinglist.js"></script>
+  </body>
+</html>

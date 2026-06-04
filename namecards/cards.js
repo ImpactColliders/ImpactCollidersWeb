@@ -33,6 +33,11 @@
  *          statically per card — they can't be filled from the data
  *          below. Tip: spaces in the image filename become %20 in the
  *          URL (e.g. "Avin Teo Namecard.jpg" -> Avin%20Teo%20Namecard.jpg).
+ *          For the share image, point og:image / twitter:image at a
+ *          SQUARE (1:1) "-og.jpg" version with the face centered (the
+ *          existing cards use 1080x1080). Chat/social apps center-crop
+ *          previews, so a square, face-centred image keeps the face
+ *          fully visible instead of clipping the head.
  *
  *   That's it. Styling, buttons and "Save Contact" are shared, so
  *   you never edit the CSS or JS to add a card.
