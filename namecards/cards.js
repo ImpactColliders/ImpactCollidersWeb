@@ -24,6 +24,15 @@
  *        - Open that index.html and change the one line:
  *              window.NAMECARD_SLUG = "avin";
  *          to your slug, e.g.  window.NAMECARD_SLUG = "jocelyn";
+ *        - In that same index.html <head>, update the SHARE PREVIEW
+ *          tags (the og:* / twitter:* block) so a shared link shows
+ *          the right person: change og:title, og:description,
+ *          og:url (.../namecards/<slug>/) and the image URLs to point
+ *          at this card's photo. Link scrapers (WhatsApp, iMessage,
+ *          LinkedIn, etc.) don't run JavaScript, so these must be set
+ *          statically per card — they can't be filled from the data
+ *          below. Tip: spaces in the image filename become %20 in the
+ *          URL (e.g. "Avin Teo Namecard.jpg" -> Avin%20Teo%20Namecard.jpg).
  *
  *   That's it. Styling, buttons and "Save Contact" are shared, so
  *   you never edit the CSS or JS to add a card.
