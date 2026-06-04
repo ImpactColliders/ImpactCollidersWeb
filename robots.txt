@@ -1,3 +1,27 @@
+# Social / link-preview crawlers — allowed to read name cards so shared links
+# render a rich preview. The pages still stay out of search (see the * group
+# below + per-page googlebot/bingbot noindex), but these bots only fetch pages
+# people deliberately share, so a preview is the desired behaviour.
+User-agent: facebookexternalhit
+User-agent: facebookcatalog
+User-agent: Facebot
+User-agent: Twitterbot
+User-agent: LinkedInBot
+User-agent: Slackbot
+User-agent: Slackbot-LinkExpanding
+User-agent: WhatsApp
+User-agent: TelegramBot
+User-agent: Discordbot
+User-agent: Applebot
+User-agent: Pinterest
+Allow: /
+Disallow: /admincodespage
+Disallow: /appnav
+Disallow: /corporaterelations
+Disallow: /impact
+Disallow: /thearchive/volunteers
+
+# Search engines and everything else — name cards remain private.
 User-agent: *
 Allow: /
 Disallow: /admincodespage
