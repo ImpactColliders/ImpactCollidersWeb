@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="Explore The Archive Gallery — search for portraits and listen to the stories of seniors across love, career, life, school and social memories."
+    />
+    <meta name="author" content="Impact Colliders" />
+    <title>Gallery · The Archive</title>
+    <link rel="canonical" href="https://www.impactcolliders.com/thearchive/gallery" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Impact Colliders" />
+    <meta property="og:title" content="Gallery · The Archive" />
+    <meta property="og:description" content="Search for a portrait, browse by category, and listen to the stories of seniors across generations." />
+    <meta property="og:url" content="https://www.impactcolliders.com/thearchive/gallery" />
+    <meta property="og:image" content="https://www.impactcolliders.com/assets/images/WebPhotos/Generational.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Gallery · The Archive" />
+    <meta name="twitter:description" content="Search for a portrait, browse by category, and listen to the stories of seniors across generations." />
+    <meta name="twitter:image" content="https://www.impactcolliders.com/assets/images/WebPhotos/Generational.jpg" />
+
+    <link rel="icon" href="/assets/images/logo.jpg" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/assets/css/font-awesome.css" />
+
+    <style>
+      *, *::before, *::after { box-sizing: border-box; }
+      html, body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, figure, blockquote, dl, dd { margin: 0; padding: 0; }
+      img, svg, iframe { display: block; max-width: 100%; }
+      button { font: inherit; }
+
+      :root {
+        --ic-blue: #004aad;
+        --ic-orange: #ff6522;
+        --ic-red: #ce3f2e;
+        --brand: #ff6522;
+        --brand-hover: #e6571a;
+        --text: #14110f;
+        --text-muted: #666;
+        --border-soft: #e9e6e0;
+      }
+
+      html { scroll-behavior: smooth; }
+      @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+      body {
+        font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: #f5f5f5;
+        color: var(--text);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      a { color: var(--ic-blue); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      a:focus-visible, button:focus-visible {
+        outline: 3px solid var(--ic-blue);
+        outline-offset: 3px;
+        border-radius: 6px;
+      }
+
+      .skip-link {
+        position: absolute; left: -9999px; top: 0;
+        background: var(--ic-blue); color: #fff;
+        padding: 10px 16px; border-radius: 6px;
+        z-index: 2000; font-weight: 600;
+      }
+      .skip-link:focus { left: 12px; top: 12px; text-decoration: none; }
+
+      /* ===== DEDICATED NAV (shared with The Archive home) ===== */
+      .archive-nav {
+        position: sticky; top: 0; z-index: 100;
+        background: var(--ic-red);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+      .archive-nav-inner {
+        max-width: 1080px; margin: 0 auto;
+        padding: 12px 24px;
+        display: flex; align-items: center; justify-content: space-between;
+        gap: 16px;
+      }
+      .archive-brand {
+        display: inline-flex; align-items: center; gap: 12px;
+        color: #fff; font-weight: 600; font-size: 0.95rem;
+        text-decoration: none;
+      }
+      .archive-brand:hover { text-decoration: none; color: #fff; }
+      .archive-brand img {
+        height: 34px; width: auto;
+        background: #fff;
+        padding: 5px 9px;
+        border-radius: 8px;
+      }
+      .archive-nav-links {
+        display: flex; gap: 26px; list-style: none;
+        margin: 0 auto; padding: 0;
+      }
+      .archive-nav-links a {
+        color: rgba(255, 255, 255, 0.82);
+        text-decoration: none;
+        font-weight: 500; font-size: 0.92rem;
+        padding: 6px 0;
+        border-bottom: 2px solid transparent;
+        transition: color 0.15s, border-color 0.15s;
+      }
+      .archive-nav-links a:hover {
+        color: #fff; text-decoration: none;
+        border-color: rgba(255, 255, 255, 0.5);
+      }
+      .archive-nav-links a[aria-current="page"] {
+        color: #fff; border-color: var(--brand);
+      }
+      .nav-register {
+        display: inline-flex; align-items: center; gap: 8px;
+        background: var(--brand); color: #fff;
+        padding: 10px 22px; border-radius: 999px;
+        font-weight: 600; font-size: 0.92rem;
+        text-decoration: none;
+        transition: background 0.15s, transform 0.15s;
+      }
+      .nav-register:hover {
+        background: var(--brand-hover); color: #fff;
+        text-decoration: none; transform: translateY(-1px);
+      }
+      @media (max-width: 820px) {
+        .archive-nav-inner {
+          flex-wrap: wrap;
+          padding: 10px 16px;
+          gap: 10px;
+        }
+        .archive-brand { order: 1; }
+        .nav-register { order: 2; padding: 8px 16px; font-size: 0.85rem; }
+        .archive-nav-links {
+          order: 3;
+          width: 100%;
+          justify-content: center;
+          margin: 4px 0 2px;
+          gap: 18px;
+        }
+        .archive-brand img { height: 30px; }
+        .archive-nav-links a { font-size: 0.86rem; }
+      }
+      @media (max-width: 380px) {
+        .archive-nav-links { gap: 12px; }
+        .archive-nav-links a { font-size: 0.8rem; }
+      }
+
+      /* ===== TOP SECTION — INSTRUCTIONS ===== */
+      .gallery-intro {
+        padding: 72px 24px 40px;
+        text-align: center;
+        background: #fff;
+      }
+      .gallery-intro h1 {
+        font-size: clamp(2.1rem, 5vw, 3rem);
+        font-weight: 700;
+        color: var(--ic-blue);
+        line-height: 1.15;
+        margin-bottom: 16px;
+      }
+      .gallery-intro .lede {
+        max-width: 640px; margin: 0 auto;
+        color: var(--text);
+        font-size: clamp(1.1rem, 2.4vw, 1.3rem);
+      }
+
+      /* Instruction steps */
+      .how-to {
+        max-width: 760px;
+        margin: 36px auto 0;
+        text-align: left;
+        background: #fff;
+        border: 1px solid var(--border-soft);
+        border-radius: 18px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+        padding: 30px 32px;
+      }
+      .how-to h2 {
+        font-size: 1.25rem;
+        color: var(--text);
+        margin-bottom: 18px;
+        text-align: center;
+      }
+      .how-to ul { list-style: none; margin: 0; padding: 0; }
+      .how-to li {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        font-size: 1.15rem;
+        line-height: 1.55;
+        padding: 12px 0;
+      }
+      .how-to li + li { border-top: 1px solid var(--border-soft); }
+      .how-to li .ht-icon {
+        flex: 0 0 auto;
+        width: 48px; height: 48px;
+        border-radius: 12px;
+        background: rgba(255, 101, 34, 0.12);
+        color: var(--brand);
+        display: flex; align-items: center; justify-content: center;
+        font-size: 1.35rem;
+      }
+      .how-to li .ht-text { padding-top: 6px; }
+
+      /* ===== BOTTOM SECTION — GALLERY LAUNCH ===== */
+      .launch {
+        padding: 64px 24px 88px;
+      }
+      .launch-card {
+        max-width: 980px;
+        margin: 0 auto;
+        border-radius: 22px;
+        overflow: hidden;
+        box-shadow: 0 16px 44px rgba(0, 0, 0, 0.16);
+        position: relative;
+        isolation: isolate;
+        background: linear-gradient(135deg, var(--ic-red) 0%, var(--brand) 100%);
+      }
+      .launch-card__overlay {
+        min-height: clamp(320px, 46vh, 440px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 56px 24px;
+        color: #fff;
+      }
+      .launch-card__overlay h2 {
+        font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+        font-weight: 700;
+        line-height: 1.15;
+        margin-bottom: 14px;
+        text-shadow: 0 2px 14px rgba(0, 0, 0, 0.45);
+      }
+      .launch-card__overlay p {
+        max-width: 560px;
+        font-size: clamp(1.05rem, 2.4vw, 1.25rem);
+        margin-bottom: 30px;
+        text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+      }
+      .launch-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        background: var(--brand);
+        color: #fff;
+        padding: 20px 40px;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: clamp(1.1rem, 2.6vw, 1.35rem);
+        text-decoration: none;
+        border: 0;
+        cursor: pointer;
+        transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
+        box-shadow: 0 10px 28px rgba(255, 101, 34, 0.45);
+      }
+      .launch-btn:hover {
+        background: var(--brand-hover);
+        color: #fff; text-decoration: none;
+        transform: translateY(-2px);
+      }
+      .launch-btn .fa { font-size: 1.1em; }
+
+      .launch-note {
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 1rem;
+        margin-top: 18px;
+      }
+
+      /* ===== BACK TO TOP ===== */
+      .back-to-top {
+        position: fixed;
+        right: 20px; bottom: 24px;
+        z-index: 80;
+        width: 48px; height: 48px;
+        border-radius: 50%;
+        background: var(--ic-blue);
+        color: #fff; border: 0;
+        display: flex; align-items: center; justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+        opacity: 0; visibility: hidden; transform: translateY(10px);
+        transition: opacity 0.2s, transform 0.2s, visibility 0.2s, background 0.15s;
+      }
+      .back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+      .back-to-top:hover { background: #003c8c; }
+      .back-to-top svg { width: 22px; height: 22px; }
+
+      @media (max-width: 900px) {
+        .gallery-intro { padding: 52px 18px 32px; }
+        .how-to { padding: 24px 20px; }
+        .launch { padding: 44px 16px 64px; }
+        .back-to-top { right: 16px; bottom: 24px; width: 44px; height: 44px; }
+        .back-to-top svg { width: 20px; height: 20px; }
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <!-- DEDICATED NAV (shared with The Archive home) -->
+    <nav class="archive-nav" aria-label="The Archive">
+      <div class="archive-nav-inner">
+        <a class="archive-brand" href="/thearchive/" aria-label="The Archive home">
+          <img src="/assets/images/The Archive Logo Full.jpg" alt="The Archive" />
+        </a>
+
+        <ul class="archive-nav-links" role="list">
+          <li><a href="/thearchive/">Home</a></li>
+          <li><a href="/thearchive/sponsors">Sponsors</a></li>
+          <li><a href="/thearchive/referrals">Referrals</a></li>
+          <li><a href="/press-releases">Press Releases</a></li>
+        </ul>
+
+        <a class="nav-register" href="/thearchive/#signup">Register</a>
+      </div>
+    </nav>
+
+
+    <main id="main">
+
+      <!-- ============ TOP SECTION — INSTRUCTIONS ============ -->
+      <section class="gallery-intro">
+        <h1>The Archive Gallery</h1>
+        <p class="lede">
+          A living collection of portraits and stories from our seniors &mdash;
+          ready for you to explore, listen to, and treasure.
+        </p>
+
+        <!-- How to use -->
+        <div class="how-to">
+          <h2>How to explore the gallery</h2>
+          <ul>
+            <li>
+              <span class="ht-icon" aria-hidden="true"><i class="fa fa-search"></i></span>
+              <span class="ht-text">
+                <strong>Search</strong> for yourself or your grandparents&rsquo;
+                portrait and story.
+              </span>
+            </li>
+            <li>
+              <span class="ht-icon" aria-hidden="true"><i class="fa fa-th-large"></i></span>
+              <span class="ht-text">
+                Use <strong>category icons</strong> to browse stories &mdash;
+                Love, Career, Life, School and Social.
+              </span>
+            </li>
+            <li>
+              <span class="ht-icon" aria-hidden="true"><i class="fa fa-headphones"></i></span>
+              <span class="ht-text">
+                <strong>Click on a portrait</strong> to listen to the audio
+                recordings and read the stories.
+              </span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+
+      <!-- ============ BOTTOM SECTION — GALLERY LAUNCH ============ -->
+      <section class="launch">
+        <div class="launch-card">
+          <div class="launch-card__overlay">
+            <h2>Step inside The Archive</h2>
+            <p>
+              Open the digital library to search portraits, browse by category,
+              and listen to every story.
+            </p>
+            <a
+              class="launch-btn"
+              id="enterGallery"
+              href="#"
+              target="_blank"
+              rel="noopener"
+            >
+              <i class="fa fa-picture-o" aria-hidden="true"></i>
+              Enter The Archive Gallery
+            </a>
+          </div>
+        </div>
+        <p class="launch-note">The gallery opens in a new tab.</p>
+      </section>
+
+    </main>
+
+
+    <!-- BACK TO TOP -->
+    <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 19V5M5 12l7-7 7 7"/>
+      </svg>
+    </button>
+
+
+    <!-- MAIN-SITE FOOTER (injected by mailinglist.js) -->
+    <footer id="contact-us">
+      <div class="container" id="contact-container"></div>
+    </footer>
+
+
+    <script>
+      // ---------------------------------------------------------------
+      // Set this to The Archive digital library / gallery URL when ready.
+      // The gallery opens in a NEW TAB and is NOT embedded on this page.
+      var DIGITAL_LIBRARY_URL = "";
+      // ---------------------------------------------------------------
+
+      (function () {
+        var enterBtn = document.getElementById("enterGallery");
+        if (!enterBtn) return;
+
+        if (DIGITAL_LIBRARY_URL) {
+          enterBtn.href = DIGITAL_LIBRARY_URL;
+        } else {
+          enterBtn.addEventListener("click", function (e) {
+            e.preventDefault();
+            alert("The Archive Gallery is coming soon.");
+          });
+        }
+      })();
+    </script>
+
+    <script>
+      (function () {
+        var btn = document.getElementById("backToTop");
+        if (!btn) return;
+        function update() { btn.classList.toggle("show", window.scrollY > 400); }
+        window.addEventListener("scroll", update, { passive: true });
+        btn.addEventListener("click", function () {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+        update();
+      })();
+    </script>
+
+    <!-- Meta Pixel -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1501219458149424');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1501219458149424&ev=PageView&noscript=1" alt="" /></noscript>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N9ZZ5DN4');</script>
+    <!-- End Google Tag Manager -->
+
+    <script src="/mailinglist.js"></script>
+  </body>
+</html>
