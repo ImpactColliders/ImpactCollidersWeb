@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta
+      name="description"
+      content="Pay it forward — donate to The Bloom Fund and support seniors through the arts. Qualifying donations are eligible for 250% tax deduction."
+    />
+    <meta name="author" content="Impact Colliders" />
+    <title>Pay it Forward · The Archive</title>
+    <link rel="canonical" href="https://www.impactcolliders.com/thearchive/donors" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Impact Colliders" />
+    <meta property="og:title" content="Pay it Forward · The Archive" />
+    <meta property="og:description" content="Donate to The Bloom Fund and support seniors through the arts. Qualifying donations are eligible for 250% tax deduction." />
+    <meta property="og:url" content="https://www.impactcolliders.com/thearchive/donors" />
+    <meta property="og:image" content="https://www.impactcolliders.com/assets/images/logo.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pay it Forward · The Archive" />
+    <meta name="twitter:description" content="Donate to The Bloom Fund and support seniors through the arts. Qualifying donations are eligible for 250% tax deduction." />
+    <meta name="twitter:image" content="https://www.impactcolliders.com/assets/images/logo.jpg" />
+
+    <link rel="icon" href="/assets/images/logo.jpg" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/assets/css/font-awesome.css" />
+
+    <style>
+      /* ============================================================
+         The Archive — Donors / Pay it Forward page.
+
+         This page is intentionally NOT linked from the site or Archive
+         navigation. It stays indexable for search (low priority in the
+         sitemap) so people can still find it, but it is reached via a
+         direct link.
+
+         For non-technical editors:
+         All text you can safely change is wrapped in
+         <!-- EDIT: ... --> and <!-- /EDIT --> markers below.
+         Only change the words between the markers.
+         ============================================================ */
+
+      *, *::before, *::after { box-sizing: border-box; }
+      html, body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, figure, blockquote, dl, dd { margin: 0; padding: 0; }
+      img, svg, iframe { display: block; max-width: 100%; }
+      button { font: inherit; }
+
+      :root {
+        --ic-blue: #004aad;
+        --ic-orange: #ff6522;
+        --ic-red: #ce3f2e;
+        --brand: #ff6522;
+        --brand-hover: #e6571a;
+        --text: #14110f;
+        --text-muted: #666;
+        --border-soft: #e9e6e0;
+        --danger: #b42318;
+        --danger-soft: #fef3f2;
+        --success: #15803d;
+        --success-soft: #dcfce7;
+      }
+
+      html { scroll-behavior: smooth; }
+      @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+      body {
+        font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        background: #f5f5f5;
+        color: var(--text);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+
+      a { color: var(--ic-blue); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      a:focus-visible, button:focus-visible {
+        outline: 3px solid var(--ic-blue);
+        outline-offset: 3px;
+        border-radius: 6px;
+      }
+
+      .skip-link {
+        position: absolute; left: -9999px; top: 0;
+        background: var(--ic-blue); color: #fff;
+        padding: 10px 16px; border-radius: 6px;
+        z-index: 2000; font-weight: 600;
+      }
+      .skip-link:focus { left: 12px; top: 12px; text-decoration: none; }
+
+      /* ===== DEDICATED NAV (shared with The Archive home) ===== */
+      .archive-nav {
+        position: sticky; top: 0; z-index: 100;
+        background: var(--ic-red);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      }
+      .archive-nav-inner {
+        max-width: 1080px; margin: 0 auto;
+        padding: 12px 24px;
+        display: flex; align-items: center; justify-content: space-between;
+        gap: 16px;
+      }
+      .archive-brand {
+        display: inline-flex; align-items: center; gap: 12px;
+        color: #fff; font-weight: 600; font-size: 0.95rem;
+        text-decoration: none;
+      }
+      .archive-brand:hover { text-decoration: none; color: #fff; }
+      .archive-brand img {
+        height: 34px; width: auto;
+        background: #fff;
+        padding: 5px 9px;
+        border-radius: 8px;
+      }
+      .archive-nav-links {
+        display: flex; gap: 26px; list-style: none;
+        margin: 0 auto; padding: 0;
+      }
+      .archive-nav-links a {
+        color: rgba(255, 255, 255, 0.82);
+        text-decoration: none;
+        font-weight: 500; font-size: 0.92rem;
+        padding: 6px 0;
+        border-bottom: 2px solid transparent;
+        transition: color 0.15s, border-color 0.15s;
+      }
+      .archive-nav-links a:hover {
+        color: #fff; text-decoration: none;
+        border-color: rgba(255, 255, 255, 0.5);
+      }
+      .archive-nav-links a[aria-current="page"] {
+        color: #fff; border-color: var(--brand);
+      }
+      .nav-register {
+        display: inline-flex; align-items: center; gap: 8px;
+        background: var(--brand); color: #fff;
+        padding: 10px 22px; border-radius: 999px;
+        font-weight: 600; font-size: 0.92rem;
+        text-decoration: none;
+        transition: background 0.15s, transform 0.15s;
+      }
+      .nav-register:hover {
+        background: var(--brand-hover); color: #fff;
+        text-decoration: none; transform: translateY(-1px);
+      }
+      @media (max-width: 820px) {
+        .archive-nav-inner {
+          flex-wrap: wrap;
+          padding: 10px 16px;
+          gap: 10px;
+        }
+        .archive-brand { order: 1; }
+        .nav-register { order: 2; padding: 8px 16px; font-size: 0.85rem; }
+        .archive-nav-links {
+          order: 3;
+          width: 100%;
+          justify-content: center;
+          margin: 4px 0 2px;
+          gap: 18px;
+        }
+        .archive-brand img { height: 30px; }
+        .archive-nav-links a { font-size: 0.86rem; }
+      }
+      @media (max-width: 380px) {
+        .archive-nav-links { gap: 12px; }
+        .archive-nav-links a { font-size: 0.8rem; }
+      }
+
+      /* ===== HERO ===== */
+      .page-hero {
+        padding: 72px 24px 12px;
+        text-align: center;
+        background: #fff;
+      }
+      .page-hero h1 {
+        font-size: clamp(2rem, 4.4vw, 2.8rem);
+        font-weight: 700;
+        color: var(--ic-blue);
+        line-height: 1.15;
+        margin-bottom: 14px;
+      }
+      .page-hero h1 em { font-style: normal; color: var(--brand); }
+      .page-hero p {
+        max-width: 680px; margin: 0 auto;
+        color: var(--text-muted);
+        font-size: 1.05rem;
+      }
+
+      /* ===== SECTIONS ===== */
+      .section {
+        padding: 64px 24px;
+      }
+      .section.bg-white { background: #fff; }
+      .section h2 {
+        font-size: 28px; font-weight: 700;
+        color: var(--ic-blue);
+        text-align: center;
+        margin-bottom: 12px;
+      }
+      .section .lead {
+        text-align: center;
+        max-width: 680px;
+        margin: 0 auto 36px;
+        color: var(--text-muted);
+      }
+
+      /* ===== INTRO PROSE ===== */
+      .prose {
+        max-width: 720px;
+        margin: 0 auto;
+      }
+      .prose p {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        margin-bottom: 18px;
+      }
+      .prose p:last-child { margin-bottom: 0; }
+      .prose strong { color: var(--text); }
+      .tax-callout {
+        max-width: 720px;
+        margin: 28px auto 0;
+        background: linear-gradient(135deg, rgba(0, 74, 173, 0.05), rgba(255, 101, 34, 0.06));
+        border: 1px solid var(--border-soft);
+        border-radius: 16px;
+        padding: 22px 26px;
+        text-align: center;
+        color: var(--text);
+        font-weight: 500;
+      }
+      .tax-callout strong { color: var(--brand); }
+
+      /* ===== HOW IT WORKS ===== */
+      .steps {
+        max-width: 980px; margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+        gap: 18px;
+      }
+      .step-card {
+        background: #fff;
+        border: 1px solid var(--border-soft);
+        border-radius: 14px;
+        padding: 28px 22px;
+        text-align: center;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+      }
+      .step-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+      }
+      .step-num {
+        width: 40px; height: 40px;
+        margin: 0 auto 14px;
+        border-radius: 50%;
+        background: var(--brand);
+        color: #fff;
+        display: flex; align-items: center; justify-content: center;
+        font-weight: 700; font-size: 1.05rem;
+      }
+      .step-card p {
+        color: var(--text-muted);
+        font-size: 0.98rem;
+      }
+
+      /* ===== SPONSOR BENEFITS ===== */
+      .benefits {
+        max-width: 720px;
+        margin: 0 auto;
+        background: #fff;
+        padding: 32px 28px;
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+      }
+      .benefits p {
+        color: var(--text-muted);
+        font-size: 1rem;
+        line-height: 1.7;
+        margin-bottom: 16px;
+      }
+      .benefits p:last-child { margin-bottom: 0; }
+      .benefits strong { color: var(--text); }
+
+      /* ===== CONTACT FORM (mirrors /contactus) ===== */
+      .donate-cta {
+        max-width: 720px;
+        margin: 0 auto;
+      }
+      .form-card {
+        background: #fff;
+        border: 1px solid var(--border-soft);
+        border-radius: 16px;
+        padding: 36px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+      }
+      .form-card-header { margin-bottom: 24px; text-align: center; }
+      .form-card-header p {
+        font-size: 1rem; color: var(--text-muted);
+        margin: 0; line-height: 1.6;
+      }
+      #donate-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+      }
+      .field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+      .field-full { grid-column: 1 / -1; }
+      .field-label {
+        font-size: 13px; font-weight: 600; color: var(--text);
+        display: flex; align-items: center; gap: 6px;
+      }
+      .field-label .required { color: var(--danger); }
+      .field-label .optional { color: #8a8f99; font-weight: 400; font-size: 12px; }
+      .field input,
+      .field textarea {
+        width: 100%;
+        padding: 13px 14px;
+        border-radius: 8px;
+        border: 1.5px solid var(--border-soft);
+        background: #fff;
+        color: var(--text);
+        font-size: 15px;
+        font-family: inherit;
+        line-height: 1.4;
+        transition: border-color .15s ease, box-shadow .15s ease;
+        -webkit-appearance: none; appearance: none;
+      }
+      .field input { height: 46px; }
+      .field textarea { min-height: 140px; resize: vertical; }
+      .field input::placeholder,
+      .field textarea::placeholder { color: #8a8f99; opacity: 1; }
+      .field input:focus,
+      .field textarea:focus {
+        outline: none;
+        border-color: var(--ic-blue);
+        box-shadow: 0 0 0 4px rgba(0, 74, 173, 0.10);
+      }
+      .field.has-error input,
+      .field.has-error textarea {
+        border-color: var(--danger);
+        background: var(--danger-soft);
+      }
+      .field-meta {
+        display: flex; justify-content: space-between; align-items: center;
+        margin-top: 2px; min-height: 18px;
+      }
+      .field-error {
+        font-size: 12.5px; color: var(--danger);
+        opacity: 0; transform: translateY(-2px);
+        transition: opacity .15s ease, transform .15s ease;
+      }
+      .field.has-error .field-error { opacity: 1; transform: translateY(0); }
+      .field-counter { font-size: 12px; color: #8a8f99; margin-left: auto; font-variant-numeric: tabular-nums; }
+      .form-actions {
+        grid-column: 1 / -1;
+        display: flex; align-items: center; justify-content: flex-end;
+        gap: 16px; margin-top: 6px; flex-wrap: wrap;
+      }
+      .form-note {
+        font-size: 12.5px; color: var(--text-muted);
+        display: flex; align-items: center; gap: 6px; line-height: 1.45;
+      }
+      .submit-btn {
+        background: var(--brand); color: #fff; border: none;
+        padding: 0 28px; height: 48px; border-radius: 8px;
+        font-weight: 600; font-size: 15px; font-family: inherit;
+        cursor: pointer;
+        display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+        box-shadow: 0 6px 18px rgba(255, 101, 34, 0.20);
+        transition: background .15s ease, transform .1s ease, box-shadow .15s ease;
+        white-space: nowrap;
+      }
+      .submit-btn:hover { background: var(--brand-hover); box-shadow: 0 10px 24px rgba(255, 101, 34, 0.28); }
+      .submit-btn:active { transform: translateY(1px); }
+      .submit-btn[disabled] { opacity: 0.7; cursor: wait; }
+      .submit-btn .arrow { transition: transform .2s ease; }
+      .submit-btn:hover .arrow { transform: translateX(3px); }
+      .success-banner {
+        grid-column: 1 / -1;
+        display: none; align-items: flex-start; gap: 12px;
+        padding: 14px 16px; border-radius: 8px;
+        background: var(--success-soft); border: 1px solid #bbf7d0;
+        color: #14532d; font-size: 14px; line-height: 1.5;
+      }
+      .success-banner.is-visible { display: flex; }
+      .success-banner svg { flex-shrink: 0; color: var(--success); margin-top: 1px; }
+
+      @media (max-width: 600px) {
+        #donate-form { grid-template-columns: 1fr; gap: 16px; }
+        .field input, .field textarea { font-size: 16px; } /* prevent iOS zoom */
+        .form-actions { align-items: stretch; }
+        .submit-btn { width: 100%; }
+      }
+
+      /* ===== BACK TO TOP ===== */
+      .back-to-top {
+        position: fixed;
+        right: 20px; bottom: 24px;
+        z-index: 80;
+        width: 48px; height: 48px;
+        border-radius: 50%;
+        background: var(--ic-blue);
+        color: #fff; border: 0;
+        display: flex; align-items: center; justify-content: center;
+        cursor: pointer;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+        opacity: 0; visibility: hidden; transform: translateY(10px);
+        transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease, background 0.15s ease;
+      }
+      .back-to-top.show { opacity: 1; visibility: visible; transform: translateY(0); }
+      .back-to-top:hover { background: #003c8c; }
+      .back-to-top svg { width: 22px; height: 22px; }
+
+      @media (max-width: 900px) {
+        .page-hero { padding: 56px 20px 36px; }
+        .section { padding: 48px 20px; }
+        .section h2 { font-size: 24px; }
+        .form-card { padding: 28px 22px; }
+        .back-to-top { right: 16px; bottom: 24px; width: 44px; height: 44px; }
+        .back-to-top svg { width: 20px; height: 20px; }
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <a href="#main" class="skip-link">Skip to content</a>
+
+    <!-- DEDICATED NAV.
+         NOTE: this page is intentionally omitted from the nav links below
+         (it is not part of the global or Archive navigation). The nav is kept
+         only so visitors who land here directly can navigate the rest of the site. -->
+    <nav class="archive-nav" aria-label="The Archive">
+      <div class="archive-nav-inner">
+        <a class="archive-brand" href="/thearchive/" aria-label="The Archive home">
+          <img src="/assets/images/The Archive Logo Full.jpg" alt="The Archive" />
+        </a>
+
+        <ul class="archive-nav-links" role="list">
+          <li><a href="/thearchive/">Home</a></li>
+          <li><a href="/thearchive/sponsors">Sponsors</a></li>
+          <li><a href="/thearchive/referrals">Referrals</a></li>
+          <li><a href="/press-releases">Press Releases</a></li>
+        </ul>
+
+        <a class="nav-register" href="/thearchive/#signup">Register</a>
+      </div>
+    </nav>
+
+
+    <main id="main">
+
+      <!-- ============ HERO ============ -->
+      <section class="page-hero">
+        <!-- EDIT: page title and intro -->
+        <h1>Pay it <em>Forward</em></h1>
+        <p>
+          Support seniors through the arts by donating to The Bloom Fund.
+          Your donation funds one or more tickets to
+          <a href="https://www.impactcolliders.com/thearchive/">The Archive</a>
+          for senior beneficiaries, nominated by you or allocated by us.
+        </p>
+        <!-- /EDIT -->
+      </section>
+
+
+      <!-- ============ INTRO ============ -->
+      <section class="section bg-white" style="padding-top: 8px;">
+        <!-- EDIT: introduction -->
+        <div class="tax-callout">
+          Qualifying donations are eligible for <strong>250% tax deduction</strong>.
+        </div>
+        <!-- /EDIT -->
+      </section>
+
+
+      <!-- ============ HOW IT WORKS ============ -->
+      <section class="section">
+        <h2>How It Works</h2>
+        <p class="lead">Four simple steps to support a senior through <a href="https://www.impactcolliders.com/thearchive/">The Archive</a>.</p>
+
+        <!-- EDIT: steps -->
+        <div class="steps">
+          <div class="step-card">
+            <div class="step-num">1</div>
+            <p>Make a donation to The Bloom Fund</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">2</div>
+            <p>Your donation funds a ticket for a senior beneficiary</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">3</div>
+            <p>You may nominate a senior, or let us allocate the ticket</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">4</div>
+            <p>Eligible donors may receive 250% tax deduction</p>
+          </div>
+        </div>
+        <!-- /EDIT -->
+      </section>
+
+
+      <!-- ============ SPONSOR BENEFITS ============ -->
+      <section class="section bg-white">
+        <h2>Sponsor Benefits</h2>
+
+        <!-- EDIT: sponsor benefits -->
+        <div class="benefits">
+          <p>
+            Organisations or individuals donating more than <strong>$1,000</strong>
+            may be eligible for sponsor benefits, including logo or name
+            acknowledgement and promotional benefits.
+          </p>
+          <p>
+            We also welcome non-cash sponsorships.
+          </p>
+          <p>
+            For sponsor or in-kind support enquiries, please
+            <a href="#donate" class="js-sponsor-enquiry">email us</a>.
+          </p>
+        </div>
+        <!-- /EDIT -->
+      </section>
+
+
+      <!-- ============ INTERESTED TO DONATE? (CONTACT FORM) ============ -->
+      <section class="section" id="donate">
+        <h2>Interested to Donate?</h2>
+        <p class="lead">
+          Email <a href="mailto:info@impactcolliders.com">info@impactcolliders.com</a>
+          and we&rsquo;ll get back to you within 3 working days on donation, tax
+          deduction, and sponsor details.
+        </p>
+
+        <div class="donate-cta">
+          <div class="form-card">
+            <div class="form-card-header">
+              <p>Fill out the form below and we'll open a draft email ready to send from your mail app.</p>
+            </div>
+
+            <form id="donate-form" novalidate>
+
+              <div class="success-banner" id="success-banner" role="status" aria-live="polite">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                  <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+                <div>Your mail app is opening with the draft. Review it and hit send to deliver your message.</div>
+              </div>
+
+              <div class="field">
+                <label class="field-label" for="donate-name">Full Name <span class="required" aria-hidden="true">*</span></label>
+                <input id="donate-name" name="name" type="text" placeholder="Jane Doe" required autocomplete="name">
+                <div class="field-meta"><span class="field-error" id="error-name"></span></div>
+              </div>
+
+              <div class="field">
+                <label class="field-label" for="donate-email">Email Address <span class="required" aria-hidden="true">*</span></label>
+                <input id="donate-email" name="email" type="email" placeholder="you@example.com" required autocomplete="email">
+                <div class="field-meta"><span class="field-error" id="error-email"></span></div>
+              </div>
+
+              <div class="field field-full">
+                <label class="field-label" for="donate-subject">Subject <span class="optional">(optional)</span></label>
+                <input id="donate-subject" name="subject" type="text" value="The Archive: Pay it Forward Donation" placeholder="The Archive: Pay it Forward Donation">
+                <div class="field-meta"><span class="field-error" id="error-subject"></span></div>
+              </div>
+
+              <div class="field field-full">
+                <label class="field-label" for="donate-message">Your Message <span class="optional">(optional)</span></label>
+                <textarea id="donate-message" name="message" rows="5" placeholder="Tell us about your intended donation, whether you'd like to nominate a senior, and any sponsor-benefit questions…" maxlength="2000"></textarea>
+                <div class="field-meta">
+                  <span class="field-error" id="error-message"></span>
+                  <span class="field-counter"><span id="msg-count">0</span>/2000</span>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <span class="form-note">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a8 8 0 0 0-8 8c0 5.5 8 12 8 12s8-6.5 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+                  We reply within 3 working days.
+                </span>
+                <button type="submit" class="submit-btn">
+                  <span class="btn-text">Send Message</span>
+                  <svg class="arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                  </svg>
+                </button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </section>
+
+
+    </main>
+
+
+    <!-- BACK TO TOP -->
+    <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 19V5M5 12l7-7 7 7"/>
+      </svg>
+    </button>
+
+
+    <!-- MAIN-SITE FOOTER (injected by mailinglist.js) -->
+    <footer id="contact-us">
+      <div class="container" id="contact-container"></div>
+    </footer>
+
+
+    <script>
+      // Back-to-top button
+      (function () {
+        var btn = document.getElementById("backToTop");
+        if (!btn) return;
+        function update() { btn.classList.toggle("show", window.scrollY > 400); }
+        window.addEventListener("scroll", update, { passive: true });
+        btn.addEventListener("click", function () {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+        update();
+      })();
+    </script>
+
+    <script>
+      // Donation contact form — opens a pre-filled mail draft.
+      // The subject always begins with "The Archive:".
+      (function () {
+        var form = document.getElementById("donate-form");
+        if (!form) return;
+
+        var successBanner = document.getElementById("success-banner");
+        var messageInput = document.getElementById("donate-message");
+        var msgCount = document.getElementById("msg-count");
+        var SUBJECT_PREFIX = "The Archive:";
+
+        var fields = {
+          name:    { el: document.getElementById("donate-name"),    err: document.getElementById("error-name"),    required: true,  type: "text"  },
+          email:   { el: document.getElementById("donate-email"),   err: document.getElementById("error-email"),   required: true,  type: "email" },
+          subject: { el: document.getElementById("donate-subject"), err: document.getElementById("error-subject"), required: false, type: "text"  },
+          message: { el: document.getElementById("donate-message"), err: document.getElementById("error-message"), required: false, type: "text"  }
+        };
+
+        var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        function setError(key, msg) {
+          var f = fields[key];
+          var wrap = f.el.closest(".field");
+          if (msg) {
+            wrap.classList.add("has-error");
+            f.err.textContent = msg;
+          } else {
+            wrap.classList.remove("has-error");
+            f.err.textContent = "";
+          }
+        }
+
+        function validate(key) {
+          var f = fields[key];
+          var val = f.el.value.trim();
+          if (f.required && !val) {
+            setError(key, "This field is required.");
+            return false;
+          }
+          if (f.type === "email" && val && !emailRe.test(val)) {
+            setError(key, "Please enter a valid email address.");
+            return false;
+          }
+          setError(key, "");
+          return true;
+        }
+
+        Object.keys(fields).forEach(function (key) {
+          var f = fields[key];
+          f.el.addEventListener("blur", function () { validate(key); });
+          f.el.addEventListener("input", function () {
+            if (f.el.closest(".field").classList.contains("has-error")) validate(key);
+          });
+        });
+
+        messageInput.addEventListener("input", function () {
+          msgCount.textContent = messageInput.value.length;
+        });
+
+        // "email us" link in Sponsor Benefits → scroll to this form,
+        // pre-fill a sponsor-benefits subject, and focus the name field.
+        var sponsorLink = document.querySelector(".js-sponsor-enquiry");
+        if (sponsorLink) {
+          sponsorLink.addEventListener("click", function () {
+            fields.subject.el.value = SUBJECT_PREFIX + " Sponsor Benefits Enquiry";
+            // Let the default #donate anchor jump happen, then focus the form.
+            setTimeout(function () { fields.name.el.focus({ preventScroll: true }); }, 300);
+          });
+        }
+
+        form.addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          var valid = Object.keys(fields).map(validate).every(Boolean);
+          if (!valid) {
+            var firstErr = form.querySelector(".field.has-error input, .field.has-error textarea");
+            if (firstErr) firstErr.focus();
+            return;
+          }
+
+          var name = fields.name.el.value.trim();
+          var email = fields.email.el.value.trim();
+          var subject = fields.subject.el.value.trim();
+          var message = fields.message.el.value.trim();
+
+          // Guarantee the subject starts with "The Archive:".
+          if (subject.toLowerCase().indexOf(SUBJECT_PREFIX.toLowerCase()) !== 0) {
+            subject = subject ? SUBJECT_PREFIX + " " + subject : SUBJECT_PREFIX + " Pay it Forward Donation";
+          }
+
+          var body = encodeURIComponent(
+            "Name: " + name +
+            "\nEmail: " + email +
+            (message ? "\n\nMessage:\n" + message : "")
+          );
+
+          var mailtoLink =
+            "mailto:info@impactcolliders.com?subject=" + encodeURIComponent(subject) + "&body=" + body;
+
+          var btn = form.querySelector(".submit-btn");
+          var btnText = btn.querySelector(".btn-text");
+          var originalText = btnText.textContent;
+          btn.disabled = true;
+          btnText.textContent = "Opening mail app…";
+
+          window.location.href = mailtoLink;
+
+          setTimeout(function () {
+            successBanner.classList.add("is-visible");
+            btn.disabled = false;
+            btnText.textContent = originalText;
+            successBanner.scrollIntoView({ behavior: "smooth", block: "nearest" });
+          }, 400);
+        });
+      })();
+    </script>
+
+    <!-- Meta Pixel -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '1501219458149424');
+      fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+      src="https://www.facebook.com/tr?id=1501219458149424&ev=PageView&noscript=1" alt="" /></noscript>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N9ZZ5DN4');</script>
+    <!-- End Google Tag Manager -->
+
+    <script src="/mailinglist.js"></script>
+
+    <!-- ===== Static site-links footer (SEO / internal linking) =====
+         Crawlable, no-JS mirror of the primary navigation. Lets search engines
+         follow internal links and pass link equity across the main site and
+         /thearchive/. Does NOT affect the interactive global nav (navbar.js). -->
+    <nav class="ic-sitelinks" aria-label="Site links">
+      <ul class="ic-sitelinks__list">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About Us</a></li>
+        <li><a href="/ehhowahproduct">Eh, How Ah?</a></li>
+        <li><a href="/corporates">Partner</a></li>
+        <li><a href="/press-releases">Press Releases</a></li>
+        <li><a href="/thearchive/">The Archive</a></li>
+      </ul>
+    </nav>
+    <style>
+      .ic-sitelinks{background:#1f1f1f;color:#fff;padding:22px 16px;font-family:inherit}
+      .ic-sitelinks__list{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;
+        gap:10px 22px;list-style:none;margin:0 auto;padding:0;max-width:1100px}
+      .ic-sitelinks__list a{color:rgba(255,255,255,.78);text-decoration:none;font-size:14px;
+        font-weight:500;line-height:1.6}
+      .ic-sitelinks__list a:hover{color:#fff;text-decoration:underline}
+    </style>
+  </body>
+</html>

@@ -18,4 +18,5 @@
   <url><loc>https://www.impactcolliders.com/thearchive/volunteers</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.impactcolliders.com/tree</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
   <url><loc>https://www.impactcolliders.com/thearchive/tree</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
-  <url><loc>https://www.impactcolliders.com/tutorial</loc><changefreq>monthly</changefreq><priority>0.5</priority></url></urlset>
+  <url><loc>https://www.impactcolliders.com/tutorial</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.impactcolliders.com/thearchive/donors</loc><changefreq>monthly</changefreq><priority>0.2</priority></url></urlset>
