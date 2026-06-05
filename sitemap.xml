@@ -6,6 +6,7 @@
   <url><loc>https://www.impactcolliders.com/about</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.impactcolliders.com/ourimpact</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.impactcolliders.com/corporates</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://www.impactcolliders.com/corporaterelations</loc><changefreq>monthly</changefreq><priority>0.2</priority></url>
   <url><loc>https://www.impactcolliders.com/shop</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://www.impactcolliders.com/press-releases</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.impactcolliders.com/ehhowah</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
@@ -14,7 +15,6 @@
   <url><loc>https://www.impactcolliders.com/quiz</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://www.impactcolliders.com/thearchive/referrals</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://www.impactcolliders.com/thearchive/sponsors</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
-  <url><loc>https://www.impactcolliders.com/thearchive/sponsors/benefits</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
   <url><loc>https://www.impactcolliders.com/thearchive/gallery</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.impactcolliders.com/thearchive/volunteers</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.impactcolliders.com/tree</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
