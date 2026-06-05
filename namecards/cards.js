@@ -100,6 +100,16 @@ window.NAMECARDS = {
     phone: "+6588096839",
     email: "ngshiying06@gmail.com",
     linkedin: "https://www.linkedin.com/in/shi-ying-ng-0b846a347/"
+  },
+
+  aaron: {
+    name: "Soh Yu Kai Aaron",
+    title: "Game Programmer",
+    org: "Impact Colliders",
+    photo: "/assets/images/Namecards/Aaron.jpg",
+    phone: "+6597838664",
+    email: "aaronsyk061@gmail.com",
+    linkedin: "https://www.linkedin.com/in/aaron-soh-03557b346/"
   }
 
   // Add more cards here. Remember the comma after the block above
