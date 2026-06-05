@@ -60,6 +60,16 @@
         max-width: 620px;
       }
 
+      .app-hero p a {
+        color: #ce3f2e;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .app-hero p a:hover {
+        text-decoration: underline;
+      }
+
       .download-buttons {
         display: flex;
         flex-wrap: wrap;
@@ -122,6 +132,30 @@
         font-family: "Poppins", sans-serif;
       }
 
+      .coming-soon-toast {
+        position: fixed;
+        left: 50%;
+        bottom: 40px;
+        transform: translate(-50%, 20px);
+        background: #1f1f1f;
+        color: #fff;
+        font-family: "Poppins", sans-serif;
+        font-size: 0.95rem;
+        font-weight: 500;
+        padding: 14px 26px;
+        border-radius: 999px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.25s ease, transform 0.25s ease;
+        z-index: 3000;
+      }
+
+      .coming-soon-toast.show {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+
       .policy-link a {
         color: #888;
         font-size: 0.9rem;
@@ -159,12 +193,13 @@
         <span class="eyebrow">Eh Let's Play</span>
         <h1>Learn Singapore's everyday apps by playing</h1>
         <p>
-          Eh Let's Play is a mobile game based on Eh, How Ah? that teaches you
-          how to use common apps in Singapore through gameplay and simulated
-          learning.
+          Eh Let's Play is a mobile game based on
+          <a href="https://www.impactcolliders.com/ehhowahproduct">Eh, How Ah?</a>
+          that teaches you how to use common apps in Singapore through gameplay
+          and simulated learning.
         </p>
         <div class="download-buttons">
-          <a class="store-btn" href="#" aria-label="Download on the App Store">
+          <a class="store-btn js-coming-soon" href="#" aria-label="Download on the App Store">
             <i class="fa fa-apple"></i>
             <span class="store-btn-text">
               <small>Download on the</small>
@@ -172,7 +207,7 @@
             </span>
           </a>
 
-          <a class="store-btn" href="#" aria-label="Get it on Google Play">
+          <a class="store-btn js-coming-soon" href="#" aria-label="Get it on Google Play">
             <svg
               class="store-btn-icon"
               xmlns="http://www.w3.org/2000/svg"
@@ -203,6 +238,28 @@
         <!-- Footer will be injected here -->
       </div>
     </footer>
+
+    <!-- "Coming soon" toast for the store buttons -->
+    <div class="coming-soon-toast" id="comingSoonToast" role="status" aria-live="polite">
+      Coming soon!
+    </div>
+
+    <script>
+      (function () {
+        var toast = document.getElementById("comingSoonToast");
+        var hideTimer;
+        document.querySelectorAll(".js-coming-soon").forEach(function (btn) {
+          btn.addEventListener("click", function (e) {
+            e.preventDefault();
+            toast.classList.add("show");
+            clearTimeout(hideTimer);
+            hideTimer = setTimeout(function () {
+              toast.classList.remove("show");
+            }, 2500);
+          });
+        });
+      })();
+    </script>
 
     <script src="mailinglist.js"></script>
     <script src="assets/js/jquery-2.1.0.min.js"></script>
