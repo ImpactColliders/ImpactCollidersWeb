@@ -9,20 +9,20 @@
     />
     <meta
       name="description"
-      content="Sponsors and partners who made The Archive — Impact Colliders' community storytelling exhibition — possible."
+      content="Sponsorship prospectus for The Archive — partner with an interactive community storytelling exhibition connecting seniors and youths through art and AI-assisted oral history."
     />
     <meta name="author" content="Impact Colliders" />
-    <title>Sponsors · The Archive</title>
-    <link rel="canonical" href="https://www.impactcolliders.com/thearchive/sponsors" />
+    <title>Sponsorship Benefits · The Archive</title>
+    <link rel="canonical" href="https://www.impactcolliders.com/thearchive/sponsors/benefits" />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Impact Colliders" />
-    <meta property="og:title" content="Sponsors · The Archive" />
-    <meta property="og:description" content="Sponsors and partners who made The Archive — Impact Colliders' community storytelling exhibition — possible." />
-    <meta property="og:url" content="https://www.impactcolliders.com/thearchive/sponsors" />
+    <meta property="og:title" content="Sponsorship Benefits · The Archive" />
+    <meta property="og:description" content="Sponsorship prospectus for The Archive — partner with a community storytelling exhibition connecting seniors and youths." />
+    <meta property="og:url" content="https://www.impactcolliders.com/thearchive/sponsors/benefits" />
     <meta property="og:image" content="https://www.impactcolliders.com/assets/images/logo.jpg" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Sponsors · The Archive" />
-    <meta name="twitter:description" content="Sponsors and partners who made The Archive — Impact Colliders' community storytelling exhibition — possible." />
+    <meta name="twitter:title" content="Sponsorship Benefits · The Archive" />
+    <meta name="twitter:description" content="Sponsorship prospectus for The Archive — partner with a community storytelling exhibition connecting seniors and youths." />
     <meta name="twitter:image" content="https://www.impactcolliders.com/assets/images/logo.jpg" />
 
     <link rel="icon" href="/assets/images/logo.jpg" />
@@ -36,7 +36,10 @@
 
     <style>
       /* ============================================================
-         The Archive — Sponsors page.
+         The Archive — Sponsorship Benefits / Prospectus page.
+
+         This page is intentionally NOT linked from the global or Archive
+         navigation. It is reached via a direct link from the Sponsors page.
 
          For non-technical editors:
          All text you can safely change is wrapped in
@@ -113,16 +116,6 @@
         padding: 5px 9px;
         border-radius: 8px;
       }
-      .archive-brand-mark {
-        display: inline-flex; align-items: center;
-        color: rgba(255, 255, 255, 0.82); font-size: 0.85rem;
-      }
-      .archive-brand-mark::before {
-        content: ""; display: inline-block;
-        width: 1px; height: 18px;
-        background: rgba(255, 255, 255, 0.4);
-        margin-right: 12px;
-      }
       .archive-nav-links {
         display: flex; gap: 26px; list-style: none;
         margin: 0 auto; padding: 0;
@@ -160,7 +153,6 @@
           padding: 10px 16px;
           gap: 10px;
         }
-        .archive-brand-mark { display: none; }
         .archive-brand { order: 1; }
         .nav-register { order: 2; padding: 8px 16px; font-size: 0.85rem; }
         .archive-nav-links {
@@ -180,22 +172,39 @@
 
       /* ===== HERO ===== */
       .page-hero {
-        padding: 72px 24px 48px;
+        padding: 72px 24px 56px;
         text-align: center;
         background: #fff;
       }
+      .page-hero .eyebrow {
+        display: inline-block;
+        font-size: 0.78rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1.6px;
+        color: var(--brand);
+        background: rgba(255, 101, 34, 0.08);
+        padding: 8px 16px;
+        border-radius: 999px;
+        margin-bottom: 20px;
+      }
       .page-hero h1 {
-        font-size: clamp(2rem, 4.4vw, 2.8rem);
+        font-size: clamp(2.2rem, 5vw, 3rem);
         font-weight: 700;
         color: var(--ic-blue);
-        line-height: 1.15;
-        margin-bottom: 14px;
+        line-height: 1.1;
+        margin-bottom: 10px;
       }
-      .page-hero h1 em { font-style: normal; color: var(--brand); }
-      .page-hero p {
-        max-width: 680px; margin: 0 auto;
+      .page-hero .tagline {
+        font-size: 1.15rem;
         color: var(--text-muted);
-        font-size: 1.05rem;
+        font-style: italic;
+        margin-bottom: 24px;
+      }
+      .page-hero .event-meta {
+        color: var(--text-muted);
+        font-size: 0.98rem;
+        line-height: 1.7;
       }
 
       /* ===== SECTIONS ===== */
@@ -216,71 +225,180 @@
         color: var(--text-muted);
       }
 
-      /* ===== SPONSOR TIERS ===== */
-      .sponsor-tier { max-width: 1000px; margin: 0 auto; }
-      .sponsor-grid {
+      /* ===== INTRO PROSE ===== */
+      .prose {
+        max-width: 720px;
+        margin: 0 auto;
+      }
+      .prose p {
+        color: var(--text-muted);
+        font-size: 1.05rem;
+        margin-bottom: 18px;
+      }
+      .prose p:last-child { margin-bottom: 0; }
+
+      /* ===== STATS ===== */
+      .stats {
+        max-width: 760px;
+        margin: 0 auto;
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
         gap: 18px;
       }
-      .sponsor-card {
+      .stats > div {
+        background: linear-gradient(135deg, rgba(0, 74, 173, 0.05), rgba(255, 101, 34, 0.06));
+        border: 1px solid var(--border-soft);
+        border-radius: 16px;
+        padding: 32px 24px;
+        text-align: center;
+      }
+      .stats strong {
+        display: block;
+        font-size: 2.6rem;
+        font-weight: 700;
+        color: var(--brand);
+        line-height: 1;
+        margin-bottom: 8px;
+      }
+      .stats span {
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        font-weight: 500;
+      }
+
+      /* ===== PARTNER REASONS ===== */
+      .partner-reasons {
+        max-width: 1000px; margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 18px;
+      }
+      .partner-reasons article {
         background: #fff;
         border: 1px solid var(--border-soft);
         border-radius: 14px;
-        padding: 28px 18px;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        min-height: 140px;
+        padding: 28px 24px;
         transition: transform 0.15s ease, box-shadow 0.15s ease;
       }
-      .sponsor-card:hover {
+      .partner-reasons article:hover {
         transform: translateY(-2px);
         box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
       }
-      .sponsor-card.compact { min-height: 100px; padding: 20px 14px; }
-      .sponsor-card strong {
-        display: block;
-        font-size: 1.05rem;
+      .partner-reasons h3 {
+        font-size: 1.1rem;
+        font-weight: 700;
         color: var(--text);
-        font-weight: 600;
-        line-height: 1.3;
+        margin-bottom: 8px;
       }
-      .sponsor-card.compact strong { font-size: 0.95rem; }
-      .sponsor-card span {
-        font-size: 0.85rem;
+      .partner-reasons p {
         color: var(--text-muted);
-        margin-top: 4px;
+        font-size: 0.96rem;
       }
 
-      /* Title tier - highlighted */
-      .title-sponsor {
-        max-width: 720px;
-        margin: 0 auto;
-        background: linear-gradient(135deg, rgba(0, 74, 173, 0.05), rgba(255, 101, 34, 0.06));
-        border: 1px solid var(--border-soft);
-        border-radius: 18px;
-        padding: 40px 28px;
-        text-align: center;
+      /* ===== SPONSORSHIP TIERS ===== */
+      .sponsorship-tiers {
+        max-width: 1040px; margin: 0 auto 32px;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
+        align-items: start;
       }
-      .title-sponsor strong {
-        display: block;
-        font-size: 1.6rem;
-        color: var(--text);
+      .sponsorship-tiers article {
+        background: #fff;
+        border: 1px solid var(--border-soft);
+        border-radius: 16px;
+        padding: 32px 26px;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+      }
+      .sponsorship-tiers article:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 14px 36px rgba(0, 0, 0, 0.07);
+      }
+      .sponsorship-tiers article.featured {
+        border-color: var(--brand);
+        box-shadow: 0 14px 36px rgba(255, 101, 34, 0.14);
+        position: relative;
+      }
+      .sponsorship-tiers article.featured::before {
+        content: "Most Impact";
+        position: absolute;
+        top: -12px; left: 50%; transform: translateX(-50%);
+        background: var(--brand);
+        color: #fff;
+        font-size: 0.7rem;
         font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 5px 14px;
+        border-radius: 999px;
+        white-space: nowrap;
+      }
+      .sponsorship-tiers h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--ic-blue);
         margin-bottom: 6px;
       }
-      .title-sponsor span {
+      .tier-price {
+        font-size: 1.5rem !important;
+        font-weight: 700;
+        color: var(--text);
+        margin-bottom: 2px !important;
+      }
+      .tier-blurb {
         color: var(--text-muted);
+        font-style: italic;
+        margin-bottom: 18px !important;
+      }
+      .sponsorship-tiers ul {
+        list-style: none;
+        margin: 0; padding: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .sponsorship-tiers li {
+        position: relative;
+        padding-left: 26px;
+        color: var(--text-muted);
+        font-size: 0.95rem;
+        line-height: 1.5;
+      }
+      .sponsorship-tiers li::before {
+        content: "";
+        position: absolute;
+        left: 0; top: 7px;
+        width: 14px; height: 8px;
+        border-left: 2px solid var(--brand);
+        border-bottom: 2px solid var(--brand);
+        transform: rotate(-45deg);
+      }
+      .tiers-note {
+        max-width: 720px;
+        margin: 0 auto;
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 0.98rem;
       }
 
-      .pay-it-forward-cta {
+      /* ===== GENERIC PROSE BLOCK (in-kind, contact) ===== */
+      .block {
+        max-width: 720px;
+        margin: 0 auto;
         text-align: center;
-        margin-top: 36px;
+        color: var(--text-muted);
+        font-size: 1.02rem;
+        line-height: 1.7;
       }
-      .pay-it-forward-btn {
+
+      /* ===== CONTACT CTA ===== */
+      .contact-cta {
+        text-align: center;
+        margin-top: 28px;
+      }
+      .contact-cta a {
         display: inline-flex;
         align-items: center;
         gap: 10px;
@@ -294,48 +412,18 @@
         box-shadow: 0 10px 26px rgba(255, 101, 34, 0.30);
         transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
       }
-      .pay-it-forward-btn:hover {
+      .contact-cta a:hover {
         background: var(--brand-hover);
         color: #fff;
         text-decoration: none;
         transform: translateY(-2px);
         box-shadow: 0 14px 32px rgba(255, 101, 34, 0.38);
       }
-      .pay-it-forward-btn svg {
-        width: 18px;
-        height: 18px;
+      .contact-cta svg {
+        width: 18px; height: 18px;
         transition: transform 0.2s ease;
       }
-      .pay-it-forward-btn:hover svg {
-        transform: translateX(3px);
-      }
-
-      .tier-label {
-        text-align: center;
-        text-transform: uppercase;
-        font-size: 0.78rem;
-        letter-spacing: 1.2px;
-        font-weight: 600;
-        color: var(--text-muted);
-        margin-bottom: 18px;
-      }
-
-      /* ===== THANK YOU NOTE ===== */
-      .thanks {
-        max-width: 720px;
-        margin: 0 auto;
-        background: #fff;
-        padding: 32px 28px;
-        border-radius: 16px;
-        text-align: center;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
-      }
-      .thanks p {
-        color: var(--text-muted);
-        font-size: 1rem;
-        line-height: 1.7;
-      }
-      .thanks p strong { color: var(--text); }
+      .contact-cta a:hover svg { transform: translateX(3px); }
 
       /* ===== BACK TO TOP ===== */
       .back-to-top {
@@ -357,7 +445,7 @@
       .back-to-top svg { width: 22px; height: 22px; }
 
       @media (max-width: 900px) {
-        .page-hero { padding: 56px 20px 36px; }
+        .page-hero { padding: 56px 20px 40px; }
         .section { padding: 48px 20px; }
         .section h2 { font-size: 24px; }
         .back-to-top { right: 16px; bottom: 24px; width: 44px; height: 44px; }
@@ -370,7 +458,9 @@
 
     <a href="#main" class="skip-link">Skip to content</a>
 
-    <!-- DEDICATED NAV -->
+    <!-- DEDICATED NAV (shared with The Archive home).
+         This page is intentionally omitted from the nav links — it is reached
+         via a direct link from the Sponsors page, not the navigation. -->
     <nav class="archive-nav" aria-label="The Archive">
       <div class="archive-nav-inner">
         <a class="archive-brand" href="/thearchive/" aria-label="The Archive home">
@@ -393,39 +483,179 @@
 
       <!-- ============ HERO ============ -->
       <section class="page-hero">
-        <!-- EDIT: page title and intro -->
-        <h1>Our <em>Sponsors</em> &amp; Partners</h1>
-        <p>
-          The Archive is made possible by the generosity, time, and belief of
-          the people and organisations below. Thank you for helping us bring
-          seniors and youths together through stories.
+        <!-- EDIT: prospectus header -->
+        <h1><a href="https://www.impactcolliders.com/thearchive/">The Archive</a> Sponsorship Prospectus</h1>
+        <p class="tagline">Where memory meets imagination.</p>
+        <p class="event-meta">
+          500 tickets available
         </p>
         <!-- /EDIT -->
       </section>
 
 
-      <!-- ============ TITLE SPONSOR ============ -->
-      <section class="section bg-white">
-        <h2>Title Sponsor</h2>
-        <p class="lead">Headline supporter of The Archive 2026.</p>
-
-        <!-- EDIT: title sponsor block. Replace placeholder with the sponsor's name + role. -->
-        <div class="title-sponsor">
-          <strong>Your Organisation Here</strong>
-          <span>Becoming the title sponsor reserves prime placement at the
-            exhibition, on the keepsake portraits, and in event communications.</span>
+      <!-- ============ ABOUT ============ -->
+      <section class="section">
+        <!-- EDIT: about the experience -->
+        <div class="prose">
+          <p>
+            <a href="https://www.impactcolliders.com/thearchive/">The Archive</a>
+            is an interactive community storytelling exhibition that
+            connects seniors and youths through art, AI-assisted oral history, and
+            live portraiture. Seniors share their life stories in their own
+            languages, while youth artists create portraits inspired by their
+            stories.
+          </p>
+          <p>
+            Each sponsored ticket allows a senior to take part in the experience and
+            receive a keepsake portrait, while contributing to a permanent digital
+            archive of Singaporean lived experiences.
+          </p>
         </div>
         <!-- /EDIT -->
+      </section>
 
-        <div class="pay-it-forward-cta">
-          <a class="pay-it-forward-btn" href="/thearchive/sponsors/donors">
-            Pay it Forward
+
+      <!-- ============ STATS ============ -->
+      <section class="section bg-white">
+        <!-- EDIT: headline stats -->
+        <div class="stats">
+          <div>
+            <strong>500</strong>
+            <span>Tickets Available</span>
+          </div>
+          <div>
+            <strong>&infin;</strong>
+            <span>Permanent Digital Archive</span>
+          </div>
+        </div>
+        <!-- /EDIT -->
+      </section>
+
+
+      <!-- ============ WHY PARTNER ============ -->
+      <section class="section">
+        <h2>Why Partner with <a href="https://www.impactcolliders.com/thearchive/">The Archive</a></h2>
+        <p class="lead">Four reasons your support makes a lasting difference.</p>
+
+        <!-- EDIT: reasons to partner -->
+        <div class="partner-reasons">
+          <article>
+            <h3>Technology for Good</h3>
+            <p>
+              Support a human-centred use of AI that helps seniors preserve their
+              stories across languages and generations.
+            </p>
+          </article>
+
+          <article>
+            <h3>Digital Inclusion for Seniors</h3>
+            <p>
+              Help seniors meaningfully engage with technology through a warm,
+              accessible, and arts-led experience.
+            </p>
+          </article>
+
+          <article>
+            <h3>Intergenerational Bonding</h3>
+            <p>
+              Bring seniors and youths together through storytelling,
+              portrait-making, and shared conversation.
+            </p>
+          </article>
+
+          <article>
+            <h3>Singapore&rsquo;s Art Scene</h3>
+            <p>
+              Support youth artists, community art, and the preservation of local
+              memories as part of Singapore&rsquo;s cultural heritage.
+            </p>
+          </article>
+        </div>
+        <!-- /EDIT -->
+      </section>
+
+
+      <!-- ============ SPONSORSHIP OPPORTUNITIES ============ -->
+      <section class="section bg-white">
+        <h2>Sponsorship Opportunities</h2>
+
+        <!-- EDIT: sponsorship tiers -->
+        <div class="sponsorship-tiers">
+          <article class="featured">
+            <h3>Presenting Sponsor</h3>
+            <p class="tier-price">S$10,000+</p>
+            <p class="tier-blurb">Top billing, lasting legacy.</p>
+            <ul>
+              <li>Permanent presence in the digital archive</li>
+              <li>Featured as top sponsor across event collaterals</li>
+              <li>Opening-session speaking opportunity</li>
+              <li>Includes all Supporting Partner benefits</li>
+            </ul>
+          </article>
+
+          <article>
+            <h3>Supporting Partner</h3>
+            <p class="tier-price">S$5,000+</p>
+            <p class="tier-blurb">Visible support at the event.</p>
+            <ul>
+              <li>Optional on-site activation booth</li>
+              <li>Upgraded logo placement on signage and event materials</li>
+              <li>Includes all Friend of The Archive benefits</li>
+            </ul>
+          </article>
+
+          <article>
+            <h3>Friend of The Archive</h3>
+            <p class="tier-price">S$1,000+</p>
+            <p class="tier-blurb">Be part of the story.</p>
+            <ul>
+              <li>Logo or name on supporters&rsquo; wall</li>
+              <li>Post-event acknowledgement</li>
+            </ul>
+          </article>
+        </div>
+
+        <p class="tiers-note">
+          Eligible sponsors may choose the senior beneficiaries for their sponsored
+          tickets, or allow us to distribute them to seniors in need.
+        </p>
+        <!-- /EDIT -->
+      </section>
+
+
+      <!-- ============ IN-KIND PARTNERSHIPS ============ -->
+      <section class="section">
+        <h2>In-Kind Partnerships</h2>
+
+        <!-- EDIT: in-kind partnerships -->
+        <p class="block">
+          Non-cash sponsorships are welcomed and may be recognised at equivalent
+          sponsorship tiers. We are currently seeking art supplies, AI and
+          transcription technology credits, and lucky-draw prizes.
+        </p>
+        <!-- /EDIT -->
+      </section>
+
+
+      <!-- ============ GET IN TOUCH ============ -->
+      <section class="section bg-white">
+        <h2>Get in Touch</h2>
+
+        <!-- EDIT: contact -->
+        <p class="block">
+          For sponsorship enquiries, reach out and we can discuss how to work
+          together.
+        </p>
+        <div class="contact-cta">
+          <a href="https://www.impactcolliders.com/namecards/avin/">
+            Contact me here
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <line x1="5" y1="12" x2="19" y2="12"/>
               <polyline points="12 5 19 12 12 19"/>
             </svg>
           </a>
         </div>
+        <!-- /EDIT -->
       </section>
 
 
@@ -483,7 +713,8 @@
     <!-- End Google Tag Manager -->
 
     <script src="/mailinglist.js"></script>
-      <!-- ===== Static site-links footer (SEO / internal linking) =====
+
+    <!-- ===== Static site-links footer (SEO / internal linking) =====
          Crawlable, no-JS mirror of the primary navigation. Lets search engines
          follow internal links and pass link equity across the main site and
          /thearchive/. Does NOT affect the interactive global nav (navbar.js). -->

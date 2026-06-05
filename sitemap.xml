@@ -14,9 +14,10 @@
   <url><loc>https://www.impactcolliders.com/quiz</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://www.impactcolliders.com/thearchive/referrals</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://www.impactcolliders.com/thearchive/sponsors</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://www.impactcolliders.com/thearchive/sponsors/benefits</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
   <url><loc>https://www.impactcolliders.com/thearchive/gallery</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.impactcolliders.com/thearchive/volunteers</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.impactcolliders.com/tree</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
   <url><loc>https://www.impactcolliders.com/thearchive/tree</loc><changefreq>monthly</changefreq><priority>0.3</priority></url>
   <url><loc>https://www.impactcolliders.com/tutorial</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
-  <url><loc>https://www.impactcolliders.com/thearchive/donors</loc><changefreq>monthly</changefreq><priority>0.2</priority></url></urlset>
+  <url><loc>https://www.impactcolliders.com/thearchive/sponsors/donors</loc><changefreq>monthly</changefreq><priority>0.2</priority></url></urlset>
