@@ -276,6 +276,40 @@
         color: var(--text-muted);
       }
 
+      .pay-it-forward-cta {
+        text-align: center;
+        margin-top: 36px;
+      }
+      .pay-it-forward-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--brand);
+        color: #fff;
+        font-weight: 700;
+        font-size: 1.05rem;
+        padding: 16px 36px;
+        border-radius: 999px;
+        text-decoration: none;
+        box-shadow: 0 10px 26px rgba(255, 101, 34, 0.30);
+        transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+      }
+      .pay-it-forward-btn:hover {
+        background: var(--brand-hover);
+        color: #fff;
+        text-decoration: none;
+        transform: translateY(-2px);
+        box-shadow: 0 14px 32px rgba(255, 101, 34, 0.38);
+      }
+      .pay-it-forward-btn svg {
+        width: 18px;
+        height: 18px;
+        transition: transform 0.2s ease;
+      }
+      .pay-it-forward-btn:hover svg {
+        transform: translateX(3px);
+      }
+
       .tier-label {
         text-align: center;
         text-transform: uppercase;
@@ -382,6 +416,16 @@
             exhibition, on the keepsake portraits, and in event communications.</span>
         </div>
         <!-- /EDIT -->
+
+        <div class="pay-it-forward-cta">
+          <a class="pay-it-forward-btn" href="/thearchive/donors">
+            Pay it Forward
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"/>
+              <polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+        </div>
       </section>
 
 
@@ -451,7 +495,6 @@
         <li><a href="/corporates">Partner</a></li>
         <li><a href="/press-releases">Press Releases</a></li>
         <li><a href="/thearchive/">The Archive</a></li>
-        <li><a href="/thearchive/donors">Pay it Forward</a></li>
       </ul>
     </nav>
     <style>
