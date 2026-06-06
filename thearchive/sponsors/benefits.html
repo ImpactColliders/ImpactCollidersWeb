@@ -172,6 +172,84 @@
         .archive-nav-links a { font-size: 0.8rem; }
       }
 
+      /* ===== LANGUAGE TOGGLE (self-contained to this page) ===== */
+      /* Chinese text is hidden by default; toggling body.is-zh swaps them.
+         This only affects this page's body copy, not the shared footer. */
+      .lang-zh { display: none; }
+      body.is-zh .lang-en { display: none; }
+      body.is-zh .lang-zh { display: inline; }
+
+      .language-bar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 10px 14px;
+        margin-bottom: 24px;
+      }
+      .privacy-remark {
+        color: var(--text-muted);
+        font-size: 0.8rem;
+        font-style: italic;
+        max-width: 320px;
+        text-align: center;
+      }
+      .language-bar-inner {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        padding: 8px 12px;
+        background: #fff7f3;
+        border: 1px solid rgba(255, 101, 34, 0.18);
+        border-radius: 999px;
+      }
+      .lang-toggle-label {
+        color: var(--text);
+        font-size: 0.9rem;
+        font-weight: 700;
+      }
+      .lang-toggle {
+        display: inline-flex;
+        border: 2px solid var(--brand);
+        border-radius: 999px;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 8px 20px rgba(255, 101, 34, 0.18);
+        font-weight: 700;
+        font-size: 0.92rem;
+      }
+      .lang-toggle button {
+        border: 0;
+        background: transparent;
+        cursor: pointer;
+        min-width: 72px;
+        padding: 9px 18px;
+        color: var(--text);
+        transition: background 0.15s ease, color 0.15s ease;
+      }
+      .lang-toggle button.active {
+        background: var(--brand);
+        color: #fff;
+      }
+      .lang-toggle button:not(.active):hover {
+        background: rgba(255, 101, 34, 0.1);
+      }
+      @media (max-width: 600px) {
+        .language-bar { margin-bottom: 20px; }
+        .language-bar-inner {
+          flex-wrap: wrap;
+          padding: 8px 10px;
+          gap: 8px;
+        }
+        .lang-toggle-label { font-size: 0.82rem; }
+        .lang-toggle { font-size: 0.86rem; }
+        .lang-toggle button {
+          min-width: 62px;
+          padding: 8px 13px;
+        }
+      }
+
       /* ===== HERO ===== */
       .page-hero {
         padding: 72px 24px 56px;
@@ -214,6 +292,7 @@
         padding: 64px 24px;
       }
       .section.bg-white { background: #fff; }
+      .section.bg-tint { background: #fff7f3; }
       .section h2 {
         font-size: 28px; font-weight: 700;
         color: var(--ic-blue);
@@ -225,6 +304,39 @@
         max-width: 680px;
         margin: 0 auto 36px;
         color: var(--text-muted);
+      }
+
+      /* ===== HOW IT WORKS ===== */
+      .steps {
+        max-width: 980px; margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+        gap: 18px;
+      }
+      .step-card {
+        background: #fff;
+        border: 1px solid var(--border-soft);
+        border-radius: 14px;
+        padding: 28px 22px;
+        text-align: center;
+        transition: transform 0.15s ease, box-shadow 0.15s ease;
+      }
+      .step-card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+      }
+      .step-num {
+        width: 40px; height: 40px;
+        margin: 0 auto 14px;
+        border-radius: 50%;
+        background: var(--brand);
+        color: #fff;
+        display: flex; align-items: center; justify-content: center;
+        font-weight: 700; font-size: 1.05rem;
+      }
+      .step-card p {
+        color: var(--text-muted);
+        font-size: 0.98rem;
       }
 
       /* ===== INTRO PROSE ===== */
@@ -384,6 +496,14 @@
         color: var(--text-muted);
         font-size: 0.98rem;
       }
+      .tax-note {
+        max-width: 720px;
+        margin: 20px auto 0;
+        text-align: center;
+        color: var(--brand);
+        font-weight: 700;
+        font-size: 1.15rem;
+      }
 
       /* ===== GENERIC PROSE BLOCK (in-kind, contact) ===== */
       .block {
@@ -454,6 +574,8 @@
         .back-to-top svg { width: 20px; height: 20px; }
       }
     </style>
+      <!-- The Archive global nav: mobile hamburger enhancement -->
+    <script src="/assets/js/archive-nav.js"></script>
   </head>
 
   <body>
@@ -472,12 +594,14 @@
         <ul class="archive-nav-links" role="list">
           <li><a href="/thearchive/">Home</a></li>
           <li><a href="/thearchive/sponsors" aria-current="page">Sponsors</a></li>
+          <li><a href="/thearchive/sponsors/donors">Pay it Forward</a></li>
           <li><a href="/thearchive/referrals">Referrals</a></li>
           <li><a href="/press-releases">Press Releases</a></li>
         </ul>
 
         <a class="nav-register" href="/thearchive/#signup">Register</a>
       </div>
+
     </nav>
 
 
@@ -485,11 +609,36 @@
 
       <!-- ============ HERO ============ -->
       <section class="page-hero">
+        <!-- Language toggle (EN / 中文). Affects this page's body copy only. -->
+        <div class="language-bar" aria-label="Page language selector">
+          <div class="language-bar-inner">
+            <span class="lang-toggle-label">
+              <span class="lang-en">View this page in</span>
+              <span class="lang-zh">浏览语言</span>
+            </span>
+            <div class="lang-toggle" role="group" aria-label="Language / 语言">
+              <button type="button" id="lang-en" class="active" aria-pressed="true">English</button>
+              <button type="button" id="lang-zh" aria-pressed="false">中文</button>
+            </div>
+          </div>
+          <span class="privacy-remark">
+            <span class="lang-en">This is a private page and is not listed on our main site.</span>
+            <span class="lang-zh">此为私密页面，未在我们的主网站上列出。</span>
+          </span>
+        </div>
+
         <!-- EDIT: prospectus header -->
-        <h1><a href="https://www.impactcolliders.com/thearchive/">The Archive</a> Sponsorship Prospectus</h1>
-        <p class="tagline">Where memory meets imagination.</p>
+        <h1>
+          <span class="lang-en"><a href="https://www.impactcolliders.com/thearchive/">The Archive</a> Sponsorship Prospectus</span>
+          <span class="lang-zh"><a href="https://www.impactcolliders.com/thearchive/">The Archive</a> 赞助方案</span>
+        </h1>
+        <p class="tagline">
+          <span class="lang-en">Where memory meets imagination.</span>
+          <span class="lang-zh">记忆与想象交汇之处。</span>
+        </p>
         <p class="event-meta">
-          500 tickets available
+          <span class="lang-en">500 tickets available</span>
+          <span class="lang-zh">共 500 张门票</span>
         </p>
         <!-- /EDIT -->
       </section>
@@ -500,17 +649,28 @@
         <!-- EDIT: about the experience -->
         <div class="prose">
           <p>
-            <a href="https://www.impactcolliders.com/thearchive/">The Archive</a>
-            is an interactive community storytelling exhibition that
-            connects seniors and youths through art, AI-assisted oral history, and
-            live portraiture. Seniors share their life stories in their own
-            languages, while youth artists create portraits inspired by their
-            stories.
+            <span class="lang-en">
+              <a href="https://www.impactcolliders.com/thearchive/">The Archive</a>
+              is an interactive community storytelling exhibition that brings
+              seniors and youths together through art, AI-assisted oral history,
+              and live portraiture. Seniors share their life stories in the
+              languages most natural to them, while youth artists create portraits
+              inspired by those memories.
+            </span>
+            <span class="lang-zh">
+              <a href="https://www.impactcolliders.com/thearchive/">The Archive</a>
+              是一场互动式社区故事展览，通过艺术、AI 辅助口述历史和现场人像创作，让长者与青年相遇。长者可以用自己最熟悉的语言分享人生故事，青年艺术家则从这些记忆中汲取灵感，创作专属人像。
+            </span>
           </p>
           <p>
-            Each sponsored ticket allows a senior to take part in the experience and
-            receive a keepsake portrait, while contributing to a permanent digital
-            archive of Singaporean lived experiences.
+            <span class="lang-en">
+              Each sponsored ticket allows a senior to take part in the experience
+              and receive a keepsake portrait, while contributing to a permanent
+              digital archive of Singaporean life stories.
+            </span>
+            <span class="lang-zh">
+              每一张赞助门票都能让一位长者参与体验，并获得一幅值得珍藏的人像作品，同时为新加坡生活故事的永久数码档案库留下珍贵记录。
+            </span>
           </p>
         </div>
         <!-- /EDIT -->
@@ -523,11 +683,17 @@
         <div class="stats">
           <div>
             <strong>500</strong>
-            <span>Tickets Available</span>
+            <span>
+              <span class="lang-en">Tickets Available</span>
+              <span class="lang-zh">门票名额</span>
+            </span>
           </div>
           <div>
             <strong>&infin;</strong>
-            <span>Permanent Digital Archive</span>
+            <span>
+              <span class="lang-en">Permanent Digital Archive</span>
+              <span class="lang-zh">永久数码档案库</span>
+            </span>
           </div>
         </div>
         <!-- /EDIT -->
@@ -536,40 +702,78 @@
 
       <!-- ============ WHY PARTNER ============ -->
       <section class="section">
-        <h2>Why Partner with <a href="https://www.impactcolliders.com/thearchive/">The Archive</a></h2>
-        <p class="lead">Four reasons your support makes a lasting difference.</p>
+        <h2>
+          <span class="lang-en">Why Partner with <a href="https://www.impactcolliders.com/thearchive/">The Archive</a></span>
+          <span class="lang-zh">为何与 <a href="https://www.impactcolliders.com/thearchive/">The Archive</a> 合作</span>
+        </h2>
+        <p class="lead">
+          <span class="lang-en">Four reasons your support makes a lasting difference.</span>
+          <span class="lang-zh">您的支持将从四个方面带来长远影响。</span>
+        </p>
 
         <!-- EDIT: reasons to partner -->
         <div class="partner-reasons">
           <article>
-            <h3>Technology for Good</h3>
+            <h3>
+              <span class="lang-en">Technology for Good</span>
+              <span class="lang-zh">科技向善</span>
+            </h3>
             <p>
-              Support a human-centred use of AI that helps seniors preserve their
-              stories across languages and generations.
+              <span class="lang-en">
+                Support a human-centred use of AI that helps seniors preserve their
+                stories across languages and generations.
+              </span>
+              <span class="lang-zh">
+                支持以人为本的 AI 应用，帮助长者跨越语言与世代，把自己的故事保存下来。
+              </span>
             </p>
           </article>
 
           <article>
-            <h3>Digital Inclusion for Seniors</h3>
+            <h3>
+              <span class="lang-en">Digital Inclusion for Seniors</span>
+              <span class="lang-zh">长者数码共融</span>
+            </h3>
             <p>
-              Help seniors meaningfully engage with technology through a warm,
-              accessible, and arts-led experience.
+              <span class="lang-en">
+                Help seniors meaningfully engage with technology through a warm,
+                accessible, and arts-led experience.
+              </span>
+              <span class="lang-zh">
+                通过温暖、易参与且以艺术为引导的体验，帮助长者更有信心地接触科技。
+              </span>
             </p>
           </article>
 
           <article>
-            <h3>Intergenerational Bonding</h3>
+            <h3>
+              <span class="lang-en">Intergenerational Bonding</span>
+              <span class="lang-zh">跨代连结</span>
+            </h3>
             <p>
-              Bring seniors and youths together through storytelling,
-              portrait-making, and shared conversation.
+              <span class="lang-en">
+                Bring seniors and youths together through storytelling,
+                portrait-making, and shared conversation.
+              </span>
+              <span class="lang-zh">
+                通过故事分享、人像创作和真诚交流，让长者与青年建立真实连结。
+              </span>
             </p>
           </article>
 
           <article>
-            <h3>Singapore&rsquo;s Art Scene</h3>
+            <h3>
+              <span class="lang-en">Singapore&rsquo;s Art Scene</span>
+              <span class="lang-zh">新加坡艺术生态</span>
+            </h3>
             <p>
-              Support youth artists, community art, and the preservation of local
-              memories as part of Singapore&rsquo;s cultural heritage.
+              <span class="lang-en">
+                Support youth artists, community art, and the preservation of local
+                memories as part of Singapore&rsquo;s cultural heritage.
+              </span>
+              <span class="lang-zh">
+                支持青年艺术家、社区艺术，以及作为新加坡文化遗产一部分的本地记忆保存。
+              </span>
             </p>
           </article>
         </div>
@@ -579,61 +783,176 @@
 
       <!-- ============ SPONSORSHIP OPPORTUNITIES ============ -->
       <section class="section bg-white">
-        <h2>Sponsorship Opportunities</h2>
+        <h2>
+          <span class="lang-en">Sponsorship Opportunities</span>
+          <span class="lang-zh">赞助方案</span>
+        </h2>
 
         <!-- EDIT: sponsorship tiers -->
         <div class="sponsorship-tiers">
           <article class="featured">
-            <h3>Presenting Sponsor</h3>
+            <h3>
+              <span class="lang-en">Presenting Sponsor</span>
+              <span class="lang-zh">首席赞助</span>
+            </h3>
             <p class="tier-price">S$10,000+</p>
-            <p class="tier-blurb">Top billing, lasting legacy.</p>
+            <p class="tier-blurb">
+              <span class="lang-en">Top billing, lasting legacy.</span>
+              <span class="lang-zh">最高曝光，留下长远影响。</span>
+            </p>
             <ul>
-              <li>Permanent presence in the digital archive</li>
-              <li>Featured as top sponsor across event collaterals</li>
-              <li>Opening-session speaking opportunity</li>
-              <li>Includes all Supporting Partner benefits</li>
+              <li>
+                <span class="lang-en">Permanent presence in the digital archive</span>
+                <span class="lang-zh">品牌永久展示于数码档案库</span>
+              </li>
+              <li>
+                <span class="lang-en">Featured as top sponsor across event collaterals</span>
+                <span class="lang-zh">作为首席赞助展示于活动宣传与现场物料</span>
+              </li>
+              <li>
+                <span class="lang-en">Opening-session speaking opportunity</span>
+                <span class="lang-zh">开幕环节致辞机会</span>
+              </li>
+              <li>
+                <span class="lang-en">Includes all Supporting Partner benefits</span>
+                <span class="lang-zh">包含“支持伙伴”的所有权益</span>
+              </li>
             </ul>
           </article>
 
           <article>
-            <h3>Supporting Partner</h3>
+            <h3>
+              <span class="lang-en">Supporting Partner</span>
+              <span class="lang-zh">支持伙伴</span>
+            </h3>
             <p class="tier-price">S$5,000+</p>
-            <p class="tier-blurb">Visible support at the event.</p>
+            <p class="tier-blurb">
+              <span class="lang-en">Visible support at the event.</span>
+              <span class="lang-zh">在活动现场获得清晰可见的品牌呈现。</span>
+            </p>
             <ul>
-              <li>Optional on-site activation booth</li>
-              <li>Upgraded logo placement on signage and event materials</li>
-              <li>Includes all Friend of The Archive benefits</li>
+              <li>
+                <span class="lang-en">Optional on-site activation booth</span>
+                <span class="lang-zh">可选择设置现场互动摊位</span>
+              </li>
+              <li>
+                <span class="lang-en">Upgraded logo placement on signage and event materials</span>
+                <span class="lang-zh">在指示牌和活动物料上获得升级标志展示</span>
+              </li>
+              <li>
+                <span class="lang-en">Includes all Friend of The Archive benefits</span>
+                <span class="lang-zh">包含“The Archive 之友”的所有权益</span>
+              </li>
             </ul>
           </article>
 
           <article>
-            <h3>Friend of The Archive</h3>
+            <h3>
+              <span class="lang-en">Friend of The Archive</span>
+              <span class="lang-zh">The Archive 之友</span>
+            </h3>
             <p class="tier-price">S$1,000+</p>
-            <p class="tier-blurb">Be part of the story.</p>
+            <p class="tier-blurb">
+              <span class="lang-en">Be part of the story.</span>
+              <span class="lang-zh">成为故事的一部分。</span>
+            </p>
             <ul>
-              <li>Logo or name on supporters&rsquo; wall</li>
-              <li>Post-event acknowledgement</li>
+              <li>
+                <span class="lang-en">Logo or name on supporters&rsquo; wall</span>
+                <span class="lang-zh">标志或名称展示于支持者墙</span>
+              </li>
+              <li>
+                <span class="lang-en">Post-event acknowledgement</span>
+                <span class="lang-zh">活动后致谢</span>
+              </li>
             </ul>
           </article>
         </div>
 
         <p class="tiers-note">
-          Eligible sponsors may choose the senior beneficiaries for their sponsored
-          tickets, or allow us to distribute them to seniors in need.
+          <span class="lang-en">
+            Eligible sponsors may choose the senior beneficiaries for their sponsored
+            tickets, or allow us to distribute them to seniors in need.
+          </span>
+          <span class="lang-zh">
+            符合条件的赞助者可为其赞助门票指定长者受惠者，也可交由我们分配给有需要的长者。
+          </span>
         </p>
+        <p class="tax-note">
+          <span class="lang-en">
+            Qualifying donations are eligible for 250% tax deduction.
+          </span>
+          <span class="lang-zh">
+            符合条件的捐款可享有250%的税务扣除。
+          </span>
+        </p>
+        <!-- /EDIT -->
+      </section>
+
+
+      <!-- ============ HOW IT WORKS ============ -->
+      <section class="section bg-tint">
+        <h2>
+          <span class="lang-en">How It Works</span>
+          <span class="lang-zh">运作方式</span>
+        </h2>
+        <p class="lead">
+          <span class="lang-en">Four simple steps to support a senior through <a href="https://www.impactcolliders.com/thearchive/">The Archive</a>.</span>
+          <span class="lang-zh">透过 <a href="https://www.impactcolliders.com/thearchive/">The Archive</a> 支持一位长者，只需四个简单步骤。</span>
+        </p>
+
+        <!-- EDIT: how it works steps -->
+        <div class="steps">
+          <div class="step-card">
+            <div class="step-num">1</div>
+            <p>
+              <span class="lang-en">Contact us, and we&rsquo;ll provide the detail</span>
+              <span class="lang-zh">联系我们，我们将提供详细资料</span>
+            </p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">2</div>
+            <p>
+              <span class="lang-en">Make a donation to The Bloom Fund</span>
+              <span class="lang-zh">向 The Bloom Fund 捐款</span>
+            </p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">3</div>
+            <p>
+              <span class="lang-en">You may nominate a senior, or let us allocate the ticket</span>
+              <span class="lang-zh">您可指定一位长者，或交由我们分配门票</span>
+            </p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">4</div>
+            <p>
+              <span class="lang-en">Eligible donors may receive 250% tax deduction</span>
+              <span class="lang-zh">符合条件的捐款者可享有250%的税务扣除</span>
+            </p>
+          </div>
+        </div>
         <!-- /EDIT -->
       </section>
 
 
       <!-- ============ IN-KIND PARTNERSHIPS ============ -->
       <section class="section">
-        <h2>In-Kind Partnerships</h2>
+        <h2>
+          <span class="lang-en">In-Kind Partnerships</span>
+          <span class="lang-zh">实物赞助合作</span>
+        </h2>
 
         <!-- EDIT: in-kind partnerships -->
         <p class="block">
-          Non-cash sponsorships are welcomed and may be recognised at equivalent
-          sponsorship tiers. We are currently seeking art supplies, AI and
-          transcription technology credits, and lucky-draw prizes.
+          <span class="lang-en">
+            Non-cash sponsorships are welcomed and may be recognised at equivalent
+            sponsorship tiers. We are currently seeking art supplies, AI and
+            transcription technology credits, and lucky-draw prizes.
+          </span>
+          <span class="lang-zh">
+            我们也欢迎非现金形式的赞助，并可按相应赞助级别给予认可。目前我们正在寻求美术用品、AI 与转录技术额度，以及抽奖礼品。
+          </span>
         </p>
         <!-- /EDIT -->
       </section>
@@ -641,16 +960,25 @@
 
       <!-- ============ GET IN TOUCH ============ -->
       <section class="section bg-white">
-        <h2>Get in Touch</h2>
+        <h2>
+          <span class="lang-en">Get in Touch</span>
+          <span class="lang-zh">联系我们</span>
+        </h2>
 
         <!-- EDIT: contact -->
         <p class="block">
-          For sponsorship enquiries, reach out and we can discuss how to work
-          together.
+          <span class="lang-en">
+            For sponsorship enquiries, reach out and we can discuss how to work
+            together.
+          </span>
+          <span class="lang-zh">
+            如有赞助咨询，欢迎联系我们，一起探讨适合的合作方式。
+          </span>
         </p>
         <div class="contact-cta">
           <a href="https://www.impactcolliders.com/namecards/avin/">
-            Contact me here
+            <span class="lang-en">Contact me here</span>
+            <span class="lang-zh">点此联系我</span>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <line x1="5" y1="12" x2="19" y2="12"/>
               <polyline points="12 5 19 12 12 19"/>
@@ -688,6 +1016,54 @@
           window.scrollTo({ top: 0, behavior: "smooth" });
         });
         update();
+      })();
+    </script>
+
+    <!-- Language toggle (EN / 中文) — self-contained to this page. -->
+    <script>
+      (function () {
+        var enBtn = document.getElementById("lang-en");
+        var zhBtn = document.getElementById("lang-zh");
+        if (!enBtn || !zhBtn) return;
+
+        function getUrlLang() {
+          try {
+            var params = new URLSearchParams(window.location.search);
+            return params.get("lang") === "zh" ? "zh" : "en";
+          } catch (e) {
+            return "en";
+          }
+        }
+
+        function updateUrl(lang) {
+          if (!window.history || !window.history.replaceState) return;
+          try {
+            var url = new URL(window.location.href);
+            if (lang === "zh") {
+              url.searchParams.set("lang", "zh");
+            } else {
+              url.searchParams.delete("lang");
+            }
+            window.history.replaceState({}, "", url.pathname + url.search + url.hash);
+          } catch (e) {}
+        }
+
+        function set(lang, syncUrl) {
+          var zh = lang === "zh";
+          document.body.classList.toggle("is-zh", zh);
+          document.documentElement.lang = zh ? "zh" : "en";
+          enBtn.classList.toggle("active", !zh);
+          zhBtn.classList.toggle("active", zh);
+          enBtn.setAttribute("aria-pressed", String(!zh));
+          zhBtn.setAttribute("aria-pressed", String(zh));
+          if (syncUrl) updateUrl(lang);
+        }
+
+        enBtn.addEventListener("click", function () { set("en", true); });
+        zhBtn.addEventListener("click", function () { set("zh", true); });
+        window.addEventListener("popstate", function () { set(getUrlLang(), false); });
+
+        set(getUrlLang(), false);
       })();
     </script>
 

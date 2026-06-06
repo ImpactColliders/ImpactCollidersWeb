@@ -550,6 +550,8 @@
         .section h2 { font-size: 22px; }
       }
     </style>
+      <!-- The Archive global nav: mobile hamburger enhancement -->
+    <script src="/assets/js/archive-nav.js"></script>
   </head>
 
   <body>
@@ -566,6 +568,7 @@
         <ul class="archive-nav-links" role="list">
           <li><a href="/thearchive/">Home</a></li>
           <li><a href="/thearchive/sponsors">Sponsors</a></li>
+          <li><a href="/thearchive/sponsors/donors">Pay it Forward</a></li>
           <li><a href="/thearchive/referrals">Referrals</a></li>
           <li><a href="/press-releases">Press Releases</a></li>
         </ul>
@@ -658,7 +661,7 @@
 
       <!-- ============ PAYMENT BY CARD ============ -->
       <section class="section" id="slots">
-        <h2>Payment by Card <span class="soon-badge">Coming soon</span></h2>
+        <h2>Payment by Card</h2>
         <p class="section-sub">
           Pick the session you'd like to attend. The Luma registration for that
           slot will appear below.
@@ -666,20 +669,12 @@
 
         <div class="slot-grid" role="group" aria-label="Choose your event slot">
           <button type="button" class="slot-btn" data-slot="1" aria-pressed="false">
-            <span class="slot-date">Sun, 4 Oct 2026</span>
-            <span class="slot-time">1:30 PM &ndash; 4:00 PM</span>
+            <span class="slot-date">Sun, 2 Aug 2026</span>
+            <span class="slot-time">1:30 PM &ndash; 3:30 PM</span>
           </button>
           <button type="button" class="slot-btn" data-slot="2" aria-pressed="false">
-            <span class="slot-date">Sun, 4 Oct 2026</span>
-            <span class="slot-time">5:00 PM &ndash; 7:30 PM</span>
-          </button>
-          <button type="button" class="slot-btn" data-slot="3" aria-pressed="false">
-            <span class="slot-date">Sun, 11 Oct 2026</span>
-            <span class="slot-time">1:30 PM &ndash; 4:00 PM</span>
-          </button>
-          <button type="button" class="slot-btn" data-slot="4" aria-pressed="false">
-            <span class="slot-date">Sun, 11 Oct 2026</span>
-            <span class="slot-time">5:00 PM &ndash; 7:30 PM</span>
+            <span class="slot-date">Sun, 2 Aug 2026</span>
+            <span class="slot-time">4:30 PM &ndash; 6:30 PM</span>
           </button>
         </div>
 
@@ -760,79 +755,6 @@
             </div>
           </div>
 
-          <div class="luma-frame" data-slot="3">
-            <iframe
-              src="https://luma.com/embed/event/evt-kCxHcQSctGWkWVE/simple"
-              width="600"
-              height="450"
-              frameborder="0"
-              style="border: 1px solid #bfcbda88; border-radius: 4px;"
-              allow="fullscreen; payment"
-              aria-hidden="false"
-              tabindex="0"
-              loading="lazy"
-              title="Luma registration — Sun 11 Oct, 1:30 PM"
-            ></iframe>
-            <div class="slot-qr-reminder">
-              <img
-                src="/assets/images/archive-payment-qr.png"
-                alt="PayNow QR code (UEN T25LL0556E)"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-              />
-              <div class="pay-qr-fallback" style="display:none;">QR<br/>placeholder</div>
-              <div class="slot-qr-reminder-text">
-                <strong>Get tickets cheaper?</strong>
-                Pay via PayNow to <strong style="display:inline;">T25LL0556E</strong>
-                and WhatsApp your proof of payment, email, and preferred slot to
-                <a href="https://wa.me/6588370379" target="_blank" rel="noopener">+65 8837 0379</a>
-                <button type="button" class="copy-num-btn" data-copy="+65 8837 0379" aria-label="Copy phone number">
-                  <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-                  </svg>
-                  <span class="copy-num-label">Copy</span>
-                </button>
-                to <mark class="save-highlight">save $5 on ticket fees</mark>. Tickets will be sent within 2 working days.
-              </div>
-            </div>
-          </div>
-
-          <div class="luma-frame" data-slot="4">
-            <iframe
-              src="https://luma.com/embed/event/evt-DhPz2A3u1ZMwBxJ/simple"
-              width="600"
-              height="450"
-              frameborder="0"
-              style="border: 1px solid #bfcbda88; border-radius: 4px;"
-              allow="fullscreen; payment"
-              aria-hidden="false"
-              tabindex="0"
-              loading="lazy"
-              title="Luma registration — Sun 11 Oct, 5:00 PM"
-            ></iframe>
-            <div class="slot-qr-reminder">
-              <img
-                src="/assets/images/archive-payment-qr.png"
-                alt="PayNow QR code (UEN T25LL0556E)"
-                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
-              />
-              <div class="pay-qr-fallback" style="display:none;">QR<br/>placeholder</div>
-              <div class="slot-qr-reminder-text">
-                <strong>Get tickets cheaper?</strong>
-                Pay via PayNow to <strong style="display:inline;">T25LL0556E</strong>
-                and WhatsApp your proof of payment, email, and preferred slot to
-                <a href="https://wa.me/6588370379" target="_blank" rel="noopener">+65 8837 0379</a>
-                <button type="button" class="copy-num-btn" data-copy="+65 8837 0379" aria-label="Copy phone number">
-                  <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-                  </svg>
-                  <span class="copy-num-label">Copy</span>
-                </button>
-                to <mark class="save-highlight">save $5 on ticket fees</mark>. Tickets will be sent within 2 working days.
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 
