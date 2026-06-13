@@ -629,6 +629,71 @@
       }
       .section .content p:last-child { margin-bottom: 0; }
 
+      .organizer-logos {
+        width: min(100%, 500px);
+        max-width: 500px;
+        margin: 42px auto 0;
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+        gap: 4px;
+        align-items: start;
+      }
+      .logo-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+        min-width: 0;
+      }
+      .logo-group + .logo-group {
+        position: relative;
+        padding-left: 14px;
+      }
+      .logo-group + .logo-group::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 18%;
+        bottom: 18%;
+        width: 1px;
+        height: auto;
+        background: var(--border-soft);
+      }
+      .logo-group-label {
+        color: var(--ic-red);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        line-height: 1.2;
+        text-align: center;
+        text-transform: uppercase;
+      }
+      .logo-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: nowrap;
+        gap: clamp(8px, 2.8vw, 22px);
+        min-width: 0;
+        width: 100%;
+      }
+      .partner-logo {
+        flex-shrink: 1;
+        min-width: 0;
+        object-fit: contain;
+        width: auto;
+      }
+      .partner-logo-impact {
+        max-width: clamp(60px, 24vw, 200px);
+        max-height: clamp(20px, 8vw, 66px);
+      }
+      .partner-logo-trcl {
+        max-height: clamp(42px, 16vw, 120px);
+      }
+      .partner-logo-bloom {
+        max-height: clamp(50px, 17vw, 108px);
+      }
+
       /* ===== HIGHLIGHTS ===== */
       .highlights {
         display: grid;
@@ -859,6 +924,10 @@
         .fact { padding: 18px; }
         .section { padding: 56px 24px; }
         .section h2 { font-size: 26px; }
+        .organizer-logos {
+          grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+          gap: 4px;
+        }
         .highlights { grid-template-columns: repeat(2, 1fr); }
         body.has-mobile-cta { padding-bottom: 88px; }
         .mobile-cta-bar { display: block; }
@@ -875,6 +944,15 @@
         .highlights { grid-template-columns: 1fr; }
         .archive-hero h1 { font-size: 30px; }
         .cover-image { aspect-ratio: 4 / 3; }
+        .organizer-logos { gap: 2px; }
+        .logo-group { gap: 12px; }
+        .logo-group + .logo-group { padding-left: 8px; }
+        .logo-group + .logo-group::before {
+          top: 20%;
+          bottom: 20%;
+        }
+        .logo-group-label { font-size: 0.68rem; }
+        .logo-row { gap: clamp(6px, 2vw, 8px); }
       }
     </style>
       <!-- The Archive global nav: mobile hamburger enhancement -->
@@ -934,10 +1012,8 @@
 
       <!-- EDIT: short intro under the title -->
       <p class="lede">
-        An interactive community storytelling exhibition connecting seniors
-        and youths through art, conversation, and technology &mdash; preserving
-        lived experiences as a collective archive and celebration of identity,
-        memory, and legacy.
+        The Archive helps participants preserve their life stories and leave
+        a legacy behind through art, AI, and a shareable digital archive.
       </p>
       <!-- /EDIT -->
 
@@ -1014,26 +1090,51 @@
       <div class="content">
         <!-- EDIT: about paragraphs -->
         <p>
-          The Archive is an interactive community storytelling exhibition
-          connecting seniors and youths through art, conversation, and
-          technology. Seniors share personal memories through an
-          AI-assisted storytelling platform, while youths create
-          illustrated portraits inspired by their stories &mdash;
-          preserving lived experiences as a collective archive and
-          celebration of identity, memory, and legacy.
+          The Archive aims to help participants preserve their
+          <strong>life stories</strong> and leave a
+          <strong>legacy</strong> behind through the <strong>arts</strong>
+          and <strong>AI</strong>.
         </p>
         <p>
-          Our goal is to empower seniors to embrace technology and
-          preserve their stories, promote intergenerational bonding
-          between youths and seniors, encourage social interaction and
-          storytelling, and support and showcase Singapore's arts scene.
+          Through a guided workshop, participants take part in craft
+          activities and meaningful conversations while youth artists
+          draw their portraits. AI then helps capture and organise their
+          stories into a shareable digital archive.
         </p>
         <p>
-          The Archive welcomes seniors interested in learning and trying
-          new experiences, youth volunteers, artists, and storytellers,
-          and families looking to preserve memories across generations.
+          At the end, participants receive a hand-drawn portrait, their
+          personal story, and their craft piece, allowing their memories
+          to be shared with the next generation.
         </p>
         <!-- /EDIT -->
+      </div>
+
+      <div class="organizer-logos" aria-label="Organizers and supporters">
+        <div class="logo-group">
+          <div class="logo-group-label">Organized by</div>
+          <div class="logo-row">
+            <img
+              class="partner-logo partner-logo-impact"
+              src="/assets/images/The%20Archive%20Updates/Impact%20Colliders_Red%20logo.png"
+              alt="Impact Colliders"
+            />
+            <img
+              class="partner-logo partner-logo-trcl"
+              src="/assets/images/The%20Archive%20Updates/TRCL%20Logo.png"
+              alt="The RICE Company Limited"
+            />
+          </div>
+        </div>
+        <div class="logo-group">
+          <div class="logo-group-label">In support of</div>
+          <div class="logo-row">
+            <img
+              class="partner-logo partner-logo-bloom"
+              src="/assets/images/The%20Archive%20Updates/The%20Bloom%20Fund%20logo.png"
+              alt="The Bloom Fund"
+            />
+          </div>
+        </div>
       </div>
     </section>
 

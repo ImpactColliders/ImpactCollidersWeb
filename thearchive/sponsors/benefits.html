@@ -351,6 +351,71 @@
       }
       .prose p:last-child { margin-bottom: 0; }
 
+      .organizer-logos {
+        width: min(100%, 500px);
+        max-width: 500px;
+        margin: 38px auto 0;
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+        gap: 4px;
+        align-items: start;
+      }
+      .logo-group {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+        min-width: 0;
+      }
+      .logo-group + .logo-group {
+        position: relative;
+        padding-left: 14px;
+      }
+      .logo-group + .logo-group::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 18%;
+        bottom: 18%;
+        width: 1px;
+        height: auto;
+        background: var(--border-soft);
+      }
+      .logo-group-label {
+        color: var(--ic-red);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0;
+        line-height: 1.2;
+        text-align: center;
+        text-transform: uppercase;
+      }
+      .logo-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: nowrap;
+        gap: clamp(8px, 2.8vw, 22px);
+        min-width: 0;
+        width: 100%;
+      }
+      .partner-logo {
+        flex-shrink: 1;
+        min-width: 0;
+        object-fit: contain;
+        width: auto;
+      }
+      .partner-logo-impact {
+        max-width: clamp(60px, 24vw, 200px);
+        max-height: clamp(20px, 8vw, 66px);
+      }
+      .partner-logo-trcl {
+        max-height: clamp(42px, 16vw, 120px);
+      }
+      .partner-logo-bloom {
+        max-height: clamp(50px, 17vw, 108px);
+      }
+
       /* ===== STATS ===== */
       .stats {
         max-width: 760px;
@@ -570,8 +635,23 @@
         .page-hero { padding: 56px 20px 40px; }
         .section { padding: 48px 20px; }
         .section h2 { font-size: 24px; }
+        .organizer-logos {
+          grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+          gap: 4px;
+        }
         .back-to-top { right: 16px; bottom: 24px; width: 44px; height: 44px; }
         .back-to-top svg { width: 20px; height: 20px; }
+      }
+      @media (max-width: 520px) {
+        .organizer-logos { gap: 2px; }
+        .logo-group { gap: 12px; }
+        .logo-group + .logo-group { padding-left: 8px; }
+        .logo-group + .logo-group::before {
+          top: 20%;
+          bottom: 20%;
+        }
+        .logo-group-label { font-size: 0.68rem; }
+        .logo-row { gap: clamp(6px, 2vw, 8px); }
       }
     </style>
       <!-- The Archive global nav: mobile hamburger enhancement -->
@@ -651,27 +731,76 @@
           <p>
             <span class="lang-en">
               <a href="https://www.impactcolliders.com/thearchive/">The Archive</a>
-              is an interactive community storytelling exhibition that brings
-              seniors and youths together through art, AI-assisted oral history,
-              and live portraiture. Seniors share their life stories in the
-              languages most natural to them, while youth artists create portraits
-              inspired by those memories.
+              aims to help participants preserve their <strong>life stories</strong>
+              and leave a <strong>legacy</strong> behind through the
+              <strong>arts</strong> and <strong>AI</strong>.
             </span>
             <span class="lang-zh">
               <a href="https://www.impactcolliders.com/thearchive/">The Archive</a>
-              是一场互动式社区故事展览，通过艺术、AI 辅助口述历史和现场人像创作，让长者与青年相遇。长者可以用自己最熟悉的语言分享人生故事，青年艺术家则从这些记忆中汲取灵感，创作专属人像。
+              旨在帮助参与者通过 <strong>艺术</strong> 与 <strong>AI</strong>
+              保存自己的<strong>人生故事</strong>，并留下属于自己的<strong>传承</strong>。
             </span>
           </p>
           <p>
             <span class="lang-en">
-              Each sponsored ticket allows a senior to take part in the experience
-              and receive a keepsake portrait, while contributing to a permanent
-              digital archive of Singaporean life stories.
+              Through a guided workshop, participants take part in craft activities
+              and meaningful conversations while youth artists draw their portraits.
+              AI then helps capture and organise their stories into a shareable
+              digital archive.
             </span>
             <span class="lang-zh">
-              每一张赞助门票都能让一位长者参与体验，并获得一幅值得珍藏的人像作品，同时为新加坡生活故事的永久数码档案库留下珍贵记录。
+              在引导式工作坊中，参与者将参与手作活动和有意义的交流，同时由青年艺术家为他们绘制肖像。AI
+              随后协助记录并整理他们的故事，形成可分享的数码档案。
             </span>
           </p>
+          <p>
+            <span class="lang-en">
+              At the end, participants receive a hand-drawn portrait, their personal
+              story, and their craft piece, allowing their memories to be shared
+              with the next generation.
+            </span>
+            <span class="lang-zh">
+              活动结束时，参与者将获得一幅手绘肖像、自己的个人故事，以及亲手完成的手作作品，让他们的记忆能够与下一代分享。
+            </span>
+          </p>
+          <p>
+            <span class="lang-en">
+              Each sponsored ticket supports a senior beneficiary in an arts and
+              storytelling experience that promotes active ageing while preserving
+              Singapore&rsquo;s heritage and life stories.
+            </span>
+            <span class="lang-zh">
+              每一张赞助门票都能支持一位长者受益人参与艺术与故事分享体验，在促进积极乐龄的同时，保存新加坡的文化传承与人生故事。
+            </span>
+          </p>
+        </div>
+
+        <div class="organizer-logos" aria-label="Organizers and supporters">
+          <div class="logo-group">
+            <div class="logo-group-label">Organized by</div>
+            <div class="logo-row">
+              <img
+                class="partner-logo partner-logo-impact"
+                src="/assets/images/The%20Archive%20Updates/Impact%20Colliders_Red%20logo.png"
+                alt="Impact Colliders"
+              />
+              <img
+                class="partner-logo partner-logo-trcl"
+                src="/assets/images/The%20Archive%20Updates/TRCL%20Logo.png"
+                alt="The RICE Company Limited"
+              />
+            </div>
+          </div>
+          <div class="logo-group">
+            <div class="logo-group-label">In support of</div>
+            <div class="logo-row">
+              <img
+                class="partner-logo partner-logo-bloom"
+                src="/assets/images/The%20Archive%20Updates/The%20Bloom%20Fund%20logo.png"
+                alt="The Bloom Fund"
+              />
+            </div>
+          </div>
         </div>
         <!-- /EDIT -->
       </section>
@@ -703,13 +832,9 @@
       <!-- ============ WHY PARTNER ============ -->
       <section class="section">
         <h2>
-          <span class="lang-en">Why Partner with <a href="https://www.impactcolliders.com/thearchive/">The Archive</a></span>
-          <span class="lang-zh">为何与 <a href="https://www.impactcolliders.com/thearchive/">The Archive</a> 合作</span>
+          <span class="lang-en">The difference you can make with <a href="https://www.impactcolliders.com/thearchive/">The Archive</a></span>
+          <span class="lang-zh">您能通过 <a href="https://www.impactcolliders.com/thearchive/">The Archive</a> 带来的改变</span>
         </h2>
-        <p class="lead">
-          <span class="lang-en">Four reasons your support makes a lasting difference.</span>
-          <span class="lang-zh">您的支持将从四个方面带来长远影响。</span>
-        </p>
 
         <!-- EDIT: reasons to partner -->
         <div class="partner-reasons">
@@ -720,11 +845,11 @@
             </h3>
             <p>
               <span class="lang-en">
-                Support a human-centred use of AI that helps seniors preserve their
-                stories across languages and generations.
+                Align your brand with human-centred AI that helps seniors preserve
+                their stories and legacy.
               </span>
               <span class="lang-zh">
-                支持以人为本的 AI 应用，帮助长者跨越语言与世代，把自己的故事保存下来。
+                让您的品牌与以人为本的 AI 应用同行，帮助长者保存他们的故事与传承。
               </span>
             </p>
           </article>
@@ -736,11 +861,11 @@
             </h3>
             <p>
               <span class="lang-en">
-                Help seniors meaningfully engage with technology through a warm,
-                accessible, and arts-led experience.
+                Support seniors in engaging with technology through an accessible,
+                arts-led experience that promotes active aging.
               </span>
               <span class="lang-zh">
-                通过温暖、易参与且以艺术为引导的体验，帮助长者更有信心地接触科技。
+                支持长者通过易参与、以艺术为引导的体验接触科技，同时促进积极乐龄。
               </span>
             </p>
           </article>
@@ -753,10 +878,10 @@
             <p>
               <span class="lang-en">
                 Bring seniors and youths together through storytelling,
-                portrait-making, and shared conversation.
+                portrait-making, and shared conversations.
               </span>
               <span class="lang-zh">
-                通过故事分享、人像创作和真诚交流，让长者与青年建立真实连结。
+                通过故事分享、人像创作和共同交流，让长者与青年相聚并建立连结。
               </span>
             </p>
           </article>
@@ -768,11 +893,11 @@
             </h3>
             <p>
               <span class="lang-en">
-                Support youth artists, community art, and the preservation of local
-                memories as part of Singapore&rsquo;s cultural heritage.
+                Champion youth artists, community arts, and the preservation of
+                Singapore&rsquo;s heritage.
               </span>
               <span class="lang-zh">
-                支持青年艺术家、社区艺术，以及作为新加坡文化遗产一部分的本地记忆保存。
+                支持青年艺术家、社区艺术，并共同守护新加坡的文化传承。
               </span>
             </p>
           </article>
