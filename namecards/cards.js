@@ -67,6 +67,8 @@
  *             button. Leave "" to hide the LinkedIn button.
  *   instagram Full Instagram profile URL. Powers the Instagram
  *             button. Omit or leave "" to hide the Instagram button.
+ *   behance   Full Behance profile URL. Powers the Behance
+ *             button. Omit or leave "" to hide the Behance button.
  * ===============================================================
  */
 window.NAMECARDS = {
@@ -110,6 +112,16 @@ window.NAMECARDS = {
     phone: "+6597838664",
     email: "aaronsyk061@gmail.com",
     linkedin: "https://www.linkedin.com/in/aaron-soh-03557b346/"
+  },
+
+  riz: {
+    name: "Riz Lauren Francisco",
+    title: "Head of Marketing and Design",
+    org: "Impact Colliders",
+    photo: "/assets/images/Namecards/Riz 1080x1080px.jpg",
+    phone: "+6597246404",
+    email: "rizxlauren@gmail.com",
+    behance: "https://www.behance.net/rizfrancisco"
   }
 
   // Add more cards here. Remember the comma after the block above

@@ -17,6 +17,7 @@
     email:'<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>',
     linkedin:'<svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14zM8.34 18.34V9.99H5.67v8.35h2.67zM7 8.81a1.55 1.55 0 1 0 0-3.1 1.55 1.55 0 0 0 0 3.1zm11.34 9.53v-4.58c0-2.45-1.31-3.59-3.06-3.59a2.64 2.64 0 0 0-2.39 1.31h-.04V9.99h-2.56v8.35h2.67v-4.13c0-1.09.21-2.14 1.56-2.14 1.33 0 1.35 1.24 1.35 2.21v4.06h2.67z"/></svg>',
     instagram:'<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>',
+    behance:'<svg width="19" height="19" viewBox="0 0 24 24" fill="currentColor"><path d="M9.07 6.5c.68 0 1.3.06 1.86.18.56.11 1.03.3 1.43.56.39.26.7.61.91 1.05.21.44.32.99.32 1.64 0 .71-.16 1.3-.48 1.77-.32.47-.8.86-1.43 1.15.86.25 1.5.68 1.93 1.31.43.62.64 1.37.64 2.25 0 .71-.14 1.32-.41 1.84-.27.51-.65.93-1.11 1.26-.47.33-1 .57-1.61.72-.6.16-1.22.23-1.85.23H2V6.5h7.07zm-.42 4.83c.56 0 1.02-.13 1.38-.4.36-.27.53-.7.53-1.3 0-.33-.06-.6-.18-.82-.12-.21-.28-.37-.49-.49-.2-.11-.44-.19-.71-.23-.27-.05-.55-.07-.84-.07H5.13v3.31h3.52zm.19 5.07c.31 0 .61-.03.89-.09.28-.06.53-.16.74-.3.21-.14.38-.33.5-.57.12-.24.18-.55.18-.92 0-.73-.21-1.25-.62-1.57-.41-.31-.96-.47-1.64-.47H5.13v3.92h3.71zM16.6 16.4c.37.36.9.54 1.6.54.5 0 .94-.13 1.3-.38.36-.25.58-.52.66-.8h2.21c-.35 1.1-.9 1.88-1.63 2.36-.73.47-1.62.71-2.66.71-.72 0-1.38-.12-1.96-.35-.58-.23-1.07-.56-1.48-.98-.4-.42-.72-.93-.94-1.51-.22-.59-.33-1.23-.33-1.94 0-.68.11-1.31.34-1.9.23-.59.55-1.1.96-1.53.42-.43.91-.77 1.49-1.01.57-.24 1.21-.37 1.91-.37.78 0 1.46.15 2.04.46.58.3 1.06.71 1.43 1.22.37.51.64 1.1.8 1.75.16.66.22 1.34.17 2.06h-6.41c0 .72.24 1.21.61 1.59zM19.7 11.7c-.3-.32-.74-.49-1.34-.49-.39 0-.72.07-.98.2-.26.13-.47.3-.63.49-.16.2-.27.41-.33.63-.06.22-.1.42-.11.6h3.97c-.06-.62-.27-1.1-.58-1.43zM15.1 7.4h4.97v1.21H15.1V7.4z"/></svg>',
     qr:'<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><line x1="14" y1="14" x2="14" y2="17"/><line x1="14" y1="21" x2="17" y2="21"/><line x1="21" y1="14" x2="21" y2="21"/><line x1="17" y1="17" x2="21" y2="17"/></svg>',
     save:'<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>',
     copy:'<svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>',
@@ -64,6 +65,8 @@
     if(c.phone) lines.push("TEL;TYPE=CELL:" + c.phone);
     if(c.email) lines.push("EMAIL;TYPE=INTERNET:" + c.email);
     if(c.linkedin) lines.push("URL:" + c.linkedin);
+    if(c.instagram) lines.push("URL:" + c.instagram);
+    if(c.behance) lines.push("URL:" + c.behance);
     lines.push("END:VCARD");
     return lines.join("\r\n");
   }
@@ -148,6 +151,7 @@
     if(c.email)    html += '<a class="nc-btn" href="mailto:' + esc(c.email) + '">' + icons.email + 'Email</a>';
     if(c.linkedin) html += '<a class="nc-btn" href="' + esc(c.linkedin) + '" target="_blank" rel="noopener">' + icons.linkedin + 'LinkedIn</a>';
     if(c.instagram) html += '<a class="nc-btn" href="' + esc(c.instagram) + '" target="_blank" rel="noopener">' + icons.instagram + 'Instagram</a>';
+    if(c.behance) html += '<a class="nc-btn" href="' + esc(c.behance) + '" target="_blank" rel="noopener">' + icons.behance + 'Behance</a>';
     html +=     '<button type="button" class="nc-btn nc-btn--accent" id="nc-save">' + icons.save + 'Save Contact</button>';
     html +=   '</div>';
     html += '</div>';
