@@ -122,6 +122,16 @@ window.NAMECARDS = {
     phone: "+6597246404",
     email: "rizxlauren@gmail.com",
     behance: "https://www.behance.net/rizfrancisco"
+  },
+
+  jaelynn: {
+    name: "Jaelynn Fock",
+    title: "Marketing Strategist",
+    org: "Impact Colliders",
+    photo: "/assets/images/Namecards/Jaelynn 1080x1080px.jpg",
+    phone: "+6583892675",
+    email: "jaelynn.fock@gmail.com",
+    linkedin: "https://www.linkedin.com/in/jaelynnfock-yingying/"
   }
 
   // Add more cards here. Remember the comma after the block above
