@@ -116,7 +116,7 @@ window.NAMECARDS = {
 
   riz: {
     name: "Riz Lauren Francisco",
-    title: "Head of Marketing and Design",
+    title: "Head of Design",
     org: "Impact Colliders",
     photo: "/assets/images/Namecards/Riz 1080x1080px.jpg",
     phone: "+6597246404",
