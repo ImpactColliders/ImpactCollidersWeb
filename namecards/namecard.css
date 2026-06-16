@@ -266,6 +266,37 @@ transition:color .15s ease, border-color .15s ease;
 
 .nc-qr-link svg{width:15px;height:15px;flex-shrink:0;}
 
+.nc-qr-link[hidden]{display:none;}
+
+/* row holding the Show / Download QR buttons */
+.nc-qr-controls{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:10px;
+}
+
+/* inline QR panel revealed by the Show QR toggle */
+.nc-qr-panel{
+margin-top:16px;
+display:flex;
+justify-content:center;
+}
+
+.nc-qr-panel[hidden]{display:none;}
+
+.nc-qr-download{margin-top:14px;}
+
+.nc-qr-img{
+width:200px;
+height:200px;
+padding:12px;
+border-radius:14px;
+border:1px solid var(--border);
+background:#fff;
+box-shadow:0 4px 18px rgba(0,0,0,0.06);
+}
+
 .nc-qr-link:hover{
 color:var(--brand);
 border-color:var(--border-strong);
