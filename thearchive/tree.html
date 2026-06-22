@@ -269,6 +269,74 @@
         fill: currentColor;
       }
 
+      /* ===== QR code sharing (compact, à la the name cards) ===== */
+      .tree-qr {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+        margin-top: 28px;
+      }
+
+      /* compact pill buttons — small, light, secondary feel */
+      .tree-qr-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        font-family: inherit;
+        font-size: 13px;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+        color: #6b6460;
+        cursor: pointer;
+        padding: 9px 20px;
+        border-radius: 999px;
+        border: 1px solid rgba(0, 0, 0, 0.12);
+        background: rgba(255, 255, 255, 0.65);
+        transition: color 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+        -webkit-tap-highlight-color: transparent;
+      }
+      .tree-qr-link svg {
+        width: 15px;
+        height: 15px;
+        fill: none;
+        flex-shrink: 0;
+      }
+      .tree-qr-link:hover {
+        color: var(--brand);
+        border-color: rgba(0, 0, 0, 0.22);
+      }
+      .tree-qr-link:focus-visible {
+        outline: none;
+        box-shadow: 0 0 0 4px rgba(255, 101, 34, 0.22);
+      }
+      .tree-qr-link[hidden] { display: none; }
+
+      /* download = the less prominent of the two */
+      .tree-qr-download {
+        font-size: 12px;
+        padding: 7px 16px;
+        color: #8a837e;
+        background: transparent;
+      }
+      .tree-qr-download svg { width: 14px; height: 14px; }
+
+      .tree-qr-panel {
+        background: #fff;
+        border-radius: 16px;
+        padding: 14px;
+        box-shadow: 0 6px 22px rgba(0, 0, 0, 0.08);
+        line-height: 0;
+      }
+      .tree-qr-panel[hidden] { display: none; }
+      .tree-qr-panel img {
+        width: 200px;
+        max-width: 55vw;
+        height: auto;
+        margin: 0 auto;
+      }
+
       .seo-heading {
         position: absolute;
         width: 1px;
@@ -307,6 +375,8 @@
     <!-- End Google Tag Manager -->
       <!-- The Archive global nav: mobile hamburger enhancement -->
     <script src="/assets/js/archive-nav.js"></script>
+    <!-- QR code generator (same library used by the digital name cards) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   </head>
 
   <body>
@@ -350,70 +420,96 @@
         </div>
 
         <nav class="tree-links" aria-label="The Archive links">
-          <a class="tree-btn primary" href="https://www.impactcolliders.com/thearchive/">Sign Up Here</a>
+          <a class="tree-btn secondary" href="https://www.impactcolliders.com/thearchive/">Sign Up Here</a>
           <a class="tree-btn secondary" href="https://www.impactcolliders.com/thearchive/volunteers">Volunteers</a>
+          <a class="tree-btn secondary" href="https://www.impactcolliders.com/thearchive/sponsors/donors">Donors</a>
         </nav>
 
-        <button type="button" class="tree-btn share" id="shareBtn">
-          <svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 1 0-3-3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0 0 6c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65a2.92 2.92 0 1 0 2.92-2.92z"/></svg>
-          <span id="shareBtnLabel">Share this page</span>
-        </button>
+        <div class="tree-qr" aria-label="QR code for this page">
+          <button type="button" class="tree-qr-link qr-toggle" id="qrToggle" aria-expanded="false" aria-controls="qrPanel">
+            <svg viewBox="0 0 24 24" role="img" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="14" y="3" width="7" height="7" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><rect x="3" y="14" width="7" height="7" rx="1" fill="none" stroke="currentColor" stroke-width="2"/><path d="M14 14v3M14 21h3M21 14v7M17 17h4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+            <span id="qrToggleLabel">Show QR Code</span>
+          </button>
+          <div class="tree-qr-panel" id="qrPanel" hidden></div>
+          <button type="button" class="tree-qr-link tree-qr-download" id="qrDownload" hidden>
+            <svg viewBox="0 0 24 24" role="img" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>Download QR Code</span>
+          </button>
+        </div>
       </div>
     </main>
 
     <script>
       (function () {
-        var btn = document.getElementById("shareBtn");
-        var label = document.getElementById("shareBtnLabel");
-        if (!btn) return;
-        var defaultText = label.textContent;
-        var resetTimer;
+        var PAGE_URL = "https://www.impactcolliders.com/thearchive/tree";
 
-        function flash(message) {
-          clearTimeout(resetTimer);
-          label.textContent = message;
-          resetTimer = setTimeout(function () {
-            label.textContent = defaultText;
-          }, 2000);
+        /* ----- QR code for this page (same approach as the name cards) ----- */
+        var qrToggle = document.getElementById("qrToggle");
+        var qrToggleLabel = document.getElementById("qrToggleLabel");
+        var qrPanel = document.getElementById("qrPanel");
+        var qrDownload = document.getElementById("qrDownload");
+
+        var _qrDataUrl = null;
+        function getQRDataUrl(cb) {
+          if (_qrDataUrl) { cb(_qrDataUrl); return; }
+          if (typeof QRCode === "undefined") { cb(null); return; }
+          var holder = document.createElement("div");
+          holder.style.display = "none";
+          document.body.appendChild(holder);
+          new QRCode(holder, {
+            text: PAGE_URL,
+            width: 512,
+            height: 512,
+            correctLevel: QRCode.CorrectLevel.H
+          });
+          setTimeout(function () {
+            var canvas = holder.querySelector("canvas");
+            var img = holder.querySelector("img");
+            _qrDataUrl = canvas ? canvas.toDataURL("image/png") : (img ? img.src : null);
+            document.body.removeChild(holder);
+            cb(_qrDataUrl);
+          }, 80);
         }
 
-        async function copyLink(url) {
-          try {
-            if (navigator.clipboard && navigator.clipboard.writeText) {
-              await navigator.clipboard.writeText(url);
-            } else {
-              var ta = document.createElement("textarea");
-              ta.value = url;
-              ta.style.position = "fixed";
-              ta.style.opacity = "0";
-              document.body.appendChild(ta);
-              ta.select();
-              document.execCommand("copy");
-              document.body.removeChild(ta);
-            }
-            flash("Link copied!");
-          } catch (err) {
-            flash("Copy failed");
-          }
-        }
-
-        btn.addEventListener("click", async function () {
-          var url = window.location.href;
-          var shareData = {
-            title: document.title,
-            text: "The Archive by Impact Colliders",
-            url: url
-          };
-          if (navigator.share) {
-            try {
-              await navigator.share(shareData);
+        if (qrToggle && qrPanel) {
+          qrToggle.addEventListener("click", function () {
+            var showing = !qrPanel.hasAttribute("hidden");
+            if (showing) {
+              qrPanel.setAttribute("hidden", "");
+              if (qrDownload) qrDownload.setAttribute("hidden", "");
+              qrToggle.setAttribute("aria-expanded", "false");
+              if (qrToggleLabel) qrToggleLabel.textContent = "Show QR Code";
               return;
-            } catch (err) {
-              if (err && err.name === "AbortError") return;
             }
-          }
-          copyLink(url);
-        });
+            if (!qrPanel.firstChild) {
+              getQRDataUrl(function (dataUrl) {
+                if (!dataUrl) { window.open("/qr", "_blank", "noopener"); return; }
+                var img = document.createElement("img");
+                img.src = dataUrl;
+                img.alt = "QR code linking to The Archive links page";
+                qrPanel.appendChild(img);
+              });
+            }
+            qrPanel.removeAttribute("hidden");
+            if (qrDownload) qrDownload.removeAttribute("hidden");
+            qrToggle.setAttribute("aria-expanded", "true");
+            if (qrToggleLabel) qrToggleLabel.textContent = "Hide QR Code";
+          });
+        }
+
+        if (qrDownload) {
+          qrDownload.addEventListener("click", function () {
+            getQRDataUrl(function (dataUrl) {
+              if (!dataUrl) { window.open("/qr", "_blank", "noopener"); return; }
+              var a = document.createElement("a");
+              a.href = dataUrl;
+              a.download = "TheArchive_Links_QR.png";
+              document.body.appendChild(a);
+              a.click();
+              document.body.removeChild(a);
+            });
+          });
+        }
       })();
     </script>
 
