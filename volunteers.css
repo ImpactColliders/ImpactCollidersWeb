@@ -1,0 +1,230 @@
+/* ============================================================
+   Volunteer — hidden recruitment page (not linked from the nav).
+   Poster flyer up top, then the same copy/links as the live
+   /thearchive/volunteers page in the site's editorial style.
+   Chrome comes from styles.css.
+   ============================================================ */
+@import url("https://fonts.googleapis.com/css2?family=Bitcount+Prop+Double:wght@400;600;700&display=swap");
+
+body.volunteers-page {
+  background-color: #eadfcb;
+}
+
+.volunteers-page .desktop-view-wrapper,
+.volunteers-page .mobile-view-wrapper {
+  min-height: 0;
+}
+
+.volunteers-page .navigation-tab p[data-nav-link] {
+  cursor: pointer;
+}
+
+.vol-main {
+  background-color: #eadfcb;
+}
+
+/* ---------------- poster ---------------- */
+.vol-hero {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 48px 24px 0;
+}
+
+.vol-poster {
+  margin: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16);
+}
+
+.vol-poster img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ---------------- body copy ---------------- */
+.vol-body {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 48px 24px 8px;
+}
+
+.vol-title {
+  font-family: "Cause", "Jersey 25", sans-serif;
+  font-weight: 700;
+  font-size: clamp(26px, 3.4vw, 34px);
+  line-height: 1.25;
+  color: #1c3f66;
+  text-align: center;
+  margin: 0 0 26px;
+}
+
+.vol-lede {
+  font-family: "Hammersmith One", sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+  color: #3f3a30;
+  text-align: center;
+  margin: 0 0 22px;
+}
+
+.vol-lede strong {
+  color: #17130d;
+}
+
+.vol-looking {
+  font-family: "Hammersmith One", sans-serif;
+  font-size: 17px;
+  color: #3f3a30;
+  text-align: center;
+  margin: 0 0 30px;
+}
+
+.vol-role {
+  margin: 0 0 28px;
+}
+
+.vol-role-title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  color: #f35933;
+  margin: 0 0 10px;
+}
+
+.vol-list {
+  margin: 0;
+  padding-left: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.vol-list li {
+  font-family: "Hammersmith One", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #3f3a30;
+}
+
+/* ---------------- event details callout ---------------- */
+.vol-callout {
+  background: #e7edf6;
+  border-left: 4px solid #3568b0;
+  border-radius: 4px;
+  padding: 18px 20px;
+  margin: 32px 0;
+}
+
+.vol-callout p {
+  font-family: "Hammersmith One", sans-serif;
+  font-size: 15.5px;
+  line-height: 1.55;
+  color: #23364d;
+  margin: 0;
+}
+
+.vol-callout p + p {
+  margin-top: 6px;
+}
+
+.vol-closing {
+  font-family: "Hammersmith One", sans-serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.5;
+  color: #17130d;
+  text-align: center;
+  margin: 0 0 34px;
+}
+
+/* ---------------- CTA buttons ---------------- */
+.vol-cta-row {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-bottom: 12px;
+}
+
+.vol-cta {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  color: #fff;
+  background: #f35933;
+  border-radius: 999px;
+  padding: 14px 28px;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(243, 89, 51, 0.4);
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.vol-cta:hover {
+  background: #d94a29;
+  transform: translateY(-2px);
+}
+
+.vol-cta:active {
+  transform: translateY(0);
+}
+
+/* ---------------- torn paper edge ---------------- */
+.vol-tear {
+  filter: drop-shadow(0 -4px 5px rgba(0, 0, 0, 0.18));
+  margin-top: 40px;
+  margin-bottom: -1px;
+  position: relative;
+  z-index: 1;
+}
+
+.vol-tear-inner {
+  height: 92px;
+  background-image: url("images/footer-photo.png");
+  background-size: 183px 183px;
+  clip-path: polygon(
+    0% 62%, 2% 48%, 4% 66%, 6% 40%, 8% 58%, 10% 34%, 12% 55%, 14% 70%,
+    16% 46%, 18% 62%, 20% 36%, 22% 52%, 24% 68%, 26% 42%, 28% 30%,
+    30% 56%, 32% 72%, 34% 50%, 36% 38%, 38% 60%, 40% 44%, 42% 66%,
+    44% 32%, 46% 54%, 48% 70%, 50% 40%, 52% 58%, 54% 28%, 56% 50%,
+    58% 66%, 60% 44%, 62% 60%, 64% 36%, 66% 56%, 68% 72%, 70% 46%,
+    72% 30%, 74% 54%, 76% 68%, 78% 40%, 80% 58%, 82% 34%, 84% 52%,
+    86% 66%, 88% 42%, 90% 62%, 92% 36%, 94% 54%, 96% 70%, 98% 48%,
+    100% 60%, 100% 100%, 0% 100%
+  );
+}
+
+/* ------------------------------------------------------------
+   Responsive
+   ------------------------------------------------------------ */
+@media (max-width: 767px) {
+  .vol-hero {
+    padding: 36px 20px 0;
+  }
+
+  .vol-poster {
+    border-radius: 10px;
+  }
+
+  .vol-body {
+    padding: 36px 20px 8px;
+  }
+
+  .vol-title {
+    margin-bottom: 20px;
+  }
+
+  .vol-cta-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .vol-cta {
+    text-align: center;
+  }
+
+  .vol-tear-inner {
+    height: 64px;
+  }
+}
