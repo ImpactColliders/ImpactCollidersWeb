@@ -1,0 +1,699 @@
+/* ============================================================
+   Sponsor page — "Our Sponsors & Partners"
+   Reuses the site chrome from styles.css; everything below is
+   scoped to the sponsor page content (sp- prefix).
+   ============================================================ */
+
+body.sponsor-page {
+  background-color: #eadfcb;
+}
+
+/* The reused header/footer wrappers shouldn't force a full-viewport
+   column each — only the page as a whole should. */
+.sponsor-page .desktop-view-wrapper,
+.sponsor-page .mobile-view-wrapper {
+  min-height: 0;
+}
+
+/* Nav links act as real page links here */
+.sponsor-page .navigation-tab p[data-nav-link] {
+  cursor: pointer;
+}
+
+/* ------------------------------------------------------------
+   Top block: cream hero + orange benefits band share one
+   positioning context so the splash shapes can straddle both.
+   ------------------------------------------------------------ */
+.sp-top {
+  position: relative;
+  overflow: hidden;
+  background-color: #eadfcb;
+}
+
+/* ---------------- Splash shapes + props ---------------- */
+.sp-splash {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.sp-splash svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.sp-splash-blue {
+  width: 560px;
+  height: 560px;
+  left: -230px;
+  top: 150px;
+}
+
+.sp-splash-green {
+  width: 620px;
+  height: 620px;
+  right: -240px;
+  top: 210px;
+}
+
+/* same continuous spin as the homepage blobs (archive-spin lives in
+   styles.css, which this page also loads) */
+.sp-splash-green svg {
+  animation: archive-spin 18s linear infinite;
+}
+
+.sp-splash-blue svg {
+  animation: archive-spin 22s linear infinite reverse;
+}
+
+.sp-prop {
+  position: absolute;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.sp-prop img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.18));
+}
+
+.sp-prop-stamp {
+  width: 170px;
+  left: 190px;
+  top: 165px;
+  transform: rotate(8deg);
+}
+
+.sp-prop-bowl {
+  width: 210px;
+  right: 205px;
+  top: 275px;
+  transform: rotate(-4deg);
+}
+
+/* ---------------- Hero ---------------- */
+.sp-hero {
+  position: relative;
+  z-index: 3;
+  padding: 72px 24px 96px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.sp-title {
+  font-family: "Cause", "Jersey 25", sans-serif;
+  font-weight: 700;
+  color: #000;
+  font-size: clamp(38px, 5vw, 60px);
+  line-height: 1.05;
+  margin: 0 0 56px;
+}
+
+/* ---------------- Lead row: open slot | divider | pitch ---------------- */
+.sp-hero-lead {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  width: 100%;
+  max-width: 940px;
+  margin-bottom: 88px;
+}
+
+.sp-open-slot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.sp-placeholder {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sp-placeholder-slot {
+  width: min(280px, 78vw);
+  height: 195px;
+  border-radius: 20px;
+  transform: rotate(-1.8deg);
+}
+
+/* dashed frame drawn as SVG so its stroke weight and dash length match
+   the arrow (a CSS dashed border can only make thin, busy dashes) */
+.sp-placeholder-border {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.sp-placeholder-border rect {
+  x: 4px;
+  y: 4px;
+  width: calc(100% - 8px);
+  height: calc(100% - 8px);
+  rx: 18px;
+  fill: none;
+  stroke: #56504a;
+  stroke-width: 5;
+  stroke-dasharray: 18 16;
+  stroke-linecap: round;
+}
+
+.sp-placeholder-q {
+  font-family: "Hammersmith One", sans-serif;
+  font-size: 52px;
+  color: #6f675c;
+}
+
+/* the label + the arrow that springs from it up into the box */
+.sp-org-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 8px;
+  margin-top: -36px; /* let the arrowhead reach into the box */
+  position: relative;
+  z-index: 1;
+}
+
+.sp-arrow {
+  width: 72px;
+  height: 82px;
+  flex-shrink: 0;
+}
+
+.sp-org-here {
+  font-family: "Hammersmith One", sans-serif;
+  font-size: clamp(17px, 1.8vw, 20px);
+  color: #40403f;
+  margin: 0 0 4px;
+  white-space: nowrap;
+}
+
+.sp-lead-divider {
+  width: 2px;
+  align-self: stretch;
+  background: #b9ad97;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.sp-lead-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 26px;
+  max-width: 460px;
+}
+
+.sp-intro {
+  font-family: "Hammersmith One", sans-serif;
+  font-size: 17px;
+  line-height: 1.45;
+  color: #57503f;
+  text-align: left;
+  margin: 0;
+}
+
+.sp-join-btn {
+  font-family: "Hammersmith One", sans-serif;
+  font-size: 16px;
+  color: #fff;
+  background: #f35933;
+  border-radius: 10px;
+  padding: 12px 22px;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(243, 89, 51, 0.4);
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.sp-join-btn:hover {
+  background: #d94a29;
+  transform: translateY(-1px);
+}
+
+.sp-join-btn:active {
+  transform: translateY(0);
+}
+
+/* ---------------- Current Sponsors (newspaper clipping) ---------------- */
+.sp-current {
+  width: 100%;
+  max-width: 780px;
+  background: #f3ead8;
+  border: 2.5px solid #1c1c1c;
+  border-radius: 4px;
+  transform: rotate(-0.5deg);
+  box-shadow: 5px 7px 0 rgba(28, 28, 28, 0.16);
+  margin-bottom: 88px;
+}
+
+.sp-current-head {
+  background: #f35933;
+  border-bottom: 2.5px solid #1c1c1c;
+  padding: 16px 24px;
+  text-align: center;
+}
+
+.sp-current-title {
+  font-family: "Cause", "Jersey 25", sans-serif;
+  font-weight: 700;
+  color: #fff;
+  font-size: clamp(24px, 2.8vw, 32px);
+  line-height: 1.05;
+  margin: 0;
+}
+
+.sp-current-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.sp-current-cell {
+  padding: 30px 28px 34px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 22px;
+  min-height: 190px;
+}
+
+/* dashed column rule, like a classifieds page */
+.sp-current-cell + .sp-current-cell {
+  border-left: 2.5px dashed #1c1c1c;
+}
+
+.sp-cell-title {
+  font-family: "Cause", "Jersey 25", sans-serif;
+  font-weight: 700;
+  color: #000;
+  font-size: clamp(19px, 2.1vw, 24px);
+  line-height: 1.1;
+  margin: 0;
+  text-align: center;
+}
+
+.sp-friend-name {
+  font-family: "Hammersmith One", sans-serif;
+  font-size: clamp(18px, 2vw, 22px);
+  color: #57503f;
+  margin: auto 0;
+}
+
+.sp-presenting-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  margin: auto 0;
+}
+
+.sp-presenting-logos img {
+  display: block;
+  height: 92px;
+  width: auto;
+  max-width: 150px;
+  object-fit: contain;
+}
+
+/* ---------------- Partners we work with: looping logo marquee ---------------- */
+.sp-tier {
+  width: 100%;
+  max-width: 1040px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sp-tier-title {
+  font-family: "Cause", "Jersey 25", sans-serif;
+  font-weight: 700;
+  color: #000;
+  font-size: clamp(26px, 3.2vw, 38px);
+  line-height: 1.1;
+  margin: 0 0 36px;
+  text-align: center;
+}
+
+.sp-marquee {
+  --sp-marquee-gap: 72px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 10px 0;
+  cursor: grab;
+  touch-action: pan-y; /* vertical page scroll still works on touch */
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.sp-marquee.sp-dragging {
+  cursor: grabbing;
+}
+
+/* soft fades so logos slide in and out of the cream, not off a hard edge */
+.sp-marquee::before,
+.sp-marquee::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 72px;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.sp-marquee::before {
+  left: 0;
+  background: linear-gradient(to right, #eadfcb, rgba(234, 223, 203, 0));
+}
+
+.sp-marquee::after {
+  right: 0;
+  background: linear-gradient(to left, #eadfcb, rgba(234, 223, 203, 0));
+}
+
+/* two identical groups; the JS wraps the offset every group-width so
+   the loop is seamless. No CSS animation: sponsor.js drives the track
+   so it can be flicked/dragged with momentum. */
+.sp-marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.sp-marquee-group {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-marquee-gap);
+  padding: 0 calc(var(--sp-marquee-gap) / 2);
+  margin: 0;
+  list-style: none;
+}
+
+.sp-marquee-group li {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sp-marquee-group img {
+  display: block;
+  height: 58px;
+  width: auto;
+  max-width: 190px;
+  object-fit: contain;
+  pointer-events: none; /* images shouldn't hijack the drag */
+}
+
+/* ---------------- Sponsor Benefits (orange band) ---------------- */
+.sp-benefits {
+  /* no z-index on purpose: with z-auto this box doesn't trap its
+     children in a stacking context, so the title/copy (z-index 3) can
+     paint above the splash shapes (z-index 1) while the band's
+     background still sits beneath them */
+  position: relative;
+  background-color: #f35933;
+  padding: 72px 24px 230px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sp-benefits-title {
+  font-family: "Cause", "Jersey 25", sans-serif;
+  font-weight: 700;
+  color: #fff;
+  font-size: clamp(32px, 4vw, 46px);
+  line-height: 1.05;
+  margin: 0 0 36px;
+  text-align: center;
+  position: relative;
+  z-index: 3;
+}
+
+.sp-benefits-copy {
+  position: relative;
+  z-index: 3;
+  max-width: 565px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.sp-benefits-copy p {
+  font-family: "Hammersmith One", sans-serif;
+  font-size: 17px;
+  line-height: 1.4;
+  color: #fff;
+  margin: 0;
+}
+
+/* ---------------- Contact form card ---------------- */
+.sp-form-section {
+  position: relative;
+  z-index: 4;
+  padding: 0 24px 110px;
+  /* transparent on purpose: the body provides the cream, and the card's
+     negative margin can collapse through this box — a solid background
+     here would slide up with it and cover the orange band. */
+  background-color: transparent;
+}
+
+.sp-card {
+  background: #fff;
+  border-radius: 26px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.14);
+  max-width: 840px;
+  margin: -160px auto 0;
+  padding: 44px 48px 40px;
+}
+
+.sp-card-intro {
+  font-family: "Poppins", sans-serif;
+  font-size: 15.5px;
+  color: #4c4c4c;
+  text-align: center;
+  margin: 0 0 34px;
+  line-height: 1.5;
+}
+
+.sp-form {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.sp-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.sp-field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.sp-label {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: #1c1c1c;
+}
+
+.sp-required {
+  color: #e02b2b;
+  margin-left: 3px;
+}
+
+.sp-optional {
+  font-weight: 400;
+  color: #8b8b8b;
+  font-size: 13px;
+  margin-left: 4px;
+}
+
+.sp-input,
+.sp-textarea {
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  color: #222;
+  background: #fff;
+  border: 1px solid #d8d4cd;
+  border-radius: 8px;
+  padding: 13px 16px;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.sp-input::placeholder,
+.sp-textarea::placeholder {
+  color: #b7b3ab;
+}
+
+.sp-input:focus,
+.sp-textarea:focus {
+  border-color: #f35933;
+  box-shadow: 0 0 0 3px rgba(243, 89, 51, 0.15);
+}
+
+.sp-input.sp-invalid,
+.sp-textarea.sp-invalid {
+  border-color: #e02b2b;
+  box-shadow: 0 0 0 3px rgba(224, 43, 43, 0.12);
+}
+
+.sp-textarea {
+  min-height: 175px;
+  resize: vertical;
+  line-height: 1.5;
+}
+
+.sp-counter {
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  color: #9a968e;
+  text-align: right;
+  margin-top: 6px;
+}
+
+.sp-form-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 22px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.sp-reply-note {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  color: #4c4c4c;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.sp-reply-note svg {
+  flex-shrink: 0;
+  display: block;
+}
+
+.sp-send {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 15.5px;
+  color: #fff;
+  background: #f35933;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 26px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 8px 18px rgba(243, 89, 51, 0.45);
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.sp-send:hover {
+  background: #d94a29;
+  transform: translateY(-1px);
+}
+
+.sp-send:active {
+  transform: translateY(0);
+}
+
+.sp-error {
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  color: #e02b2b;
+  margin: 0;
+  display: none;
+  text-align: right;
+}
+
+.sp-error.sp-show {
+  display: block;
+}
+
+/* ------------------------------------------------------------
+   Responsive
+   ------------------------------------------------------------ */
+@media (max-width: 1150px) {
+  .sp-prop-stamp { left: 90px; }
+  .sp-prop-bowl { right: 90px; }
+}
+
+@media (max-width: 900px) {
+  .sp-splash-blue { width: 420px; height: 420px; left: -220px; }
+  .sp-splash-green { width: 470px; height: 470px; right: -230px; }
+  .sp-prop-stamp { width: 130px; left: 24px; top: 130px; }
+  .sp-prop-bowl { width: 160px; right: 20px; top: 300px; }
+}
+
+@media (max-width: 767px) {
+  .sp-hero { padding: 48px 20px 72px; }
+  .sp-title { margin-bottom: 36px; }
+
+  /* lead row stacks: box on top, copy below, no divider */
+  .sp-hero-lead {
+    flex-direction: column;
+    gap: 34px;
+    margin-bottom: 64px;
+  }
+  .sp-lead-divider { display: none; }
+  .sp-lead-copy { align-items: center; }
+  .sp-intro { font-size: 16px; text-align: center; }
+  .sp-placeholder-slot { height: 170px; }
+  .sp-placeholder-q { font-size: 42px; }
+  .sp-arrow { width: 62px; height: 70px; }
+  .sp-org-row { margin-top: -28px; gap: 5px; }
+
+  /* clipping cells stack; the column rule becomes a row rule */
+  .sp-current { margin-bottom: 64px; }
+  .sp-current-body { grid-template-columns: 1fr; }
+  .sp-current-cell { min-height: 0; padding: 26px 22px 30px; }
+  .sp-current-cell + .sp-current-cell {
+    border-left: none;
+    border-top: 2.5px dashed #1c1c1c;
+  }
+  .sp-presenting-logos img { height: 76px; max-width: 130px; }
+
+  .sp-tier-title { margin-bottom: 26px; }
+  .sp-marquee { --sp-marquee-gap: 48px; }
+  .sp-marquee::before,
+  .sp-marquee::after { width: 44px; }
+  .sp-marquee-group img { height: 46px; max-width: 150px; }
+
+  .sp-splash-blue { width: 300px; height: 300px; left: -170px; top: 120px; }
+  .sp-splash-green { width: 340px; height: 340px; right: -180px; top: auto; bottom: 220px; }
+  .sp-prop-stamp { width: 96px; left: 10px; top: 108px; }
+  .sp-prop-bowl { width: 120px; right: 6px; top: auto; bottom: 330px; }
+
+  .sp-benefits { padding: 56px 20px 225px; }
+
+  .sp-form-section { padding: 0 20px 80px; }
+  .sp-card { padding: 30px 22px 28px; margin-top: -155px; }
+  .sp-row { grid-template-columns: 1fr; gap: 24px; }
+  .sp-form { gap: 24px; }
+  .sp-form-footer { justify-content: center; }
+}
