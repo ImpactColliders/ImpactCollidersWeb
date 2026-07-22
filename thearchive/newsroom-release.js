@@ -25,8 +25,7 @@ var NEWSROOM_ARTICLES = {
     ],
     cta: {
       label: "Read the Annual Report",
-      // TODO: point at the published report (PDF or viewer link)
-      url: "REPLACE_WITH_REPORT_LINK"
+      url: "https://www.impactcolliders.com/assets/docs/Impact-Colliders-Annual-Report-FY25-26_compressed.pdf"
     }
   }
 
