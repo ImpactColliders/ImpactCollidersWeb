@@ -48,6 +48,63 @@ var NEWSROOM_ARTICLES = {
 
   document.title = article.title + " — The ARCHIVE";
 
+  // ---- SEO / link-preview: refine meta tags and add NewsArticle data ----
+  (function () {
+    var BASE = "https://www.impactcolliders.com/thearchive/";
+    var LOGO = "https://www.impactcolliders.com/assets/images/logo.jpg";
+    var pageUrl = BASE + "newsroom-release?slug=" + encodeURIComponent(slug);
+    var imageUrl = article.cover ? BASE + article.cover : LOGO;
+
+    // Plain-text description from the first body paragraph (~160 chars).
+    var tmp = document.createElement("div");
+    tmp.innerHTML = (article.body && article.body[0]) || "";
+    var desc = (tmp.textContent || "").replace(/\s+/g, " ").trim();
+    if (desc.length > 160) desc = desc.slice(0, 157).replace(/\s+\S*$/, "") + "…";
+
+    function set(sel, attr, val) {
+      var el = document.querySelector(sel);
+      if (el) el.setAttribute(attr, val);
+    }
+    set("[data-nrr-canonical]", "href", pageUrl);
+    set("[data-nrr-og-title]", "content", article.title);
+    set("[data-nrr-og-desc]", "content", desc);
+    set("[data-nrr-og-url]", "content", pageUrl);
+    set("[data-nrr-og-image]", "content", imageUrl);
+    set("[data-nrr-tw-title]", "content", article.title);
+    set("[data-nrr-tw-desc]", "content", desc);
+    set("[data-nrr-tw-image]", "content", imageUrl);
+
+    // datePublished parsed from the kicker (e.g. "Media Release · 28 May 2026").
+    var datePublished = null;
+    if (article.kicker && article.kicker.indexOf("·") !== -1) {
+      var raw = article.kicker.split("·").pop().trim();
+      var d = new Date(raw);
+      if (!isNaN(d.getTime())) datePublished = d.toISOString().slice(0, 10);
+    }
+
+    var jsonld = {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      headline: article.title,
+      description: desc,
+      image: [imageUrl],
+      url: pageUrl,
+      mainEntityOfPage: pageUrl,
+      author: { "@type": "Organization", name: "Impact Colliders" },
+      publisher: {
+        "@type": "Organization",
+        name: "Impact Colliders",
+        logo: { "@type": "ImageObject", url: LOGO }
+      }
+    };
+    if (datePublished) jsonld.datePublished = datePublished;
+
+    var s = document.createElement("script");
+    s.type = "application/ld+json";
+    s.textContent = JSON.stringify(jsonld);
+    document.head.appendChild(s);
+  })();
+
   document.querySelector("[data-nrr-kicker]").textContent = article.kicker;
   document.querySelector("[data-nrr-title]").textContent = article.title;
 
