@@ -87,7 +87,67 @@ body.signup-page {
   line-height: 1.45;
   color: #57503f;
   max-width: 560px;
+  margin: 0 0 28px;
+}
+
+.su-schedule {
+  width: 100%;
+  max-width: 720px;
+  box-sizing: border-box;
+  background: #f3ead8;
+  border: 2.5px solid #1c1c1c;
+  border-radius: 12px;
+  box-shadow: 4px 5px 0 rgba(28, 28, 28, 0.16);
+  padding: 24px 28px 26px;
   margin: 0 0 52px;
+}
+
+.su-schedule-title {
+  font-family: "Cause", "Jersey 25", sans-serif;
+  font-weight: 700;
+  color: #000;
+  font-size: clamp(21px, 2.5vw, 28px);
+  line-height: 1.1;
+  margin: 0 0 18px;
+}
+
+.su-date-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px 22px;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+}
+
+.su-date-list li {
+  font-family: "Hammersmith One", sans-serif;
+  font-size: 15px;
+  color: #57503f;
+}
+
+.su-date-list li::before {
+  content: "•";
+  color: #f35933;
+  margin-right: 8px;
+}
+
+.su-session-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px 28px;
+  border-top: 2px dashed #b9ad97;
+  padding-top: 18px;
+  font-family: "Hammersmith One", sans-serif;
+  font-size: 15px;
+  color: #1c1c1c;
+}
+
+.su-session-list strong {
+  color: #f35933;
+  margin-right: 5px;
 }
 
 /* ---------------- Payment method picker ---------------- */

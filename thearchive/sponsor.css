@@ -278,6 +278,11 @@ body.sponsor-page {
 .sp-current-body {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  min-width: 0;
+}
+
+.sp-current-body--single {
+  grid-template-columns: 1fr;
 }
 
 .sp-current-cell {
@@ -287,6 +292,7 @@ body.sponsor-page {
   align-items: center;
   gap: 22px;
   min-height: 190px;
+  min-width: 0;
 }
 
 /* dashed column rule, like a classifieds page */
