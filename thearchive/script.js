@@ -403,13 +403,17 @@
   if (!navLinks.length && !signupButtons.length) return;
 
   var PAGE_FOR_LABEL = {
-    "About": "index.html",
-    "Sponsor": "sponsor.html",
-    "Pay it Forward": "payitforward.html",
-    "Newsroom": "newsroom.html"
+    "About": "index",
+    "Sponsor": "sponsor",
+    "Pay it Forward": "payitforward",
+    "Newsroom": "newsroom"
   };
-  var currentPage = window.location.pathname.split("/").pop() || "index.html";
-  var onHome = currentPage === "index.html" || currentPage === "";
+  // Normalize to an extensionless page name so links work with clean URLs
+  // (/thearchive/sponsor) and legacy ones (/thearchive/sponsor.html).
+  var currentPage =
+    (window.location.pathname.split("/").pop() || "index").replace(/\.html$/, "");
+  function hrefFor(name) { return name === "index" ? "./" : name; }
+  var onHome = currentPage === "index";
 
   // The page keeps separate mobile/desktop copies of each section, so
   // resolve to whichever copy is actually laid out right now.
@@ -447,7 +451,7 @@
     go: function (label) {
       var page = PAGE_FOR_LABEL[label];
       if (page && page !== currentPage) {
-        window.location.href = page;
+        window.location.href = hrefFor(page);
         return true;
       }
       if (page === currentPage) {
@@ -463,11 +467,11 @@
     },
     signup: function () {
       // registration lives on its own page now
-      if (currentPage === "signup.html") {
+      if (currentPage === "signup") {
         window.scrollTo({ top: 0, behavior: "smooth" });
         return;
       }
-      window.location.href = "signup.html";
+      window.location.href = "signup";
     }
   };
 
@@ -551,14 +555,14 @@
   );
   if (!hamburger) return;
 
-  var currentPage = window.location.pathname.split("/").pop() || "index.html";
-  if (currentPage === "") currentPage = "index.html";
+  var currentPage =
+    (window.location.pathname.split("/").pop() || "index").replace(/\.html$/, "");
 
   var ITEMS = [
-    { label: "About", page: "index.html" },
-    { label: "Sponsor", page: "sponsor.html" },
-    { label: "Pay it Forward", page: "payitforward.html" },
-    { label: "Newsroom", page: "newsroom.html" },
+    { label: "About", page: "index" },
+    { label: "Sponsor", page: "sponsor" },
+    { label: "Pay it Forward", page: "payitforward" },
+    { label: "Newsroom", page: "newsroom" },
     { label: "Sign Up Here", signup: true }
   ];
 
