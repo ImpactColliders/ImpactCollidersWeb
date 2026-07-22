@@ -18,6 +18,10 @@ body.tree-page {
   cursor: pointer;
 }
 
+.tree-page .sign-up-button {
+  text-decoration: none;
+}
+
 /* ---------------- stage ---------------- */
 .tree-main {
   position: relative;
