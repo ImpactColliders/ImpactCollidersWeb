@@ -708,6 +708,87 @@
       }
       .contact-cta a:hover svg { transform: translateX(3px); }
 
+      /* ===== ARCHIVE FOOTER (shared content and visual treatment) ===== */
+      .archive-footer {
+        color: #313030;
+        padding: 40px 80px;
+        background-color: #f7f7f5;
+        background-image: url("../images/footer-photo.png");
+        background-size: 183px 183px;
+        background-position: 0 0;
+      }
+      .archive-footer-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr minmax(240px, 1.5fr) 1fr;
+        gap: 36px;
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+      .archive-footer h2 {
+        margin: 0 0 8px;
+        color: #313030;
+        font-size: 14px;
+        font-weight: 600;
+        text-align: left;
+      }
+      .archive-footer-links {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 4px;
+      }
+      .archive-footer a {
+        color: inherit;
+        font-size: 12px;
+        text-decoration: none;
+        transition: color 0.15s ease;
+      }
+      .archive-footer a:hover { color: var(--brand); text-decoration: none; }
+      .archive-footer p { margin: 0; font-size: 12px; }
+      .archive-footer-contact { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; }
+      .archive-footer-contact-button {
+        display: inline-flex;
+        padding: 8px 14px;
+        color: #fff !important;
+        background: #313030;
+        border-radius: 999px;
+        font-weight: 600;
+      }
+      .archive-footer-contact-button:hover { background: #4a4a4a; }
+      .archive-footer-socials { display: flex; align-items: center; gap: 8px; }
+      .archive-footer-socials a {
+        width: 30px;
+        height: 30px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1.5px solid rgba(49, 48, 48, 0.3);
+        border-radius: 50%;
+        font-size: 11px;
+        font-weight: 700;
+      }
+      .archive-footer-divider {
+        height: 2px;
+        max-width: 1280px;
+        margin: 32px auto 20px;
+        background: rgba(49, 48, 48, 0.2);
+      }
+      .archive-footer-bottom {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+      }
+      .archive-footer-bottom img { width: min(230px, 60vw); height: auto; }
+      .archive-footer-bottom p { color: #6b6b6b; text-align: center; }
+      @media (max-width: 900px) {
+        .archive-footer { padding: 40px 20px; }
+        .archive-footer-grid { grid-template-columns: 1fr 1fr; }
+      }
+      @media (max-width: 560px) {
+        .archive-footer-grid { grid-template-columns: 1fr; gap: 28px; }
+      }
+
       /* ===== BACK TO TOP ===== */
       .back-to-top {
         position: fixed;
@@ -1195,6 +1276,47 @@
 
     </main>
 
+    <!-- ============ Site footer (matches the other Archive pages) ============ -->
+    <footer class="archive-footer" id="contact-us">
+      <div class="archive-footer-grid">
+        <section>
+          <h2>Quick Links</h2>
+          <div class="archive-footer-links">
+            <a href="https://www.impactcolliders.com/ehhowahproduct" rel="noopener" target="_blank">Product</a>
+            <a href="https://www.impactcolliders.com/" rel="noopener" target="_blank">Pseudo Apps</a>
+            <a href="https://www.impactcolliders.com/corporates" rel="noopener" target="_blank">Corporate Relations</a>
+          </div>
+        </section>
+        <section>
+          <h2>Partner With Us</h2>
+          <div class="archive-footer-links">
+            <a href="https://www.impactcolliders.com/corporates" rel="noopener" target="_blank">Partnerships</a>
+            <a href="../index.html">The Archive</a>
+          </div>
+        </section>
+        <section class="archive-footer-contact">
+          <h2>Contact</h2>
+          <p>For inquiries or partnership opportunities, email us at:</p>
+          <p>info@impactcolliders.com</p>
+          <a class="archive-footer-contact-button" href="mailto:info@impactcolliders.com">Contact Us &rarr;</a>
+        </section>
+        <section>
+          <h2>Stay Connected</h2>
+          <div class="archive-footer-socials">
+            <a href="https://www.facebook.com/p/Impact-Colliders-61571335654695/" rel="noopener" target="_blank" aria-label="Facebook">f</a>
+            <a href="https://www.instagram.com/impactcolliders/" rel="noopener" target="_blank" aria-label="Instagram">ig</a>
+            <a href="https://www.tiktok.com/@impactcolliders" rel="noopener" target="_blank" aria-label="TikTok">tt</a>
+            <a href="https://www.linkedin.com/company/impact-colliders" rel="noopener" target="_blank" aria-label="LinkedIn">in</a>
+          </div>
+        </section>
+      </div>
+      <div class="archive-footer-divider"></div>
+      <div class="archive-footer-bottom">
+        <img src="../images/impact-colliders-logo-white.png" alt="Impact Colliders" />
+        <p>&copy; 2026 Impact Colliders. All rights reserved.</p>
+      </div>
+    </footer>
+
 
     <!-- BACK TO TOP -->
     <button type="button" class="back-to-top" id="backToTop" aria-label="Back to top">
@@ -1202,12 +1324,6 @@
         <path d="M12 19V5M5 12l7-7 7 7"/>
       </svg>
     </button>
-
-
-    <!-- MAIN-SITE FOOTER (injected by mailinglist.js) -->
-    <footer id="contact-us">
-      <div class="container" id="contact-container"></div>
-    </footer>
 
 
     <script>
@@ -1294,29 +1410,5 @@
     })(window,document,'script','dataLayer','GTM-N9ZZ5DN4');</script>
     <!-- End Google Tag Manager -->
 
-    <script src="/mailinglist.js"></script>
-
-    <!-- ===== Static site-links footer (SEO / internal linking) =====
-         Crawlable, no-JS mirror of the primary navigation. Lets search engines
-         follow internal links and pass link equity across the main site and
-         /thearchive/. Does NOT affect the interactive global nav (navbar.js). -->
-    <nav class="ic-sitelinks" aria-label="Site links">
-      <ul class="ic-sitelinks__list">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About Us</a></li>
-        <li><a href="/ehhowahproduct">Eh, How Ah?</a></li>
-        <li><a href="/corporates">Partner</a></li>
-        <li><a href="/press-releases">Press Releases</a></li>
-        <li><a href="/thearchive/">The Archive</a></li>
-      </ul>
-    </nav>
-    <style>
-      .ic-sitelinks{background:#1f1f1f;color:#fff;padding:22px 16px;font-family:inherit}
-      .ic-sitelinks__list{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;
-        gap:10px 22px;list-style:none;margin:0 auto;padding:0;max-width:1100px}
-      .ic-sitelinks__list a{color:rgba(255,255,255,.78);text-decoration:none;font-size:14px;
-        font-weight:500;line-height:1.6}
-      .ic-sitelinks__list a:hover{color:#fff;text-decoration:underline}
-    </style>
   </body>
 </html>
