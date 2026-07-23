@@ -136,7 +136,7 @@
     signup.addEventListener("click", function (e) {
       e.preventDefault();
       if (window.__archiveNav) window.__archiveNav.signup();
-      else window.location.href = "signup.html";
+      else window.location.href = "signup";
     });
   }
 })();
