@@ -126,6 +126,16 @@ a.lucidemenu:hover {
   width: 108.678px;
 }
 
+.the-archive-logo {
+  cursor: pointer;
+}
+
+.the-archive-logo:focus-visible {
+  outline: 3px solid #f35933;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
 .navigation-tab {
   align-content: stretch;
   display: flex;
@@ -2234,6 +2244,23 @@ a.stacked-block:hover {
 
 .desktop-header-overlay > .header {
   position: relative;
+}
+
+.archive-desktop-logo-link {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  left: 50%;
+  width: 110px;
+  height: 38px;
+  transform: translate(-50%, -50%);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.archive-desktop-logo-link:focus-visible {
+  outline: 3px solid #f35933;
+  outline-offset: 4px;
 }
 
 .about {
@@ -4800,9 +4827,9 @@ a.stacked-block:hover {
 }
 
 /* ============================================================
-   Pinned header on the sponsor / Pay-it-Forward pages.
+   Pinned header on standalone pages that reuse the homepage chrome.
    On the homepage the headers are position: sticky inside wrappers
-   that span the whole page. On these pages the wrappers contain ONLY
+   that span the whole page. On standalone pages the wrappers contain ONLY
    the header, so sticky has no scroll range to work within — pin the
    headers to the viewport instead, and pad the page content down by
    the header's height so nothing starts hidden underneath it.
@@ -4810,9 +4837,15 @@ a.stacked-block:hover {
 .sponsor-page .mobile-header,
 .payitforward-page .mobile-header,
 .newsroom-page .mobile-header,
+.signup-page .mobile-header,
+.volunteers-page .mobile-header,
+.tree-page .mobile-header,
 .sponsor-page .desktop-header,
 .payitforward-page .desktop-header,
-.newsroom-page .desktop-header {
+.newsroom-page .desktop-header,
+.signup-page .desktop-header,
+.volunteers-page .desktop-header,
+.tree-page .desktop-header {
   position: fixed;
   top: 0;
   left: 0;
@@ -4831,7 +4864,10 @@ a.stacked-block:hover {
 @media (max-width: 767px) {
   .sponsor-page .desktop-view-wrapper .desktop-header,
   .payitforward-page .desktop-view-wrapper .desktop-header,
-  .newsroom-page .desktop-view-wrapper .desktop-header {
+  .newsroom-page .desktop-view-wrapper .desktop-header,
+  .signup-page .desktop-view-wrapper .desktop-header,
+  .volunteers-page .desktop-view-wrapper .desktop-header,
+  .tree-page .desktop-view-wrapper .desktop-header {
     display: none;
   }
 }
@@ -4839,14 +4875,24 @@ a.stacked-block:hover {
 @media (min-width: 768px) {
   .sponsor-page .mobile-view-wrapper .mobile-header,
   .payitforward-page .mobile-view-wrapper .mobile-header,
-  .newsroom-page .mobile-view-wrapper .mobile-header {
+  .newsroom-page .mobile-view-wrapper .mobile-header,
+  .signup-page .mobile-view-wrapper .mobile-header,
+  .volunteers-page .mobile-view-wrapper .mobile-header,
+  .tree-page .mobile-view-wrapper .mobile-header {
     display: none;
   }
 }
 
 .sponsor-page .sp-main,
 .payitforward-page .pf-main,
-.newsroom-page .nr-main {
+.newsroom-page .nr-main,
+.newsroom-page .nrr-main {
   padding-top: 77px; /* height of the pinned header */
   padding-bottom: 40px;
+}
+
+.signup-page .su-main,
+.volunteers-page .vol-main,
+.tree-page .tree-main {
+  padding-top: 77px; /* height of the pinned header */
 }

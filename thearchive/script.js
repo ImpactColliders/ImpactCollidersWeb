@@ -404,12 +404,12 @@
 
   var PAGE_FOR_LABEL = {
     "About": "index",
-    "Sponsor": "sponsor",
+    "Sponsor": "sponsors",
     "Pay it Forward": "payitforward",
     "Newsroom": "newsroom"
   };
   // Normalize to an extensionless page name so links work with clean URLs
-  // (/thearchive/sponsor) and legacy ones (/thearchive/sponsor.html).
+  // (/thearchive/sponsors) and legacy ones (/thearchive/sponsors.html).
   var currentPage =
     (window.location.pathname.split("/").pop() || "index").replace(/\.html$/, "");
   function hrefFor(name) { return name === "index" ? "./" : name; }
@@ -544,6 +544,42 @@
   );
 
   updateSpy();
+})();
+
+// The Archive wordmark always returns to the About landing page. The mobile
+// wordmark can be enhanced directly; the desktop artwork sits under the full
+// navigation row, so give it a real link above the visible logo.
+(function () {
+  var logos = document.querySelectorAll(".the-archive-logo");
+
+  function goHome() {
+    window.location.href = "index.html";
+  }
+
+  logos.forEach(function (logo) {
+    logo.setAttribute("role", "link");
+    logo.setAttribute("tabindex", "0");
+    logo.setAttribute("aria-label", "Go to The Archive About page");
+    logo.addEventListener("click", goHome);
+    logo.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        goHome();
+      }
+    });
+  });
+
+  document
+    .querySelectorAll(".header-nav-row.desktop-header-overlay")
+    .forEach(function (header) {
+      if (header.querySelector(".archive-desktop-logo-link")) return;
+
+      var link = document.createElement("a");
+      link.className = "archive-desktop-logo-link";
+      link.href = "index.html";
+      link.setAttribute("aria-label", "Go to The Archive About page");
+      header.appendChild(link);
+    });
 })();
 
 // Mobile hamburger menu — the icon in the mobile header opens a
