@@ -33,6 +33,36 @@ var NEWSROOM_ARTICLES = {
 };
 
 (function () {
+  var main = document.querySelector(".nrr-main");
+  var mobileHeader = document.querySelector(
+    ".newsroom-page .mobile-view-wrapper .mobile-header"
+  );
+
+  // Keep the release masthead below the fixed mobile header. Its height can
+  // change with viewport width, font loading, and browser safe-area handling,
+  // so a hard-coded content offset is only a fallback.
+  function syncHeaderOffset() {
+    if (!main || !mobileHeader) return;
+
+    var headerStyle = window.getComputedStyle(mobileHeader);
+    if (headerStyle.display === "none") {
+      main.style.removeProperty("--nrr-header-offset");
+      return;
+    }
+
+    var headerBottom = Math.ceil(mobileHeader.getBoundingClientRect().bottom);
+    main.style.setProperty("--nrr-header-offset", headerBottom + "px");
+  }
+
+  syncHeaderOffset();
+  window.addEventListener("resize", syncHeaderOffset);
+  window.addEventListener("orientationchange", syncHeaderOffset);
+  window.addEventListener("load", syncHeaderOffset);
+
+  if ("ResizeObserver" in window && mobileHeader) {
+    new ResizeObserver(syncHeaderOffset).observe(mobileHeader);
+  }
+
   var shell = document.querySelector("[data-nrr-article]");
   var missing = document.querySelector("[data-nrr-missing]");
   if (!shell || !missing) return;

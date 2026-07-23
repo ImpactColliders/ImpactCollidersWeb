@@ -404,12 +404,12 @@
 
   var PAGE_FOR_LABEL = {
     "About": "index",
-    "Sponsor": "sponsor",
+    "Sponsor": "sponsors",
     "Pay it Forward": "payitforward",
     "Newsroom": "newsroom"
   };
   // Normalize to an extensionless page name so links work with clean URLs
-  // (/thearchive/sponsor) and legacy ones (/thearchive/sponsor.html).
+  // (/thearchive/sponsors) and legacy ones (/thearchive/sponsors.html).
   var currentPage =
     (window.location.pathname.split("/").pop() || "index").replace(/\.html$/, "");
   function hrefFor(name) { return name === "index" ? "./" : name; }
