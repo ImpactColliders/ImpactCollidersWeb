@@ -75,7 +75,7 @@ window.NAMECARDS = {
 
   avin: {
     name: "Avin Teo",
-    title: "Founder",
+    title: "Co-Founder",
     org: "Impact Colliders",
     photo: "/assets/images/Avin Teo Namecard.jpg",
     phone: "+6587783419",
