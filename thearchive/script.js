@@ -553,7 +553,7 @@
   var logos = document.querySelectorAll(".the-archive-logo");
 
   function goHome() {
-    window.location.href = "index.html";
+    window.location.href = "/thearchive/";
   }
 
   logos.forEach(function (logo) {
@@ -576,7 +576,7 @@
 
       var link = document.createElement("a");
       link.className = "archive-desktop-logo-link";
-      link.href = "index.html";
+      link.href = "/thearchive/";
       link.setAttribute("aria-label", "Go to The Archive About page");
       header.appendChild(link);
     });

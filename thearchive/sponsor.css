@@ -350,11 +350,47 @@ body.sponsor-page {
   margin: 0 0 18px;
 }
 
+/* Logo entries sit above the named list in the same tier */
+.sp-friend-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 32px;
+  margin: 0 0 22px;
+}
+
+.sp-friend-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.sp-friend-logo img {
+  display: block;
+  height: 72px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+}
+
+.sp-friend-logo-amt {
+  font-family: "Hammersmith One", sans-serif;
+  font-size: clamp(15px, 1.7vw, 18px);
+  color: #57503f;
+  margin: 0;
+}
+
 .sp-friend-entry {
   font-family: "Hammersmith One", sans-serif;
   font-size: clamp(17px, 1.9vw, 21px);
   color: #57503f;
   margin: 0;
+}
+
+.sp-friend-entry + .sp-friend-entry {
+  margin-top: 8px;
 }
 
 .sp-friend-entry span {
@@ -711,6 +747,8 @@ body.sponsor-page {
   }
   .sp-presenting-logos img { height: 76px; max-width: 130px; }
   .sp-friend-tier { margin-bottom: 56px; }
+  .sp-friend-logos { gap: 24px; }
+  .sp-friend-logo img { height: 60px; max-width: 170px; }
 
   .sp-tier-title { margin-bottom: 26px; }
   .sp-marquee { --sp-marquee-gap: 48px; }
