@@ -265,39 +265,30 @@ body.signup-page {
   white-space: nowrap;
 }
 
-/* SG Culture Pass: not available yet */
-.su-method.is-disabled {
-  cursor: not-allowed;
-  background: #e2d9c6;
-  border-color: #8f887c;
-  box-shadow: none;
-  opacity: 0.72;
+/* SG Culture Pass: links out to Pelago in a new tab */
+.su-method-link {
+  text-decoration: none;
+  color: inherit;
 }
 
-.su-method.is-disabled:hover {
-  transform: none;
+.su-method-link:hover {
+  background: #ffe1d6;
 }
 
-.su-method.is-disabled .su-method-dot {
-  border-color: #8f887c;
-  background: #efe8d8;
+.su-method-link:focus-visible {
+  outline: 3px solid #f35933;
+  outline-offset: 2px;
 }
 
-.su-method.is-disabled .su-method-name {
-  color: #6f675c;
+.su-method-ext {
+  flex-shrink: 0;
+  opacity: 0.65;
+  transition: transform 0.12s ease, opacity 0.12s ease;
 }
 
-.su-soon {
-  font-family: "Poppins", sans-serif;
-  font-weight: 600;
-  font-size: 11px;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  color: #fff;
-  background: #8f887c;
-  border-radius: 999px;
-  padding: 4px 10px;
-  white-space: nowrap;
+.su-method-link:hover .su-method-ext {
+  opacity: 1;
+  transform: translate(1px, -1px);
 }
 
 /* ---------------- Panels ---------------- */
@@ -597,7 +588,7 @@ body.signup-page {
     justify-content: flex-start;
   }
 
-  .su-method .su-soon {
+  .su-method .su-method-ext {
     margin-left: auto;
   }
 
