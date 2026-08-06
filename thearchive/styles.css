@@ -2057,7 +2057,8 @@ a.stacked-block:hover {
 }
 
 .impact-collidersblack-1-2 {
-  aspect-ratio: 4096 / 1369;
+  /* must match the natural ratio of impact-colliders-logo-white.png (1024x343) */
+  aspect-ratio: 1024 / 343;
   position: relative;
   flex-shrink: 0;
   width: 100%;
@@ -2074,6 +2075,12 @@ a.stacked-block:hover {
   height: 100%;
 }
 
+/* never crop the logo: if the box ratio drifts (font scaling, in-app
+   browsers), shrink the image instead of cutting off its sides */
+.footer-logo .cover-img {
+  object-fit: contain;
+}
+
 .footer-copyright-text {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
@@ -2084,7 +2091,7 @@ a.stacked-block:hover {
   color: #6b6b6b;
   font-size: 12px;
   text-align: center;
-  white-space: nowrap;
+  max-width: 100%;
 }
 
 .footer-copyright {
