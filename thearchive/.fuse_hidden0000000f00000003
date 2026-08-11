@@ -4,22 +4,12 @@
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
   <title>
-   Sign Up — The Archive | Impact Colliders
+   Volunteer — The ARCHIVE
   </title>
-  <meta content="Register for The Archive and preserve your life story and leave a legacy through the arts and technology — choose card, PayNow, or SG Culture Pass. 6 &amp; 13 September 2026 at 10 Square, Orchard Central." name="description"/>
-  <link rel="canonical" href="https://www.impactcolliders.com/thearchive/signup"/>
-  <meta property="og:type" content="website"/>
-  <meta property="og:site_name" content="Impact Colliders"/>
-  <meta property="og:title" content="Sign Up — The Archive"/>
-  <meta property="og:description" content="Register for The Archive — choose card, PayNow, or SG Culture Pass. A community storytelling exhibition by Impact Colliders, 6 &amp; 13 September 2026."/>
-  <meta property="og:url" content="https://www.impactcolliders.com/thearchive/signup"/>
-  <meta property="og:image" content="https://www.impactcolliders.com/assets/images/WebPhotos/Generational.jpg"/>
-  <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Sign Up — The Archive"/>
-  <meta name="twitter:description" content="Register for The Archive — choose card, PayNow, or SG Culture Pass. A community storytelling exhibition by Impact Colliders, 6 &amp; 13 September 2026."/>
-  <meta name="twitter:image" content="https://www.impactcolliders.com/assets/images/WebPhotos/Generational.jpg"/>
+  <meta content="Volunteer for The Archive — sign up as a General Volunteer, Artist, or Emcee" name="description"/>
+  <meta content="noindex, nofollow" name="robots"/>
   <link href="styles.css" rel="stylesheet"/>
-  <link href="signup.css" rel="stylesheet"/>
+  <link href="volunteers.css" rel="stylesheet"/>
      <link rel="icon" href="/assets/images/logo.jpg" />
     <!-- Meta Pixel -->
     <script>
@@ -38,7 +28,7 @@
       src="https://www.facebook.com/tr?id=1501219458149424&ev=PageView&noscript=1" alt="" /></noscript>
     <!-- End Meta Pixel -->
 </head>
- <body class="signup-page">
+ <body class="volunteers-page">
   <!-- ============ Site header (reused from index.html) ============ -->
   <div class="mobile-view-wrapper">
 <div class="mobile-header">
@@ -108,7 +98,7 @@
            </div>
           </div>
          </div>
-         <div class="sign-up-button is-active" data-nav-signup="">
+         <div class="sign-up-button" data-nav-signup="">
           <div aria-hidden="true" class="sign-up-label">
           </div>
           <p class="sign-up-here" data-label="Sign Up Here">
@@ -191,7 +181,7 @@
             </circle>
            </svg>
           </div>
-          <p class="sponsor" data-label="Sponsor" data-nav-link="" data-nav-target="sponsor">
+          <p class="sponsor" data-label="Sponsor" data-nav-link="">
            Sponsor
           </p>
           <div class="divider-3">
@@ -200,7 +190,7 @@
             </circle>
            </svg>
           </div>
-          <p class="sponsor" data-label="Pay it Forward" data-nav-link="">
+          <p class="sponsor" data-label="Pay it Forward" data-nav-link="" data-nav-target="payitforward">
            Pay it Forward
           </p>
           <div class="divider-3">
@@ -213,7 +203,7 @@
            Newsroom
           </p>
          </div>
-         <div class="sign-up-button is-active" data-nav-signup="">
+         <div class="sign-up-button" data-nav-signup="">
           <div aria-hidden="true" class="sign-up-label">
           </div>
           <p class="sign-up-here" data-label="Sign Up Here">
@@ -229,154 +219,80 @@
     </div>
   </div>
 
-  <!-- ============ Sponsor page content ============ -->
-  <main class="su-main">
-   <div class="su-top">
-    <!-- decorative splash shapes (same blobs as the rest of the site) -->
-    <div aria-hidden="true" class="su-splash su-splash-blue">
-     <svg fill="none" preserveAspectRatio="none" viewBox="0 0 552 552">
-      <path d="M273.795 10C297.585 15.9749 299.003 49.4502 316.825 58.0457C332.161 65.4376 359.959 25.584 377.846 30.8036C392.267 41.6074 386.944 69.2645 394.444 85.7504C404.2 107.177 444.975 78.3688 461.032 86.4287C479.564 95.7167 451.289 136.837 459.963 151.504C470.182 165.885 498.688 160.779 513.251 167.352C538.613 178.796 503.508 205.712 497.4 219.052C495.415 223.363 491.987 229.017 494.358 234.178C499.629 245.698 514.797 250.718 524.682 257.474C571.024 284.305 511.331 295.434 496.549 313.409C483.237 329.612 522.272 356.331 522.194 372.075C522.066 396.609 472.759 382.832 461.354 398.518C449.524 414.084 477.45 450.031 463.481 463.841C455.194 472.027 425.502 459.91 413.208 458.465C377.807 454.304 398.53 505.358 378.915 520.351C365.732 530.234 337.032 493.505 324.274 493.435C301.773 493.313 300.497 527.368 278.254 542C256.527 540.571 252.093 501.232 234.425 494.139C217.066 487.17 189.888 528.848 173.34 520.63C161.381 514.685 163.108 483.421 159.203 470.921C149.654 440.382 108.454 475.947 88.917 464.393C75.9268 455.631 95.193 420.92 93.2213 405.341C90.5407 384.084 42.8713 393.135 32.1363 380.695C18.4373 364.806 60.4879 337.558 57.8848 320.725C54.1217 304.31 27.4454 297.759 16.4914 287.586C-7.73639 265.096 42.8584 253.557 53.864 240.021C70.0115 220.196 27.1877 196.274 29.2754 178.066C31.5951 157.795 77.0994 167.057 88.4916 155.611C104.704 140.74 71.6095 98.8589 89.935 86.9361C99.0719 80.9947 126.547 92.0246 138.79 93.5379C173.753 97.8633 152.824 46.6073 173.508 30.7547C189.32 26.5282 211.989 54.9382 226.925 58.2988C247.415 62.912 252.506 21.874 273.795 10Z" fill="#9BBCC0"></path>
-     </svg>
-    </div>
-    <div aria-hidden="true" class="su-splash su-splash-green">
-     <svg fill="none" preserveAspectRatio="none" viewBox="0 0 237.016 237.016">
-      <path d="M117.213 0C130.726 1.00611 122.321 36.3433 130.739 40.1023C143.005 45.5897 146.602 10.9376 158.273 7.11685C159.37 7.29585 160.642 7.39456 161.388 8.61053C166.127 17.0236 155.039 36.2446 156.537 44.4292C160.291 65.0205 182.505 27.4797 194.445 26.8871C206.805 33.0349 174.425 57.4284 180.029 67.8105C189.738 74.0199 208.811 55.5767 221.515 58.2C232.277 66.9093 192.821 79.3159 194.069 91.8892C199.804 102.074 237.31 86.1549 236.978 99.7405C232.127 109.542 201.697 107.678 198.964 118.591C200.775 130.43 236.301 127.461 237.016 139.152C235.11 143.997 228.31 143.54 223.333 143.083C210.992 141.966 177.227 137.973 203.088 157.854C208.447 161.971 222.938 169.446 223.164 176.489C222.399 178.464 222.493 178.34 220.732 179.556C213.574 181.211 199.509 172.273 192.245 169.717C165.049 160.163 187.82 188.562 192.978 196.253C195.328 199.759 197.666 204.308 196.657 208.555C195.046 210.4 196.03 209.721 193.448 210.425C183.658 208.758 169.681 185.686 159.821 186.698C147.806 193.407 171.385 224.233 159.069 229.683C150.532 233.46 140.435 190.55 131.886 196.438C124.314 201.654 126.615 224.689 122.597 234.738C120.66 236.707 120.51 236.713 118.272 237.016C107.918 233.683 114.894 201.061 106.156 197.074C94.5985 191.809 90.2612 228.454 78.5028 230.275C65.7541 225.566 90.0481 192.21 77.3557 186.729C68.4993 182.902 46.75 220.77 40.15 207.135C39.9933 196.061 62.2127 178.174 57.7751 169.576C47.7529 161.249 20.4378 188.655 14.17 176.532C14.2139 166.008 45.8475 156.175 43.5033 145.571C36.7842 136.355 3.11359 149.398 0.0736981 138.726C3.04464 127.782 36.7717 129.992 38.5705 118.042C34.1016 106.851 -1.16737 109.147 0.0297806 97.5061C6.36027 88.5252 38.3449 101.154 43.3028 91.7719C44.0737 79.1308 12.9415 71.2979 14.3768 60.4035C19.4851 50.4721 49.1883 64.3662 56.8789 67.65C52.0088 60.3418 40.3945 42.8429 39.8492 34.4545C38.464 13.2707 64.0617 44.028 68.4367 46.7192C71.8714 48.824 74.0589 51.0893 78.4965 50.4597C88.0424 43.8614 67.39 12.7831 77.9387 6.96253C90.3928 8.43158 92.831 41.2381 104.803 40.7567C115.821 36.2631 107.297 10.9252 117.213 0Z" fill="#93BBA0"></path>
-     </svg>
+  <!-- ============ Pay it Forward content ============ -->
+  <main class="vol-main">
+   <section class="vol-hero">
+    <figure class="vol-poster">
+     <img alt="Volunteer Recruitment — The Archive. Jointly organised by Impact Colliders and The RICE Company Limited in support of the Bloom Fund. Roles: General Volunteer and Artist. Event dates 6, 13, 20 September 2026." src="images/volunteer-recruitment-poster.jpg"/>
+    </figure>
+   </section>
+
+   <section class="vol-body">
+    <h1 class="vol-title">
+     If we don't preserve our seniors' stories, who will?
+    </h1>
+    <p class="vol-lede">
+     Join <strong>The Archive</strong>, a youth-led storytelling exhibition connecting seniors and youths through art and conversation.
+    </p>
+    <p class="vol-looking">
+     We are looking for:
+    </p>
+
+    <div class="vol-role">
+     <h2 class="vol-role-title">
+      General Volunteers
+     </h2>
+     <ul class="vol-list">
+      <li>
+       Befriend seniors and facilitate conversations.
+      </li>
+      <li>
+       Guide seniors throughout the event.
+      </li>
+     </ul>
     </div>
 
-    <section class="su-hero">
-     <h1 class="su-title">
-      Sign Up for The Archive
-     </h1>
-     <p class="su-intro">
-      A ticket is $100 per senior and covers the full session — workshop, portrait, refreshments, and door gifts. Choose how you'd like to pay; we'll confirm your session slot after payment.
+    <div class="vol-role">
+     <h2 class="vol-role-title">
+      Artists
+     </h2>
+     <ul class="vol-list">
+      <li>
+       Create portraits of seniors.
+      </li>
+      <li>
+       Contribute remotely before the event or sketch live on-site.
+      </li>
+     </ul>
+    </div>
+
+    <div class="vol-callout">
+     <p>
+      <strong>Event Dates:</strong> 6, 13 &amp; 20 September 2026 (Sundays) · Session 1: 3:00pm–5:00pm · Session 2: 5:30pm–7:30pm
      </p>
+     <p>
+      <strong>Meals provided.</strong>
+     </p>
+    </div>
 
-     <section class="su-schedule" aria-labelledby="su-schedule-title">
-      <h2 class="su-schedule-title" id="su-schedule-title">
-       Available Event Dates &amp; Sessions
-      </h2>
-      <ul class="su-date-list">
-       <li>Sunday, 6 September 2026</li>
-       <li>Sunday, 13 September 2026</li>
-      </ul>
-      <div class="su-session-list" aria-label="Session times">
-       <span><strong>Session 1</strong> 3:00pm–5:00pm</span>
-       <span><strong>Session 2</strong> 5:30pm–7:30pm</span>
-      </div>
-     </section>
+    <p class="vol-closing">
+     Help preserve stories, honour legacies, and create meaningful intergenerational connections.
+    </p>
 
-     <!-- ---------- Payment method picker ---------- -->
-     <fieldset class="su-methods">
-      <legend class="su-methods-legend">
-       How would you like to pay?
-      </legend>
-      <div class="su-method-row">
-       <label class="su-method">
-        <input checked="" class="su-method-input" name="su-payment" type="radio" value="card"/>
-        <span aria-hidden="true" class="su-method-dot"></span>
-        <svg aria-hidden="true" class="su-method-icon" fill="none" height="18" viewBox="0 0 24 24" width="18">
-         <rect height="15" rx="2.5" stroke="#1c1c1c" stroke-width="2" width="20" x="2" y="4.5"></rect>
-         <path d="M2 9.5h20" stroke="#1c1c1c" stroke-width="2.5"></path>
-         <path d="M5.5 15.5h5" stroke="#1c1c1c" stroke-linecap="round" stroke-width="2"></path>
-        </svg>
-        <span class="su-method-name">Card</span>
-       </label>
-       <label class="su-method">
-        <input class="su-method-input" name="su-payment" type="radio" value="paynow"/>
-        <span aria-hidden="true" class="su-method-dot"></span>
-        <svg aria-hidden="true" class="su-method-logo" viewBox="0 0 74 20">
-         <text fill="#7c1a78" font-family="Arial, sans-serif" font-size="15" font-style="italic" font-weight="800" x="0" y="15">PAY</text>
-         <text fill="#e6427a" font-family="Arial, sans-serif" font-size="15" font-style="italic" font-weight="800" x="33" y="15">NOW</text>
-        </svg>
-        <span class="su-visually-hidden su-method-name">PayNow</span>
-       </label>
-       <a class="su-method su-method-link" href="https://www.pelago.com/en-SG/activity/pmlleullg-the-archive-by-impact-colliders-singapore/" rel="noopener noreferrer" target="_blank">
-        <svg aria-hidden="true" class="su-method-icon" fill="none" height="18" viewBox="0 0 24 24" width="18">
-         <path d="M3 9V6.5A1.5 1.5 0 0 1 4.5 5h15A1.5 1.5 0 0 1 21 6.5V9a3 3 0 0 0 0 6v2.5a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 17.5V15a3 3 0 0 0 0-6Z" stroke="#1c1c1c" stroke-width="2" stroke-linejoin="round"></path>
-         <path d="M14 5v14" stroke="#1c1c1c" stroke-dasharray="2.5 2.5" stroke-width="2"></path>
-        </svg>
-        <span class="su-method-name">SG Culture Pass</span>
-        <svg aria-hidden="true" class="su-method-ext" fill="none" height="14" viewBox="0 0 24 24" width="14">
-         <path d="M9 5h10v10" stroke="#1c1c1c" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
-         <path d="M19 5 6 18" stroke="#1c1c1c" stroke-linecap="round" stroke-width="2.5"></path>
-        </svg>
-        <span class="su-visually-hidden">Book on Pelago (opens in a new tab)</span>
-       </a>
-      </div>
-     </fieldset>
+    <div class="vol-cta-row">
+     <a class="vol-cta" href="https://forms.gle/MtGjPhx4XFmCFewK9" rel="noopener" target="_blank">
+      Sign Up as a Volunteer
+     </a>
+     <a class="vol-cta" href="https://forms.gle/w8J2Z148hxWWXcUz8" rel="noopener" target="_blank">
+      Sign Up as an Emcee
+     </a>
+    </div>
+   </section>
 
-     <!-- ---------- Card panel (Stripe) ---------- -->
-     <div class="su-panel" data-su-panel="card">
-      <p class="su-panel-note">
-       Pay securely by card through Stripe. An additional $5 for payment processing has already been included in the price below.
-      </p>
-      <div class="su-stripe-wrap" data-su-stripe="">
-       <!-- filled in by signup.js: either the Stripe buy button (once the
-            IDs at the top of signup.js are set) or a fallback link to the
-            live checkout page -->
-      </div>
-
-     </div>
-
-     <!-- ---------- PayNow panel ---------- -->
-     <div class="su-panel" data-su-panel="paynow" hidden="">
-      <ol class="su-steps">
-       <li class="su-step">
-        <div aria-hidden="true" class="su-step-badge">1</div>
-        <div class="su-step-body">
-         <h2 class="su-step-title">
-          Pay $100 to Impact Colliders LLP
-         </h2>
-         <p class="su-step-copy">
-          Scan the QR code with your banking app, or transfer via PayNow using the UEN below.
-         </p>
-         <div class="su-paynow-grid">
-          <div class="su-qr-card">
-           <img alt="PayNow QR code for Impact Colliders LLP" src="images/archive-payment-qr.png"/>
-          </div>
-          <div class="su-paynow-details">
-           <div class="su-detail">
-            <span class="su-detail-label">PayNow UEN</span>
-            <div class="su-detail-row">
-             <span class="su-detail-value" data-su-uen="">T25LL0556E</span>
-             <button class="su-copy-btn" data-su-copy="T25LL0556E" type="button">
-              <svg aria-hidden="true" fill="none" height="15" viewBox="0 0 24 24" width="15">
-               <rect height="13" rx="2" stroke="currentColor" stroke-width="2" width="13" x="9" y="9"></rect>
-               <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" stroke="currentColor" stroke-width="2"></path>
-              </svg>
-              <span data-su-copy-label="">Copy</span>
-             </button>
-            </div>
-           </div>
-           <div class="su-detail">
-            <span class="su-detail-label">Payee Name</span>
-            <span class="su-detail-value">Impact Colliders LLP</span>
-           </div>
-          </div>
-         </div>
-        </div>
-       </li>
-       <li class="su-step">
-        <div aria-hidden="true" class="su-step-badge">2</div>
-        <div class="su-step-body">
-         <h2 class="su-step-title">
-          WhatsApp us your proof of payment
-         </h2>
-         <p class="su-step-copy">
-          Take a screenshot of the transaction and send it to us — we'll follow up to confirm your preferred session slot.
-         </p>
-         <a class="su-wa-btn" href="https://wa.me/6588370379" rel="noopener" target="_blank">
-          <svg aria-hidden="true" fill="currentColor" height="20" viewBox="0 0 24 24" width="20">
-           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"></path>
-          </svg>
-          WhatsApp +65 8837 0379
-         </a>
-        </div>
-       </li>
-      </ol>
-     </div>
-    </section>
+   <!-- torn paper edge leading into the footer -->
+   <div aria-hidden="true" class="vol-tear">
+    <div class="vol-tear-inner">
+    </div>
    </div>
   </main>
 
@@ -439,7 +355,6 @@
          <p class="contact">
           Stay Connected
          </p>
-
          <div class="newsletter-note">
           <a class="lucidemenu" href="https://www.facebook.com/p/Impact-Colliders-61571335654695/" rel="noopener" target="_blank" aria-label="Facebook">
            <svg class="fill-svg" fill="none" preserveaspectratio="none" viewbox="0 0 24 24">
@@ -550,7 +465,6 @@
       <p class="contact">
        Stay Connected
       </p>
-
       <div class="newsletter-note">
        <a class="lucidemenu" href="https://www.facebook.com/p/Impact-Colliders-61571335654695/" rel="noopener" target="_blank" aria-label="Facebook">
         <svg class="fill-svg" fill="none" preserveaspectratio="none" viewbox="0 0 24 24">
@@ -608,7 +522,7 @@
   </button>
   <script src="script.js">
   </script>
-  <script src="signup.js">
+  <script src="payitforward.js">
   </script>
      <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

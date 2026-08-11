@@ -6,17 +6,17 @@
   <title>
    Sign Up — The Archive | Impact Colliders
   </title>
-  <meta content="Register for The Archive and preserve your life story and leave a legacy through the arts and technology — choose card, PayNow, or SG Culture Pass. 6 &amp; 13 September 2026 at 10 Square, Orchard Central." name="description"/>
+  <meta content="Register for The Archive and preserve your life story and leave a legacy through the arts and technology — choose card, PayNow, or SG Culture Pass. 6, 13 &amp; 20 September 2026 at 10 Square, Orchard Central." name="description"/>
   <link rel="canonical" href="https://www.impactcolliders.com/thearchive/signup"/>
   <meta property="og:type" content="website"/>
   <meta property="og:site_name" content="Impact Colliders"/>
   <meta property="og:title" content="Sign Up — The Archive"/>
-  <meta property="og:description" content="Register for The Archive — choose card, PayNow, or SG Culture Pass. A community storytelling exhibition by Impact Colliders, 6 &amp; 13 September 2026."/>
+  <meta property="og:description" content="Register for The Archive — choose card, PayNow, or SG Culture Pass. A community storytelling exhibition by Impact Colliders, 6, 13 &amp; 20 September 2026."/>
   <meta property="og:url" content="https://www.impactcolliders.com/thearchive/signup"/>
   <meta property="og:image" content="https://www.impactcolliders.com/assets/images/WebPhotos/Generational.jpg"/>
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:title" content="Sign Up — The Archive"/>
-  <meta name="twitter:description" content="Register for The Archive — choose card, PayNow, or SG Culture Pass. A community storytelling exhibition by Impact Colliders, 6 &amp; 13 September 2026."/>
+  <meta name="twitter:description" content="Register for The Archive — choose card, PayNow, or SG Culture Pass. A community storytelling exhibition by Impact Colliders, 6, 13 &amp; 20 September 2026."/>
   <meta name="twitter:image" content="https://www.impactcolliders.com/assets/images/WebPhotos/Generational.jpg"/>
   <link href="styles.css" rel="stylesheet"/>
   <link href="signup.css" rel="stylesheet"/>
@@ -259,6 +259,7 @@
       <ul class="su-date-list">
        <li>Sunday, 6 September 2026</li>
        <li>Sunday, 13 September 2026</li>
+       <li>Sunday, 20 September 2026</li>
       </ul>
       <div class="su-session-list" aria-label="Session times">
        <span><strong>Session 1</strong> 3:00pm–5:00pm</span>

@@ -4,19 +4,19 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>The Archive — A Community Storytelling Exhibition | Impact Colliders</title>
-    <meta content="The Archive helps participants preserve their life stories and leave a legacy through the arts and technology — a community storytelling exhibition by Impact Colliders. 6 &amp; 13 September 2026 at 10 Square, Orchard Central. Explore the portraits and reserve your tickets." name="description" />
+    <meta content="The Archive helps participants preserve their life stories and leave a legacy through the arts and technology — a community storytelling exhibition by Impact Colliders. 6, 13 &amp; 20 September 2026 at 10 Square, Orchard Central. Explore the portraits and reserve your tickets." name="description" />
     <link rel="canonical" href="https://www.impactcolliders.com/thearchive/" />
 
     <!-- Social / link-preview cards -->
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Impact Colliders" />
     <meta property="og:title" content="The Archive — A Community Storytelling Exhibition" />
-    <meta property="og:description" content="Preserve your life story and leave a legacy through the arts and technology — a community storytelling exhibition by Impact Colliders. 6 &amp; 13 September 2026 at 10 Square, Orchard Central." />
+    <meta property="og:description" content="Preserve your life story and leave a legacy through the arts and technology — a community storytelling exhibition by Impact Colliders. 6, 13 &amp; 20 September 2026 at 10 Square, Orchard Central." />
     <meta property="og:url" content="https://www.impactcolliders.com/thearchive/" />
     <meta property="og:image" content="https://www.impactcolliders.com/thearchive/images/polaroid-1.png" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="The Archive — A Community Storytelling Exhibition" />
-    <meta name="twitter:description" content="Preserve your life story and leave a legacy through the arts and technology — a community storytelling exhibition by Impact Colliders. 6 &amp; 13 September 2026 at 10 Square, Orchard Central." />
+    <meta name="twitter:description" content="Preserve your life story and leave a legacy through the arts and technology — a community storytelling exhibition by Impact Colliders. 6, 13 &amp; 20 September 2026 at 10 Square, Orchard Central." />
     <meta name="twitter:image" content="https://www.impactcolliders.com/thearchive/images/polaroid-1.png" />
 
     <!-- Structured data -->
@@ -46,7 +46,7 @@
           "image": "https://www.impactcolliders.com/assets/images/WebPhotos/Generational.jpg",
           "url": "https://www.impactcolliders.com/thearchive/",
           "startDate": "2026-09-06T15:00:00+08:00",
-          "endDate": "2026-09-13T19:30:00+08:00",
+          "endDate": "2026-09-20T19:30:00+08:00",
           "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
           "eventStatus": "https://schema.org/EventScheduled",
           "location": {
@@ -1484,7 +1484,7 @@
                             </div>
                             <div class="event-detail-text">
                               <p class="event-date-title">
-                                6 &amp; 13 September 2026
+                                6, 13 &amp; 20 September 2026
                               </p>
                               <p class="session-1-300pm-500pm-sgt">
                                 Session 1: 3:00pm – 5:00pm SGT
@@ -3184,7 +3184,7 @@
                           </div>
                           <div class="event-detail-text">
                             <p class="event-date-title-2">
-                              6 &amp; 13 September 2026
+                              6, 13 &amp; 20 September 2026
                             </p>
                             <p class="session-1-300pm-500pm-sgt-2">
                               Session 1: 3:00pm – 5:00pm SGT
