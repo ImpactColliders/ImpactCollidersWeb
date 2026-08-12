@@ -11,6 +11,23 @@
 // allowed since this registry is authored by us, not user input.
 
 var NEWSROOM_ARTICLES = {
+  "archive-x-bloom-fund": {
+    kicker: "Media Release · 12 August 2026",
+    title: "Youths Preserving Seniors’ Legacy Through Art and AI",
+    cover: "images/newsroom/archive-x-bloom-fund.png",
+    previewImage: "images/newsroom/archive-x-bloom-fund-og.jpg",
+    coverAlt:
+      "The Archive x The Bloom Fund media release — youths preserving seniors’ legacy through art and AI.",
+    body: [
+      "<strong>Singapore, 12 August 2026</strong> — Over two Sundays this September, 400 Singapore seniors will be seated across youth artists, sharing their life stories with an AI tool tuned for multiple languages, and leaving with hand-drawn portraits of themselves. A third event day has been planned for early 2027. The collaboration, captured as precious stories and portraits, live on as a publicly accessible digital archive for Singaporeans.",
+      "For full media release, please see attached."
+    ],
+    cta: {
+      label: "Read the full media release",
+      url: "https://www.impactcolliders.com/thearchive/images/newsroom/media-release-archive-x-bloom-fund.pdf"
+    }
+  },
+
   "annual-report-launch": {
     kicker: "Media Release · 28 May 2026",
     title: "Launch of Our First Annual Report",
@@ -29,7 +46,11 @@ var NEWSROOM_ARTICLES = {
     }
   }
 
-  // , "next-release-slug": { kicker, title, cover, coverAlt, body: [...], cta: { label, url } }
+  // , "next-release-slug": { kicker, title, cover, previewImage, coverAlt, body: [...], cta: { label, url } }
+  //
+  // previewImage is optional (1200x630 link-preview image). Because most
+  // social scrapers don't run JS, also update the static og:image /
+  // twitter:image in newsroom-release.html when a new release goes out.
 };
 
 (function () {
@@ -83,7 +104,10 @@ var NEWSROOM_ARTICLES = {
     var BASE = "https://www.impactcolliders.com/thearchive/";
     var LOGO = "https://www.impactcolliders.com/assets/images/logo.jpg";
     var pageUrl = BASE + "newsroom-release?slug=" + encodeURIComponent(slug);
-    var imageUrl = article.cover ? BASE + article.cover : LOGO;
+    // previewImage (1200x630) wins for link previews; falls back to the
+    // article cover, then the Impact Colliders logo.
+    var imageSrc = article.previewImage || article.cover;
+    var imageUrl = imageSrc ? BASE + imageSrc : LOGO;
 
     // Plain-text description from the first body paragraph (~160 chars).
     var tmp = document.createElement("div");

@@ -272,26 +272,23 @@
       Latest Releases
      </h2>
     </div>
-    <!-- Only one release is published so far, so the featured card runs
-         full width (nr-articles--solo). When the next release goes out:
-         1. remove the --solo modifier,
-         2. move this card's link/date/headline into a .nr-prev-card in
-            the aside below, and put the new release in the featured slot. -->
-    <div class="nr-articles nr-articles--solo">
-     <a class="nr-featured" href="newsroom-release?slug=annual-report-launch">
+    <!-- Newest release sits in the featured slot; older releases move into
+         the .nr-prev rail below as .nr-prev-card entries (newest first). -->
+    <div class="nr-articles">
+     <a class="nr-featured" href="newsroom-release?slug=archive-x-bloom-fund">
       <img alt="" aria-hidden="true" class="nr-stamp" src="images/stamp.png"/>
       <figure class="nr-featured-thumb">
-       <img alt="Annual report cover — Anniversary Edition: Empowering seniors through play" class="nr-thumb-img" src="images/newsroom/annual-report-launch.jpg"/>
+       <img alt="The Archive x The Bloom Fund media release — youths preserving seniors' legacy through art and AI" class="nr-thumb-img" src="images/newsroom/archive-x-bloom-fund.png"/>
       </figure>
       <div class="nr-featured-body">
        <p class="nr-kicker">
-        Media Release · 28 May 2026
+        Media Release · 12 August 2026
        </p>
        <h3 class="nr-headline">
-        Launch of Our First Annual Report
+        Youths Preserving Seniors' Legacy Through Art and AI
        </h3>
        <p class="nr-excerpt">
-        The Archive publishes its first annual report — a look back at our opening chapter: the programme, the people behind it, and where we're headed next.
+        Over two Sundays this September, 400 Singapore seniors will share their life stories with youth artists — leaving with hand-drawn portraits, and a legacy preserved in a public digital archive.
        </p>
        <span class="nr-read">
         Read the full release
@@ -301,19 +298,20 @@
        </span>
       </div>
      </a>
-     <!-- "previously" rail — appears alongside the featured card once
-          there is more than one release. Template:
+     <!-- "previously" rail — older releases, newest first -->
      <aside class="nr-prev">
-      <h2 class="nr-prev-title">Previously</h2>
-      <a class="nr-prev-card" href="RELEASE-URL" rel="noopener" target="_blank">
-       <span class="nr-prev-date">28 May 2026</span>
-       <h3>Launch of Our First Annual Report</h3>
+      <h2 class="nr-prev-title">
+       Previously
+      </h2>
+      <a class="nr-prev-card" href="newsroom-release?slug=annual-report-launch">
+       <span class="nr-prev-date">
+        28 May 2026
+       </span>
+       <h3>
+        Launch of Our First Annual Report
+       </h3>
       </a>
      </aside>
-     -->
-     <div class="nr-coming-soon">
-      More releases coming soon
-     </div>
     </div>
    </section>
 

@@ -110,9 +110,8 @@ body.newsroom-page {
 }
 
 /* two-column article grid: featured story + "previously" rail.
-   Add/remove the --solo modifier as the archive grows:
-   with it, the featured card takes the full width (current state,
-   only one release published). */
+   The --solo modifier makes the featured card run full width; it is
+   only needed when a single release is published. */
 .nr-articles {
   display: grid;
   grid-template-columns: 1fr 300px;
@@ -164,11 +163,15 @@ body.newsroom-page {
   border-right: 1px solid #d9cdb2;
 }
 
+/* Thumbnails are square-ish artwork, so show the whole image rather than
+   filling the slot — the orange band around it is the intended frame. */
 .nr-thumb-img {
   display: block;
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: auto;
+  max-height: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
 }
 
 .nr-cover {
@@ -216,6 +219,11 @@ body.newsroom-page {
   padding: 34px 38px 30px;
   display: flex;
   flex-direction: column;
+}
+
+/* keep the dateline clear of the stamp hanging over the top-right corner */
+.nr-featured-body .nr-kicker {
+  padding-right: 104px;
 }
 
 .nr-kicker {
@@ -511,6 +519,10 @@ body.newsroom-page {
     width: 68px;
     right: 16px;
     top: -20px;
+  }
+
+  .nr-featured-body .nr-kicker {
+    padding-right: 0;
   }
 
   .nr-feed {
