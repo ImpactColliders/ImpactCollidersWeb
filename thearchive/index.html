@@ -13,11 +13,16 @@
     <meta property="og:title" content="The Archive — A Community Storytelling Exhibition" />
     <meta property="og:description" content="Preserve your life story and leave a legacy through the arts and technology — a community storytelling exhibition by Impact Colliders. 6 &amp; 13 September 2026 at 10 Square, Orchard Central." />
     <meta property="og:url" content="https://www.impactcolliders.com/thearchive/" />
-    <meta property="og:image" content="https://www.impactcolliders.com/thearchive/images/polaroid-1.png" />
+    <meta property="og:locale" content="en_SG" />
+    <meta property="og:image" content="https://www.impactcolliders.com/thearchive/images/og-the-archive.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Three hand-drawn portraits of Singapore seniors from The Archive." />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="The Archive — A Community Storytelling Exhibition" />
     <meta name="twitter:description" content="Preserve your life story and leave a legacy through the arts and technology — a community storytelling exhibition by Impact Colliders. 6 &amp; 13 September 2026 at 10 Square, Orchard Central." />
-    <meta name="twitter:image" content="https://www.impactcolliders.com/thearchive/images/polaroid-1.png" />
+    <meta name="twitter:image" content="https://www.impactcolliders.com/thearchive/images/og-the-archive.jpg" />
+    <meta name="twitter:image:alt" content="Three hand-drawn portraits of Singapore seniors from The Archive." />
 
     <!-- Structured data -->
     <script type="application/ld+json">
@@ -40,27 +45,108 @@
           "publisher": { "@id": "https://www.impactcolliders.com/#organization" }
         },
         {
+          "@type": "Place",
+          "@id": "https://www.impactcolliders.com/thearchive/#venue",
+          "name": "10 Square, Orchard Central",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "181 Orchard Road, #10-01",
+            "addressLocality": "Singapore",
+            "postalCode": "238896",
+            "addressCountry": "SG"
+          }
+        },
+        {
           "@type": "ExhibitionEvent",
-          "name": "The Archive — A Community Storytelling Exhibition",
+          "@id": "https://www.impactcolliders.com/thearchive/#event-2026-09-06",
+          "name": "The Archive — A Community Storytelling Exhibition (6 September 2026)",
           "description": "A community storytelling exhibition by Impact Colliders that helps participants preserve their life stories and leave a legacy through the arts and technology — pairing seniors and youths through portraiture, conversation, and a digital archive of lived experiences.",
-          "image": "https://www.impactcolliders.com/assets/images/WebPhotos/Generational.jpg",
+          "image": "https://www.impactcolliders.com/thearchive/images/og-the-archive.jpg",
           "url": "https://www.impactcolliders.com/thearchive/",
           "startDate": "2026-09-06T15:00:00+08:00",
+          "endDate": "2026-09-06T19:30:00+08:00",
+          "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+          "eventStatus": "https://schema.org/EventScheduled",
+          "inLanguage": "en-SG",
+          "isAccessibleForFree": false,
+          "location": { "@id": "https://www.impactcolliders.com/thearchive/#venue" },
+          "organizer": { "@id": "https://www.impactcolliders.com/#organization" },
+          "offers": {
+            "@type": "Offer",
+            "name": "Admission — one senior",
+            "url": "https://www.impactcolliders.com/thearchive/signup",
+            "price": "100",
+            "priceCurrency": "SGD",
+            "availability": "https://schema.org/InStock",
+            "validFrom": "2026-07-01T00:00:00+08:00",
+            "category": "Primary"
+          },
+          "subEvent": [
+            {
+              "@type": "ExhibitionEvent",
+              "name": "Session 1 — 6 September 2026",
+              "startDate": "2026-09-06T15:00:00+08:00",
+              "endDate": "2026-09-06T17:00:00+08:00",
+              "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+              "eventStatus": "https://schema.org/EventScheduled",
+              "location": { "@id": "https://www.impactcolliders.com/thearchive/#venue" }
+            },
+            {
+              "@type": "ExhibitionEvent",
+              "name": "Session 2 — 6 September 2026",
+              "startDate": "2026-09-06T17:30:00+08:00",
+              "endDate": "2026-09-06T19:30:00+08:00",
+              "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+              "eventStatus": "https://schema.org/EventScheduled",
+              "location": { "@id": "https://www.impactcolliders.com/thearchive/#venue" }
+            }
+          ]
+        },
+        {
+          "@type": "ExhibitionEvent",
+          "@id": "https://www.impactcolliders.com/thearchive/#event-2026-09-13",
+          "name": "The Archive — A Community Storytelling Exhibition (13 September 2026)",
+          "description": "A community storytelling exhibition by Impact Colliders that helps participants preserve their life stories and leave a legacy through the arts and technology — pairing seniors and youths through portraiture, conversation, and a digital archive of lived experiences.",
+          "image": "https://www.impactcolliders.com/thearchive/images/og-the-archive.jpg",
+          "url": "https://www.impactcolliders.com/thearchive/",
+          "startDate": "2026-09-13T15:00:00+08:00",
           "endDate": "2026-09-13T19:30:00+08:00",
           "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
           "eventStatus": "https://schema.org/EventScheduled",
-          "location": {
-            "@type": "Place",
-            "name": "10 Square, Orchard Central",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "181 Orchard Road, #10-01",
-              "addressLocality": "Singapore",
-              "postalCode": "238896",
-              "addressCountry": "SG"
-            }
+          "inLanguage": "en-SG",
+          "isAccessibleForFree": false,
+          "location": { "@id": "https://www.impactcolliders.com/thearchive/#venue" },
+          "organizer": { "@id": "https://www.impactcolliders.com/#organization" },
+          "offers": {
+            "@type": "Offer",
+            "name": "Admission — one senior",
+            "url": "https://www.impactcolliders.com/thearchive/signup",
+            "price": "100",
+            "priceCurrency": "SGD",
+            "availability": "https://schema.org/InStock",
+            "validFrom": "2026-07-01T00:00:00+08:00",
+            "category": "Primary"
           },
-          "organizer": { "@id": "https://www.impactcolliders.com/#organization" }
+          "subEvent": [
+            {
+              "@type": "ExhibitionEvent",
+              "name": "Session 1 — 13 September 2026",
+              "startDate": "2026-09-13T15:00:00+08:00",
+              "endDate": "2026-09-13T17:00:00+08:00",
+              "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+              "eventStatus": "https://schema.org/EventScheduled",
+              "location": { "@id": "https://www.impactcolliders.com/thearchive/#venue" }
+            },
+            {
+              "@type": "ExhibitionEvent",
+              "name": "Session 2 — 13 September 2026",
+              "startDate": "2026-09-13T17:30:00+08:00",
+              "endDate": "2026-09-13T19:30:00+08:00",
+              "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+              "eventStatus": "https://schema.org/EventScheduled",
+              "location": { "@id": "https://www.impactcolliders.com/thearchive/#venue" }
+            }
+          ]
         }
       ]
     }
