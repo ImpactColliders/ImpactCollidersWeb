@@ -1,0 +1,10 @@
+:HL["/thearchive/memora/_next/static/chunks/1uo08o1bep069.css","style"]
+:HL["/thearchive/memora/_next/static/media/03fc1b4a8d284b5e-s.p.0wiir8udbzjvx.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/thearchive/memora/_next/static/media/1b99372b3eaef0c8-s.p.1gsd1jahc5dg_.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/thearchive/memora/_next/static/media/47fe1b7cd6e6ed85-s.p.3bh2vc0w-r-ll.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/thearchive/memora/_next/static/media/8d05cfa5faa8406c-s.p.1s123piy9_v1m.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/thearchive/memora/_next/static/media/8e6fa89aa22d24ec-s.p.2o7m9ogm38dql.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/thearchive/memora/_next/static/media/a218039a3287bcfd-s.p.43zbiuwnnoiok.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/thearchive/memora/_next/static/media/dc0d9adbac686440-s.p.3cik_s2si-ft-.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+:HL["/thearchive/memora/_next/static/media/e2334d715941921e-s.p.3o_v2fun1jzxk.woff2","font",{"crossOrigin":"","type":"font/woff2"}]
+0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}},"staleTime":300,"buildId":"EJZ4re7vp9FvbSlr9ELxZ"}

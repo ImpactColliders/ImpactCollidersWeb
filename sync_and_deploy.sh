@@ -1,7 +1,7 @@
 #!/bin/sh
 
-export AWS_PAGER = ""
-export AWS_DEFAULT_OUTPUT = "json"
+export AWS_PAGER=""
+export AWS_DEFAULT_OUTPUT="json"
 
 echo "[*] Syncing content/"
 aws s3 sync \

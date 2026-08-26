@@ -406,7 +406,8 @@
     "About": "index",
     "Sponsor": "sponsors",
     "Pay it Forward": "payitforward",
-    "Newsroom": "newsroom"
+    "Newsroom": "newsroom",
+    "Gallery": "gallery",
   };
   // Normalize to an extensionless page name so links work with clean URLs
   // (/thearchive/sponsors) and legacy ones (/thearchive/sponsors.html).
@@ -451,6 +452,12 @@
     go: function (label) {
       var page = PAGE_FOR_LABEL[label];
       if (page && page !== currentPage) {
+        // open in new tab if gallery
+        if (page === "gallery") {
+          const fullUrl = `/thearchive/memora/gallery`;
+          window.open(fullUrl, "_blank", "noopener,noreferrer");
+          return true;
+        }
         window.location.href = hrefFor(page);
         return true;
       }
@@ -599,6 +606,7 @@
     { label: "Sponsor", page: "sponsor" },
     { label: "Pay it Forward", page: "payitforward" },
     { label: "Newsroom", page: "newsroom" },
+    { label: "Gallery", page: "gallery" },
     { label: "Sign Up Here", signup: true }
   ];
 
