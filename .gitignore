@@ -1,3 +1,4 @@
 *.pem
 content/*
 !content/.gitkeep
+.idea/*
