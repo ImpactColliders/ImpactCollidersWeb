@@ -405,6 +405,18 @@ body.sponsor-page {
   padding: 0 6px;
 }
 
+/* Rule between the giving tiers and the Supporting Partners marquee, so the
+   organisations that gave money read as a block separate from the ones that
+   support us in kind. Newspaper-style double line to match the clipping. */
+.sp-tier-divider {
+  width: 100%;
+  max-width: 780px;
+  height: 5px;
+  margin: -8px 0 64px;
+  border-top: 2.5px solid #1c1c1c;
+  border-bottom: 1px solid #1c1c1c;
+}
+
 /* ---------------- Partners we work with: looping logo marquee ---------------- */
 .sp-tier {
   width: 100%;
@@ -756,6 +768,7 @@ body.sponsor-page {
   .sp-presenting-logos img { height: 76px; max-width: 130px; }
   .sp-presenting-amt { font-size: 20px; }
   .sp-friend-tier { margin-bottom: 56px; }
+  .sp-tier-divider { margin: -4px 0 44px; height: 4px; }
   .sp-friend-logos { gap: 24px; }
   .sp-friend-logo img { height: 60px; max-width: 170px; }
 
