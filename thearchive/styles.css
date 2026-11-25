@@ -2134,7 +2134,7 @@ a.stacked-block:hover {
   flex-shrink: 0;
   width: 100%;
   z-index: 1;
-  background-image: url("images/footer-photo.png");
+  background-image: url("images/footer-photo.jpg");
 }
 
 .mobile-view {
@@ -3354,7 +3354,7 @@ a.stacked-block:hover {
   position: relative;
   width: 100%;
   height: 100%;
-  background-image: url("images/footer-photo.png");
+  background-image: url("images/footer-photo.jpg");
 }
 
 .desktop-view-wrapper {
