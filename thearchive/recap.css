@@ -98,16 +98,6 @@ button.rc-photo:focus-visible {
   padding-top: 56px;
 }
 
-.rc-kicker {
-  font-family: "Poppins", sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: #57503f;
-  margin: 0 0 18px;
-}
-
 .rc-title {
   font-family: "Itim", sans-serif;
   font-weight: 400;
@@ -203,16 +193,6 @@ button.rc-photo:focus-visible {
   font-family: "Hammersmith One", sans-serif;
   font-size: 18px;
   margin-top: 6px;
-}
-
-.rc-stat-goal {
-  display: block;
-  font-family: "Poppins", sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  opacity: 0.85;
-  margin-top: 8px;
 }
 
 .rc-numbers-note {

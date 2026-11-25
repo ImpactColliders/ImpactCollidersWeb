@@ -4938,3 +4938,53 @@ a.stacked-block:hover {
   outline: 3px solid #f35933;
   outline-offset: -3px;
 }
+
+/* ---------------- Desktop header, 768–1279px ----------------
+   Below 1280px the nav links run into the centred logo. In that range the
+   logo moves to the left edge and the links follow it; wider screens keep
+   the centred logo. */
+@media (min-width: 768px) and (max-width: 1279px) {
+  .header-nav-row.desktop-header-overlay {
+    padding-inline: 32px;
+  }
+
+  .desktop-header-overlay > .the-archive-logo-2 {
+    align-items: flex-start;
+    padding-left: 32px;
+  }
+
+  .desktop-header-overlay > .header {
+    padding-left: 133px;
+  }
+
+  .archive-desktop-logo-link {
+    left: 32px;
+    transform: translateY(-50%);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 899px) {
+  .header-nav-row.desktop-header-overlay {
+    padding-inline: 24px;
+  }
+
+  .desktop-header-overlay > .the-archive-logo-2 {
+    padding-left: 24px;
+  }
+
+  .desktop-header-overlay > .header {
+    padding-left: 121px;
+  }
+
+  .archive-desktop-logo-link {
+    left: 24px;
+  }
+
+  .desktop-header-overlay .navigation-tab {
+    gap: 7px;
+  }
+
+  .desktop-header-overlay .navigation-tab [data-nav-link] {
+    font-size: 12px;
+  }
+}
