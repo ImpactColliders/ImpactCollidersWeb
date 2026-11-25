@@ -33,7 +33,7 @@
           io.unobserve(entry.target);
         });
       },
-      { rootMargin: "0px 0px -12% 0px", threshold: 0.15 }
+      { rootMargin: "0px 0px 5% 0px", threshold: 0.05 }
     );
     revealEls.forEach(function (el) { io.observe(el); });
   }
@@ -71,7 +71,7 @@
           countIO.unobserve(entry.target);
         });
       },
-      { threshold: 0.6 }
+      { threshold: 0.3 }
     );
     counters.forEach(function (el) { countIO.observe(el); });
   }
@@ -88,7 +88,7 @@
       ticking = false;
       var rect = path.getBoundingClientRect();
       var vh = window.innerHeight || root.clientHeight;
-      var drawTo = vh * 0.62 - rect.top; // px of the path that is "drawn"
+      var drawTo = vh * 0.85 - rect.top; // px of the path that is "drawn"
       var progress = Math.max(0, Math.min(1, drawTo / rect.height));
       path.style.setProperty("--draw", (progress * 100).toFixed(2) + "%");
 
