@@ -1,0 +1,834 @@
+/* ============================================================
+   Recap — wrap-up of The Archive's inaugural run (Sep 2026).
+   Built from the homepage's own pieces: cream paper, orange
+   bands, polaroids, the dashed orange path, Jersey 25 headings,
+   Itim / La Belle Aurore for the headline and the paper story
+   card. Chrome (header/footer) comes from styles.css; everything
+   below is scoped with an rc- prefix.
+   ============================================================ */
+
+body.recap-page {
+  background-color: #eadfcb;
+  color: #17130d;
+}
+
+.recap-page .desktop-view-wrapper,
+.recap-page .mobile-view-wrapper {
+  min-height: 0;
+}
+
+.recap-page .navigation-tab p[data-nav-link] {
+  cursor: pointer;
+}
+
+.rc-main img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.rc-wrap {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.rc-heading {
+  font-family: "Jersey 25", sans-serif;
+  font-weight: 400;
+  font-size: clamp(34px, 4.4vw, 44px);
+  line-height: 1.05;
+  text-align: center;
+  text-wrap: balance;
+  margin: 0 0 12px;
+}
+
+.rc-intro {
+  font-family: "Hammersmith One", sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+  color: #69645b;
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* ------------------------------------------------------------
+   Polaroid — the site's photo frame
+   ------------------------------------------------------------ */
+.rc-polaroid {
+  display: block;
+  margin: 0;
+  background: #fff;
+  padding: 9px 9px 30px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
+  rotate: var(--tilt, 0deg);
+}
+
+.rc-polaroid img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: var(--ratio, 4 / 3);
+  object-fit: cover;
+  background: #d9cdb2;
+}
+
+/* clickable photos open the viewer */
+button.rc-photo {
+  all: unset;
+  display: block;
+  cursor: zoom-in;
+  transition: transform 0.18s ease;
+}
+
+button.rc-photo:hover {
+  transform: translateY(-3px);
+}
+
+button.rc-photo:focus-visible {
+  outline: 3px solid #f35933;
+  outline-offset: 4px;
+}
+
+/* ------------------------------------------------------------
+   Hero
+   ------------------------------------------------------------ */
+.rc-hero {
+  text-align: center;
+  padding-top: 56px;
+}
+
+.rc-kicker {
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #57503f;
+  margin: 0 0 18px;
+}
+
+.rc-title {
+  font-family: "Itim", sans-serif;
+  font-weight: 400;
+  font-size: clamp(34px, 5vw, 56px);
+  line-height: 1.15;
+  margin: 0 auto;
+  max-width: 900px;
+  text-wrap: balance;
+}
+
+.rc-title .rc-script {
+  font-family: "La Belle Aurore", cursive;
+  font-size: 1.15em;
+  color: #f35933;
+  padding: 0 0.08em;
+}
+
+.rc-lede {
+  font-family: "Hammersmith One", sans-serif;
+  font-size: clamp(16px, 1.8vw, 19px);
+  line-height: 1.55;
+  color: #69645b;
+  max-width: 640px;
+  margin: 20px auto 0;
+}
+
+.rc-hero-photos {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 0;
+  margin-top: 44px;
+  padding: 0 24px 56px;
+  /* orange band rises behind the lower half of the photos */
+  background: linear-gradient(to bottom, transparent 58%, #f35933 58%);
+}
+
+.rc-hero-main {
+  position: relative;
+  width: min(100%, 860px);
+}
+
+.rc-hero-main .rc-polaroid {
+  --tilt: -1.2deg;
+  padding: 12px 12px 40px;
+}
+
+.rc-hero-stamp {
+  position: absolute;
+  left: -34px;
+  bottom: -26px;
+  width: clamp(70px, 11vw, 118px);
+  rotate: -10deg;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.2));
+  pointer-events: none;
+}
+
+/* ------------------------------------------------------------
+   Numbers band (orange)
+   ------------------------------------------------------------ */
+.rc-numbers {
+  background: #f35933;
+  color: #fff;
+  padding: 8px 0 64px;
+}
+
+.rc-stats {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.rc-stat {
+  text-align: center;
+  padding: 8px 12px;
+}
+
+.rc-stat + .rc-stat {
+  border-left: 2px dashed rgba(255, 255, 255, 0.55);
+}
+
+.rc-stat-num {
+  display: block;
+  font-family: "Jersey 25", sans-serif;
+  font-size: clamp(54px, 7vw, 92px);
+  line-height: 1;
+}
+
+.rc-stat-label {
+  display: block;
+  font-family: "Hammersmith One", sans-serif;
+  font-size: 18px;
+  margin-top: 6px;
+}
+
+.rc-stat-goal {
+  display: block;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  opacity: 0.85;
+  margin-top: 8px;
+}
+
+.rc-numbers-note {
+  font-family: "Hammersmith One", sans-serif;
+  font-size: 16px;
+  text-align: center;
+  margin: 40px auto 0;
+  max-width: 560px;
+}
+
+/* ------------------------------------------------------------
+   Highlight videos
+   ------------------------------------------------------------ */
+.rc-videos {
+  padding: 80px 0 24px;
+}
+
+.rc-video-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-top: 36px;
+}
+
+.rc-video {
+  margin: 0;
+}
+
+.rc-video-frame {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border: 2px solid #000;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #17130d;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
+}
+
+.rc-video-frame iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.rc-video figcaption {
+  font-family: "Poppins", sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+/* ------------------------------------------------------------
+   Photos from the day — the homepage's dashed orange path
+   ------------------------------------------------------------ */
+.rc-day {
+  padding: 80px 0 40px;
+}
+
+.rc-moments {
+  position: relative;
+  list-style: none;
+  margin: 56px 0 0;
+  padding: 0;
+}
+
+.rc-moments::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  border-left: 4px dashed #f35933;
+  transform: translateX(-50%);
+}
+
+.rc-moment {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 72px minmax(0, 1fr);
+  align-items: center;
+  padding: 36px 0;
+}
+
+.rc-moment-text {
+  grid-column: 1;
+  grid-row: 1;
+  text-align: right;
+}
+
+.rc-moment-dot {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #f35933;
+  box-shadow: 0 0 0 6px #eadfcb;
+}
+
+.rc-moment-media {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.rc-moment:nth-child(even) .rc-moment-text {
+  grid-column: 3;
+  text-align: left;
+}
+
+.rc-moment:nth-child(even) .rc-moment-media {
+  grid-column: 1;
+}
+
+.rc-moment-title {
+  font-family: "Jersey 25", sans-serif;
+  font-weight: 400;
+  color: #f35933;
+  font-size: 32px;
+  margin: 0 0 8px;
+}
+
+.rc-moment-desc {
+  font-family: "Hammersmith One", sans-serif;
+  color: #69645b;
+  font-size: 17px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.rc-moment-text {
+  max-width: 380px;
+}
+
+.rc-moment-text {
+  justify-self: end;
+}
+
+.rc-moment:nth-child(even) .rc-moment-text {
+  justify-self: start;
+}
+
+/* photo piles */
+.rc-pile {
+  display: grid;
+  gap: 16px;
+}
+
+.rc-pile--two,
+.rc-pile--four {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.rc-pile--lead {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.rc-pile--lead > :first-child {
+  grid-column: 1 / -1;
+}
+
+.rc-pile--two > :nth-child(2) {
+  margin-top: 36px;
+}
+
+.rc-pile--two .rc-polaroid,
+.rc-pile--four .rc-polaroid,
+.rc-pile--lead > :not(:first-child) .rc-polaroid {
+  padding: 7px 7px 22px;
+}
+
+/* ------------------------------------------------------------
+   Memora
+   ------------------------------------------------------------ */
+.rc-memora {
+  padding: 56px 0 88px;
+}
+
+.rc-memora-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: center;
+  background: #f8f2e4;
+  border: 1px solid #d9cdb2;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+}
+
+.rc-memora-screen {
+  margin: 0;
+  border: 2px solid #000;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #17130d;
+}
+
+.rc-memora-screen img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 800 / 350;
+  object-fit: cover;
+}
+
+.rc-memora .rc-heading,
+.rc-memora .rc-intro {
+  text-align: left;
+  margin-left: 0;
+}
+
+.rc-memora .rc-heading {
+  margin-bottom: 14px;
+}
+
+.rc-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  background: #f35933;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 12px 22px;
+  border-radius: 999px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.rc-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.rc-button:focus-visible {
+  outline: 3px solid #17130d;
+  outline-offset: 3px;
+}
+
+/* ------------------------------------------------------------
+   Participant stories — orange band, paper cards
+   ------------------------------------------------------------ */
+.rc-stories {
+  background: #f35933;
+  padding: 80px 0 96px;
+}
+
+.rc-stories .rc-heading {
+  color: #fff;
+}
+
+.rc-story-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin-top: 44px;
+}
+
+.rc-story {
+  position: relative;
+  margin: 0;
+  background: #fbf7ee;
+  border-radius: 6px;
+  padding: 18px 18px 28px;
+  box-shadow: 0 16px 30px rgba(0, 0, 0, 0.22);
+  rotate: var(--tilt, 0deg);
+}
+
+.rc-story-clip {
+  position: absolute;
+  top: -22px;
+  right: 34px;
+  width: 26px;
+  height: auto;
+  rotate: 8deg;
+}
+
+.rc-story img.rc-story-photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 3px;
+}
+
+.rc-story blockquote {
+  margin: 22px 6px 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(19px, 2vw, 22px);
+  line-height: 1.45;
+  color: #1c4a66;
+}
+
+.rc-story figcaption {
+  margin: 14px 6px 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #23486b;
+}
+
+/* ------------------------------------------------------------
+   Partners
+   ------------------------------------------------------------ */
+.rc-partners {
+  padding: 88px 0 24px;
+}
+
+.rc-partners-inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: 56px;
+  align-items: start;
+  margin-top: 44px;
+}
+
+.rc-partners-photo .rc-polaroid {
+  --tilt: -1.5deg;
+}
+
+.rc-partners-photo p {
+  font-family: "Hammersmith One", sans-serif;
+  font-size: 15px;
+  color: #69645b;
+  line-height: 1.5;
+  margin-top: 18px;
+}
+
+.rc-tier + .rc-tier {
+  margin-top: 36px;
+}
+
+.rc-tier-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #57503f;
+  margin: 0 0 16px;
+}
+
+.rc-tier-head::after {
+  content: "";
+  flex: 1;
+  border-top: 1px solid #57503f;
+}
+
+.rc-logos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 14px;
+}
+
+.rc-logos--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.rc-logos--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.rc-logos li {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.rc-logos--2 li {
+  height: 132px;
+}
+
+.rc-logos--3 li {
+  height: 96px;
+}
+
+.rc-logos img {
+  max-height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+.rc-names {
+  font-family: "Hammersmith One", sans-serif;
+  font-size: 16px;
+  line-height: 1.9;
+  color: #17130d;
+  margin-top: 22px;
+}
+
+.rc-names span {
+  white-space: nowrap;
+}
+
+.rc-names span:not(:last-child)::after {
+  content: "·";
+  color: #f35933;
+  margin-left: 10px;
+}
+
+/* ------------------------------------------------------------
+   Sign-off
+   ------------------------------------------------------------ */
+.rc-thanks {
+  position: relative;
+  text-align: center;
+  padding: 72px 24px 112px;
+}
+
+.rc-thanks p {
+  font-family: "La Belle Aurore", cursive;
+  font-size: clamp(64px, 11vw, 132px);
+  line-height: 1;
+  margin: 0;
+}
+
+.rc-thanks img {
+  width: 92px;
+  margin: 0 auto 8px;
+  rotate: -8deg;
+}
+
+/* ------------------------------------------------------------
+   Photo viewer
+   ------------------------------------------------------------ */
+.rc-viewer {
+  border: 0;
+  padding: 0;
+  background: transparent;
+  max-width: min(92vw, 1100px);
+  max-height: 90vh;
+  overflow: visible;
+}
+
+.rc-viewer::backdrop {
+  background: rgba(23, 19, 13, 0.82);
+}
+
+.rc-viewer img {
+  display: block;
+  max-width: min(92vw, 1100px);
+  max-height: 84vh;
+  width: auto;
+  height: auto;
+  background: #fff;
+  padding: 10px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+}
+
+.rc-viewer-close {
+  position: absolute;
+  top: -18px;
+  right: -18px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 0;
+  background: #f35933;
+  color: #fff;
+  font-size: 22px;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* ------------------------------------------------------------
+   Tablet / mobile
+   ------------------------------------------------------------ */
+@media (max-width: 900px) {
+  .rc-memora-inner,
+  .rc-partners-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .rc-memora-inner {
+    padding: 24px;
+  }
+
+  .rc-partners-photo {
+    max-width: 520px;
+  }
+}
+
+@media (max-width: 760px) {
+  .rc-hero {
+    padding-top: 36px;
+  }
+
+  .rc-hero-photos {
+    padding: 0 16px 40px;
+    margin-top: 32px;
+  }
+
+  .rc-hero-main .rc-polaroid {
+    padding: 8px 8px 26px;
+  }
+
+  .rc-hero-stamp {
+    left: -8px;
+    bottom: -18px;
+  }
+
+  .rc-stats {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 28px;
+  }
+
+  .rc-stat:nth-child(3) {
+    border-left: 0;
+  }
+
+  .rc-wrap {
+    padding: 0 16px;
+  }
+
+  .rc-video-grid,
+  .rc-story-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .rc-videos,
+  .rc-day,
+  .rc-stories,
+  .rc-partners {
+    padding-top: 56px;
+  }
+
+  /* path moves to the left edge; text sits above its photos */
+  .rc-moments::before {
+    left: 10px;
+  }
+
+  .rc-moment,
+  .rc-moment:nth-child(even) {
+    grid-template-columns: 20px minmax(0, 1fr);
+    column-gap: 18px;
+    row-gap: 18px;
+    padding: 24px 0;
+  }
+
+  .rc-moment-dot,
+  .rc-moment:nth-child(even) .rc-moment-dot {
+    grid-column: 1;
+    grid-row: 1;
+    width: 18px;
+    height: 18px;
+    justify-self: start;
+    align-self: start;
+    margin-top: 6px;
+  }
+
+  .rc-moment-text,
+  .rc-moment:nth-child(even) .rc-moment-text {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: left;
+    justify-self: start;
+  }
+
+  .rc-moment-media,
+  .rc-moment:nth-child(even) .rc-moment-media {
+    grid-column: 2;
+    grid-row: 2;
+  }
+
+  .rc-moment-title {
+    font-size: 28px;
+  }
+
+  .rc-pile {
+    gap: 12px;
+  }
+
+  .rc-logos--3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .rc-logos--3 li:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .rc-viewer-close {
+    top: -48px;
+    right: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  button.rc-photo,
+  .rc-button {
+    transition: none;
+  }
+}
+
+/* portrait-shaped photo sets stay compact beside the path */
+.rc-pile--narrow {
+  max-width: 440px;
+}
+
+.rc-moment:nth-child(even) .rc-pile--narrow {
+  margin-left: auto;
+}

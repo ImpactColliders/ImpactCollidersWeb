@@ -4903,3 +4903,38 @@ a.stacked-block:hover {
 .tree-page .tree-main {
   padding-top: 77px; /* height of the pinned header */
 }
+
+/* ---------------- Recap ribbon (homepage → recap page) ---------------- */
+.recap-ribbon {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px 12px;
+  background: #17130d;
+  color: #eadfcb;
+  font-family: "Hammersmith One", sans-serif;
+  font-size: 15px;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+  padding: 11px 16px;
+}
+
+.recap-ribbon-cta {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #f35933;
+  white-space: nowrap;
+}
+
+.recap-ribbon:hover .recap-ribbon-cta {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.recap-ribbon:focus-visible {
+  outline: 3px solid #f35933;
+  outline-offset: -3px;
+}

@@ -404,6 +404,7 @@
 
   var PAGE_FOR_LABEL = {
     "About": "index",
+    "Recap": "recap",
     "Sponsor": "sponsors",
     "Pay it Forward": "payitforward",
     "Newsroom": "newsroom",
@@ -603,6 +604,7 @@
 
   var ITEMS = [
     { label: "About", page: "index" },
+    { label: "Recap", page: "recap" },
     { label: "Sponsor", page: "sponsor" },
     { label: "Pay it Forward", page: "payitforward" },
     { label: "Newsroom", page: "newsroom" },
