@@ -1,10 +1,15 @@
 /* ============================================================
    Recap — wrap-up of The Archive's inaugural run (Sep 2026).
    Built from the homepage's own pieces: cream paper, orange
-   bands, polaroids, the dashed orange path, Jersey 25 headings,
-   Itim / La Belle Aurore for the headline and the paper story
-   card. Chrome (header/footer) comes from styles.css; everything
-   below is scoped with an rc- prefix.
+   bands, polaroids, the dashed orange path, spinning shapes,
+   Jersey 25 headings, Itim / La Belle Aurore for the headline
+   and the paper story card. Chrome (header/footer) comes from
+   styles.css; everything below is scoped with an rc- prefix.
+
+   Motion lives in one block near the end, inside
+   prefers-reduced-motion: no-preference, and only applies once
+   the page is marked with .rc-js — so without JS or with
+   reduced motion the page is complete and still.
    ============================================================ */
 
 body.recap-page {
@@ -19,6 +24,10 @@ body.recap-page {
 
 .recap-page .navigation-tab p[data-nav-link] {
   cursor: pointer;
+}
+
+.rc-main {
+  overflow-x: clip;
 }
 
 .rc-main img {
@@ -78,11 +87,11 @@ button.rc-photo {
   all: unset;
   display: block;
   cursor: zoom-in;
-  transition: transform 0.18s ease;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 button.rc-photo:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px) scale(1.02);
 }
 
 button.rc-photo:focus-visible {
@@ -108,6 +117,10 @@ button.rc-photo:focus-visible {
   text-wrap: balance;
 }
 
+.rc-word {
+  display: inline-block;
+}
+
 .rc-title .rc-script {
   font-family: "La Belle Aurore", cursive;
   font-size: 1.15em;
@@ -127,17 +140,47 @@ button.rc-photo:focus-visible {
 .rc-hero-photos {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  gap: 0;
   margin-top: 44px;
   padding: 0 24px 56px;
-  /* orange band rises behind the lower half of the photos */
+  /* orange band rises behind the lower half of the photo */
   background: linear-gradient(to bottom, transparent 58%, #f35933 58%);
+}
+
+.rc-hero-stage {
+  position: relative;
+  width: min(100%, 860px);
+}
+
+/* the homepage's slowly spinning shapes, peeking out behind the photo */
+.rc-blob {
+  position: absolute;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.rc-blob svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.rc-blob--left {
+  width: 300px;
+  height: 300px;
+  left: -190px;
+  top: -70px;
+}
+
+.rc-blob--right {
+  width: 260px;
+  height: 260px;
+  right: -170px;
+  top: 4%;
 }
 
 .rc-hero-main {
   position: relative;
-  width: min(100%, 860px);
+  z-index: 1;
 }
 
 .rc-hero-main .rc-polaroid {
@@ -186,6 +229,7 @@ button.rc-photo:focus-visible {
   font-family: "Jersey 25", sans-serif;
   font-size: clamp(54px, 7vw, 92px);
   line-height: 1;
+  font-variant-numeric: tabular-nums;
 }
 
 .rc-stat-label {
@@ -258,7 +302,7 @@ button.rc-photo:focus-visible {
 }
 
 /* ------------------------------------------------------------
-   Highlight videos
+   Highlight videos — thumbnail stands in until you press play
    ------------------------------------------------------------ */
 .rc-videos {
   padding: 80px 0 24px;
@@ -285,12 +329,65 @@ button.rc-photo:focus-visible {
   box-shadow: 0 14px 32px rgba(0, 0, 0, 0.12);
 }
 
-.rc-video-frame iframe {
+.rc-video-frame iframe,
+.rc-yt {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
   border: 0;
+}
+
+.rc-yt {
+  display: block;
+  cursor: pointer;
+}
+
+.rc-main .rc-yt img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.rc-yt::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(23, 19, 13, 0.45), transparent 55%);
+}
+
+.rc-yt-play {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  top: 50%;
+  width: 76px;
+  height: 76px;
+  margin: -38px 0 0 -38px;
+  border-radius: 50%;
+  background: #f35933;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 4px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.rc-yt:hover img {
+  transform: scale(1.04);
+}
+
+.rc-yt:hover .rc-yt-play,
+.rc-yt:focus-visible .rc-yt-play {
+  transform: scale(1.12);
+}
+
+.rc-yt:focus-visible {
+  outline: 3px solid #f35933;
+  outline-offset: -3px;
 }
 
 .rc-video figcaption {
@@ -308,6 +405,7 @@ button.rc-photo:focus-visible {
 }
 
 .rc-moments {
+  --draw: 100%;
   position: relative;
   list-style: none;
   margin: 56px 0 0;
@@ -322,6 +420,7 @@ button.rc-photo:focus-visible {
   left: 50%;
   border-left: 4px dashed #f35933;
   transform: translateX(-50%);
+  clip-path: inset(0 0 calc(100% - var(--draw)) 0);
 }
 
 .rc-moment {
@@ -336,6 +435,9 @@ button.rc-photo:focus-visible {
   grid-column: 1;
   grid-row: 1;
   text-align: right;
+  max-width: 380px;
+  justify-self: end;
+  transform-origin: right center;
 }
 
 .rc-moment-dot {
@@ -352,22 +454,26 @@ button.rc-photo:focus-visible {
 .rc-moment-media {
   grid-column: 3;
   grid-row: 1;
+  transform-origin: left center;
 }
 
 .rc-moment:nth-child(even) .rc-moment-text {
   grid-column: 3;
   text-align: left;
+  justify-self: start;
+  transform-origin: left center;
 }
 
 .rc-moment:nth-child(even) .rc-moment-media {
   grid-column: 1;
+  transform-origin: right center;
 }
 
 .rc-moment-title {
   font-family: "Jersey 25", sans-serif;
   font-weight: 400;
   color: #f35933;
-  font-size: 32px;
+  font-size: 34px;
   margin: 0 0 8px;
 }
 
@@ -377,18 +483,6 @@ button.rc-photo:focus-visible {
   font-size: 17px;
   line-height: 1.55;
   margin: 0;
-}
-
-.rc-moment-text {
-  max-width: 380px;
-}
-
-.rc-moment-text {
-  justify-self: end;
-}
-
-.rc-moment:nth-child(even) .rc-moment-text {
-  justify-self: start;
 }
 
 /* photo piles */
@@ -418,6 +512,15 @@ button.rc-photo:focus-visible {
 .rc-pile--four .rc-polaroid,
 .rc-pile--lead > :not(:first-child) .rc-polaroid {
   padding: 7px 7px 22px;
+}
+
+/* portrait-shaped photo sets stay compact beside the path */
+.rc-pile--narrow {
+  max-width: 440px;
+}
+
+.rc-moment:nth-child(even) .rc-pile--narrow {
+  margin-left: auto;
 }
 
 /* ------------------------------------------------------------
@@ -477,12 +580,20 @@ button.rc-photo:focus-visible {
   padding: 12px 22px;
   border-radius: 999px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
-  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.2s ease;
+}
+
+.rc-button span {
+  transition: transform 0.2s ease;
 }
 
 .rc-button:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.rc-button:hover span {
+  transform: translateX(4px);
 }
 
 .rc-button:focus-visible {
@@ -519,18 +630,16 @@ button.rc-photo:focus-visible {
   rotate: var(--tilt, 0deg);
 }
 
-.rc-story-clip {
+.rc-main .rc-story-clip {
   position: absolute;
   top: -22px;
   right: 34px;
   width: 26px;
-  height: auto;
   rotate: 8deg;
 }
 
-.rc-story img.rc-story-photo {
+.rc-main img.rc-story-photo {
   width: 100%;
-  height: auto;
   aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: 3px;
@@ -567,18 +676,6 @@ button.rc-photo:focus-visible {
   gap: 56px;
   align-items: start;
   margin-top: 44px;
-}
-
-.rc-partners-photo .rc-polaroid {
-  --tilt: -1.5deg;
-}
-
-.rc-partners-photo p {
-  font-family: "Hammersmith One", sans-serif;
-  font-size: 15px;
-  color: #69645b;
-  line-height: 1.5;
-  margin-top: 18px;
 }
 
 .rc-tier + .rc-tier {
@@ -638,7 +735,7 @@ button.rc-photo:focus-visible {
   height: 96px;
 }
 
-.rc-logos img {
+.rc-main .rc-logos img {
   max-height: 100%;
   width: auto;
   object-fit: contain;
@@ -663,22 +760,60 @@ button.rc-photo:focus-visible {
 }
 
 /* ------------------------------------------------------------
+   Photo reel — a tilted orange strip that keeps rolling,
+   like the homepage's looping pictures
+   ------------------------------------------------------------ */
+.rc-reel {
+  padding: 72px 0 24px;
+  overflow: hidden;
+}
+
+.rc-reel-band {
+  background: #f35933;
+  padding: 26px 0;
+  rotate: -2deg;
+  margin: 0 -40px;
+}
+
+.rc-reel-track {
+  display: flex;
+  gap: 22px;
+  width: max-content;
+  padding-left: 22px;
+}
+
+.rc-reel-item {
+  flex: none;
+  background: #fff;
+  padding: 7px 7px 20px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+  rotate: var(--tilt, 0deg);
+}
+
+.rc-main .rc-reel-item img {
+  height: 168px;
+  width: auto;
+  max-width: none;
+  object-fit: cover;
+}
+
+/* ------------------------------------------------------------
    Sign-off
    ------------------------------------------------------------ */
 .rc-thanks {
   position: relative;
   text-align: center;
-  padding: 72px 24px 112px;
+  padding: 64px 24px 112px;
 }
 
 .rc-thanks p {
   font-family: "La Belle Aurore", cursive;
   font-size: clamp(64px, 11vw, 132px);
-  line-height: 1;
+  line-height: 1.1;
   margin: 0;
 }
 
-.rc-thanks img {
+.rc-main .rc-thanks-stamp {
   width: 92px;
   margin: 0 auto 8px;
   rotate: -8deg;
@@ -690,46 +825,120 @@ button.rc-photo:focus-visible {
 .rc-viewer {
   border: 0;
   padding: 0;
+  margin: auto;
   background: transparent;
-  max-width: min(92vw, 1100px);
-  max-height: 90vh;
+  width: min(92vw, 1100px);
+  max-width: none;
+  max-height: none;
   overflow: visible;
 }
 
 .rc-viewer::backdrop {
-  background: rgba(23, 19, 13, 0.82);
+  background: rgba(23, 19, 13, 0.86);
 }
 
-.rc-viewer img {
+.rc-viewer-figure {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.rc-viewer-img {
   display: block;
-  max-width: min(92vw, 1100px);
-  max-height: 84vh;
+  max-width: 100%;
+  max-height: 78vh;
   width: auto;
   height: auto;
   background: #fff;
-  padding: 10px;
+  padding: 10px 10px 14px;
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
 }
 
+.rc-viewer figcaption {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+  margin-top: 14px;
+  color: #eadfcb;
+}
+
+.rc-viewer-caption {
+  font-family: "Jersey 25", sans-serif;
+  font-size: 24px;
+  color: #fff;
+}
+
+.rc-viewer-count {
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  opacity: 0.75;
+}
+
+.rc-viewer-btn,
 .rc-viewer-close {
   position: absolute;
+  border: 0;
+  border-radius: 50%;
+  background: #f35933;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.rc-viewer-btn {
+  top: calc(50% - 46px);
+  width: 48px;
+  height: 48px;
+}
+
+.rc-viewer-prev {
+  left: -72px;
+}
+
+.rc-viewer-next {
+  right: -72px;
+}
+
+.rc-viewer-close {
   top: -18px;
   right: -18px;
   width: 40px;
   height: 40px;
-  border-radius: 50%;
-  border: 0;
-  background: #f35933;
-  color: #fff;
-  font-size: 22px;
+  font-size: 24px;
   line-height: 1;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+.rc-viewer-btn:hover,
+.rc-viewer-close:hover {
+  transform: scale(1.1);
+}
+
+.rc-viewer-btn:focus-visible,
+.rc-viewer-close:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
 }
 
 /* ------------------------------------------------------------
    Tablet / mobile
    ------------------------------------------------------------ */
+@media (max-width: 1100px) {
+  .rc-viewer-prev {
+    left: 8px;
+  }
+
+  .rc-viewer-next {
+    right: 8px;
+  }
+}
+
 @media (max-width: 900px) {
   .rc-memora-inner,
   .rc-partners-inner {
@@ -763,6 +972,20 @@ button.rc-photo:focus-visible {
   .rc-hero-stamp {
     left: -8px;
     bottom: -18px;
+  }
+
+  .rc-blob--left {
+    width: 170px;
+    height: 170px;
+    left: -86px;
+    top: -54px;
+  }
+
+  .rc-blob--right {
+    width: 150px;
+    height: 150px;
+    right: -74px;
+    top: 30%;
   }
 
   .rc-stats {
@@ -814,6 +1037,12 @@ button.rc-photo:focus-visible {
     gap: 28px;
   }
 
+  .rc-yt-play {
+    width: 60px;
+    height: 60px;
+    margin: -30px 0 0 -30px;
+  }
+
   .rc-videos,
   .rc-day,
   .rc-stories,
@@ -851,12 +1080,14 @@ button.rc-photo:focus-visible {
     grid-row: 1;
     text-align: left;
     justify-self: start;
+    transform-origin: left top;
   }
 
   .rc-moment-media,
   .rc-moment:nth-child(even) .rc-moment-media {
     grid-column: 2;
     grid-row: 2;
+    transform-origin: left top;
   }
 
   .rc-moment-title {
@@ -875,24 +1106,290 @@ button.rc-photo:focus-visible {
     grid-column: 1 / -1;
   }
 
+  .rc-reel {
+    padding-top: 48px;
+  }
+
+  .rc-main .rc-reel-item img {
+    height: 120px;
+  }
+
+  .rc-viewer-btn {
+    top: auto;
+    bottom: -58px;
+  }
+
+  .rc-viewer-prev {
+    left: calc(50% - 60px);
+  }
+
+  .rc-viewer-next {
+    right: calc(50% - 60px);
+  }
+
   .rc-viewer-close {
-    top: -48px;
+    top: -52px;
     right: 0;
+  }
+}
+
+/* ============================================================
+   Motion
+   ============================================================ */
+@keyframes rc-rise {
+  from {
+    opacity: 0;
+    transform: translateY(0.6em);
+  }
+}
+
+@keyframes rc-write {
+  from {
+    clip-path: inset(-30% 100% -30% -10%);
+  }
+  to {
+    clip-path: inset(-30% -10% -30% -10%);
+  }
+}
+
+@keyframes rc-slap {
+  0% {
+    opacity: 0;
+    transform: scale(2.4) rotate(-24deg);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(0.9) rotate(3deg);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes rc-pan {
+  from {
+    transform: scale(1.1) translateX(-3.5%);
+  }
+  to {
+    transform: scale(1.1) translateX(3.5%);
+  }
+}
+
+@keyframes rc-pulse {
+  0% {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(243, 89, 51, 0.65);
+  }
+  70% {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3), 0 0 0 18px rgba(243, 89, 51, 0);
+  }
+  100% {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(243, 89, 51, 0);
+  }
+}
+
+@keyframes rc-viewer-in {
+  from {
+    opacity: 0;
+    transform: scale(0.92) translateY(12px);
+  }
+}
+
+@keyframes rc-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes rc-clip-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-26px);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  /* ---- Hero: headline words rise, "wrap" writes itself in, the
+     polaroid drops in with the homepage's bounce then floats, the
+     stamp lands on it, the shapes keep turning ---- */
+  .rc-js .rc-word {
+    animation: rc-rise 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    animation-delay: calc(var(--i, 0) * 70ms + 80ms);
+  }
+
+  .rc-js .rc-title .rc-script {
+    animation: rc-write 0.9s cubic-bezier(0.6, 0.1, 0.3, 1) 0.55s both;
+  }
+
+  .rc-js .rc-lede {
+    animation: rc-rise 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s both;
+  }
+
+  .rc-js .rc-hero-main {
+    animation: archive-polaroid-in-b 0.7s linear 0.75s both,
+      archive-float-b 3.4s ease-in-out 1.45s infinite;
+  }
+
+  .rc-js .rc-hero-stamp {
+    animation: rc-slap 0.55s cubic-bezier(0.3, 1.3, 0.5, 1) 1.35s both;
+  }
+
+  .rc-blob--left {
+    animation: archive-spin 18s linear infinite;
+  }
+
+  .rc-blob--right {
+    animation: archive-spin 22s linear infinite reverse;
+  }
+
+  /* ---- Scroll reveals ---- */
+  .rc-js [data-reveal] {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.6s ease, transform 0.75s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transition-delay: calc(var(--i, 0) * 90ms);
+  }
+
+  .rc-js [data-reveal="pop"] {
+    transform: scale(0.7);
+    transition: opacity 0.4s ease, transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transition-delay: calc(var(--i, 0) * 90ms);
+  }
+
+  .rc-js [data-reveal="left"] {
+    transform: translateX(-90px) rotate(-7deg);
+    transition-duration: 0.6s, 0.8s;
+    transition-timing-function: ease, cubic-bezier(0.34, 1.3, 0.64, 1);
+  }
+
+  .rc-js [data-reveal="right"] {
+    transform: translateX(90px) rotate(7deg);
+    transition-duration: 0.6s, 0.8s;
+    transition-timing-function: ease, cubic-bezier(0.34, 1.3, 0.64, 1);
+  }
+
+  .rc-js [data-reveal].is-in {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* paperclip clips on once the card has landed */
+  .rc-js .rc-story .rc-story-clip {
+    opacity: 0;
+  }
+
+  .rc-js .rc-story.is-in .rc-story-clip {
+    animation: rc-clip-drop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    animation-delay: calc(var(--i, 0) * 90ms + 0.55s);
+    opacity: 1;
+  }
+
+  /* ---- "thank you." writes itself, then the stamp lands ---- */
+  .rc-js [data-reveal="write"] {
+    opacity: 1;
+    transform: none;
+  }
+
+  .rc-js .rc-thanks p {
+    clip-path: inset(-30% 100% -30% -5%);
+    transition: clip-path 1.7s cubic-bezier(0.6, 0.1, 0.3, 1) 0.15s;
+  }
+
+  .rc-js .rc-thanks.is-in p {
+    clip-path: inset(-30% -5% -30% -5%);
+  }
+
+  .rc-js .rc-thanks-stamp {
+    opacity: 0;
+  }
+
+  .rc-js .rc-thanks.is-in .rc-thanks-stamp {
+    animation: rc-slap 0.55s cubic-bezier(0.3, 1.3, 0.5, 1) 1.5s both;
+  }
+
+  /* ---- Dashed path: drawn by scroll (recap.js sets --draw);
+     each moment pops in once the line reaches its dot ---- */
+  .rc-js .rc-moments {
+    --draw: 0%;
+  }
+
+  .rc-js .rc-moment-dot {
+    transform: scale(0);
+    transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .rc-js .rc-moment-text,
+  .rc-js .rc-moment-media {
+    opacity: 0;
+    transform: scale(0.3);
+    transition: opacity 0.45s cubic-bezier(0.34, 1.56, 0.64, 1),
+      transform 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .rc-js .rc-pile .rc-polaroid {
+    opacity: 0;
+    transform: translateY(26px) scale(0.92);
+    transition: opacity 0.4s ease, transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .rc-js .rc-moment.is-reached .rc-moment-dot {
+    transform: scale(1);
+  }
+
+  .rc-js .rc-moment.is-reached .rc-moment-text,
+  .rc-js .rc-moment.is-reached .rc-moment-media {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .rc-js .rc-moment.is-reached .rc-pile .rc-polaroid {
+    opacity: 1;
+    transform: none;
+    transition-delay: calc(var(--i, 0) * 90ms + 120ms);
+  }
+
+  /* ---- Little loops ---- */
+  .rc-memora-screen img {
+    animation: rc-pan 14s ease-in-out infinite alternate;
+  }
+
+  .rc-yt-play {
+    animation: rc-pulse 2s ease-out infinite;
+  }
+
+  .rc-reel-track {
+    animation: archive-marquee 70s linear infinite;
+  }
+
+  .rc-reel:hover .rc-reel-track {
+    animation-play-state: paused;
+  }
+
+  /* ---- Viewer ---- */
+  .rc-viewer[open] .rc-viewer-figure {
+    animation: rc-viewer-in 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+  }
+
+  .rc-viewer.is-swapping .rc-viewer-img {
+    animation: rc-fade 0.3s ease both;
+  }
+
+  .rc-viewer[open]::backdrop {
+    animation: rc-fade 0.3s ease both;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   button.rc-photo,
-  .rc-button {
+  .rc-button,
+  .rc-button span,
+  .rc-yt img,
+  .rc-yt-play {
     transition: none;
   }
-}
 
-/* portrait-shaped photo sets stay compact beside the path */
-.rc-pile--narrow {
-  max-width: 440px;
-}
-
-.rc-moment:nth-child(even) .rc-pile--narrow {
-  margin-left: auto;
+  /* the reel becomes a strip you can scroll sideways */
+  .rc-reel {
+    overflow-x: auto;
+  }
 }

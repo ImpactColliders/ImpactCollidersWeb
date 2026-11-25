@@ -41,8 +41,22 @@
       }
     }
   </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link rel="preload" as="image" href="images/recap/audience-sm.jpg"
+        imagesrcset="images/recap/audience-sm.jpg 720w, images/recap/audience.jpg 1600w"
+        imagesizes="(max-width: 760px) 92vw, 860px" fetchpriority="high"/>
   <link href="styles.css" rel="stylesheet"/>
   <link href="recap.css" rel="stylesheet"/>
+  <script>
+    // Hide-then-animate only while recap.js is on its way; if it never
+    // arrives, show the page as-is rather than leave it hidden.
+    document.documentElement.classList.add("rc-js");
+    setTimeout(function () {
+      if (!window.__rcReady) document.documentElement.classList.remove("rc-js");
+    }, 3000);
+  </script>
+  <script src="recap.js" defer></script>
   <link rel="icon" href="/assets/images/logo.jpg"/>
   <!-- Meta Pixel -->
   <script>
@@ -339,7 +353,7 @@
 <main class="rc-main">
   <section class="rc-hero">
     <div class="rc-wrap">
-      <h1 class="rc-title">That’s a <span class="rc-script">wrap</span> on our very first Archive</h1>
+      <h1 class="rc-title"><span class="rc-word" style="--i:0">That’s</span> <span class="rc-word" style="--i:1">a</span> <span class="rc-word rc-script" style="--i:2">wrap</span> <span class="rc-word" style="--i:3">on</span> <span class="rc-word" style="--i:4">our</span> <span class="rc-word" style="--i:5">very</span> <span class="rc-word" style="--i:6">first</span> <span class="rc-word" style="--i:7">Archive</span></h1>
       <p class="rc-lede">
         Over two Sundays, 6 &amp; 13 September 2026, seniors joined us at 10 Square, Orchard Central
         for crafts, conversation and a portrait drawn by our youth artists. Each went home with their
@@ -347,9 +361,17 @@
       </p>
     </div>
     <div class="rc-hero-photos">
-      <div class="rc-hero-main">
-        <button class="rc-photo" type="button" data-full="images/recap/audience.jpg" aria-label="View larger: Seniors, volunteers and guests gathered in the hall at The Archive"><span class="rc-polaroid" style="--tilt:-1.2deg;--ratio:1600 / 770"><img src="images/recap/audience.jpg" alt="Seniors, volunteers and guests gathered in the hall at The Archive" width="1600" height="770" decoding="async"/></span></button>
-        <img class="rc-hero-stamp" src="images/stamp.png" alt="" aria-hidden="true" width="303" height="411"/>
+      <div class="rc-hero-stage">
+        <div class="rc-blob rc-blob--left" aria-hidden="true">
+          <svg viewBox="0 0 265.92 265.92"><path d="M131.898 4.81739C143.358 7.69573 144.041 23.8221 152.627 27.9629C160.015 31.5239 173.406 12.3248 182.023 14.8393C188.97 20.0439 186.406 33.3674 190.019 41.3093C194.719 51.6314 214.362 37.7533 222.097 41.6361C231.025 46.1105 217.404 65.9197 221.582 72.9853C226.505 79.9135 240.238 77.4535 247.253 80.6202C259.471 86.133 242.56 99.0995 239.617 105.526C238.661 107.603 237.009 110.326 238.152 112.813C240.691 118.362 247.998 120.781 252.76 124.035C275.084 136.961 246.328 142.322 239.207 150.981C232.794 158.787 251.599 171.659 251.561 179.243C251.499 191.062 227.747 184.425 222.252 191.982C216.553 199.48 230.006 216.798 223.277 223.45C219.285 227.394 204.981 221.557 199.059 220.86C182.005 218.856 191.987 243.451 182.538 250.674C176.187 255.434 162.362 237.74 156.216 237.707C145.376 237.648 144.761 254.054 134.046 261.103C123.579 260.414 121.443 241.463 112.932 238.046C104.569 234.689 91.4762 254.767 83.5049 250.808C77.7436 247.944 78.5755 232.883 76.6944 226.861C72.0941 212.149 52.2465 229.282 42.8348 223.716C36.5769 219.495 45.8582 202.773 44.9083 195.268C43.617 185.028 20.6528 189.389 15.4813 183.396C8.88199 175.741 29.1394 162.615 27.8854 154.506C26.0725 146.598 13.2215 143.442 7.94454 138.542C-3.72692 127.707 20.6466 122.148 25.9484 115.627C33.7273 106.077 13.0974 94.5527 14.1031 85.7815C15.2206 76.0158 37.1418 80.4779 42.6299 74.9638C50.4398 67.7998 34.4971 47.6242 43.3252 41.8805C47.7268 39.0183 60.9628 44.3319 66.8606 45.0609C83.7035 47.1446 73.6214 22.4525 83.5856 14.8158C91.2031 12.7797 102.123 26.4659 109.319 28.0848C119.19 30.3072 121.642 10.5376 131.898 4.81739Z" fill="#9BBCC0"/></svg>
+        </div>
+        <div class="rc-blob rc-blob--right" aria-hidden="true">
+          <svg viewBox="0 0 237.016 237.016"><path d="M117.213 0C130.726 1.00611 122.321 36.3433 130.739 40.1023C143.005 45.5897 146.602 10.9376 158.273 7.11685C159.37 7.29585 160.642 7.39456 161.388 8.61053C166.127 17.0236 155.039 36.2446 156.537 44.4292C160.291 65.0205 182.505 27.4797 194.445 26.8871C206.805 33.0349 174.425 57.4284 180.029 67.8105C189.738 74.0199 208.811 55.5767 221.515 58.2C232.277 66.9093 192.821 79.3159 194.069 91.8892C199.804 102.074 237.31 86.1549 236.978 99.7405C232.127 109.542 201.697 107.678 198.964 118.591C200.775 130.43 236.301 127.461 237.016 139.152C235.11 143.997 228.31 143.54 223.333 143.083C210.992 141.966 177.227 137.973 203.088 157.854C208.447 161.971 222.938 169.446 223.164 176.489C222.399 178.464 222.493 178.34 220.732 179.556C213.574 181.211 199.509 172.273 192.245 169.717C165.049 160.163 187.82 188.562 192.978 196.253C195.328 199.759 197.666 204.308 196.657 208.555C195.046 210.4 196.03 209.721 193.448 210.425C183.658 208.758 169.681 185.686 159.821 186.698C147.806 193.407 171.385 224.233 159.069 229.683C150.532 233.46 140.435 190.55 131.886 196.438C124.314 201.654 126.615 224.689 122.597 234.738C120.66 236.707 120.51 236.713 118.272 237.016C107.918 233.683 114.894 201.061 106.156 197.074C94.5985 191.809 90.2612 228.454 78.5028 230.275C65.7541 225.566 90.0481 192.21 77.3557 186.729C68.4993 182.902 46.75 220.77 40.15 207.135C39.9933 196.061 62.2127 178.174 57.7751 169.576C47.7529 161.249 20.4378 188.655 14.17 176.532C14.2139 166.008 45.8475 156.175 43.5033 145.571C36.7842 136.355 3.11359 149.398 0.0736981 138.726C3.04464 127.782 36.7717 129.992 38.5705 118.042C34.1016 106.851 -1.16737 109.147 0.0297806 97.5061C6.36027 88.5252 38.3449 101.154 43.3028 91.7719C44.0737 79.1308 12.9415 71.2979 14.3768 60.4035C19.4851 50.4721 49.1883 64.3662 56.8789 67.65C52.0088 60.3418 40.3945 42.8429 39.8492 34.4545C38.464 13.2707 64.0617 44.028 68.4367 46.7192C71.8714 48.824 74.0589 51.0893 78.4965 50.4597C88.0424 43.8614 67.39 12.7831 77.9387 6.96253C90.3928 8.43158 92.831 41.2381 104.803 40.7567C115.821 36.2631 107.297 10.9252 117.213 0Z" fill="#93BBA0"/></svg>
+        </div>
+        <div class="rc-hero-main">
+          <button class="rc-photo" type="button" data-full="images/recap/audience.jpg" data-caption="The Archive 2026" aria-label="View larger: Seniors, volunteers and guests gathered in the hall at The Archive" style="--i:0"><span class="rc-polaroid" style="--tilt:-1.2deg;--ratio:1600 / 770"><img src="images/recap/audience-sm.jpg" srcset="images/recap/audience-sm.jpg 720w, images/recap/audience.jpg 1600w" sizes="(max-width: 760px) 92vw, 860px" alt="Seniors, volunteers and guests gathered in the hall at The Archive" width="1600" height="770" fetchpriority="high" decoding="async"/></span></button>
+          <img class="rc-hero-stamp" src="images/recap/stamp.png" alt="" aria-hidden="true" width="191" height="260"/>
+        </div>
       </div>
     </div>
   </section>
@@ -357,37 +379,37 @@
   <section class="rc-numbers" aria-label="The Archive 2026 in numbers">
     <div class="rc-wrap">
       <ul class="rc-stats">
-        <li class="rc-stat">
-          <span class="rc-stat-num">400</span>
+        <li class="rc-stat" data-reveal style="--i:0">
+          <span class="rc-stat-num" data-count="400">400</span>
           <span class="rc-stat-label">seniors</span>
         </li>
-        <li class="rc-stat">
-          <span class="rc-stat-num">100</span>
+        <li class="rc-stat" data-reveal style="--i:1">
+          <span class="rc-stat-num" data-count="100">100</span>
           <span class="rc-stat-label">youths</span>
         </li>
-        <li class="rc-stat">
-          <span class="rc-stat-num">2</span>
+        <li class="rc-stat" data-reveal style="--i:2">
+          <span class="rc-stat-num" data-count="2">2</span>
           <span class="rc-stat-label">event days</span>
         </li>
-        <li class="rc-stat">
-          <span class="rc-stat-num">$40,000</span>
+        <li class="rc-stat" data-reveal style="--i:3">
+          <span class="rc-stat-num" data-count="40000" data-prefix="$">$40,000</span>
           <span class="rc-stat-label">raised</span>
         </li>
       </ul>
-      <p class="rc-numbers-note">The $40,000 raised was channelled through The Bloom Fund.</p>
-      <div class="rc-organisers">
+      <p class="rc-numbers-note" data-reveal style="--i:4">The $40,000 raised was channelled through The Bloom Fund.</p>
+      <div class="rc-organisers" data-reveal style="--i:5">
         <div class="rc-org-group">
           <p class="rc-org-label">Organised by</p>
           <div class="rc-org-logos">
-            <img class="rc-org-ic" src="images/impact-colliders-logo-black.png" alt="Impact Colliders" loading="lazy"/>
-            <img class="rc-org-trcl" src="images/trcl-logo.png" alt="TRCL: impart, create, build" width="281" height="234" loading="lazy"/>
+            <img class="rc-org-ic" src="images/recap/logos/impact-colliders.png" alt="Impact Colliders" width="600" height="200" loading="lazy"/>
+            <img class="rc-org-trcl" src="images/recap/logos/trcl.png" alt="TRCL: impart, create, build" width="281" height="234" loading="lazy"/>
           </div>
         </div>
         <span class="rc-org-divider" aria-hidden="true"></span>
         <div class="rc-org-group">
           <p class="rc-org-label">In support of</p>
           <div class="rc-org-logos">
-            <img class="rc-org-bloom" src="images/the-bloom-fund-logo.png" alt="The Bloom Fund" width="491" height="526" loading="lazy"/>
+            <img class="rc-org-bloom" src="images/recap/logos/bloom-fund.png" alt="The Bloom Fund" width="491" height="526" loading="lazy"/>
           </div>
         </div>
       </div>
@@ -396,21 +418,31 @@
 
   <section class="rc-videos">
     <div class="rc-wrap">
-      <h2 class="rc-heading">Watch the highlights</h2>
+      <h2 class="rc-heading" data-reveal>Watch the highlights</h2>
       <div class="rc-video-grid">
-        <figure class="rc-video">
+        <figure class="rc-video" data-reveal="pop" style="--i:0">
           <div class="rc-video-frame">
-            <iframe src="https://www.youtube-nocookie.com/embed/TOKZrrtp0Zk?rel=0" title="The Archive 2026 highlight video"
-                    loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-                    allowfullscreen></iframe>
+            <a class="rc-yt" href="https://youtu.be/TOKZrrtp0Zk" data-yt="TOKZrrtp0Zk" data-title="The Archive 2026 highlight video"
+               aria-label="Play: The Archive 2026 highlight video" target="_blank" rel="noopener">
+              <img src="https://i.ytimg.com/vi/TOKZrrtp0Zk/maxresdefault.jpg" alt="" width="1280" height="720"
+                   loading="lazy" decoding="async"/>
+              <span class="rc-yt-play" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="30" height="30"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+              </span>
+            </a>
           </div>
           <figcaption>Highlight video</figcaption>
         </figure>
-        <figure class="rc-video">
+        <figure class="rc-video" data-reveal="pop" style="--i:1">
           <div class="rc-video-frame">
-            <iframe src="https://www.youtube-nocookie.com/embed/8eMtxyzTGxA?rel=0" title="The Archive 2026 highlight video 2"
-                    loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-                    allowfullscreen></iframe>
+            <a class="rc-yt" href="https://youtu.be/8eMtxyzTGxA" data-yt="8eMtxyzTGxA" data-title="The Archive 2026 highlight video 2"
+               aria-label="Play: The Archive 2026 highlight video 2" target="_blank" rel="noopener">
+              <img src="https://i.ytimg.com/vi/8eMtxyzTGxA/maxresdefault.jpg" alt="" width="1280" height="720"
+                   loading="lazy" decoding="async"/>
+              <span class="rc-yt-play" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="30" height="30"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+              </span>
+            </a>
           </div>
           <figcaption>Highlight video 2</figcaption>
         </figure>
@@ -420,8 +452,8 @@
 
   <section class="rc-day">
     <div class="rc-wrap">
-      <h2 class="rc-heading">Photos from the day</h2>
-      <ol class="rc-moments">
+      <h2 class="rc-heading" data-reveal>Photos from the day</h2>
+      <ol class="rc-moments" data-rc-path>
       <li class="rc-moment">
         <div class="rc-moment-text">
           <h3 class="rc-moment-title">Portraits</h3>
@@ -430,7 +462,7 @@
         <span class="rc-moment-dot" aria-hidden="true"></span>
         <div class="rc-moment-media">
           <div class="rc-pile rc-pile--single">
-            <button class="rc-photo" type="button" data-full="images/recap/portraits.jpg" aria-label="View larger: Two seniors holding up their hand-drawn portraits with two youth volunteers"><span class="rc-polaroid" style="--tilt:-1.5deg;--ratio:4 / 3"><img src="images/recap/portraits.jpg" alt="Two seniors holding up their hand-drawn portraits with two youth volunteers" width="1400" height="1051" loading="lazy" decoding="async"/></span></button>
+            <button class="rc-photo" type="button" data-full="images/recap/portraits.jpg" data-caption="Portraits" aria-label="View larger: Two seniors holding up their hand-drawn portraits with two youth volunteers" style="--i:0"><span class="rc-polaroid" style="--tilt:-1.5deg;--ratio:4 / 3"><img src="images/recap/portraits-sm.jpg" srcset="images/recap/portraits-sm.jpg 720w, images/recap/portraits.jpg 1400w" sizes="(max-width: 760px) 86vw, 520px" alt="Two seniors holding up their hand-drawn portraits with two youth volunteers" width="1400" height="1051" loading="lazy" decoding="async"/></span></button>
           </div>
         </div>
       </li>
@@ -442,8 +474,8 @@
         <span class="rc-moment-dot" aria-hidden="true"></span>
         <div class="rc-moment-media">
           <div class="rc-pile rc-pile--two">
-            <button class="rc-photo" type="button" data-full="images/recap/memora-capture-1.jpg" aria-label="View larger: A senior holds up her portrait while a volunteer photographs it on a phone"><span class="rc-polaroid" style="--tilt:-2deg;--ratio:4 / 3"><img src="images/recap/memora-capture-1.jpg" alt="A senior holds up her portrait while a volunteer photographs it on a phone" width="1100" height="825" loading="lazy" decoding="async"/></span></button>
-            <button class="rc-photo" type="button" data-full="images/recap/memora-capture-2.jpg" aria-label="View larger: A volunteer photographs a senior’s hand-drawn portrait at the table"><span class="rc-polaroid" style="--tilt:2deg;--ratio:4 / 3"><img src="images/recap/memora-capture-2.jpg" alt="A volunteer photographs a senior’s hand-drawn portrait at the table" width="1100" height="825" loading="lazy" decoding="async"/></span></button>
+            <button class="rc-photo" type="button" data-full="images/recap/memora-capture-1.jpg" data-caption="Stories on Memora" aria-label="View larger: A senior holds up her portrait while a volunteer photographs it on a phone" style="--i:0"><span class="rc-polaroid" style="--tilt:-2deg;--ratio:4 / 3"><img src="images/recap/memora-capture-1-sm.jpg" srcset="images/recap/memora-capture-1-sm.jpg 720w, images/recap/memora-capture-1.jpg 1100w" sizes="(max-width: 760px) 43vw, 260px" alt="A senior holds up her portrait while a volunteer photographs it on a phone" width="1100" height="825" loading="lazy" decoding="async"/></span></button>
+            <button class="rc-photo" type="button" data-full="images/recap/memora-capture-2.jpg" data-caption="Stories on Memora" aria-label="View larger: A volunteer photographs a senior’s hand-drawn portrait at the table" style="--i:1"><span class="rc-polaroid" style="--tilt:2deg;--ratio:4 / 3"><img src="images/recap/memora-capture-2-sm.jpg" srcset="images/recap/memora-capture-2-sm.jpg 720w, images/recap/memora-capture-2.jpg 1100w" sizes="(max-width: 760px) 43vw, 260px" alt="A volunteer photographs a senior’s hand-drawn portrait at the table" width="1100" height="825" loading="lazy" decoding="async"/></span></button>
           </div>
         </div>
       </li>
@@ -455,10 +487,10 @@
         <span class="rc-moment-dot" aria-hidden="true"></span>
         <div class="rc-moment-media">
           <div class="rc-pile rc-pile--lead">
-            <button class="rc-photo" type="button" data-full="images/recap/shrink-art-1.jpg" aria-label="View larger: Seniors and a volunteer looking closely at a finished shrink-art charm"><span class="rc-polaroid" style="--tilt:1deg;--ratio:4 / 3"><img src="images/recap/shrink-art-1.jpg" alt="Seniors and a volunteer looking closely at a finished shrink-art charm" width="1400" height="1051" loading="lazy" decoding="async"/></span></button>
-            <button class="rc-photo" type="button" data-full="images/recap/shrink-art-2.jpg" aria-label="View larger: A senior colouring in a shrink-art design"><span class="rc-polaroid" style="--tilt:-2.5deg;--ratio:4 / 3"><img src="images/recap/shrink-art-2.jpg" alt="A senior colouring in a shrink-art design" width="900" height="675" loading="lazy" decoding="async"/></span></button>
-            <button class="rc-photo" type="button" data-full="images/recap/shrink-art-3.jpg" aria-label="View larger: Coloured shrink-art pieces laid out on the table"><span class="rc-polaroid" style="--tilt:1.5deg;--ratio:4 / 3"><img src="images/recap/shrink-art-3.jpg" alt="Coloured shrink-art pieces laid out on the table" width="900" height="675" loading="lazy" decoding="async"/></span></button>
-            <button class="rc-photo" type="button" data-full="images/recap/shrink-art-4.jpg" aria-label="View larger: Seniors admiring a shrink-art keychain"><span class="rc-polaroid" style="--tilt:-1deg;--ratio:4 / 3"><img src="images/recap/shrink-art-4.jpg" alt="Seniors admiring a shrink-art keychain" width="900" height="675" loading="lazy" decoding="async"/></span></button>
+            <button class="rc-photo" type="button" data-full="images/recap/shrink-art-1.jpg" data-caption="Shrink Art" aria-label="View larger: Seniors and a volunteer looking closely at a finished shrink-art charm" style="--i:0"><span class="rc-polaroid" style="--tilt:1deg;--ratio:4 / 3"><img src="images/recap/shrink-art-1-sm.jpg" srcset="images/recap/shrink-art-1-sm.jpg 720w, images/recap/shrink-art-1.jpg 1400w" sizes="(max-width: 760px) 86vw, 520px" alt="Seniors and a volunteer looking closely at a finished shrink-art charm" width="1400" height="1051" loading="lazy" decoding="async"/></span></button>
+            <button class="rc-photo" type="button" data-full="images/recap/shrink-art-2.jpg" data-caption="Shrink Art" aria-label="View larger: A senior colouring in a shrink-art design" style="--i:1"><span class="rc-polaroid" style="--tilt:-2.5deg;--ratio:4 / 3"><img src="images/recap/shrink-art-2-sm.jpg" srcset="images/recap/shrink-art-2-sm.jpg 720w, images/recap/shrink-art-2.jpg 900w" sizes="(max-width: 760px) 43vw, 260px" alt="A senior colouring in a shrink-art design" width="900" height="675" loading="lazy" decoding="async"/></span></button>
+            <button class="rc-photo" type="button" data-full="images/recap/shrink-art-3.jpg" data-caption="Shrink Art" aria-label="View larger: Coloured shrink-art pieces laid out on the table" style="--i:2"><span class="rc-polaroid" style="--tilt:1.5deg;--ratio:4 / 3"><img src="images/recap/shrink-art-3-sm.jpg" srcset="images/recap/shrink-art-3-sm.jpg 720w, images/recap/shrink-art-3.jpg 900w" sizes="(max-width: 760px) 43vw, 260px" alt="Coloured shrink-art pieces laid out on the table" width="900" height="675" loading="lazy" decoding="async"/></span></button>
+            <button class="rc-photo" type="button" data-full="images/recap/shrink-art-4.jpg" data-caption="Shrink Art" aria-label="View larger: Seniors admiring a shrink-art keychain" style="--i:3"><span class="rc-polaroid" style="--tilt:-1deg;--ratio:4 / 3"><img src="images/recap/shrink-art-4-sm.jpg" srcset="images/recap/shrink-art-4-sm.jpg 720w, images/recap/shrink-art-4.jpg 900w" sizes="(max-width: 760px) 43vw, 260px" alt="Seniors admiring a shrink-art keychain" width="900" height="675" loading="lazy" decoding="async"/></span></button>
           </div>
         </div>
       </li>
@@ -470,10 +502,10 @@
         <span class="rc-moment-dot" aria-hidden="true"></span>
         <div class="rc-moment-media">
           <div class="rc-pile rc-pile--four">
-            <button class="rc-photo" type="button" data-full="images/recap/food-1.jpg" aria-label="View larger: Trays of food laid out at the buffet"><span class="rc-polaroid" style="--tilt:-2deg;--ratio:16 / 9"><img src="images/recap/food-1.jpg" alt="Trays of food laid out at the buffet" width="1000" height="563" loading="lazy" decoding="async"/></span></button>
-            <button class="rc-photo" type="button" data-full="images/recap/food-2.jpg" aria-label="View larger: A senior laughing over a meal"><span class="rc-polaroid" style="--tilt:1.5deg;--ratio:16 / 9"><img src="images/recap/food-2.jpg" alt="A senior laughing over a meal" width="1000" height="563" loading="lazy" decoding="async"/></span></button>
-            <button class="rc-photo" type="button" data-full="images/recap/food-3.jpg" aria-label="View larger: Food served at The Archive"><span class="rc-polaroid" style="--tilt:1deg;--ratio:16 / 9"><img src="images/recap/food-3.jpg" alt="Food served at The Archive" width="1000" height="563" loading="lazy" decoding="async"/></span></button>
-            <button class="rc-photo" type="button" data-full="images/recap/food-4.jpg" aria-label="View larger: A senior enjoying a meal at the table"><span class="rc-polaroid" style="--tilt:-1.5deg;--ratio:16 / 9"><img src="images/recap/food-4.jpg" alt="A senior enjoying a meal at the table" width="1000" height="563" loading="lazy" decoding="async"/></span></button>
+            <button class="rc-photo" type="button" data-full="images/recap/food-1.jpg" data-caption="Food" aria-label="View larger: Trays of food laid out at the buffet" style="--i:0"><span class="rc-polaroid" style="--tilt:-2deg;--ratio:16 / 9"><img src="images/recap/food-1-sm.jpg" srcset="images/recap/food-1-sm.jpg 720w, images/recap/food-1.jpg 1000w" sizes="(max-width: 760px) 43vw, 260px" alt="Trays of food laid out at the buffet" width="1000" height="563" loading="lazy" decoding="async"/></span></button>
+            <button class="rc-photo" type="button" data-full="images/recap/food-2.jpg" data-caption="Food" aria-label="View larger: A senior laughing over a meal" style="--i:1"><span class="rc-polaroid" style="--tilt:1.5deg;--ratio:16 / 9"><img src="images/recap/food-2-sm.jpg" srcset="images/recap/food-2-sm.jpg 720w, images/recap/food-2.jpg 1000w" sizes="(max-width: 760px) 43vw, 260px" alt="A senior laughing over a meal" width="1000" height="563" loading="lazy" decoding="async"/></span></button>
+            <button class="rc-photo" type="button" data-full="images/recap/food-3.jpg" data-caption="Food" aria-label="View larger: Food served at The Archive" style="--i:2"><span class="rc-polaroid" style="--tilt:1deg;--ratio:16 / 9"><img src="images/recap/food-3-sm.jpg" srcset="images/recap/food-3-sm.jpg 720w, images/recap/food-3.jpg 1000w" sizes="(max-width: 760px) 43vw, 260px" alt="Food served at The Archive" width="1000" height="563" loading="lazy" decoding="async"/></span></button>
+            <button class="rc-photo" type="button" data-full="images/recap/food-4.jpg" data-caption="Food" aria-label="View larger: A senior enjoying a meal at the table" style="--i:3"><span class="rc-polaroid" style="--tilt:-1.5deg;--ratio:16 / 9"><img src="images/recap/food-4-sm.jpg" srcset="images/recap/food-4-sm.jpg 720w, images/recap/food-4.jpg 1000w" sizes="(max-width: 760px) 43vw, 260px" alt="A senior enjoying a meal at the table" width="1000" height="563" loading="lazy" decoding="async"/></span></button>
           </div>
         </div>
       </li>
@@ -485,10 +517,10 @@
         <span class="rc-moment-dot" aria-hidden="true"></span>
         <div class="rc-moment-media">
           <div class="rc-pile rc-pile--four rc-pile--narrow">
-            <button class="rc-photo" type="button" data-full="images/recap/prize-1.jpg" aria-label="View larger: A lucky draw winner receiving her prize on stage"><span class="rc-polaroid" style="--tilt:-2deg;--ratio:4 / 5"><img src="images/recap/prize-1.jpg" alt="A lucky draw winner receiving her prize on stage" width="749" height="1000" loading="lazy" decoding="async"/></span></button>
-            <button class="rc-photo" type="button" data-full="images/recap/prize-2.jpg" aria-label="View larger: A lucky draw winner with a member of our team on stage"><span class="rc-polaroid" style="--tilt:1.5deg;--ratio:4 / 5"><img src="images/recap/prize-2.jpg" alt="A lucky draw winner with a member of our team on stage" width="749" height="1000" loading="lazy" decoding="async"/></span></button>
-            <button class="rc-photo" type="button" data-full="images/recap/prize-3.jpg" aria-label="View larger: A lucky draw winner holding her prize envelope on stage"><span class="rc-polaroid" style="--tilt:1deg;--ratio:4 / 5"><img src="images/recap/prize-3.jpg" alt="A lucky draw winner holding her prize envelope on stage" width="800" height="1000" loading="lazy" decoding="async"/></span></button>
-            <button class="rc-photo" type="button" data-full="images/recap/prize-4.jpg" aria-label="View larger: A lucky draw winner with a member of our team on stage"><span class="rc-polaroid" style="--tilt:-1.5deg;--ratio:4 / 5"><img src="images/recap/prize-4.jpg" alt="A lucky draw winner with a member of our team on stage" width="800" height="1000" loading="lazy" decoding="async"/></span></button>
+            <button class="rc-photo" type="button" data-full="images/recap/prize-1.jpg" data-caption="Prize Winners" aria-label="View larger: A lucky draw winner receiving her prize on stage" style="--i:0"><span class="rc-polaroid" style="--tilt:-2deg;--ratio:4 / 5"><img src="images/recap/prize-1-sm.jpg" srcset="images/recap/prize-1-sm.jpg 539w, images/recap/prize-1.jpg 749w" sizes="(max-width: 760px) 43vw, 260px" alt="A lucky draw winner receiving her prize on stage" width="749" height="1000" loading="lazy" decoding="async"/></span></button>
+            <button class="rc-photo" type="button" data-full="images/recap/prize-2.jpg" data-caption="Prize Winners" aria-label="View larger: A lucky draw winner with a member of our team on stage" style="--i:1"><span class="rc-polaroid" style="--tilt:1.5deg;--ratio:4 / 5"><img src="images/recap/prize-2-sm.jpg" srcset="images/recap/prize-2-sm.jpg 539w, images/recap/prize-2.jpg 749w" sizes="(max-width: 760px) 43vw, 260px" alt="A lucky draw winner with a member of our team on stage" width="749" height="1000" loading="lazy" decoding="async"/></span></button>
+            <button class="rc-photo" type="button" data-full="images/recap/prize-3.jpg" data-caption="Prize Winners" aria-label="View larger: A lucky draw winner holding her prize envelope on stage" style="--i:2"><span class="rc-polaroid" style="--tilt:1deg;--ratio:4 / 5"><img src="images/recap/prize-3-sm.jpg" srcset="images/recap/prize-3-sm.jpg 576w, images/recap/prize-3.jpg 800w" sizes="(max-width: 760px) 43vw, 260px" alt="A lucky draw winner holding her prize envelope on stage" width="800" height="1000" loading="lazy" decoding="async"/></span></button>
+            <button class="rc-photo" type="button" data-full="images/recap/prize-4.jpg" data-caption="Prize Winners" aria-label="View larger: A lucky draw winner with a member of our team on stage" style="--i:3"><span class="rc-polaroid" style="--tilt:-1.5deg;--ratio:4 / 5"><img src="images/recap/prize-4-sm.jpg" srcset="images/recap/prize-4-sm.jpg 576w, images/recap/prize-4.jpg 800w" sizes="(max-width: 760px) 43vw, 260px" alt="A lucky draw winner with a member of our team on stage" width="800" height="1000" loading="lazy" decoding="async"/></span></button>
           </div>
         </div>
       </li>
@@ -500,7 +532,7 @@
         <span class="rc-moment-dot" aria-hidden="true"></span>
         <div class="rc-moment-media">
           <div class="rc-pile rc-pile--single">
-            <button class="rc-photo" type="button" data-full="images/recap/launch.jpg" aria-label="View larger: Our presenting sponsor and the Impact Colliders team at the turnkey launch on stage"><span class="rc-polaroid" style="--tilt:1.5deg;--ratio:4 / 3"><img src="images/recap/launch.jpg" alt="Our presenting sponsor and the Impact Colliders team at the turnkey launch on stage" width="1400" height="1051" loading="lazy" decoding="async"/></span></button>
+            <button class="rc-photo" type="button" data-full="images/recap/launch.jpg" data-caption="Commemorative Launch" aria-label="View larger: Our presenting sponsor and the Impact Colliders team at the turnkey launch on stage" style="--i:0"><span class="rc-polaroid" style="--tilt:1.5deg;--ratio:4 / 3"><img src="images/recap/launch-sm.jpg" srcset="images/recap/launch-sm.jpg 720w, images/recap/launch.jpg 1400w" sizes="(max-width: 760px) 86vw, 520px" alt="Our presenting sponsor and the Impact Colliders team at the turnkey launch on stage" width="1400" height="1051" loading="lazy" decoding="async"/></span></button>
           </div>
         </div>
       </li>
@@ -510,7 +542,7 @@
 
   <section class="rc-memora">
     <div class="rc-wrap">
-      <div class="rc-memora-inner">
+      <div class="rc-memora-inner" data-reveal>
         <figure class="rc-memora-screen">
           <img src="images/recap/memora-gallery.jpg" alt="A virtual gallery in Memora with hand-drawn portraits and stories on the walls"
                width="800" height="350" loading="lazy" decoding="async"/>
@@ -529,21 +561,17 @@
 
   <section class="rc-stories">
     <div class="rc-wrap">
-      <h2 class="rc-heading">In their words</h2>
+      <h2 class="rc-heading" data-reveal>In their words</h2>
       <div class="rc-story-grid">
-        <figure class="rc-story" style="--tilt:-1deg">
+        <figure class="rc-story" data-reveal="left" style="--tilt:-1deg">
           <img class="rc-story-clip" src="images/paperclip.png" alt="" aria-hidden="true" width="180" height="357"/>
-          <img class="rc-story-photo" src="images/recap/story-senior.jpg"
-               alt="A senior holding up her hand-drawn portrait beside a youth volunteer"
-               width="1100" height="825" loading="lazy" decoding="async"/>
+          <img class="rc-story-photo" src="images/recap/story-senior-sm.jpg" srcset="images/recap/story-senior-sm.jpg 720w, images/recap/story-senior.jpg 1100w" sizes="(max-width: 760px) 86vw, 520px" alt="A senior holding up her hand-drawn portrait beside a youth volunteer" width="1100" height="825" loading="lazy" decoding="async"/>
           <blockquote>“I never thought someone would draw me. Now my grandchildren will know my story.”</blockquote>
           <figcaption>Senior participant</figcaption>
         </figure>
-        <figure class="rc-story" style="--tilt:1deg">
+        <figure class="rc-story" data-reveal="right" style="--tilt:1deg;--i:1">
           <img class="rc-story-clip" src="images/paperclip.png" alt="" aria-hidden="true" width="180" height="357"/>
-          <img class="rc-story-photo" src="images/recap/story-volunteer.jpg"
-               alt="A youth volunteer and a senior giving a thumbs up with his hand-drawn portrait"
-               width="1100" height="825" loading="lazy" decoding="async"/>
+          <img class="rc-story-photo" src="images/recap/story-volunteer-sm.jpg" srcset="images/recap/story-volunteer-sm.jpg 720w, images/recap/story-volunteer.jpg 1100w" sizes="(max-width: 760px) 86vw, 520px" alt="A youth volunteer and a senior giving a thumbs up with his hand-drawn portrait" width="1100" height="825" loading="lazy" decoding="async"/>
           <blockquote>“Listening to Uncle’s stories, I learned more about Singapore than any textbook taught me.”</blockquote>
           <figcaption>Youth</figcaption>
         </figure>
@@ -553,61 +581,61 @@
 
   <section class="rc-partners">
     <div class="rc-wrap">
-      <h2 class="rc-heading">Thank you to our partners</h2>
+      <h2 class="rc-heading" data-reveal>Thank you to our partners</h2>
       <div class="rc-partners-inner">
-        <div class="rc-partners-photo">
-          <button class="rc-photo" type="button" data-full="images/recap/sponsor-thanks.jpg" aria-label="View larger: Our presenting sponsor receiving a token of thanks on stage"><span class="rc-polaroid" style="--tilt:-1.5deg;--ratio:4 / 3"><img src="images/recap/sponsor-thanks.jpg" alt="Our presenting sponsor receiving a token of thanks on stage" width="1400" height="1051" loading="lazy" decoding="async"/></span></button>
+        <div class="rc-partners-photo" data-reveal="left">
+          <button class="rc-photo" type="button" data-full="images/recap/sponsor-thanks.jpg" data-caption="Thank you to our partners" aria-label="View larger: Our presenting sponsor receiving a token of thanks on stage" style="--i:0"><span class="rc-polaroid" style="--tilt:-1.5deg;--ratio:4 / 3"><img src="images/recap/sponsor-thanks-sm.jpg" srcset="images/recap/sponsor-thanks-sm.jpg 720w, images/recap/sponsor-thanks.jpg 1400w" sizes="(max-width: 900px) 92vw, 460px" alt="Our presenting sponsor receiving a token of thanks on stage" width="1400" height="1051" loading="lazy" decoding="async"/></span></button>
         </div>
         <div>
           <div class="rc-tier">
-            <h3 class="rc-tier-head">Presenting partners</h3>
+            <h3 class="rc-tier-head" data-reveal>Presenting partners</h3>
             <ul class="rc-logos rc-logos--2">
-              <li><img src="images/partners/uni.png" alt="Union Group of Companies" width="800" height="800" loading="lazy"/></li>
-              <li><img src="images/partners/cenergy.png" alt="Cnergy" width="800" height="379" loading="lazy"/></li>
+              <li data-reveal="pop" style="--i:0"><img src="images/recap/logos/union.png" alt="Union Group of Companies" width="320" height="320" loading="lazy"/></li>
+              <li data-reveal="pop" style="--i:1"><img src="images/recap/logos/cnergy.png" alt="Cnergy" width="440" height="208" loading="lazy"/></li>
             </ul>
           </div>
           <div class="rc-tier">
-            <h3 class="rc-tier-head">Friends of The Archive</h3>
+            <h3 class="rc-tier-head" data-reveal>Friends of The Archive</h3>
             <ul class="rc-logos rc-logos--3">
-              <li><img src="images/partners/jumbo.png" alt="JUMBO Group" width="658" height="236" loading="lazy"/></li>
-              <li><img src="images/partners/myck.png" alt="myCK" width="329" height="300" loading="lazy"/></li>
-              <li><img src="images/partners/teoann.png" alt="Teo Ann Huay Kuan" width="900" height="221" loading="lazy"/></li>
+              <li data-reveal="pop" style="--i:0"><img src="images/recap/logos/jumbo.png" alt="JUMBO Group" width="440" height="158" loading="lazy"/></li>
+              <li data-reveal="pop" style="--i:1"><img src="images/recap/logos/myck.png" alt="myCK" width="300" height="273" loading="lazy"/></li>
+              <li data-reveal="pop" style="--i:2"><img src="images/recap/logos/teo-ann.png" alt="Teo Ann Huay Kuan" width="520" height="127" loading="lazy"/></li>
             </ul>
-            <p class="rc-names"><span>South Valley Enterprise Limited</span> <span>Meilan Zhang</span> <span>Edmund Teo</span> <span>Lin Yongxiong</span> <span>Chan Wei Ming</span> <span>Chu Chee Keong</span> <span>Jonathan Khoo</span> <span>Jimmy Quek</span> <span>Zheng Yang Hong</span> <span>James Chng</span> <span>Dato’ Sri Dr Peter Lim Yong Guan BBM</span> <span>Leow Kwang Soon</span> <span>Chua Kit Hong</span> <span>Chan Kee Seng</span> <span>Tan Guan Chai</span> <span>Low Cher Hock</span> <span>William Quek</span> <span>Steven Toy</span></p>
+            <p class="rc-names" data-reveal style="--i:3"><span>South Valley Enterprise Limited</span> <span>Meilan Zhang</span> <span>Edmund Teo</span> <span>Lin Yongxiong</span> <span>Chan Wei Ming</span> <span>Chu Chee Keong</span> <span>Jonathan Khoo</span> <span>Jimmy Quek</span> <span>Zheng Yang Hong</span> <span>James Chng</span> <span>Dato’ Sri Dr Peter Lim Yong Guan BBM</span> <span>Leow Kwang Soon</span> <span>Chua Kit Hong</span> <span>Chan Kee Seng</span> <span>Tan Guan Chai</span> <span>Low Cher Hock</span> <span>William Quek</span> <span>Steven Toy</span></p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="rc-thanks">
-    <img src="images/stamp-love.png" alt="" aria-hidden="true" width="500" height="500" loading="lazy"/>
+  <section class="rc-reel" aria-hidden="true">
+    <div class="rc-reel-band">
+      <div class="rc-reel-track"><span class="rc-reel-item" style="--tilt:-2deg"><img src="images/recap/portraits-sm.jpg" alt="" width="1400" height="1051" loading="lazy" decoding="async"/></span><span class="rc-reel-item" style="--tilt:1.5deg"><img src="images/recap/shrink-art-2-sm.jpg" alt="" width="900" height="675" loading="lazy" decoding="async"/></span><span class="rc-reel-item" style="--tilt:-1deg"><img src="images/recap/food-2-sm.jpg" alt="" width="1000" height="563" loading="lazy" decoding="async"/></span><span class="rc-reel-item" style="--tilt:2.5deg"><img src="images/recap/memora-capture-1-sm.jpg" alt="" width="1100" height="825" loading="lazy" decoding="async"/></span><span class="rc-reel-item" style="--tilt:-2deg"><img src="images/recap/prize-3-sm.jpg" alt="" width="800" height="1000" loading="lazy" decoding="async"/></span><span class="rc-reel-item" style="--tilt:1.5deg"><img src="images/recap/launch-sm.jpg" alt="" width="1400" height="1051" loading="lazy" decoding="async"/></span><span class="rc-reel-item" style="--tilt:-1deg"><img src="images/recap/shrink-art-3-sm.jpg" alt="" width="900" height="675" loading="lazy" decoding="async"/></span><span class="rc-reel-item" style="--tilt:2.5deg"><img src="images/recap/story-senior-sm.jpg" alt="" width="1100" height="825" loading="lazy" decoding="async"/></span><span class="rc-reel-item" style="--tilt:-2deg"><img src="images/recap/food-4-sm.jpg" alt="" width="1000" height="563" loading="lazy" decoding="async"/></span><span class="rc-reel-item" style="--tilt:1.5deg"><img src="images/recap/prize-1-sm.jpg" alt="" width="749" height="1000" loading="lazy" decoding="async"/></span><span class="rc-reel-item" style="--tilt:-1deg"><img src="images/recap/memora-capture-2-sm.jpg" alt="" width="1100" height="825" loading="lazy" decoding="async"/></span><span class="rc-reel-item" style="--tilt:2.5deg"><img src="images/recap/shrink-art-4-sm.jpg" alt="" width="900" height="675" loading="lazy" decoding="async"/></span><span class="rc-reel-item" style="--tilt:-2deg"><img src="images/recap/story-volunteer-sm.jpg" alt="" width="1100" height="825" loading="lazy" decoding="async"/></span><span class="rc-reel-item" style="--tilt:1.5deg"><img src="images/recap/prize-4-sm.jpg" alt="" width="800" height="1000" loading="lazy" decoding="async"/></span><span class="rc-reel-item" style="--tilt:-2deg"><img src="images/recap/portraits-sm.jpg" alt="" width="1400" height="1051" loading="lazy" decoding="async"/></span><span class="rc-reel-item" style="--tilt:1.5deg"><img src="images/recap/shrink-art-2-sm.jpg" alt="" width="900" height="675" loading="lazy" decoding="async"/></span><span class="rc-reel-item" style="--tilt:-1deg"><img src="images/recap/food-2-sm.jpg" alt="" width="1000" height="563" loading="lazy" decoding="async"/></span><span class="rc-reel-item" style="--tilt:2.5deg"><img src="images/recap/memora-capture-1-sm.jpg" alt="" width="1100" height="825" loading="lazy" decoding="async"/></span><span class="rc-reel-item" style="--tilt:-2deg"><img src="images/recap/prize-3-sm.jpg" alt="" width="800" height="1000" loading="lazy" decoding="async"/></span><span class="rc-reel-item" style="--tilt:1.5deg"><img src="images/recap/launch-sm.jpg" alt="" width="1400" height="1051" loading="lazy" decoding="async"/></span><span class="rc-reel-item" style="--tilt:-1deg"><img src="images/recap/shrink-art-3-sm.jpg" alt="" width="900" height="675" loading="lazy" decoding="async"/></span><span class="rc-reel-item" style="--tilt:2.5deg"><img src="images/recap/story-senior-sm.jpg" alt="" width="1100" height="825" loading="lazy" decoding="async"/></span><span class="rc-reel-item" style="--tilt:-2deg"><img src="images/recap/food-4-sm.jpg" alt="" width="1000" height="563" loading="lazy" decoding="async"/></span><span class="rc-reel-item" style="--tilt:1.5deg"><img src="images/recap/prize-1-sm.jpg" alt="" width="749" height="1000" loading="lazy" decoding="async"/></span><span class="rc-reel-item" style="--tilt:-1deg"><img src="images/recap/memora-capture-2-sm.jpg" alt="" width="1100" height="825" loading="lazy" decoding="async"/></span><span class="rc-reel-item" style="--tilt:2.5deg"><img src="images/recap/shrink-art-4-sm.jpg" alt="" width="900" height="675" loading="lazy" decoding="async"/></span><span class="rc-reel-item" style="--tilt:-2deg"><img src="images/recap/story-volunteer-sm.jpg" alt="" width="1100" height="825" loading="lazy" decoding="async"/></span><span class="rc-reel-item" style="--tilt:1.5deg"><img src="images/recap/prize-4-sm.jpg" alt="" width="800" height="1000" loading="lazy" decoding="async"/></span></div>
+    </div>
+  </section>
+
+  <section class="rc-thanks" data-reveal="write">
+    <img class="rc-thanks-stamp" src="images/recap/stamp-love.png" alt="" aria-hidden="true" width="220" height="220" loading="lazy"/>
     <p>thank you.</p>
   </section>
 </main>
 
 <dialog class="rc-viewer" aria-label="Photo viewer">
-  <img alt=""/>
+  <figure class="rc-viewer-figure">
+    <img class="rc-viewer-img" alt=""/>
+    <figcaption>
+      <span class="rc-viewer-caption"></span>
+      <span class="rc-viewer-count"></span>
+    </figcaption>
+  </figure>
+  <button class="rc-viewer-btn rc-viewer-prev" type="button" aria-label="Previous photo">
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5l-7 7 7 7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <button class="rc-viewer-btn rc-viewer-next" type="button" aria-label="Next photo">
+    <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9 5l7 7-7 7" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
   <button class="rc-viewer-close" type="button" aria-label="Close photo">×</button>
 </dialog>
-<script>
-  // Tap a photo to see it larger. Uses the native <dialog>, so Esc closes it too.
-  (function () {
-    var viewer = document.querySelector(".rc-viewer");
-    if (!viewer || typeof viewer.showModal !== "function") return;
-    var img = viewer.querySelector("img");
-    document.querySelectorAll(".rc-photo").forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        var thumb = btn.querySelector("img");
-        img.src = btn.getAttribute("data-full");
-        img.alt = thumb ? thumb.alt : "";
-        viewer.showModal();
-      });
-    });
-    viewer.querySelector(".rc-viewer-close").addEventListener("click", function () { viewer.close(); });
-    viewer.addEventListener("click", function (e) { if (e.target === viewer) viewer.close(); });
-  })();
-</script>
 
 <!-- ============ Site footer (reused from index.html) ============ -->
 <div class="mobile-view-wrapper">
