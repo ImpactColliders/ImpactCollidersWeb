@@ -203,6 +203,60 @@ button.rc-photo:focus-visible {
   max-width: 560px;
 }
 
+/* organiser / supporter logos, as on the homepage */
+.rc-organisers {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 48px;
+  margin-top: 48px;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.rc-org-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.rc-org-label {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.rc-org-logos {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.rc-main .rc-org-logos img {
+  width: auto;
+}
+
+.rc-organisers .rc-org-ic {
+  height: 52px;
+}
+
+.rc-organisers .rc-org-trcl {
+  height: 104px;
+}
+
+.rc-organisers .rc-org-bloom {
+  height: 124px;
+}
+
+.rc-org-divider {
+  align-self: stretch;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.68);
+}
+
 /* ------------------------------------------------------------
    Highlight videos
    ------------------------------------------------------------ */
@@ -722,6 +776,36 @@ button.rc-photo:focus-visible {
 
   .rc-wrap {
     padding: 0 16px;
+  }
+
+  .rc-organisers {
+    gap: 20px;
+    margin-top: 36px;
+    padding-top: 32px;
+  }
+
+  .rc-org-group {
+    gap: 12px;
+  }
+
+  .rc-org-label {
+    font-size: 13px;
+  }
+
+  .rc-org-logos {
+    gap: 14px;
+  }
+
+  .rc-organisers .rc-org-ic {
+    height: 32px;
+  }
+
+  .rc-organisers .rc-org-trcl {
+    height: 64px;
+  }
+
+  .rc-organisers .rc-org-bloom {
+    height: 76px;
   }
 
   .rc-video-grid,
