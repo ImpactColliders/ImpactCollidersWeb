@@ -82,21 +82,8 @@ body.recap-page {
   background: #d9cdb2;
 }
 
-/* clickable photos open the viewer */
-button.rc-photo {
-  all: unset;
+.rc-photo {
   display: block;
-  cursor: zoom-in;
-  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-button.rc-photo:hover {
-  transform: translateY(-4px) scale(1.02);
-}
-
-button.rc-photo:focus-visible {
-  outline: 3px solid #f35933;
-  outline-offset: 4px;
 }
 
 /* ------------------------------------------------------------
@@ -820,125 +807,8 @@ button.rc-photo:focus-visible {
 }
 
 /* ------------------------------------------------------------
-   Photo viewer
-   ------------------------------------------------------------ */
-.rc-viewer {
-  border: 0;
-  padding: 0;
-  margin: auto;
-  background: transparent;
-  width: min(92vw, 1100px);
-  max-width: none;
-  max-height: none;
-  overflow: visible;
-}
-
-.rc-viewer::backdrop {
-  background: rgba(23, 19, 13, 0.86);
-}
-
-.rc-viewer-figure {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.rc-viewer-img {
-  display: block;
-  max-width: 100%;
-  max-height: 78vh;
-  width: auto;
-  height: auto;
-  background: #fff;
-  padding: 10px 10px 14px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
-}
-
-.rc-viewer figcaption {
-  display: flex;
-  gap: 14px;
-  align-items: baseline;
-  margin-top: 14px;
-  color: #eadfcb;
-}
-
-.rc-viewer-caption {
-  font-family: "Jersey 25", sans-serif;
-  font-size: 24px;
-  color: #fff;
-}
-
-.rc-viewer-count {
-  font-family: "Poppins", sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  opacity: 0.75;
-}
-
-.rc-viewer-btn,
-.rc-viewer-close {
-  position: absolute;
-  border: 0;
-  border-radius: 50%;
-  background: #f35933;
-  color: #fff;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
-  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-}
-
-.rc-viewer-btn {
-  top: calc(50% - 46px);
-  width: 48px;
-  height: 48px;
-}
-
-.rc-viewer-prev {
-  left: -72px;
-}
-
-.rc-viewer-next {
-  right: -72px;
-}
-
-.rc-viewer-close {
-  top: -18px;
-  right: -18px;
-  width: 40px;
-  height: 40px;
-  font-size: 24px;
-  line-height: 1;
-}
-
-.rc-viewer-btn:hover,
-.rc-viewer-close:hover {
-  transform: scale(1.1);
-}
-
-.rc-viewer-btn:focus-visible,
-.rc-viewer-close:focus-visible {
-  outline: 3px solid #fff;
-  outline-offset: 3px;
-}
-
-/* ------------------------------------------------------------
    Tablet / mobile
    ------------------------------------------------------------ */
-@media (max-width: 1100px) {
-  .rc-viewer-prev {
-    left: 8px;
-  }
-
-  .rc-viewer-next {
-    right: 8px;
-  }
-}
-
 @media (max-width: 900px) {
   .rc-memora-inner,
   .rc-partners-inner {
@@ -1113,24 +983,6 @@ button.rc-photo:focus-visible {
   .rc-main .rc-reel-item img {
     height: 120px;
   }
-
-  .rc-viewer-btn {
-    top: auto;
-    bottom: -58px;
-  }
-
-  .rc-viewer-prev {
-    left: calc(50% - 60px);
-  }
-
-  .rc-viewer-next {
-    right: calc(50% - 60px);
-  }
-
-  .rc-viewer-close {
-    top: -52px;
-    right: 0;
-  }
 }
 
 /* ============================================================
@@ -1185,19 +1037,6 @@ button.rc-photo:focus-visible {
   }
   100% {
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(243, 89, 51, 0);
-  }
-}
-
-@keyframes rc-viewer-in {
-  from {
-    opacity: 0;
-    transform: scale(0.92) translateY(12px);
-  }
-}
-
-@keyframes rc-fade {
-  from {
-    opacity: 0;
   }
 }
 
@@ -1364,23 +1203,9 @@ button.rc-photo:focus-visible {
   .rc-reel:hover .rc-reel-track {
     animation-play-state: paused;
   }
-
-  /* ---- Viewer ---- */
-  .rc-viewer[open] .rc-viewer-figure {
-    animation: rc-viewer-in 0.35s cubic-bezier(0.2, 0.8, 0.2, 1) both;
-  }
-
-  .rc-viewer.is-swapping .rc-viewer-img {
-    animation: rc-fade 0.3s ease both;
-  }
-
-  .rc-viewer[open]::backdrop {
-    animation: rc-fade 0.3s ease both;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  button.rc-photo,
   .rc-button,
   .rc-button span,
   .rc-yt img,
