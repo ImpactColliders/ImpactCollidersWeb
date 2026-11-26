@@ -665,6 +665,15 @@ body.recap-page {
   margin-top: 44px;
 }
 
+.rc-partners-gallery {
+  list-style: none;
+  margin: 56px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
 .rc-tier + .rc-tier {
   margin-top: 36px;
 }
@@ -822,6 +831,14 @@ body.recap-page {
 
   .rc-partners-photo {
     max-width: 520px;
+  }
+}
+
+@media (max-width: 760px) {
+  .rc-partners-gallery {
+    grid-template-columns: 1fr;
+    gap: 22px;
+    margin-top: 40px;
   }
 }
 
