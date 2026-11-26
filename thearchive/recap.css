@@ -667,11 +667,85 @@ body.recap-page {
 
 .rc-partners-gallery {
   list-style: none;
-  margin: 56px 0 0;
-  padding: 0;
+  margin: 64px auto 0;
+  padding: 0 12px;
+  max-width: 1040px;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 28px;
+  align-items: start;
+}
+
+/* a loose pile on the table: overlapping, the middle one dropped lower */
+.rc-partners-gallery > li {
+  position: relative;
+}
+
+.rc-partners-gallery > li:nth-child(1) {
+  margin-right: -28px;
+  z-index: 1;
+}
+
+.rc-partners-gallery > li:nth-child(2) {
+  margin-top: 56px;
+  z-index: 2;
+}
+
+.rc-partners-gallery > li:nth-child(3) {
+  margin-left: -28px;
+  margin-top: 12px;
+  z-index: 1;
+}
+
+.rc-partners-gallery .rc-polaroid {
+  padding-bottom: 46px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+  transition: rotate 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* a strip of tape holding each one down */
+.rc-partners-gallery .rc-polaroid::before {
+  content: "";
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  width: 92px;
+  height: 26px;
+  translate: -50% 0;
+  rotate: -3deg;
+  background: rgba(243, 89, 51, 0.55);
+}
+
+.rc-partners-gallery .rc-polaroid {
+  position: relative;
+}
+
+.rc-partners-gallery > li:nth-child(2) .rc-polaroid::before {
+  rotate: 4deg;
+  background: rgba(28, 74, 102, 0.45);
+}
+
+.rc-polaroid-note {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 6px;
+  text-align: center;
+  font-family: "La Belle Aurore", cursive;
+  font-size: 22px;
+  line-height: 1;
+  color: #17130d;
+}
+
+@media (hover: hover) {
+  .rc-partners-gallery > li:hover {
+    z-index: 3;
+  }
+
+  .rc-partners-gallery > li:hover .rc-polaroid {
+    rotate: 0deg;
+    transform: translateY(-6px) scale(1.04);
+  }
 }
 
 .rc-tier + .rc-tier {
@@ -837,8 +911,21 @@ body.recap-page {
 @media (max-width: 760px) {
   .rc-partners-gallery {
     grid-template-columns: 1fr;
-    gap: 22px;
-    margin-top: 40px;
+    gap: 36px;
+    margin-top: 48px;
+    max-width: 360px;
+  }
+
+  .rc-partners-gallery > li:nth-child(n) {
+    margin: 0;
+  }
+
+  .rc-partners-gallery > li:nth-child(2) {
+    margin-left: 28px;
+  }
+
+  .rc-partners-gallery > li:nth-child(odd) {
+    margin-right: 28px;
   }
 }
 
