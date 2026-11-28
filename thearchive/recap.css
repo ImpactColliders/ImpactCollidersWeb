@@ -732,8 +732,9 @@ body.recap-page {
   bottom: 6px;
   text-align: center;
   font-family: "La Belle Aurore", cursive;
-  font-size: 22px;
+  font-size: clamp(16px, 1.9vw, 22px);
   line-height: 1;
+  white-space: nowrap;
   color: #17130d;
 }
 
@@ -926,6 +927,10 @@ body.recap-page {
 
   .rc-partners-gallery > li:nth-child(odd) {
     margin-right: 28px;
+  }
+
+  .rc-polaroid-note {
+    font-size: 18px;
   }
 }
 
